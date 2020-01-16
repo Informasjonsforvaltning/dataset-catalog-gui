@@ -9,8 +9,13 @@ import { getTranslateText } from '../../../services/translateText';
 import { Helptext } from '../../../components/helptext/helptext.component';
 import InputTitleField from '../../../components/fields/field-input-title/field-input-title.component';
 import TextAreaField from '../../../components/fields/field-textarea/field-textarea.component';
+import InputFieldReadonly from '../../../components/fields/field-input-readonly/field-input-readonly.component';
 
-export const FormCatalogPure = ({ initialValues: { title, publisher }, values }) => {
+export const FormCatalogPure = ({
+  initialValues: { title, publisher },
+  values,
+  isReadOnly
+}) => {
   const [collapseTitle, setCollapseTitle] = useState(false);
   const [collapse, setCollapse] = useState(false);
 
@@ -43,14 +48,16 @@ export const FormCatalogPure = ({ initialValues: { title, publisher }, values })
             {getTranslateText(title, localization.getLanguage())}
           </h1>
         )}
-        <div className={fieldClass}>
-          <Field
-            name={`title.${localization.getLanguage()}`}
-            component={InputTitleField}
-            hideInput={collapseTitle}
-            onToggleTitle={toggleTitle}
-          />
-        </div>
+        {!isReadOnly && (
+          <div className={fieldClass}>
+            <Field
+              name={`title.${localization.getLanguage()}`}
+              component={InputTitleField}
+              hideInput={collapseTitle}
+              onToggleTitle={toggleTitle}
+            />
+          </div>
+        )}
       </div>
 
       {publisher && publisher.name && (
@@ -64,31 +71,35 @@ export const FormCatalogPure = ({ initialValues: { title, publisher }, values })
           <div className="d-flex fdk-color-neutral-darkest">
             {getTranslateText(values.description, localization.getLanguage())}
           </div>
-          <button
-            type="button"
-            onClick={e => {
-              e.preventDefault();
-              toggleDescription();
-            }}
-          >
-            <i className="fa fa-pencil mr-2" />
-            {localization.schema.catalog.editDescriptionLabel}
-          </button>
+          {!isReadOnly && (
+            <button
+              type="button"
+              onClick={e => {
+                e.preventDefault();
+                toggleDescription();
+              }}
+            >
+              <i className="fa fa-pencil mr-2" />
+              {localization.schema.catalog.editDescriptionLabel}
+            </button>
+          )}
         </div>
-        <Collapse className="mt-3" isOpen={collapse}>
-          <div className="form-group">
-            <Helptext
-              title={localization.schema.catalog.helptext.title}
-              required
-              term="Catalog_title"
-            />
-            <Field
-              name={`description.${localization.getLanguage()}`}
-              component={TextAreaField}
-              label={localization.schema.common.descriptionLabel}
-            />
-          </div>
-        </Collapse>
+        {!isReadOnly && (
+          <Collapse className="mt-3" isOpen={collapse}>
+            <div className="form-group">
+              <Helptext
+                title={localization.schema.catalog.helptext.title}
+                required
+                term="Catalog_title"
+              />
+              <Field
+                name={`description.${localization.getLanguage()}`}
+                component={TextAreaField}
+                label={localization.schema.common.descriptionLabel}
+              />
+            </div>
+          </Collapse>
+        )}
       </div>
     </form>
   );

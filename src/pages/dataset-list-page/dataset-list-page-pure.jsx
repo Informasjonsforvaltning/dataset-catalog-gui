@@ -39,7 +39,7 @@ export const DatasetsListPagePure = props => {
       <div className="row mb-2 mb-md-5">
         {_.get(catalog, ['items', catalogId]) && (
           <div className="col-12 fdk-reg-datasets-list">
-            <FormCatalog catalogId={catalogId} />
+            <FormCatalog catalogId={catalogId} isReadOnly={isReadOnly} />
             <DatasetItemsList
               isReadOnly={isReadOnly}
               catalogId={catalogId}
