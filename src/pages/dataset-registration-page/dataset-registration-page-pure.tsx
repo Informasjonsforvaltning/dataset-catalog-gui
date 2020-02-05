@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import _ from 'lodash';
 import pick from 'lodash/pick';
+import unset from 'lodash/unset';
 
 import localization from '../../services/localization';
 import { FormTemplate } from '../../components/form-template/form-template.component';
@@ -175,11 +176,27 @@ export function DatasetRegistrationPagePure(
     'distribution',
     'sample'
   ];
+
+  const omitDistributionLicenseField = datasetItem => {
+    const { distribution } = datasetItem;
+    distribution &&
+      distribution.forEach((item, index) => {
+        unset(datasetItem, `distribution.${index}.license`);
+      });
+    return datasetItem;
+  };
+
   const getUsedLanguages = () =>
     datasetItem
       ? [
           ...new Set(
-            deepKeys(pick(datasetItem, translatableFields), (__, v) => !!v)
+            deepKeys(
+              pick(
+                omitDistributionLicenseField(datasetItem),
+                translatableFields
+              ),
+              (__, v) => !!v
+            )
           )
         ]
       : [];
