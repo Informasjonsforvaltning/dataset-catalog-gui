@@ -212,15 +212,15 @@ export const renderDistributions = ({
                 <div className="d-flex flex-column">
                   <MultilingualField
                     name={`${distribution}.conformsTo[0].prefLabel`}
-                    component={isReadOnly ? InputFieldReadonly : TextAreaField}
+                    component={isReadOnly ? InputFieldReadonly : InputField}
                     label={localization.schema.common.titleLabel}
                     showLabel
                     languages={languages}
                   />
-                  <div className="mt-2">
+                  <div className="mt-4">
                     <Field
                       name={`${distribution}.conformsTo[0].uri`}
-                      component={isReadOnly ? LinkReadonlyField : TextAreaField}
+                      component={isReadOnly ? LinkReadonlyField : InputField}
                       showLabel
                       label={localization.schema.common.linkLabel}
                     />
