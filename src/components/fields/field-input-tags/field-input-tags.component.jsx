@@ -23,6 +23,7 @@ const InputTagsField = props => {
           className="fdk-reg-input-tags"
           inputProps={{ placeholder: '' }}
           onChange={tags => handleChange(props, tags)}
+          addOnBlur
         />
         {touched && !error && (
           <i className="fa fa-check-circle fa-lg ml-2 fdk-reg-save-success" />

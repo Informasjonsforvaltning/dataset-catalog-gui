@@ -4,6 +4,8 @@ import Autosuggest from 'react-autosuggest';
 import TagsInput from 'react-tagsinput';
 import _ from 'lodash';
 
+import './concept-tags-input-field.scss';
+
 import localization from '../../../../services/localization';
 import {
   extractConcepts,
@@ -165,7 +167,7 @@ class ConceptTagsInputField extends React.Component {
         <div className="d-flex align-items-center">
           <TagsInput
             value={tagNodes}
-            className="fdk-reg-input-tags"
+            className="fdk-reg-input-tags fdk-autosuggest"
             inputProps={{ placeholder: '' }}
             onChange={(tags, changed, changedIndexes) => {
               handleChange(input, tags, changed, changedIndexes);

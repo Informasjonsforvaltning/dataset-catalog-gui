@@ -16,7 +16,7 @@ exports[`should render InputTagsField correctly 1`] = `
           13,
         ]
       }
-      addOnBlur={false}
+      addOnBlur={true}
       addOnPaste={false}
       className="fdk-reg-input-tags"
       disabled={false}

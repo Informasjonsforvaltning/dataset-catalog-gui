@@ -16,7 +16,7 @@ exports[`should render ConceptTagsInputField correctly 1`] = `
       }
       addOnBlur={false}
       addOnPaste={false}
-      className="fdk-reg-input-tags"
+      className="fdk-reg-input-tags fdk-autosuggest"
       disabled={false}
       focusedClassName="react-tagsinput--focused"
       inputProps={

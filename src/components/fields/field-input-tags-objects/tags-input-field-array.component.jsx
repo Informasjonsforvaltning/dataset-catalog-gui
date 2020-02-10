@@ -41,6 +41,7 @@ const TagsInputFieldArray = ({
           className="fdk-reg-input-tags"
           inputProps={{ placeholder: '' }}
           onChange={handleChange}
+          addOnBlur
         />
       </label>
     </div>

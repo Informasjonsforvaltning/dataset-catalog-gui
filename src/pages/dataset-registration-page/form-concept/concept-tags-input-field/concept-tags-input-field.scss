@@ -1,0 +1,22 @@
+.fdk-reg-input-tags {
+  width: 100%;
+  
+  &.fdk-autosuggest {
+    padding-right: 30px;
+    padding-left: 5px;
+    padding-bottom: 5px;
+  }
+
+  span {
+    display: flex;
+    flex-wrap: wrap;
+
+    .react-autosuggest__container {
+      flex-grow: 1;
+
+      input {
+        width: 100%;
+      }
+    }
+  }
+}
