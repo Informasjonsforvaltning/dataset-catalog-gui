@@ -21,7 +21,7 @@ exports[`should render CatalogItem correctly with itemsCount set to 10 1`] = `
       >
         10
          
-        datasett
+        datasettbeskrivelser
       </span>
     </div>
   </Link>
@@ -49,7 +49,7 @@ exports[`should render CatalogItem correctly with missing itemsCount 1`] = `
       >
         Ingen
          
-        datasett
+        datasettbeskrivelser
       </span>
     </div>
   </Link>
