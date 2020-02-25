@@ -261,10 +261,12 @@
     },
     "informationModel": {
       "helptext": {
-        "informationModel": "Informasjonsmodell"
+        "fdkInformationModel": "Informasjonsmodell fra Felles datakatalog",
+        "externalInformationModel": "Informasjonsmodell fra andre kilder"
       },
-      "titleLabel": "Tittel",
-      "linkLabel": "Lenke"
+      "titleLabel": "Tittel på informasjonsmodell",
+      "linkLabel": "URL til informasjonsmodell",
+      "addLabel": "Legg til ny informasjonsmodell"
     },
     "reference": {
       "helptext": {
@@ -414,7 +416,7 @@
       "spatial": "Geografi, tid og språk",
       "provenance": "Opphav og ferskhet",
       "content": "Innhold",
-      "informationModel": "Informasjonsmodell",
+      "informationModel": "I samsvar med informasjonsmodell",
       "reference": "Relasjoner",
       "contactInformation": "Kontaktinformasjon",
       "distribution": "Distribusjoner",

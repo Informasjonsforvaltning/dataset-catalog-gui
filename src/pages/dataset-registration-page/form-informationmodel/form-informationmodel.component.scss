@@ -1,0 +1,82 @@
+@import '../../../../node_modules/designsystemet/fdk-designsystem-bootstrap4/scss/colors';
+
+.fdk-info-models {
+  padding-right: 30px;
+  padding-left: 5px;
+  padding-bottom: 60px;
+}
+
+.fdk-info-model-suggestions {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+
+  .react-autosuggest__input {
+    width: 100%;
+  }
+
+  .react-autosuggest__container {
+    flex-grow: 1;
+    display: inline;
+
+    .react-autosuggest__suggestions-list {
+      padding: 0;
+      list-style: none;
+
+      .react-autosuggest__suggestion--highlighted {
+        background-color: $color-neutral-lighter;
+        cursor: pointer;
+      }
+    }
+  }
+
+  .react-autosuggest__suggestions-container {
+    display: none;
+  }
+
+  .react-autosuggest__suggestions-container--open {
+    display: block;
+    position: absolute;
+    z-index: 10;
+    box-shadow: 0 3px 12px $color-shadow;
+    margin-top: 8px;
+    border-top: 1px solid $color-neutral-light;
+    padding: 1em;
+    background: $color-white;
+
+    .react-autosuggest__suggestion {
+      padding: 0.5em;
+    }
+  }
+
+  .react_autosuggest__suggestions-heading {
+    .first {
+      padding-left: 0.5em;
+    }
+  }
+}
+
+.fdk-info-model-pill {
+  margin-top: 6px;
+  display: inline-block;
+  padding: 6px 8px;
+  border-radius: 3px;
+  background-color: $color-neutral-darkest;
+  color: $color-white;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 16px;
+}
+
+.fdk-info-model-pill-label {
+  padding-right: 5px;
+}
+
+.remove-fdk-info-model {
+  cursor: pointer;
+}
+
+.display-none {
+  display: none;
+}

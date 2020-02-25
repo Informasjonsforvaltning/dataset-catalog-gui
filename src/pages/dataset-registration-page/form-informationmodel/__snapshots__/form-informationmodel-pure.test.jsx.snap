@@ -12,16 +12,32 @@ exports[`should render FormInformationModelPure correctly 1`] = `
         className="form-group"
       >
         <withStateHandlers(Component)
-          term="Dataset_informationModel"
-          title="Informasjonsmodell"
+          term="Dataset_fdkInformationModel"
+          title="Informasjonsmodell fra Felles datakatalog"
         />
         <FieldArray
+          catalogId={null}
           component={[Function]}
+          datasetId={null}
+          dispatch={null}
+          isReadOnly={false}
+          name="informationModel"
+        />
+        <withStateHandlers(Component)
+          term="Dataset_externalInformationModel"
+          title="Informasjonsmodell fra andre kilder"
+        />
+        <FieldArray
+          addLabel="Legg til ny informasjonsmodell"
+          catalogId={null}
+          component={[Function]}
+          datasetId={null}
+          dispatch={null}
           isReadOnly={false}
           languages={Array []}
-          linkLabel="Lenke"
+          linkLabel="URL til informasjonsmodell"
           name="informationModel"
-          titleLabel="Tittel"
+          titleLabel="Tittel på informasjonsmodell"
         />
       </div>
     </div>

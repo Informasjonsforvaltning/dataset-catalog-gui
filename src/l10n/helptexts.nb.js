@@ -144,8 +144,12 @@ Innsamlet fra tredjepart betyr data innhentet fra f. eks. banker og forsikringss
       'Oppgi om datasettet er i henhold til gitt(e) standard(er), spesifikasjon(er) eller implementasjonsregler.',
     description: ''
   },
-  Dataset_informationModel: {
-    abstract: 'Oppgi referanse til datasettets informasjonsmodell.',
+  Dataset_fdkInformationModel: {
+    abstract: 'Søk etter informasjonsmodeller fra Felles datakatalog og velg fra nedtrekksliste.',
+    description: ''
+  },
+  Dataset_externalInformationModel: {
+    abstract: 'Legg til informasjonsmodell via lenke.',
     description: ''
   },
   Dataset_accruralPeriodicity: {
