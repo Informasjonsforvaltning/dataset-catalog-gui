@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Autosuggest from 'react-autosuggest';
-import _ from 'lodash';
 import {
   extractInformationModels,
   searchInformationModels
@@ -19,19 +18,19 @@ class FdkInformationModelsSuggestionField extends React.Component {
     super(props);
     this.state = { value: '', suggestions: [], loading: false };
     this.lastRequestId = null;
-    this._onChange = this._onChange.bind(this);
-    this._onSuggestionSelected = this._onSuggestionSelected.bind(this);
-    this._fetchSuggestions = this._fetchSuggestions.bind(this);
-    this._clearSuggestions = this._clearSuggestions.bind(this);
-    this._renderSuggestion = this._renderSuggestion.bind(this);
-    this._renderSuggestionsContainer = this._renderSuggestionsContainer.bind(this);
+    this.onChange = this.onChange.bind(this);
+    this.onSuggestionSelected = this.onSuggestionSelected.bind(this);
+    this.fetchSuggestions = this.fetchSuggestions.bind(this);
+    this.clearSuggestions = this.clearSuggestions.bind(this);
+    this.renderSuggestion = this.renderSuggestion.bind(this);
+    this.renderSuggestionsContainer = this.renderSuggestionsContainer.bind(this);
   }
 
-  _onChange(event, { newValue }) {
+  onChange(event, { newValue }) {
     this.setState({ value: newValue });
   }
 
-  _fetchSuggestions({ value }) {
+  fetchSuggestions({ value }) {
     if (this.lastRequestId !== null) {
       clearTimeout(this.lastRequestId);
     }
@@ -53,43 +52,40 @@ class FdkInformationModelsSuggestionField extends React.Component {
       .catch(console.error);
   }
 
-  _clearSuggestions() {
+  clearSuggestions() {
     this.setState({ suggestions: [] });
   }
 
-  _getSuggestionValue(suggestion) {
-    return getTranslateText(_.get(suggestion, 'title'));
+  getSuggestionValue({ title }) {
+    return getTranslateText(title);
   }
 
-  _onSuggestionSelected(event, { suggestion }) {
-    var modelToAdd = informationModelType;
-    modelToAdd.uri = `${getConfig().searchHost}/informationmodels/${suggestion.id}`;
-    modelToAdd.prefLabel = suggestion.title;
-
-    this.props.addInformationModel(modelToAdd);
+  onSuggestionSelected(event, { suggestion }) {
+    this.props.addInformationModel({ 
+      ...informationModelType, 
+      uri: `${getConfig().searchHost}/informationmodels/${suggestion.id}`, 
+      prefLabel: suggestion.title 
+    });
     this.setState({ value: '' });
   }
 
-  _renderSuggestion(suggestion) {
+  renderSuggestion({ title, publisher }) {
     return (
       <div className="d-flex mb-3">
         <span className="w-50 first">
-          {getTranslateText(_.get(suggestion, 'title'))}
+          { getTranslateText(title) }
         </span>
         <span className="w-50 ml-5">
-          {getTranslateText(
-            _.get(suggestion, ['publisher', 'prefLabel']) ||
-              _.get(suggestion, ['publisher', 'name'])
-          )}
+          { getTranslateText( publisher.prefLabel || publisher.name ) }
         </span>
       </div>
     );
   }
 
-  _renderSuggestionsContainer({ containerProps, children }) {
+  renderSuggestionsContainer({ containerProps, children }) {
     return (
       <div {...containerProps}>
-        {children &&
+        {children && children.length > 0 &&
           <div className="d-flex mb-3 react_autosuggest__suggestions-heading">
             <span className="w-50 first">
               <strong>{localization.anbefaltTerm}</strong>
@@ -110,7 +106,7 @@ class FdkInformationModelsSuggestionField extends React.Component {
     );
   }
 
-  _renderInputComponent(inputProps) {
+  renderInputComponent(inputProps) {
     return <input {...inputProps} className="form-control react-autosuggest__input" />;
   };
 
@@ -127,13 +123,13 @@ class FdkInformationModelsSuggestionField extends React.Component {
         <Autosuggest
           highlightFirstSuggestion={true}
           suggestions={suggestions}
-          onSuggestionsFetchRequested={this._fetchSuggestions}
-          onSuggestionsClearRequested={this._clearSuggestions}
-          onSuggestionSelected={this._onSuggestionSelected}
-          getSuggestionValue={this._getSuggestionValue}
-          renderSuggestion={this._renderSuggestion}
-          renderSuggestionsContainer={this._renderSuggestionsContainer}
-          renderInputComponent={this._renderInputComponent}
+          onSuggestionsFetchRequested={this.fetchSuggestions}
+          onSuggestionsClearRequested={this.clearSuggestions}
+          onSuggestionSelected={this.onSuggestionSelected}
+          getSuggestionValue={this.getSuggestionValue}
+          renderSuggestion={this.renderSuggestion}
+          renderSuggestionsContainer={this.renderSuggestionsContainer}
+          renderInputComponent={this.renderInputComponent}
           inputProps={inputProps}
         />
       </div>
@@ -157,46 +153,47 @@ const FdkInformationModels = ({
   datasetId
 }) => {
 
-  const deleteFieldAtIndex = (index) => {
-    const models = fields.getAll();
-    // use splice instead of skip, for changing the bound value
-    models.splice(index, 1);
+  const patchInformationModels = (models) => {
     const patch = { [fields.name]: models };
     const thunk = datasetFormPatchThunk({ catalogId, datasetId, patch });
     dispatch(thunk);
   };
 
+  const removeModelAtIndex = (index) => {
+    const models = fields.getAll();
+    models.splice(index, 1);
+    patchInformationModels(models);
+  };
+
   const addModel = (model) => {
     const models = fields.getAll();
     models.push(model);
-    const patch = { [fields.name]: models };
-    const thunk = datasetFormPatchThunk({ catalogId, datasetId, patch });
-    dispatch(thunk);
+    patchInformationModels(models);
   };
 
   const isFdkURI = (uri) => uri && uri.includes(`${getConfig().searchHost}/informationmodels/`);
 
   return (
     <div className="fdk-info-models">
-      {!isReadOnly && 
+      {!isReadOnly &&
         <FdkInformationModelsSuggestionField addInformationModel={addModel} />
       }
       {fields &&
         fields.map((item, index) => (
-          <div key={`info-model-${item}`} className={isFdkURI(fields.get(index).uri) ? "fdk-info-model-pill" : "display-none"}>
-              <span className="fdk-info-model-pill-label">{getTranslateText(fields.get(index).prefLabel)}</span>
-              {!isReadOnly && 
-                <i 
-                  className="fa fa-times mr-2 remove-fdk-info-model"
-                  role="button"
-                  tabIndex="0"
-                  onClick={() => deleteFieldAtIndex(index)}
-                  onKeyPress={e => {
-                    deleteFieldAtIndex(index);
-                    e.preventDefault();
-                  }} 
-                />
-              }
+          <div key={`external-info-model-${item}`} className={isFdkURI(fields.get(index).uri) ? "fdk-info-model-pill" : "display-none"}>
+            <span className="fdk-info-model-pill-label">{getTranslateText(fields.get(index).prefLabel)}</span>
+            {!isReadOnly &&
+              <i
+                className="fa fa-times mr-2 remove-fdk-info-model"
+                role="button"
+                tabIndex="0"
+                onClick={() => removeModelAtIndex(index) }
+                onKeyPress={e => {
+                  removeModelAtIndex(index);
+                  e.preventDefault();
+                }}
+              />
+            }
           </div>
         ))
       }

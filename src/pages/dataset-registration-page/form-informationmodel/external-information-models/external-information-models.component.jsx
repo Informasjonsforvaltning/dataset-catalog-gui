@@ -22,13 +22,16 @@ const ExternalInformationModels = ({
   catalogId,
   datasetId
 }) => {
-  const onDeleteFieldAtIndex = (fields, index) => {
-    const values = fields.getAll();
-    // use splice instead of skip, for changing the bound value
-    values.splice(index, 1);
-    const patch = { [fields.name]: values };
+  const patchInformationModels = (models) => {
+    const patch = { [fields.name]: models };
     const thunk = datasetFormPatchThunk({ catalogId, datasetId, patch });
     dispatch(thunk);
+  };
+
+  const removeModelAtIndex = (index) => {
+    const models = fields.getAll();
+    models.splice(index, 1);
+    patchInformationModels(fields.getAll());
   };
 
   const isFdkURI = (uri) => uri && uri.includes(`${getConfig().searchHost}/informationmodels/`);
@@ -37,7 +40,7 @@ const ExternalInformationModels = ({
   <div>
     {fields &&
       fields.map((item, index) => (
-        <div key={index} className={isFdkURI(fields.get(index).uri) ? "display-none" : "d-flex mb-2"} >
+        <div key={`fdk-info-model-${item}`} className={isFdkURI(fields.get(index).uri) ? "display-none" : "d-flex mb-2"} >
             <div className="w-50">
               <MultilingualField
                 name={`${item}.prefLabel`}
@@ -61,7 +64,7 @@ const ExternalInformationModels = ({
                   className="fdk-btn-no-border"
                   type="button"
                   title="Remove reference"
-                  onClick={() => onDeleteFieldAtIndex(fields, index)}
+                  onClick={() => removeModelAtIndex(index) }
                 >
                   <i className="fa fa-trash mr-2" />
                 </button>

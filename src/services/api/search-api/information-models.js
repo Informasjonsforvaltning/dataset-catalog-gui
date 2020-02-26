@@ -5,8 +5,7 @@ import { searchApiGet } from './host';
 export const searchInformationModels = params =>
   searchApiGet({
     url: `${getConfig().datasetApi.host}/api/informationmodels`,
-    params,
-    authorization: getConfig().datasetApi.authorization
+    params
   });
 
 export const extractInformationModels = searchResponse =>
