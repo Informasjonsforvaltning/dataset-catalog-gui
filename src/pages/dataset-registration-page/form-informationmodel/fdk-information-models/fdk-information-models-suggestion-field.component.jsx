@@ -9,6 +9,8 @@ import localization from '../../../../services/localization';
 import { getTranslateText } from '../../../../services/translateText';
 import { getConfig } from '../../../../config';
 import { informationModelType } from '../../../../schemaTypes';
+import { insertTestId } from '../../../../../test/utils/testUtils';
+import {DatasetFdkInformationModelsSuggestionTestIds} from './fdk-information-models-suggestion-field.test';
 
 import '../form-informationmodel.component.scss';
 
@@ -100,7 +102,7 @@ const FdkInformationModelsSuggestionField = ({ addInformationModel }) => {
   };
 
   return (
-    <div className="fdk-info-model-suggestions">
+    <div className="fdk-info-model-suggestions" {...insertTestId(DatasetFdkInformationModelsSuggestionTestIds.component)}>
       <Autosuggest
         highlightFirstSuggestion={true}
         suggestions={suggestions}

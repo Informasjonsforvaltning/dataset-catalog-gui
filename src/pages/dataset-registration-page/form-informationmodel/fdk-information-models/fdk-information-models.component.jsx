@@ -4,6 +4,8 @@ import { getTranslateText } from '../../../../services/translateText';
 import { datasetFormPatchThunk } from '../../formsLib/asyncValidateDatasetInvokePatch';
 import { getConfig } from '../../../../config';
 import FdkInformationModelsSuggestionField from './fdk-information-models-suggestion-field.component';
+import { insertTestId } from '../../../../../test/utils/testUtils';
+import { DatasetFdkInformationModelsTestIds } from './fdk-information-models.test';
 
 import '../form-informationmodel.component.scss';
 
@@ -36,7 +38,7 @@ const FdkInformationModels = ({
   const isFdkURI = (uri) => uri && uri.includes(`${getConfig().searchHost}/informationmodels/`);
 
   return (
-    <div className="fdk-info-models">
+    <div className="fdk-info-models" {...insertTestId(DatasetFdkInformationModelsTestIds.component)} >
       {!isReadOnly &&
         <FdkInformationModelsSuggestionField addInformationModel={addModel} />
       }
