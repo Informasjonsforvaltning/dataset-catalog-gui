@@ -44,7 +44,11 @@ const FdkInformationModels = ({
       }
       {fields &&
         fields.map((item, index) => (
-          <div key={`external-info-model-${item}`} className={isFdkURI(fields.get(index).uri) ? "fdk-info-model-pill" : "display-none"}>
+          <div 
+            key={`external-info-model-${item}`}
+            className={isFdkURI(fields.get(index).uri) ? "fdk-info-model-pill" : "display-none"}
+            {...insertTestId(DatasetFdkInformationModelsTestIds.pill)}
+          >
             <span className="fdk-info-model-pill-label">{getTranslateText(fields.get(index).prefLabel)}</span>
             {!isReadOnly &&
               <i
