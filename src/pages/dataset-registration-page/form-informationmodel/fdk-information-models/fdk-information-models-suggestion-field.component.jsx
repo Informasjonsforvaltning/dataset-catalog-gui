@@ -10,7 +10,7 @@ import { getTranslateText } from '../../../../services/translateText';
 import { getConfig } from '../../../../config';
 import { informationModelType } from '../../../../schemaTypes';
 import { insertTestId } from '../../../../../test/utils/testUtils';
-import {DatasetFdkInformationModelsSuggestionTestIds} from './fdk-information-models-suggestion-field.test';
+import { DatasetFdkInformationModelsSuggestionTestIds } from './fdk-information-models-suggestion-field.test';
 
 import '../form-informationmodel.component.scss';
 
@@ -62,7 +62,7 @@ const FdkInformationModelsSuggestionField = ({ addInformationModel }) => {
 
   const renderSuggestion = ({ title, publisher }) => {
     return (
-      <div className="d-flex mb-3">
+      <div className="d-flex mb-3" {...insertTestId(DatasetFdkInformationModelsSuggestionTestIds.suggestion)}>
         <span className="w-50 first">
           { getTranslateText(title) }
         </span>
@@ -77,7 +77,7 @@ const FdkInformationModelsSuggestionField = ({ addInformationModel }) => {
     return (
       <div {...containerProps}>
         {children && children.length > 0 &&
-          <div className="d-flex mb-3 react_autosuggest__suggestions-heading">
+          <div className="d-flex mb-3 react_autosuggest__suggestions-heading" {...insertTestId(DatasetFdkInformationModelsSuggestionTestIds.suggestionsHeader)}>
             <span className="w-50 first">
               <strong>{localization.anbefaltTerm}</strong>
             </span>
@@ -98,7 +98,13 @@ const FdkInformationModelsSuggestionField = ({ addInformationModel }) => {
   }
 
   const renderInputComponent = (inputProps) => {
-    return <input {...inputProps} className="form-control react-autosuggest__input" />;
+    return (
+      <input 
+        {...inputProps} 
+        className="form-control react-autosuggest__input" 
+        {...insertTestId(DatasetFdkInformationModelsSuggestionTestIds.input)}
+      />
+    );
   };
 
   return (

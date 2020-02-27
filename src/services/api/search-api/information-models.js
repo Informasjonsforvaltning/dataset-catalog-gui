@@ -9,4 +9,4 @@ export const searchInformationModels = params =>
   });
 
 export const extractInformationModels = searchResponse =>
-get(searchResponse, ['_embedded', 'informationmodels'], []);
+  get(searchResponse, ['_embedded', 'informationmodels'], []);
