@@ -10,9 +10,15 @@ import { getTranslateText } from '../../../../services/translateText';
 import { getConfig } from '../../../../config';
 import { informationModelType } from '../../../../schemaTypes';
 import { insertTestId } from '../../../../../test/utils/testUtils';
-import { DatasetFdkInformationModelsSuggestionTestIds } from './fdk-information-models-suggestion-field.test';
 
 import '../form-informationmodel.component.scss';
+
+export const DatasetFdkInformationModelsSuggestionTestIds = {
+  component: 'dataset-fdk-information-models-suggestion-field',
+  suggestion: 'dataset-fdk-information-models-suggestion-field-suggestion',
+  suggestionsHeader: 'dataset-fdk-information-models-suggestion-field-suggestions-header',
+  input: 'dataset-fdk-information-models-suggestion-field-input',
+};
 
 const FdkInformationModelsSuggestionField = ({ addInformationModel }) => {
 

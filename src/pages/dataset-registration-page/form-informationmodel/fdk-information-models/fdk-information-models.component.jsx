@@ -5,9 +5,13 @@ import { datasetFormPatchThunk } from '../../formsLib/asyncValidateDatasetInvoke
 import { getConfig } from '../../../../config';
 import FdkInformationModelsSuggestionField from './fdk-information-models-suggestion-field.component';
 import { insertTestId } from '../../../../../test/utils/testUtils';
-import { DatasetFdkInformationModelsTestIds } from './fdk-information-models.test';
 
 import '../form-informationmodel.component.scss';
+
+export const DatasetFdkInformationModelsTestIds = {
+  component: 'dataset-fdk-information-models',
+  pill: 'dataset-fdk-information-models-pill',
+};
 
 const FdkInformationModels = ({
   fields,

@@ -3,13 +3,7 @@ import { mount } from 'enzyme';
 import { findByTestId } from '../../../../../test/utils/testUtils';
 import * as searchApi from '../../../../services/api/search-api/information-models';
 import FdkInformationModelsSuggestionField from './fdk-information-models-suggestion-field.component';
-
-export const DatasetFdkInformationModelsSuggestionTestIds = {
-  component: 'dataset-fdk-information-models-suggestion-field',
-  suggestion: 'dataset-fdk-information-models-suggestion-field-suggestion',
-  suggestionsHeader: 'dataset-fdk-information-models-suggestion-field-suggestions-header',
-  input: 'dataset-fdk-information-models-suggestion-field-input',
-};
+import { DatasetFdkInformationModelsSuggestionTestIds } from './fdk-information-models-suggestion-field.component';
 
 function setup() {
   const wrapper = mount(<FdkInformationModelsSuggestionField addInformationModel={() => {}} />);

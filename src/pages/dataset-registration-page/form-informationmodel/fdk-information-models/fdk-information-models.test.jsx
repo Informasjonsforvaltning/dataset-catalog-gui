@@ -3,13 +3,9 @@ import { shallow } from 'enzyme';
 import { findByTestId } from '../../../../../test/utils/testUtils';
 import FdkInformationModels from './fdk-information-models.component';
 import { getConfig } from '../../../../config';
+import { DatasetFdkInformationModelsTestIds } from './fdk-information-models.component';
 
 const fdkURI = `${getConfig().searchHost}/informationmodels/`;
-
-export const DatasetFdkInformationModelsTestIds = {
-  component: 'dataset-fdk-information-models',
-  pill: 'dataset-fdk-information-models-pill',
-};
 
 function setup(fields) {
   const wrapper = shallow(<FdkInformationModels fields={fields} isReadOnly={false} dispatch={() => {}} catalogId={'1'} datasetId={'2'}/>);
