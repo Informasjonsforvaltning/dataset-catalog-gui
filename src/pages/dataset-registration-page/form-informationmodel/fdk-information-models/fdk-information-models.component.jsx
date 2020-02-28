@@ -8,7 +8,7 @@ import { insertTestId } from '../../../../../test/utils/testUtils';
 
 import '../form-informationmodel.component.scss';
 
-export const DatasetFdkInformationModelsTestIds = {
+export const TestIds = {
   component: 'dataset-fdk-information-models',
   pill: 'dataset-fdk-information-models-pill',
 };
@@ -42,7 +42,7 @@ const FdkInformationModels = ({
   const isFdkURI = (uri) => uri && uri.includes(`${getConfig().searchHost}/informationmodels/`);
 
   return (
-    <div className="fdk-info-models" {...insertTestId(DatasetFdkInformationModelsTestIds.component)} >
+    <div className="fdk-info-models" {...insertTestId(TestIds.component)} >
       {!isReadOnly &&
         <FdkInformationModelsSuggestionField addInformationModel={addModel} />
       }
@@ -51,7 +51,7 @@ const FdkInformationModels = ({
           <div 
             key={`external-info-model-${item}`}
             className={isFdkURI(fields.get(index).uri) ? "fdk-info-model-pill" : "display-none"}
-            {...insertTestId(DatasetFdkInformationModelsTestIds.pill)}
+            {...insertTestId(TestIds.pill)}
           >
             <span className="fdk-info-model-pill-label">{getTranslateText(fields.get(index).prefLabel)}</span>
             {!isReadOnly &&

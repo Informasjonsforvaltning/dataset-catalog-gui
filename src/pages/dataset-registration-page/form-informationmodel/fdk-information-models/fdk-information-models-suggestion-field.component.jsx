@@ -13,11 +13,13 @@ import { insertTestId } from '../../../../../test/utils/testUtils';
 
 import '../form-informationmodel.component.scss';
 
-export const DatasetFdkInformationModelsSuggestionTestIds = {
+export const TestIds = {
   component: 'dataset-fdk-information-models-suggestion-field',
   suggestion: 'dataset-fdk-information-models-suggestion-field-suggestion',
   suggestionsHeader: 'dataset-fdk-information-models-suggestion-field-suggestions-header',
   input: 'dataset-fdk-information-models-suggestion-field-input',
+  suggestionTitle: 'dataset-fdk-information-models-suggestion-field-suggestion-title',
+  publisherName: 'dataset-fdk-information-models-suggestion-field-publisher-name',
 };
 
 const FdkInformationModelsSuggestionField = ({ addInformationModel }) => {
@@ -27,7 +29,7 @@ const FdkInformationModelsSuggestionField = ({ addInformationModel }) => {
   const [isLoading, setLoading] = useState(false);
   const [suggestions, setSuggestions] = useState([]);
 
-  const onChange = (event, { newValue }) => { 
+  const onChange = (event, { newValue }) => {
     setValue(newValue); 
   } 
 
@@ -68,11 +70,11 @@ const FdkInformationModelsSuggestionField = ({ addInformationModel }) => {
 
   const renderSuggestion = ({ title, publisher }) => {
     return (
-      <div className="d-flex mb-3" {...insertTestId(DatasetFdkInformationModelsSuggestionTestIds.suggestion)}>
-        <span className="w-50 first">
+      <div className="d-flex mb-3" {...insertTestId(TestIds.suggestion)}>
+        <span className="w-50 first" {...insertTestId(TestIds.suggestionTitle)}>
           { getTranslateText(title) }
         </span>
-        <span className="w-50 ml-5">
+        <span className="w-50 ml-5" {...insertTestId(TestIds.publisherName)}>
           { getTranslateText( publisher.prefLabel || publisher.name ) }
         </span>
       </div>
@@ -82,8 +84,8 @@ const FdkInformationModelsSuggestionField = ({ addInformationModel }) => {
   const renderSuggestionsContainer = ({ containerProps, children }) => {
     return (
       <div {...containerProps}>
-        {children && children.length > 0 &&
-          <div className="d-flex mb-3 react_autosuggest__suggestions-heading" {...insertTestId(DatasetFdkInformationModelsSuggestionTestIds.suggestionsHeader)}>
+        {children && children.props.items.length > 0 &&
+          <div className="d-flex mb-3 react_autosuggest__suggestions-heading" {...insertTestId(TestIds.suggestionsHeader)}>
             <span className="w-50 first">
               <strong>{localization.anbefaltTerm}</strong>
             </span>
@@ -108,13 +110,13 @@ const FdkInformationModelsSuggestionField = ({ addInformationModel }) => {
       <input 
         {...inputProps} 
         className="form-control react-autosuggest__input" 
-        {...insertTestId(DatasetFdkInformationModelsSuggestionTestIds.input)}
+        {...insertTestId(TestIds.input)}
       />
     );
   };
 
   return (
-    <div className="fdk-info-model-suggestions" {...insertTestId(DatasetFdkInformationModelsSuggestionTestIds.component)}>
+    <div className="fdk-info-model-suggestions" {...insertTestId(TestIds.component)}>
       <Autosuggest
         highlightFirstSuggestion={true}
         suggestions={suggestions}

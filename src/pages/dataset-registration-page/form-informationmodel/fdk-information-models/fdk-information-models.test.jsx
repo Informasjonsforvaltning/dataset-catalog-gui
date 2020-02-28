@@ -3,7 +3,7 @@ import { shallow } from 'enzyme';
 import { findByTestId } from '../../../../../test/utils/testUtils';
 import FdkInformationModels from './fdk-information-models.component';
 import { getConfig } from '../../../../config';
-import { DatasetFdkInformationModelsTestIds } from './fdk-information-models.component';
+import { TestIds } from './fdk-information-models.component';
 
 const fdkURI = `${getConfig().searchHost}/informationmodels/`;
 
@@ -24,7 +24,7 @@ describe('FdkInformationModels content', () => {
     const wrapper = setup(createFields([]));
     const component = findByTestId(
       wrapper,
-      DatasetFdkInformationModelsTestIds.component
+      TestIds.component
     );
     expect(component.length).toBe(1);
   });
@@ -32,7 +32,7 @@ describe('FdkInformationModels content', () => {
     const wrapper = setup(createFields([]));
     const pills = findByTestId(
       wrapper,
-      DatasetFdkInformationModelsTestIds.pill
+      TestIds.pill
     );
     expect(pills.length).toBe(0);
   });
@@ -46,9 +46,14 @@ describe('FdkInformationModels content', () => {
     );
     const pills = findByTestId(
       wrapper,
-      DatasetFdkInformationModelsTestIds.pill
+      TestIds.pill
     );
     expect(pills.length).toBe(3);
-    expect(pills.filterWhere(pill => pill.hasClass("display-none")).length).toBe(1);
+
+    const displayedPills = pills.filterWhere(pill => !pill.hasClass("display-none"));
+    expect(displayedPills.length).toBe(2);
+    
+    expect(displayedPills.filterWhere(pill => pill.text() === 'fdk-one').length).toBe(1);
+    expect(displayedPills.filterWhere(pill => pill.text() === 'fdk-two').length).toBe(1);
   });
 });
