@@ -1,4 +1,7 @@
+import { Namespace } from './enums';
+
 const env = (window as any).env || {
+  NAMESPACE: Namespace.STAGING,
   SEARCH_HOST: 'http://localhost:8080',
   REGISTRATION_API_HOST: 'http://localhost:8098',
   CONCEPT_REGISTRATION_API_HOST: 'http://localhost:8200',
@@ -33,6 +36,7 @@ const searchApi = {
 const defaultToSearchApi = host => (host ? { host } : searchApi);
 
 const config = {
+  namespace: env.NAMESPACE,
   store: { useLogger: env.REDUX_LOG === 'true' },
   registrationLanguage: env.REGISTRATION_LANGUAGE || 'nb',
   auth: {

@@ -8,6 +8,8 @@ import { selectorForCatalogDatasetsFromDatasetsState } from '../../redux/modules
 import { getAPIItemsCount } from '../../redux/modules/apis';
 import './catalogs-page.scss';
 import { authService } from '../../services/auth/auth-service';
+import { Namespace } from '../../enums';
+import { getConfig } from '../../config';
 
 interface Props {
   catalogItems: any[];
@@ -85,7 +87,8 @@ export const CatalogsPagePure = ({
                   catalogId={catalog.id}
                   type="protocol"
                   isReadOnly={
-                    !authService.hasOrganizationWritePermission(catalog.id)
+                    !authService.hasOrganizationWritePermission(catalog.id) ||
+                    getConfig().namespace === Namespace.PRODUCTION
                   }
                 />
               </CardGroup>
