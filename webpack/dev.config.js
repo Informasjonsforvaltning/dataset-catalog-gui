@@ -8,10 +8,12 @@ export default merge(baseConfig, {
   devServer: {
     host: '0.0.0.0',
     port: 4301,
-    historyApiFallback: true,
+    historyApiFallback: {
+      rewrites: [
+        { from: /^\/maintenance/, to: '/maintenance.html' },
+        { from: /./, to: '/index.html' }
+      ]
+    },
     before: app => app.get('/config.js', (_, res) => res.status(204).send())
-  },
-  optimization: {
-    minimize: false
   }
 });

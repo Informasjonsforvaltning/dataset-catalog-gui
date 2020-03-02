@@ -6,10 +6,13 @@ import CopyWebpackPlugin from 'copy-webpack-plugin';
 import { BaseHrefWebpackPlugin } from 'base-href-webpack-plugin';
 
 export default {
-  entry: ['./src/index.jsx'],
+  entry: {
+    main: './src/index.jsx',
+    maintenance: './src/entrypoints/maintenance/index.tsx'
+  },
   output: {
     path: path.join(__dirname, '../dist'),
-    filename: 'bundle.js'
+    publicPath: '/'
   },
   resolve: {
     extensions: ['.ts', '.tsx', '.js', '.jsx']
@@ -61,14 +64,40 @@ export default {
   },
   plugins: [
     new CleanWebpackPlugin(),
+    new (class ChunksFromEntryPlugin {
+      apply(compiler) {
+        compiler.hooks.emit.tap('ChunksFromEntryPlugin', compilation => {
+          compilation.hooks.htmlWebpackPluginAlterChunks.tap(
+            'ChunksFromEntryPlugin',
+            (_, { plugin }) =>
+              compilation.entrypoints
+                .get(plugin.options.entry)
+                .chunks.map(chunk => ({
+                  names: chunk.name ? [chunk.name] : [],
+                  files: chunk.files.slice(),
+                  size: chunk.modulesSize(),
+                  hash: chunk.hash
+                }))
+          );
+        });
+      }
+    })(),
     new HtmlWebpackPlugin({
+      entry: 'main',
       template: './src/index.html',
       filename: 'index.html',
       favicon: './src/img/favicon.ico',
       inject: true
     }),
+    new HtmlWebpackPlugin({
+      entry: 'maintenance',
+      template: './src/entrypoints/maintenance/index.html',
+      filename: 'maintenance.html',
+      favicon: './src/img/favicon.ico',
+      inject: true
+    }),
     new MiniCssExtractPlugin({
-      filename: 'styles.css'
+      filename: '[name].styles.css'
     }),
     new CopyWebpackPlugin(
       [{ from: './src/img/*', to: './img', flatten: true }],

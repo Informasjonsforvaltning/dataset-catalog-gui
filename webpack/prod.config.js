@@ -4,5 +4,6 @@ import baseConfig from './base.config';
 
 export default merge(baseConfig, {
   mode: 'production',
-  devtool: 'none'
+  devtool: 'none',
+  stats: 'minimal'
 });
