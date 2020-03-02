@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
 import { Collapse } from 'reactstrap';
-import _ from 'lodash';
 
 import localization from '../../services/localization';
 import './form-template.scss';
@@ -89,8 +88,7 @@ FormTemplate.defaultProps = {
   syncErrors: false,
   required: false,
   children: null,
-  collapse: false,
-  onToggle: _.noop
+  showInitially: false
 };
 
 FormTemplate.propTypes = {
@@ -103,7 +101,6 @@ FormTemplate.propTypes = {
     PropTypes.array
   ]),
   required: PropTypes.bool,
-  children: PropTypes.object,
-  collapse: PropTypes.bool,
-  onToggle: PropTypes.func
+  children: PropTypes.node,
+  showInitially: PropTypes.bool
 };

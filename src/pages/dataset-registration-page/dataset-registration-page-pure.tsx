@@ -133,6 +133,15 @@ export function DatasetRegistrationPagePure(
     sample = {}
   } = form || {};
 
+  useEffect(() => dispatchEnsureData(catalogId), [catalogId]);
+
+  const [languagesDetermined, setLanguagesDetermined] = useState(false);
+  const [expandAll, setExpandAll] = useState(false);
+
+  const toggleExpand = () => {
+    setExpandAll(!expandAll);
+  };
+
   const renderExpandButton = expanded => {
     const text = expanded ? localization.collapse : localization.expand;
     const icon = expanded
@@ -142,21 +151,16 @@ export function DatasetRegistrationPagePure(
 
     return (
       <div className="d-flex justify-content-end">
-        <button className="toggleExpandButton" onClick={toggleExpand}>
+        <button
+          type="button"
+          className="toggleExpandButton"
+          onClick={toggleExpand}
+        >
           <img className="chevronIcon" src={iconFile} alt="icon" />
           {text}
         </button>
       </div>
     );
-  };
-
-  useEffect(() => dispatchEnsureData(catalogId), [catalogId]);
-
-  const [languagesDetermined, setLanguagesDetermined] = useState(false);
-  const [expandAll, setExpandAll] = useState(false);
-
-  const toggleExpand = () => {
-    setExpandAll(!expandAll);
   };
 
   const translatableFields = [
@@ -177,13 +181,11 @@ export function DatasetRegistrationPagePure(
     'sample'
   ];
 
-  const omitDistributionLicenseField = datasetItem => {
-    const { distribution } = datasetItem;
-    distribution &&
-      distribution.forEach((item, index) => {
-        unset(datasetItem, `distribution.${index}.license`);
-      });
-    return datasetItem;
+  const omitDistributionLicenseField = dataset => {
+    dataset?.distribution.forEach((item, index) => {
+      unset(dataset, `distribution.${index}.license`);
+    });
+    return dataset;
   };
 
   const getUsedLanguages = () =>
