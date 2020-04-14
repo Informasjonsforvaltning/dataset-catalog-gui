@@ -133,23 +133,6 @@ export function DatasetRegistrationPagePure(
     sample = {}
   } = form || {};
 
-  const renderExpandButton = expanded => {
-    const text = expanded ? localization.collapse : localization.expand;
-    const icon = expanded
-      ? 'icon-collapse-text-sm.svg'
-      : 'icon-expand-text-sm.svg';
-    const iconFile = `/img/${icon}`;
-
-    return (
-      <div className="d-flex justify-content-end">
-        <button className="toggleExpandButton" onClick={toggleExpand}>
-          <img className="chevronIcon" src={iconFile} alt="icon" />
-          {text}
-        </button>
-      </div>
-    );
-  };
-
   useEffect(() => dispatchEnsureData(catalogId), [catalogId]);
 
   const [languagesDetermined, setLanguagesDetermined] = useState(false);
@@ -177,13 +160,32 @@ export function DatasetRegistrationPagePure(
     'sample'
   ];
 
-  const omitDistributionLicenseField = datasetItem => {
-    const { distribution } = datasetItem;
-    distribution &&
-      distribution.forEach((item, index) => {
-        unset(datasetItem, `distribution.${index}.license`);
-      });
-    return datasetItem;
+  const renderExpandButton = expanded => {
+    const text = expanded ? localization.collapse : localization.expand;
+    const icon = expanded
+      ? 'icon-collapse-text-sm.svg'
+      : 'icon-expand-text-sm.svg';
+    const iconFile = `/img/${icon}`;
+
+    return (
+      <div className="d-flex justify-content-end">
+        <button
+          type="button"
+          className="toggleExpandButton"
+          onClick={toggleExpand}
+        >
+          <img className="chevronIcon" src={iconFile} alt="icon" />
+          {text}
+        </button>
+      </div>
+    );
+  };
+
+  const omitDistributionLicenseField = dataset => {
+    dataset?.distribution?.forEach((item, index) => {
+      unset(dataset, `distribution.${index}.license`);
+    });
+    return dataset;
   };
 
   const getUsedLanguages = () =>

@@ -89,8 +89,7 @@ FormTemplate.defaultProps = {
   syncErrors: false,
   required: false,
   children: null,
-  collapse: false,
-  onToggle: _.noop
+  showInitially: false
 };
 
 FormTemplate.propTypes = {
@@ -103,7 +102,6 @@ FormTemplate.propTypes = {
     PropTypes.array
   ]),
   required: PropTypes.bool,
-  children: PropTypes.object,
-  collapse: PropTypes.bool,
-  onToggle: PropTypes.func
+  children: PropTypes.node,
+  showInitially: PropTypes.bool
 };
