@@ -24,7 +24,7 @@ export const Footer = () => {
         <div className="row">
           <div className="col-md-4">
             <p className="fdk-p-footer">
-              <a href="https://www.brreg.no/personvernerklaering/">
+              <a href="https://www.digdir.no/om-oss/personvernerklaering/706">
                 {localization.footer.information}
                 {localization.footer.privacy}
                 <i className="fa fa-external-link fdk-fa-right" />
@@ -41,7 +41,7 @@ export const Footer = () => {
           </div>
           <div className="col-md-4 text-right">
             <p className="fdk-p-footer">
-              <a href="mailto:fellesdatakatalog@brreg.no">
+              <a href="mailto:digdir@fellesdatakatalog.no">
                 <span className="uu-invisible" aria-hidden="false">
                   Mailadresse.
                 </span>

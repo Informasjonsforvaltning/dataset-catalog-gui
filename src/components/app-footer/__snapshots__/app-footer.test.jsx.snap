@@ -22,7 +22,7 @@ exports[`should render Footer correctly 1`] = `
           className="fdk-p-footer"
         >
           <a
-            href="https://www.brreg.no/personvernerklaering/"
+            href="https://www.digdir.no/om-oss/personvernerklaering/706"
           >
             Informasjonskapsler
              og personvern
@@ -54,7 +54,7 @@ exports[`should render Footer correctly 1`] = `
           className="fdk-p-footer"
         >
           <a
-            href="mailto:fellesdatakatalog@brreg.no"
+            href="mailto:digdir@fellesdatakatalog.no"
           >
             <span
               aria-hidden="false"
@@ -63,7 +63,7 @@ exports[`should render Footer correctly 1`] = `
               Mailadresse.
             </span>
             Kontakt:
-            fellesdatakatalog@brreg.no
+            digdir@fellesdatakatalog.no
           </a>
         </p>
       </div>
