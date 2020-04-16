@@ -12,6 +12,7 @@ export const REFERENCEDATA_PATH_FREQUENCY = 'codes/frequency';
 export const REFERENCEDATA_PATH_OPENLICENCES = 'codes/openlicenses';
 export const REFERENCEDATA_PATH_PROVENANCE = 'codes/provenancestatement';
 export const REFERENCEDATA_PATH_REFERENCETYPES = 'codes/referencetypes';
+export const REFERENCEDATA_PATH_MEDIATYPES = 'codes/mediatypes';
 export const REFERENCEDATA_PATH_LOS = 'los';
 export const REFERENCEDATA_PATH_THEMES = 'themes';
 

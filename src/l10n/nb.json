@@ -322,6 +322,8 @@
       "downloadLabel": "Nedlastbar fil",
       "accessURLLabel": "Tilgangslenke",
       "formatLabel": "Format",
+      "formatPlaceholder": "Søk på og velg fra registrerte mediatyper",
+      "formatPlaceholderAlt": "Oppgi evt. annen mediatype",
       "descriptionLabel": "Beskrivelse"
     },
     "distributionAPI": {

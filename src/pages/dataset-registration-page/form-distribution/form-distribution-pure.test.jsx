@@ -2,7 +2,7 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import {
   FormDistributionPure,
-  renderDistributions,
+  Distributions,
   renderDistributionLandingpage
 } from './form-distribution-pure';
 import { distributionTypes } from './distribution-types';
@@ -28,7 +28,7 @@ test('should render FormDistributionPure correctly', () => {
 });
 
 test('should render renderDistributions correctly', () => {
-  wrapper = shallow(renderDistributions(defaultProps));
+  wrapper = shallow(Distributions(defaultProps));
   expect(wrapper).toMatchSnapshot();
 });
 

@@ -1,12 +1,13 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React, { useState } from 'react';
 import { Field, FieldArray } from 'redux-form';
+import Autocomplete from 'react-autocomplete';
+import TagsInput from 'react-tagsinput';
 import _ from 'lodash';
+import cx from 'classnames';
 
 import localization from '../../../services/localization';
 import { Helptext } from '../../../components/helptext/helptext.component';
 import InputField from '../../../components/fields/field-input/field-input.component';
-import InputTagsField from '../../../components/fields/field-input-tags/field-input-tags.component';
 import TextAreaField from '../../../components/fields/field-textarea/field-textarea.component';
 import RadioField from '../../../components/fields/field-radio/field-radio.component';
 import SelectField from '../../../components/fields/field-select/field-select.component';
@@ -32,16 +33,15 @@ export const renderDistributionLandingpage = ({ fields, isReadOnly }) => {
     </div>
   );
 };
-renderDistributionLandingpage.propTypes = {
-  fields: PropTypes.object.isRequired,
-  isReadOnly: PropTypes.bool.isRequired
-};
 
-const renderFomatsReadOnly = ({ input }) => {
-  return <div className="pl-3">{input.value.join(', ')}</div>;
-};
-renderFomatsReadOnly.propTypes = {
-  input: PropTypes.object.isRequired
+const renderFomatsReadOnly = ({ input: { value }, mediaTypes }) => {
+  return (
+    <div className="pl-3">
+      {value
+        .map(item => mediaTypes.find(({ code }) => code === item)?.name ?? item)
+        .join(', ')}
+    </div>
+  );
 };
 
 const renderLicence = ({ input }) => {
@@ -51,13 +51,143 @@ const renderLicence = ({ input }) => {
     </div>
   );
 };
-renderLicence.propTypes = {
-  input: PropTypes.object.isRequired
+
+const Formats = ({
+  input: { name: fieldName, value: inputValue, onChange },
+  mediaTypes
+}) => {
+  const [filterText, setFilterText] = useState('');
+
+  return (
+    <>
+      <Autocomplete
+        name={fieldName}
+        wrapperProps={{ style: { width: '100%' } }}
+        getItemValue={({ code }) => code}
+        items={mediaTypes.filter(({ code, name }) => {
+          const match = inputValue.find(mediaType => code === mediaType);
+          return (
+            !match &&
+            (code.toLowerCase().includes(filterText) ||
+              name.toLowerCase().includes(filterText))
+          );
+        })}
+        renderInput={props => (
+          <div className="input-group">
+            <input
+              type="text"
+              className="form-control"
+              {...props}
+              placeholder={localization.schema.distribution.formatPlaceholder}
+            />
+            <span className="input-group-btn input-group-append">
+              <button
+                type="button"
+                className="btn btn-default input-group-text"
+                onClick={() => setFilterText('')}
+              >
+                <i className="fa fa-times-circle" />
+              </button>
+            </span>
+          </div>
+        )}
+        renderItem={({ code, name }, isHighlighted) => {
+          const itemClass = cx('px-2', {
+            'fdk-bg-color-neutral-lightest': isHighlighted
+          });
+          return (
+            <div key={code} className={itemClass}>
+              {name}
+            </div>
+          );
+        }}
+        renderMenu={(items, value, style) => (
+          <div className="fdk-autocomplete-menu" style={{ ...style }}>
+            {items.slice(0, 50)}
+          </div>
+        )}
+        value={filterText}
+        onChange={e => {
+          e.preventDefault();
+          setFilterText(e.target.value);
+        }}
+        onSelect={val => {
+          setFilterText('');
+          onChange([
+            ...inputValue
+              .filter(value => mediaTypes.find(({ code }) => code === value))
+              .filter(Boolean),
+            val,
+            ...inputValue
+              .filter(value => !mediaTypes.find(({ code }) => code === value))
+              .filter(Boolean)
+          ]);
+        }}
+        menuStyle={{ zIndex: '1000' }}
+      />
+      <div className="d-flex flex-wrap my-2">
+        {inputValue
+          .filter(value => mediaTypes.find(({ code }) => code === value))
+          .filter(Boolean)
+          .map((value, index) => (
+            <div key={`filter-${index}-${value}`}>
+              <div
+                role="button"
+                tabIndex={0}
+                className="mr-2 mb-1 fdk-badge badge badge-secondary fdk-text-size-15"
+                onClick={() => {
+                  inputValue.splice(index, 1);
+                  onChange(inputValue);
+                }}
+                onKeyPress={e => {
+                  e.preventDefault();
+                  inputValue.splice(index, 1);
+                  onChange(inputValue);
+                }}
+              >
+                <span className="fdk-filter-pill">
+                  {mediaTypes.find(({ code }) => code === value)?.name ?? value}
+                </span>
+              </div>
+            </div>
+          ))}
+      </div>
+      <TagsInput
+        name={fieldName}
+        className="fdk-reg-input-tags"
+        inputProps={{
+          placeholder: localization.schema.distribution.formatPlaceholderAlt
+        }}
+        value={inputValue
+          .filter(value => !mediaTypes.find(({ code }) => code === value))
+          .filter(Boolean)}
+        onChange={tags =>
+          onChange([
+            ...inputValue
+              .filter(value => mediaTypes.find(({ code }) => code === value))
+              .filter(Boolean),
+            ...tags
+          ])
+        }
+        addOnBlur
+      />
+    </>
+  );
 };
 
-export const renderDistributions = ({
+const renderFormat = ({ input, mediaTypes }) => (
+  <FieldArray
+    name={name}
+    component={Formats}
+    input={input}
+    mediaTypes={mediaTypes}
+  />
+);
+
+export const Distributions = ({
   fields,
   openLicenseItems,
+  mediaTypes,
   initialValues,
   onDeleteFieldAtIndex,
   languages,
@@ -95,6 +225,7 @@ export const renderDistributions = ({
                   component={isReadOnly ? LinkReadonlyField : InputField}
                   label={localization.schema.common.titleLabel}
                   languages={languages}
+                  showLabel
                 />
               </div>
               <div className="form-group">
@@ -158,12 +289,8 @@ export const renderDistributions = ({
                 />
                 <Field
                   name={`${distribution}.format`}
-                  type="text"
-                  component={isReadOnly ? renderFomatsReadOnly : InputTagsField}
-                  label={localization.schema.distribution.formatLabel}
-                  // todo Proper fix needed. right now is temporarily removed because
-                  //  validation somehow causes render loop
-                  // validate={[minLength(1)]}
+                  component={isReadOnly ? renderFomatsReadOnly : renderFormat}
+                  mediaTypes={mediaTypes}
                 />
               </div>
               <div className="form-group">
@@ -187,6 +314,7 @@ export const renderDistributions = ({
                   component={isReadOnly ? InputFieldReadonly : TextAreaField}
                   label={localization.schema.distribution.descriptionLabel}
                   languages={languages}
+                  showLabel
                 />
               </div>
 
@@ -255,18 +383,11 @@ export const renderDistributions = ({
     </div>
   );
 };
-renderDistributions.propTypes = {
-  fields: PropTypes.object.isRequired,
-  initialValues: PropTypes.object.isRequired,
-  openLicenseItems: PropTypes.array.isRequired,
-  onDeleteFieldAtIndex: PropTypes.func.isRequired,
-  languages: PropTypes.array.isRequired,
-  isReadOnly: PropTypes.bool.isRequired
-};
 
 export const FormDistributionPure = ({
   initialValues,
   openLicenseItems,
+  mediaTypes,
   dispatch,
   catalogId,
   datasetId,
@@ -286,8 +407,9 @@ export const FormDistributionPure = ({
     <form>
       <FieldArray
         name="distribution"
-        component={renderDistributions}
+        component={Distributions}
         openLicenseItems={openLicenseItems}
+        mediaTypes={mediaTypes}
         initialValues={initialValues}
         onDeleteFieldAtIndex={deleteFieldAtIndex}
         languages={languages}
@@ -304,13 +426,4 @@ FormDistributionPure.defaultProps = {
   openLicenseItems: [],
   languages: [],
   isReadOnly: false
-};
-FormDistributionPure.propTypes = {
-  initialValues: PropTypes.object.isRequired,
-  dispatch: PropTypes.func,
-  catalogId: PropTypes.string,
-  datasetId: PropTypes.string,
-  openLicenseItems: PropTypes.array,
-  languages: PropTypes.array,
-  isReadOnly: PropTypes.bool
 };

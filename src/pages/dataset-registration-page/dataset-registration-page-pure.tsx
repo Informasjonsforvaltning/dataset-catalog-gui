@@ -44,6 +44,7 @@ import './dataset-registration-page.scss';
 import { deepKeys } from '../../lib/deep-keys';
 import { RegistrationStatus } from '../../components/registration-status/registration-status.component';
 import { getTranslateText } from '../../services/translateText';
+import { MediaType } from '../../types';
 
 // check the validation state of all rendered forms
 const isAllowedToPublish = form =>
@@ -77,6 +78,7 @@ interface DatasetRegistrationPagePureProps {
   referenceTypesItems: {}[];
   referenceDatasetsItems: {}[];
   openLicenseItems: {}[];
+  mediaTypes: MediaType[];
   datasetFormStatus: {
     isSaving: boolean;
     error: any;
@@ -104,6 +106,7 @@ export function DatasetRegistrationPagePure(
     referenceTypesItems,
     referenceDatasetsItems,
     openLicenseItems,
+    mediaTypes,
     datasetFormStatus,
     catalogId,
     datasetId,
@@ -463,6 +466,7 @@ export function DatasetRegistrationPagePure(
                 <FormDistribution
                   datasetItem={datasetItem}
                   openLicenseItems={openLicenseItems}
+                  mediaTypes={mediaTypes}
                   catalogId={catalogId}
                   datasetId={datasetId}
                   languages={languages}
@@ -535,6 +539,7 @@ DatasetRegistrationPagePure.defaultProps = {
   referenceTypesItems: null,
   referenceDatasetsItems: null,
   openLicenseItems: null,
+  mediaTypes: null,
   datasetFormStatus: null,
   history: null,
   losItems: null,

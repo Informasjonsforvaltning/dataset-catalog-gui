@@ -16,6 +16,7 @@ import {
   REFERENCEDATA_PATH_OPENLICENCES,
   REFERENCEDATA_PATH_PROVENANCE,
   REFERENCEDATA_PATH_REFERENCETYPES,
+  REFERENCEDATA_PATH_MEDIATYPES,
   REFERENCEDATA_PATH_THEMES
 } from '../../redux/modules/referenceData';
 import { selectorForDatasetFormStatus } from '../../redux/modules/dataset-form-status';
@@ -55,6 +56,7 @@ const mapStateToProps = (state, { catalogId, datasetId }) => {
       'items',
       REFERENCEDATA_PATH_OPENLICENCES
     ]),
+    mediaTypes: _.get(referenceData, ['items', REFERENCEDATA_PATH_MEDIATYPES]),
     losItems: _.get(referenceData, ['items', REFERENCEDATA_PATH_LOS]),
     languages
   };
