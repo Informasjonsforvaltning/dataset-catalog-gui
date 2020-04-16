@@ -283,6 +283,18 @@ export const Distributions = ({
               </div>
               <div className="form-group">
                 <Helptext
+                  title={localization.schema.distribution.helptext.downloadURL}
+                  term="Distribution_downloadURL"
+                />
+                <Field
+                  name={`${distribution}.downloadURL.0`}
+                  type="text"
+                  component={isReadOnly ? LinkReadonlyField : InputField}
+                  label={localization.schema.distribution.downloadURLLabel}
+                />
+              </div>
+              <div className="form-group">
+                <Helptext
                   title={localization.schema.distribution.helptext.format}
                   term="Distribution_format"
                   required

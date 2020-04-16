@@ -16,6 +16,7 @@ exports[`should render FormDistributionPure correctly 1`] = `
             "description": Object {
               "nb": "Beskrivelse av distribusjon",
             },
+            "downloadURL": Array [],
             "format": Array [
               "json",
               "xml",
