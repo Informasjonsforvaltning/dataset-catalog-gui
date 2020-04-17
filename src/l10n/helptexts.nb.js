@@ -338,9 +338,9 @@ Lenke til IANAs liste over offisielle medietyper: <a style="font-weight: bold;" 
       'Dersom distribusjonen har åpne, offentlige data skal lisens oppgis.',
     description: ''
   },
-  Distribution_api: {
-    abstract: 'Søk etter og velg API-beskrivelse fra API-katalogen.',
-    description: `Dersom det finnes API-distribusjoner, anbefaler vi at de først beskrives i API-katalogen og deretter knyttes til datasettbeskrivelsen.`
+  Distribution_accessService: {
+    abstract: 'Søk etter og velg datatjenester fra katalogen.',
+    description: ''
   },
   Catalog_title: {
     abstract:

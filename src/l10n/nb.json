@@ -306,9 +306,9 @@
     "distribution": {
       "helptext": {
         "title": "Tittel",
-        "type": "Type",
         "accessURL": "Tilgangslenke",
         "format": "Format",
+        "accessService": "Tilgangstjeneste",
         "license": "Lisens",
         "description": "Beskrivelse",
         "documentation": "Lenke til dokumentasjon av distribusjonen",
@@ -317,19 +317,11 @@
       "landingPageLabel": "Landingsside",
       "deleteDistributionLabel": "Slett distribusjon",
       "addDistributionLabel": "Legg til distribusjon",
-      "apiLabel": "API",
-      "feedLabel": "Feed",
-      "downloadLabel": "Nedlastbar fil",
       "accessURLLabel": "Tilgangslenke",
       "formatLabel": "Format",
       "formatPlaceholder": "Søk på og velg fra registrerte mediatyper",
       "formatPlaceholderAlt": "Oppgi evt. annen mediatype",
       "descriptionLabel": "Beskrivelse"
-    },
-    "distributionAPI": {
-      "helptext": {
-        "api": "API-beskrivelser"
-      }
     },
     "sample": {
       "helptext": {

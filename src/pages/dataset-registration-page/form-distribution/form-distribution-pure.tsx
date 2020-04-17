@@ -11,6 +11,7 @@ import InputField from '../../../components/fields/field-input/field-input.compo
 import TextAreaField from '../../../components/fields/field-textarea/field-textarea.component';
 import RadioField from '../../../components/fields/field-radio/field-radio.component';
 import SelectField from '../../../components/fields/field-select/field-select.component';
+import { InputTagsAPIsField } from '../field-tagsinput-apis/field-tagsinput-apis.component';
 import { licenseType, textType } from '../../../schemaTypes';
 import { datasetFormPatchThunk } from '../formsLib/asyncValidateDatasetInvokePatch';
 import MultilingualField from '../../../components/multilingual-field/multilingual-field.component';
@@ -43,6 +44,13 @@ const renderFomatsReadOnly = ({ input: { value }, mediaTypes }) => {
     </div>
   );
 };
+
+const renderAccessServiceReadOnly = ({ input: { value } }) =>
+  value.map(({ accessService }, index) => (
+    <div key={accessService?.id ?? index} className="pl-3">
+      {getTranslateText(accessService?.description?.nb)}
+    </div>
+  ));
 
 const renderLicence = ({ input }) => {
   return (
@@ -197,9 +205,6 @@ export const Distributions = ({
     <div>
       {fields &&
         fields.map((distribution, index) => {
-          if (_.get(initialValues, ['distribution', index, 'accessService'])) {
-            return null;
-          }
           return (
             <div key={index}>
               <div className="d-flex">
@@ -230,47 +235,6 @@ export const Distributions = ({
               </div>
               <div className="form-group">
                 <Helptext
-                  title={localization.schema.distribution.helptext.type}
-                  term="Distribution_type"
-                />
-                {isReadOnly && (
-                  <>
-                    <div className="pl-3">
-                      {_.get(initialValues, ['distribution', index, 'type'])}
-                    </div>
-                  </>
-                )}
-                {!isReadOnly && (
-                  <>
-                    <Field
-                      name={`${distribution}.type`}
-                      radioId={`distribution-api-${index}`}
-                      component={RadioField}
-                      type="radio"
-                      value="API"
-                      label={localization.schema.distribution.apiLabel}
-                    />
-                    <Field
-                      name={`${distribution}.type`}
-                      radioId={`distribution-feed-${index}`}
-                      component={RadioField}
-                      type="radio"
-                      value="Feed"
-                      label={localization.schema.distribution.feedLabel}
-                    />
-                    <Field
-                      name={`${distribution}.type`}
-                      radioId={`distribution-file-${index}`}
-                      component={RadioField}
-                      type="radio"
-                      value="Nedlastbar fil"
-                      label={localization.schema.distribution.downloadLabel}
-                    />
-                  </>
-                )}
-              </div>
-              <div className="form-group">
-                <Helptext
                   title={localization.schema.distribution.helptext.accessURL}
                   term="Distribution_accessURL"
                 />
@@ -291,6 +255,22 @@ export const Distributions = ({
                   name={`${distribution}.format`}
                   component={isReadOnly ? renderFomatsReadOnly : renderFormat}
                   mediaTypes={mediaTypes}
+                />
+              </div>
+              <div className="form-group">
+                <Helptext
+                  title={
+                    localization.schema.distribution.helptext.accessService
+                  }
+                  term="Distribution_accessService"
+                />
+                <Field
+                  name={`${distribution}.accessService`}
+                  component={
+                    isReadOnly
+                      ? renderAccessServiceReadOnly
+                      : InputTagsAPIsField
+                  }
                 />
               </div>
               <div className="form-group">

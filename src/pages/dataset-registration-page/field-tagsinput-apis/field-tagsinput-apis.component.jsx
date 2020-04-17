@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import _ from 'lodash';
 import ReactTags from 'react-tag-autocomplete';
 
@@ -7,29 +6,34 @@ import { getTranslateText } from '../../../services/translateText';
 import { searchApis } from '../../../services/api/search-api/apis';
 import localization from '../../../services/localization';
 
-const TYPE_API = 'API';
+const addTagToInput = (updates, { input: { onChange } }) => {
+  // NOTE: for now, we only accept one access service
+  // inputValues.push({
+  //   accessService: {
+  //     description: {
+  //       [localization.getLanguage()]: _.get(updates, ['name'])
+  //     },
+  //     endpointDescription: [
+  //       {
+  //         uri: _.get(updates, ['id'])
+  //       }
+  //     ]
+  //   }
+  // });
+  // input.onChange(inputValues);
 
-const addTagToInput = (updates, props) => {
-  const { input } = props;
-  let inputValues = input.value;
-  if (!inputValues) {
-    inputValues = [];
-  }
-  inputValues.push({
-    format: [],
-    type: TYPE_API,
-    accessService: {
-      description: {
-        [localization.getLanguage()]: _.get(updates, ['name'])
-      },
-      endpointDescription: [
-        {
-          uri: _.get(updates, ['id'])
-        }
-      ]
-    }
+  // TODO: REVERT BACK TO 0..N
+
+  onChange({
+    description: {
+      [localization.getLanguage()]: updates.name
+    },
+    endpointDescription: [
+      {
+        uri: updates.id
+      }
+    ]
   });
-  input.onChange(inputValues);
 };
 
 const removeTagFromInput = (index, props) => {
@@ -56,19 +60,20 @@ export class InputTagsAPIsField extends React.Component {
   }
 
   componentDidMount() {
-    const { input } = this.props;
-    const datasetReferences = [];
-    _.get(input, 'value', []).forEach(item => {
-      if (_.get(item, 'accessService')) {
-        datasetReferences.push({
-          id: item.id,
-          name: getTranslateText(_.get(item, ['accessService', 'description']))
-        });
-      }
-    });
-    this.setState({
-      tags: datasetReferences
-    });
+    const {
+      input: { value: accessService }
+    } = this.props;
+    if (accessService) {
+      const { id, description } = accessService;
+      this.setState({
+        tags: [
+          {
+            id,
+            name: getTranslateText(description)
+          }
+        ]
+      });
+    }
   }
 
   handleDelete(i) {
@@ -125,6 +130,9 @@ export class InputTagsAPIsField extends React.Component {
             handleDelete={this.handleDelete}
             handleAddition={this.handleAddition}
             handleInputChange={this.handleInputChange}
+            inputAttributes={{
+              disabled: tags.length > 0
+            }}
           />
         </div>
       </div>
@@ -134,8 +142,4 @@ export class InputTagsAPIsField extends React.Component {
 
 InputTagsAPIsField.defaultProps = {
   input: null
-};
-
-InputTagsAPIsField.propTypes = {
-  input: PropTypes.object
 };

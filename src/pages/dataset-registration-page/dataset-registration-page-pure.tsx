@@ -19,7 +19,6 @@ import { FormInformationModel } from './form-informationmodel/form-informationmo
 import { ConnectedFormContactPoint } from './form-contactPoint/connected-form-contactPoint.component';
 import { ConnectedFormContents } from './form-contents/connected-form-contents.component';
 import { FormPublish } from './form-publish/form-publish';
-import { FormDistributionApi } from './form-distribution-api/form-distribution-api';
 import { ConnectedFormLOS } from './form-los/connected-form-los.component';
 import { ConnectedFormPublisher } from './form-publisher/connected-form-publisher.component';
 import LanguagePicker from '../../components/language-picker/language-picker.component';
@@ -28,7 +27,6 @@ import {
   conceptValues,
   contactPointValues,
   contentsValues,
-  distributionAPIValues,
   distributionValues,
   informationModelValues,
   losValues,
@@ -438,20 +436,6 @@ export function DatasetRegistrationPagePure(
                   datasetItem={datasetItem}
                   catalogId={catalogId}
                   datasetId={datasetId}
-                  isReadOnly={isReadOnly}
-                />
-              </FormTemplate>
-
-              <FormTemplate
-                title={localization.datasets.formTemplates.distributionAPI}
-                values={distributionAPIValues(distribution.values)}
-                showInitially={expandAll}
-              >
-                <FormDistributionApi
-                  datasetItem={datasetItem}
-                  catalogId={catalogId}
-                  datasetId={datasetId}
-                  datasetUri={_.get(datasetItem, 'uri')}
                   isReadOnly={isReadOnly}
                 />
               </FormTemplate>
