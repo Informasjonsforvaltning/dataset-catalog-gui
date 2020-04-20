@@ -6,44 +6,24 @@ import { getTranslateText } from '../../../services/translateText';
 import { searchApis } from '../../../services/api/search-api/apis';
 import localization from '../../../services/localization';
 
-const addTagToInput = (updates, { input: { onChange } }) => {
-  // NOTE: for now, we only accept one access service
-  // inputValues.push({
-  //   accessService: {
-  //     description: {
-  //       [localization.getLanguage()]: _.get(updates, ['name'])
-  //     },
-  //     endpointDescription: [
-  //       {
-  //         uri: _.get(updates, ['id'])
-  //       }
-  //     ]
-  //   }
-  // });
-  // input.onChange(inputValues);
+const addTagToInput = (updates, { input: { value, onChange } }) =>
+  onChange(
+    (value || []).concat({
+      id: updates.id,
+      description: {
+        [localization.getLanguage()]: updates.name
+      },
+      endpointDescription: [
+        {
+          uri: updates.id
+        }
+      ]
+    })
+  );
 
-  // TODO: REVERT BACK TO 0..N
-
-  onChange({
-    description: {
-      [localization.getLanguage()]: updates.name
-    },
-    endpointDescription: [
-      {
-        uri: updates.id
-      }
-    ]
-  });
-};
-
-const removeTagFromInput = (index, props) => {
-  const { input } = props;
-  const distributions = input.value;
-
-  // find distribution-apis among all distributions
-  const distributionApis = _.reject(distributions, { accessService: null });
-  // save all distributsions except the one deleted by index
-  input.onChange(_.reject(distributions, distributionApis[index]));
+const removeTagFromInput = (index, { input: value = [], onChange }) => {
+  value.splice(index, 1);
+  onChange(value);
 };
 
 export class InputTagsAPIsField extends React.Component {
@@ -63,15 +43,12 @@ export class InputTagsAPIsField extends React.Component {
     const {
       input: { value: accessService }
     } = this.props;
-    if (accessService) {
-      const { id, description } = accessService;
+    if (accessService && Array.isArray(accessService)) {
       this.setState({
-        tags: [
-          {
-            id,
-            name: getTranslateText(description)
-          }
-        ]
+        tags: accessService.map(({ id, description }) => ({
+          id,
+          name: getTranslateText(description)
+        }))
       });
     }
   }
@@ -130,9 +107,6 @@ export class InputTagsAPIsField extends React.Component {
             handleDelete={this.handleDelete}
             handleAddition={this.handleAddition}
             handleInputChange={this.handleInputChange}
-            inputAttributes={{
-              disabled: tags.length > 0
-            }}
           />
         </div>
       </div>

@@ -9,7 +9,6 @@ import localization from '../../../services/localization';
 import { Helptext } from '../../../components/helptext/helptext.component';
 import InputField from '../../../components/fields/field-input/field-input.component';
 import TextAreaField from '../../../components/fields/field-textarea/field-textarea.component';
-import RadioField from '../../../components/fields/field-radio/field-radio.component';
 import SelectField from '../../../components/fields/field-select/field-select.component';
 import { InputTagsAPIsField } from '../field-tagsinput-apis/field-tagsinput-apis.component';
 import { licenseType, textType } from '../../../schemaTypes';
@@ -46,9 +45,9 @@ const renderFomatsReadOnly = ({ input: { value }, mediaTypes }) => {
 };
 
 const renderAccessServiceReadOnly = ({ input: { value } }) =>
-  value.map(({ accessService }, index) => (
-    <div key={accessService?.id ?? index} className="pl-3">
-      {getTranslateText(accessService?.description?.nb)}
+  (value || []).map(({ id, description }, index) => (
+    <div key={id ?? `data-service-${index}`} className="pl-3">
+      {getTranslateText(description)}
     </div>
   ));
 
@@ -196,7 +195,6 @@ export const Distributions = ({
   fields,
   openLicenseItems,
   mediaTypes,
-  initialValues,
   onDeleteFieldAtIndex,
   languages,
   isReadOnly
