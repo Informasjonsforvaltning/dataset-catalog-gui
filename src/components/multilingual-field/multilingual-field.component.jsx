@@ -14,7 +14,7 @@ const MultilingualField = ({
 }) => (
   <>
     {showLabel && label && (
-      <label className="fdk-form-label w-100 pl-2" htmlFor={name}>
+      <label className="fdk-form-label w-100 pl-2 mb-2" htmlFor={name}>
         {label}
       </label>
     )}
