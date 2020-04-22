@@ -6,13 +6,27 @@ exports[`should render FormReference correctly 1`] = `
     className="form-group"
   >
     <withStateHandlers(Component)
-      terms="Dataset_relation"
-      title="Relasjoner"
+      term="Dataset_relation"
+      title="Relasjoner til datasett"
     />
     <FieldArray
       component={[Function]}
       isReadOnly={false}
       name="references"
+      onDeleteFieldAtIndex={[Function]}
+    />
+  </div>
+  <div
+    className="form-group"
+  >
+    <withStateHandlers(Component)
+      term="Dataset_relation_resource"
+      title="Relaterte ressurser"
+    />
+    <FieldArray
+      component={[Function]}
+      isReadOnly={false}
+      name="relations"
       onDeleteFieldAtIndex={[Function]}
     />
   </div>

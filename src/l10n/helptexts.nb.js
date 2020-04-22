@@ -253,6 +253,10 @@ Velg "Tesauri" dersom datasettbeskrivelsen omhandler en hierarkisk og  assosiati
     abstract: 'Oppgi relaterte datasett.',
     description: `lenke til veileder: <a href='https://doc.difi.no/data/veileder-for-beskrivelse-av-datasett/#_kilde_datasett_avledet_fra'>https://doc.difi.no/data/veileder-for-beskrivelse-av-datasett/#_kilde_datasett_avledet_fra</a>`
   },
+  Dataset_relation_resource: {
+    abstract: 'Oppgi relaterte ressurser.',
+    description: ''
+  },
   Agent_name: {
     abstract: 'Navnet på enheten benyttes i visninger',
     description: `Navnet på enheten benyttes i visninger`

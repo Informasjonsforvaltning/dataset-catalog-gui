@@ -4,6 +4,9 @@ import { Field, FieldArray } from 'redux-form';
 import localization from '../../../services/localization';
 import { Helptext } from '../../../components/helptext/helptext.component';
 import SelectField from '../../../components/fields/field-select/field-select.component';
+import MultilingualField from '../../../components/multilingual-field/multilingual-field.component';
+import InputField from '../../../components/fields/field-input/field-input.component';
+import InputFieldReadonly from '../../../components/fields/field-input-readonly/field-input-readonly.component';
 import { datasetFormPatchThunk } from '../formsLib/asyncValidateDatasetInvokePatch';
 import { getTranslateText } from '../../../services/translateText';
 
@@ -129,8 +132,102 @@ renderReference.propTypes = {
   onDeleteFieldAtIndex: PropTypes.func.isRequired,
   isReadOnly: PropTypes.bool.isRequired
 };
-export const FormReference = props => {
-  const { initialValues, dispatch, catalogId, datasetId, isReadOnly } = props;
+
+const renderRelationFields = ({
+  field,
+  languages,
+  onDeleteFieldAtIndex,
+  isReadOnly
+}) => (
+  <div key={field}>
+    {isReadOnly && (
+      <div className="mb-4">
+        <MultilingualField
+          name={`${field}.prefLabel`}
+          component={InputFieldReadonly}
+          languages={languages}
+          label="Title"
+          showLabel
+        />
+        <div className="mt-4">
+          <Field
+            name={`${field}.uri`}
+            component={InputFieldReadonly}
+            label="Lenke"
+            showLabel
+          />
+        </div>
+      </div>
+    )}
+    {!isReadOnly && (
+      <div className="mb-4" key={field}>
+        <MultilingualField
+          name={`${field}.prefLabel`}
+          component={InputField}
+          languages={languages}
+          label="Title"
+          showLabel
+        />
+        <div className="mt-4">
+          <Field
+            name={`${field}.uri`}
+            component={InputField}
+            label="Lenke"
+            showLabel
+          />
+        </div>
+        <div className="d-flex align-items-end my-2 mb-4">
+          <button
+            className="fdk-btn-no-border"
+            type="button"
+            title="Remove reference"
+            onClick={onDeleteFieldAtIndex}
+          >
+            <i className="fa fa-trash mr-2" />
+            {localization.schema.reference.removeRelationLabel}
+          </button>
+        </div>
+      </div>
+    )}
+  </div>
+);
+
+const renderRelations = ({
+  fields,
+  languages,
+  onDeleteFieldAtIndex,
+  isReadOnly
+}) => (
+  <div>
+    {fields.map((field, index) =>
+      renderRelationFields({
+        field,
+        languages,
+        onDeleteFieldAtIndex: () => onDeleteFieldAtIndex(fields, index),
+        isReadOnly
+      })
+    )}
+    {!isReadOnly && (
+      <button
+        className="fdk-btn-no-border"
+        type="button"
+        onClick={() => fields.push({})}
+      >
+        <i className="fa fa-plus mr-2" />
+        {localization.schema.reference.addRelationLabel}
+      </button>
+    )}
+  </div>
+);
+
+export const FormReference = ({
+  initialValues,
+  dispatch,
+  catalogId,
+  datasetId,
+  languages,
+  isReadOnly
+}) => {
   const { referenceTypesItems, referenceDatasetsItems } = initialValues;
   const deleteFieldAtIndex = (fields, index) => {
     const values = fields.getAll();
@@ -147,13 +244,26 @@ export const FormReference = props => {
         <div className="form-group">
           <Helptext
             title={localization.schema.reference.helptext.reference}
-            terms="Dataset_relation"
+            term="Dataset_relation"
           />
           <FieldArray
             name="references"
             component={renderReference}
             referenceTypesItems={referenceTypesItems}
             referenceDatasetsItems={referenceDatasetsItems}
+            onDeleteFieldAtIndex={deleteFieldAtIndex}
+            isReadOnly={isReadOnly}
+          />
+        </div>
+        <div className="form-group">
+          <Helptext
+            title={localization.schema.reference.helptext.relatedResources}
+            term="Dataset_relation_resource"
+          />
+          <FieldArray
+            name="relations"
+            component={renderRelations}
+            languages={languages}
             onDeleteFieldAtIndex={deleteFieldAtIndex}
             isReadOnly={isReadOnly}
           />

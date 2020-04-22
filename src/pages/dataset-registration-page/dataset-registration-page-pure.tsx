@@ -422,6 +422,7 @@ export function DatasetRegistrationPagePure(
                   referenceDatasetsItems={referenceDatasetsItems}
                   catalogId={catalogId}
                   datasetId={datasetId}
+                  languages={languages}
                   isReadOnly={isReadOnly}
                 />
               </FormTemplate>

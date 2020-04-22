@@ -270,9 +270,12 @@
     },
     "reference": {
       "helptext": {
-        "reference": "Relasjoner"
+        "reference": "Relasjoner til datasett",
+        "relatedResources": "Relaterte ressurser"
       },
-      "addReferenceLabel": "Legg til relaterte datasett"
+      "addReferenceLabel": "Legg til relaterte datasett",
+      "addRelationLabel": "Legg til ny ressurs",
+      "removeRelationLabel": "Slett ressurs"
     },
     "conformsTo": {
       "titleLabel": "Tittel",
