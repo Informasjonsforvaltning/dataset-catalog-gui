@@ -14,7 +14,7 @@ const InputField = ({
   <div className={cx('pl-2', { 'multilingual-field': !!language })}>
     <div className="d-flex align-items-center">
       <label className="fdk-form-label w-100" htmlFor={input.name}>
-        {showLabel ? label : null}
+        {showLabel && label && <span className="mb-2 d-block">{label}</span>}
         {!!language && !isOnlyOneSelectedLanguage && (
           <span className="language-indicator">{language}</span>
         )}

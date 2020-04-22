@@ -11,7 +11,11 @@ exports[`should render InputField correctly 1`] = `
       className="fdk-form-label w-100"
       htmlFor="input"
     >
-      label
+      <span
+        className="mb-2 d-block"
+      >
+        label
+      </span>
       <input
         className="form-control"
         name="input"
