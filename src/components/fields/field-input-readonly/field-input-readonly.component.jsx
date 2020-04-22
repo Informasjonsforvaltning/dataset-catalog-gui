@@ -15,7 +15,7 @@ const InputFieldReadonly = ({
         <label className="fdk-form-label w-100" htmlFor={input.name}>
           {showLabel ? label : null}
           <div className="readonly-language-field">
-            {!isOnlyOneSelectedLanguage && (
+            {!!language && !isOnlyOneSelectedLanguage && (
               <div className="p-2">
                 <div className="indicator">{language}</div>
               </div>
