@@ -21,7 +21,7 @@ const addTagToInput = (updates, { input: { value, onChange } }) =>
     })
   );
 
-const removeTagFromInput = (index, { input: value = [], onChange }) => {
+const removeTagFromInput = (index, { input: { value = [], onChange } }) => {
   value.splice(index, 1);
   onChange(value);
 };
@@ -43,9 +43,13 @@ export class InputTagsAPIsField extends React.Component {
     const {
       input: { value: accessService }
     } = this.props;
-    if (accessService && Array.isArray(accessService)) {
+    if (accessService) {
+      const accessServices = Array.isArray(accessService)
+        ? accessService
+        : [accessService];
+
       this.setState({
-        tags: accessService.map(({ id, description }) => ({
+        tags: accessServices.filter(Boolean).map(({ id, description }) => ({
           id,
           name: getTranslateText(description)
         }))

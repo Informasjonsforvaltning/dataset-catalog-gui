@@ -3,7 +3,7 @@ import { licenseType, textType } from '../../../schemaTypes';
 export const distributionTypes = values => {
   let distributions = null;
   if (values && values.length > 0) {
-    distributions = values.map(item => ({
+    distributions = values.map(({ accessService, ...item }) => ({
       id: item.id ? item.id : '',
       title: item.title ? item.title : textType,
       description: item.description ? item.description : textType,
@@ -14,7 +14,10 @@ export const distributionTypes = values => {
       page: item.page && item.page.length > 0 ? item.page : [licenseType],
       format: item.format ? item.format : [],
       type: item.type ? item.type : '',
-      accessService: item.accessService ? item.accessService : null
+      accessService: (Array.isArray(accessService)
+        ? accessService
+        : [accessService]
+      ).filter(Boolean)
     }));
   } else {
     distributions = [];

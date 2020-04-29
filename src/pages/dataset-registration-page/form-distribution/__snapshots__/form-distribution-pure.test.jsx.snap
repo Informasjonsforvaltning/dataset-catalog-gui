@@ -8,7 +8,7 @@ exports[`should render FormDistributionPure correctly 1`] = `
       Object {
         "distribution": Array [
           Object {
-            "accessService": null,
+            "accessService": Array [],
             "accessURL": Array [
               "http://google.no",
             ],
