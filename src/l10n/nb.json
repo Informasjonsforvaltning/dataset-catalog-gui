@@ -443,12 +443,12 @@
       "accessText": "Les mer om hvordan du får tilgang her"
     },
     "datasets": "Datasettkatalog",
-    "apis": "API-katalog",
+    "dataServices": "Datatjenestekatalog",
     "concepts": "Begrepskatalog",
     "protocol": "Protokoll",
     "type": {
       "datasets": "datasettbeskrivelser",
-      "apis": "API-beskrivelser",
+      "dataServices": "Datatjenester",
       "concepts": "begreper",
       "protocol": "behandlingsaktiviteter"
     }

@@ -5,7 +5,6 @@ import localization from '../../services/localization';
 import { Catalog } from './catalogs/catalog.component';
 import { getTranslateText } from '../../services/translateText';
 import { selectorForCatalogDatasetsFromDatasetsState } from '../../redux/modules/datasets';
-import { getAPIItemsCount } from '../../redux/modules/apis';
 import './catalogs-page.scss';
 import { authService } from '../../services/auth/auth-service';
 import { Namespace } from '../../enums';
@@ -26,9 +25,7 @@ export const CatalogsPagePure = ({
   fetchCatalogsIfNeeded,
   catalogItems,
   datasetsState,
-  apis,
-  fetchDatasetsIfNeeded,
-  fetchApisIfNeeded
+  fetchDatasetsIfNeeded
 }: Props) => {
   fetchCatalogsIfNeeded && fetchCatalogsIfNeeded();
 
@@ -65,18 +62,14 @@ export const CatalogsPagePure = ({
                     }
                   />
                 )}
-                {apis && (
-                  <Catalog
-                    key={`apis-${catalog.id}`}
-                    catalogId={catalog.id}
-                    fetchItems={fetchApisIfNeeded}
-                    type="apis"
-                    itemsCount={getAPIItemsCount(apis, catalog.id)}
-                    isReadOnly={
-                      !authService.hasOrganizationWritePermission(catalog.id)
-                    }
-                  />
-                )}
+                <Catalog
+                  key={`dataService-${catalog.id}`}
+                  catalogId={catalog.id}
+                  type="dataServices"
+                  isReadOnly={
+                    !authService.hasOrganizationWritePermission(catalog.id)
+                  }
+                />
                 <Catalog
                   key={`concepts-${catalog.id}`}
                   catalogId={catalog.id}
