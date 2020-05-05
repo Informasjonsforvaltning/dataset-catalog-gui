@@ -7,7 +7,6 @@ import { getConfig } from '../../../config';
 import { CatalogItem } from './catalog-item/catalog-item.component';
 import { getConceptCount } from '../../../services/api/concept-registration-api/host';
 import { getRecordsCount } from '../../../services/api/records-registration-api/host';
-import { getDataServicesCount } from '../../../services/api/data-service-registration-api/host';
 
 export const CatalogPure = props => {
   const { catalogId, type, fetchItems, itemsCount, isReadOnly } = props;
@@ -20,9 +19,6 @@ export const CatalogPure = props => {
       }
       case 'protocol': {
         return `${getConfig().recordsOfProcessingActivitiesHost}/${catalogId}`;
-      }
-      case 'dataServices': {
-        return `${getConfig().dataServiceCatalogBaseUri}/${catalogId}`;
       }
       default:
         return `/catalogs/${catalogId}/${type}`;
@@ -60,7 +56,6 @@ CatalogPure.propTypes = {
 
 const memoizedGetConceptCount = memoize(getConceptCount);
 const memoizedGetRecordsCount = memoize(getRecordsCount);
-const memoizedGetDataServicesCount = memoize(getDataServicesCount);
 
 const mapProps = {
   itemsCount: ({ type, catalogId, itemsCount }) => {
@@ -70,9 +65,6 @@ const mapProps = {
       }
       case 'protocol': {
         return memoizedGetRecordsCount(catalogId);
-      }
-      case 'dataServices': {
-        return memoizedGetDataServicesCount(catalogId);
       }
       default:
         return itemsCount;

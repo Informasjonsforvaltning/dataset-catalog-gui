@@ -5,8 +5,7 @@ import cx from 'classnames';
 import localization from '../../../../services/localization';
 import './catalog-item.component.scss';
 
-const isExternalLink = type =>
-  ['concepts', 'protocol', 'dataServices'].includes(type);
+const isExternalLink = type => !!(type === 'concepts' || type === 'protocol');
 
 const renderItemContent = ({ itemClass, iconClass, itemsCount, type }) => (
   <div className={itemClass}>
@@ -20,7 +19,7 @@ const renderItemContent = ({ itemClass, iconClass, itemsCount, type }) => (
 export const CatalogItem = ({ type, itemsCount, linkUri, isReadOnly }) => {
   const iconClass = cx('catalog-icon', {
     'catalog-icon--dataset': type === 'datasets',
-    'catalog-icon--data-services': type === 'dataServices',
+    'catalog-icon--api': type === 'apis',
     'catalog-icon--concepts': type === 'concepts',
     'catalog-icon--protokoll': type === 'protocol'
   });
