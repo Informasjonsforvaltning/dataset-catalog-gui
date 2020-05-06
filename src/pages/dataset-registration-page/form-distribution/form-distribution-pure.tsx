@@ -142,14 +142,15 @@ const Formats = ({
                 role="button"
                 tabIndex={0}
                 className="mr-2 mb-1 fdk-badge badge badge-secondary fdk-text-size-15"
-                onClick={() => {
-                  inputValue.splice(index, 1);
-                  onChange(inputValue);
+                onClick={e => {
+                  e.preventDefault();
+                  delete inputValue[index];
+                  onChange(inputValue.filter(Boolean));
                 }}
                 onKeyPress={e => {
                   e.preventDefault();
-                  inputValue.splice(index, 1);
-                  onChange(inputValue);
+                  delete inputValue[index];
+                  onChange(inputValue.filter(Boolean));
                 }}
               >
                 <span className="fdk-filter-pill">

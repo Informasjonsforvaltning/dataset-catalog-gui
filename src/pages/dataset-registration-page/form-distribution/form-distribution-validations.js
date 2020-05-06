@@ -30,6 +30,7 @@ const validate = values => {
           ? distributionItem.page[0].uri
           : null;
       const { conformsTo } = distributionItem || null;
+      const formats = distributionItem.format || [];
 
       itemErrors = validateURL('accessURL', accessURL, itemErrors, true);
       itemErrors = validateMinTwoChars('license', license, itemErrors, 'uri');
@@ -40,6 +41,10 @@ const validate = values => {
         itemErrors,
         'uri'
       );
+
+      if (formats.map(s => s.trim()).filter(Boolean).length === 0) {
+        itemErrors.format = localization.validation.required;
+      }
 
       if (conformsTo) {
         conformsToNodes = conformsTo.map(conformsToItem => {
