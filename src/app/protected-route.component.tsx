@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route } from 'react-router-dom';
+import { Route, Redirect } from 'react-router-dom';
 
 import { authService } from '../services/auth/auth-service';
 import { Timeout } from '../components/timeout.component';
@@ -19,6 +19,10 @@ export const ProtectedRoute = ({ check, ...props }: Props) => {
   if (!authService.isAuthenticated() || !check(params)) {
     authService.login();
     return null;
+  }
+
+  if (!authService.hasAcceptedLatestTermsAndConditions(params.catalogId)) {
+    return <Redirect to="/catalogs" />;
   }
 
   return (

@@ -130,4 +130,14 @@ export class Auth {
       resourceId: 'root',
       role: 'admin'
     });
+
+  hasAcceptedLatestTermsAndConditions = (
+    organizationNumber: string
+  ): boolean => {
+    const { fdk_terms: latestVersion, org_terms: terms = '' } =
+      (this.kc.tokenParsed as any) ?? {};
+    return terms
+      .split(',')
+      .some((t: string) => t === `${organizationNumber}:${latestVersion}`);
+  };
 }
