@@ -4,12 +4,11 @@ exports[`should render CatalogItem correctly with itemsCount set to 10 1`] = `
 <div
   className="col-md-4 pl-0 mb-4"
 >
-  <Link
+  <div
     className="catalog-item"
-    to="/catalogs/1/datasets"
   >
     <div
-      className="catalog-item__body d-flex flex-column align-items-center"
+      className="catalog-item__body d-flex flex-column align-items-center disabled"
     >
       <h3
         className="catalog-icon catalog-icon--dataset"
@@ -24,7 +23,7 @@ exports[`should render CatalogItem correctly with itemsCount set to 10 1`] = `
         datasettbeskrivelser
       </span>
     </div>
-  </Link>
+  </div>
 </div>
 `;
 
@@ -32,12 +31,11 @@ exports[`should render CatalogItem correctly with missing itemsCount 1`] = `
 <div
   className="col-md-4 pl-0 mb-4"
 >
-  <Link
+  <div
     className="catalog-item"
-    to="/catalogs/1/datasets"
   >
     <div
-      className="catalog-item__body d-flex flex-column align-items-center h-100"
+      className="catalog-item__body d-flex flex-column align-items-center disabled h-100"
     >
       <h3
         className="catalog-icon catalog-icon--dataset"
@@ -52,6 +50,6 @@ exports[`should render CatalogItem correctly with missing itemsCount 1`] = `
         datasettbeskrivelser
       </span>
     </div>
-  </Link>
+  </div>
 </div>
 `;

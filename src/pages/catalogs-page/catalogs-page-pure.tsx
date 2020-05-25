@@ -1,8 +1,8 @@
 import React from 'react';
 import { CardGroup } from 'reactstrap';
-import _ from 'lodash';
 import localization from '../../services/localization';
 import { Catalog } from './catalogs/catalog.component';
+import { Variant } from '../../components/banner';
 import { getTranslateText } from '../../services/translateText';
 import { selectorForCatalogDatasetsFromDatasetsState } from '../../redux/modules/datasets';
 import { getAPIItemsCount } from '../../redux/modules/apis';
@@ -10,6 +10,8 @@ import './catalogs-page.scss';
 import { authService } from '../../services/auth/auth-service';
 import { Namespace } from '../../enums';
 import { getConfig } from '../../config';
+
+import SC from './styled';
 
 interface Props {
   catalogItems: any[];
@@ -39,62 +41,79 @@ export const CatalogsPagePure = ({
   return (
     <div className="container">
       {catalogItems &&
-        catalogItems.map(catalog => (
-          <div key={_.get(catalog, 'id')} className="row mb-2 mb-md-5">
-            <div className="col-12">
-              <div>
-                <h2 className="fdk-text-strong mb-4">
-                  {getTranslateText(
-                    _.get(catalog, ['publisher', 'prefLabel'])
-                  ) || _.get(catalog, ['publisher', 'name'], '')}
-                </h2>
-              </div>
-              <CardGroup>
-                {datasetsState && (
-                  <Catalog
-                    key={`datasets-${catalog.id}`}
-                    catalogId={catalog.id}
-                    type="datasets"
-                    fetchItems={fetchDatasetsIfNeeded}
-                    itemsCount={
-                      Object.keys(
-                        selectorForCatalogDatasetsFromDatasetsState(catalog.id)(
-                          datasetsState
-                        )
-                      ).length
-                    }
-                  />
+        catalogItems.map(({ id, publisher }) => {
+          const termsAccepted = authService.hasAcceptedLatestTermsAndConditions(
+            id
+          );
+          return (
+            <div key={id} className="row mb-2 mb-md-5">
+              <div className="col-12">
+                <div>
+                  <h2 className="fdk-text-strong mb-4">
+                    {getTranslateText(publisher?.prefLabel) ||
+                      publisher?.name ||
+                      ''}
+                  </h2>
+                </div>
+                {!termsAccepted && (
+                  <SC.Banner variant={Variant.WARNING}>
+                    <a href={`/terms-and-conditions/${id}`}>Bruksvilkår</a> for
+                    denne organisasjonen er ikke godkjent. Du har ikke tilgang
+                    til katalogene før en bemyndiget person hos
+                    Digitaliseringsdirektoratet har akseptert vilkårene.
+                  </SC.Banner>
                 )}
-                {apis && (
+                <CardGroup>
+                  {datasetsState && (
+                    <Catalog
+                      key={`datasets-${id}`}
+                      catalogId={id}
+                      type="datasets"
+                      fetchItems={fetchDatasetsIfNeeded}
+                      itemsCount={
+                        Object.keys(
+                          selectorForCatalogDatasetsFromDatasetsState(id)(
+                            datasetsState
+                          )
+                        ).length
+                      }
+                      disabled={!termsAccepted}
+                    />
+                  )}
+                  {apis && (
+                    <Catalog
+                      key={`apis-${id}`}
+                      catalogId={id}
+                      fetchItems={fetchApisIfNeeded}
+                      type="apis"
+                      itemsCount={getAPIItemsCount(apis, id)}
+                      isReadOnly={
+                        !authService.hasOrganizationWritePermission(id)
+                      }
+                      disabled={!termsAccepted}
+                    />
+                  )}
                   <Catalog
-                    key={`apis-${catalog.id}`}
-                    catalogId={catalog.id}
-                    fetchItems={fetchApisIfNeeded}
-                    type="apis"
-                    itemsCount={getAPIItemsCount(apis, catalog.id)}
+                    key={`concepts-${id}`}
+                    catalogId={id}
+                    type="concepts"
+                    disabled={!termsAccepted}
+                  />
+                  <Catalog
+                    key={`protocol-${id}`}
+                    catalogId={id}
+                    type="protocol"
                     isReadOnly={
-                      !authService.hasOrganizationWritePermission(catalog.id)
+                      !authService.hasOrganizationWritePermission(id) ||
+                      getConfig().namespace === Namespace.PRODUCTION
                     }
+                    disabled={!termsAccepted}
                   />
-                )}
-                <Catalog
-                  key={`concepts-${catalog.id}`}
-                  catalogId={catalog.id}
-                  type="concepts"
-                />
-                <Catalog
-                  key={`protocol-${catalog.id}`}
-                  catalogId={catalog.id}
-                  type="protocol"
-                  isReadOnly={
-                    !authService.hasOrganizationWritePermission(catalog.id) ||
-                    getConfig().namespace === Namespace.PRODUCTION
-                  }
-                />
-              </CardGroup>
+                </CardGroup>
+              </div>
             </div>
-          </div>
-        ))}
+          );
+        })}
       {!catalogItems && (
         <div className="row mb-2 mb-md-5">
           <div id="no-catalogs">

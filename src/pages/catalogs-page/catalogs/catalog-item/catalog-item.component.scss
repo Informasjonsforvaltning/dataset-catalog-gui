@@ -48,6 +48,12 @@
     }
   }
 
+  &.disabled {
+    opacity: 0.5;
+    box-shadow: none;
+    pointer-events: none;
+  }
+
   background-color: $color_white;
   border-radius: 5px;
   padding: 2em;

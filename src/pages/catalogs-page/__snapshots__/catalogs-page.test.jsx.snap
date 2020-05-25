@@ -18,16 +18,28 @@ exports[`should render CatalogsPagePure correctly 1`] = `
           RAMSUND OG ROGNAN REVISJON
         </h2>
       </div>
+      <Styled(Component)
+        variant="warning"
+      >
+        <a
+          href="/terms-and-conditions/910244132"
+        >
+          Bruksvilkår
+        </a>
+         for denne organisasjonen er ikke godkjent. Du har ikke tilgang til katalogene før en bemyndiget person hos Digitaliseringsdirektoratet har akseptert vilkårene.
+      </Styled(Component)>
       <CardGroup
         tag="div"
       >
         <ItemsCountResolver
           catalogId="910244132"
+          disabled={true}
           key="concepts-910244132"
           type="concepts"
         />
         <ItemsCountResolver
           catalogId="910244132"
+          disabled={true}
           isReadOnly={true}
           key="protocol-910244132"
           type="protocol"

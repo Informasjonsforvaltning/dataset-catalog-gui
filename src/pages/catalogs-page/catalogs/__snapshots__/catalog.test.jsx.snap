@@ -2,6 +2,7 @@
 
 exports[`should render CatalogPure correctly with minimum props 1`] = `
 <Component
+  disabled={true}
   isReadOnly={false}
   itemsCount={null}
   key="910244132"
@@ -13,6 +14,7 @@ exports[`should render CatalogPure correctly with minimum props 1`] = `
 
 exports[`should render CatalogPure correctly with one dataset item 1`] = `
 <Component
+  disabled={true}
   isReadOnly={false}
   itemsCount={null}
   key="910244132"

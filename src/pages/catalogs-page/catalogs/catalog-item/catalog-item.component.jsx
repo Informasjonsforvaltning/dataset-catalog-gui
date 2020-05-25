@@ -16,7 +16,13 @@ const renderItemContent = ({ itemClass, iconClass, itemsCount, type }) => (
   </div>
 );
 
-export const CatalogItem = ({ type, itemsCount, linkUri, isReadOnly }) => {
+export const CatalogItem = ({
+  type,
+  itemsCount,
+  linkUri,
+  isReadOnly,
+  disabled
+}) => {
   const iconClass = cx('catalog-icon', {
     'catalog-icon--dataset': type === 'datasets',
     'catalog-icon--api': type === 'apis',
@@ -31,6 +37,7 @@ export const CatalogItem = ({ type, itemsCount, linkUri, isReadOnly }) => {
     'align-items-center',
     {
       readOnly: isReadOnly,
+      disabled,
       beta: type === 'protocol',
       'h-100': !itemsCount
     }
@@ -38,22 +45,24 @@ export const CatalogItem = ({ type, itemsCount, linkUri, isReadOnly }) => {
 
   return (
     <div className="col-md-4 pl-0 mb-4">
-      {isExternalLink(type) && !isReadOnly && (
+      {isExternalLink(type) && !isReadOnly && !disabled && (
         <a className="catalog-item" href={linkUri}>
           {renderItemContent({ itemClass, iconClass, itemsCount, type })}
         </a>
       )}
-      {!isExternalLink(type) && !isReadOnly && (
+      {!isExternalLink(type) && !isReadOnly && !disabled && (
         <Link className="catalog-item" to={linkUri}>
           {renderItemContent({ itemClass, iconClass, itemsCount, type })}
         </Link>
       )}
-      {isReadOnly && (
+      {(isReadOnly || disabled) && (
         <div className="catalog-item">
           {renderItemContent({ itemClass, iconClass, itemsCount, type })}
-          <div className="overlay">
-            <div className="text">{localization.noAccessCatalog}</div>
-          </div>
+          {isReadOnly && (
+            <div className="overlay">
+              <div className="text">{localization.noAccessCatalog}</div>
+            </div>
+          )}
         </div>
       )}
     </div>
@@ -72,12 +81,14 @@ renderItemContent.defaultProps = {
 
 CatalogItem.defaultProps = {
   itemsCount: null,
-  isReadOnly: false
+  isReadOnly: false,
+  disabled: true
 };
 
 CatalogItem.propTypes = {
   type: PropTypes.string.isRequired,
   itemsCount: PropTypes.number,
   linkUri: PropTypes.string.isRequired,
-  isReadOnly: PropTypes.bool
+  isReadOnly: PropTypes.bool,
+  disabled: PropTypes.bool
 };
