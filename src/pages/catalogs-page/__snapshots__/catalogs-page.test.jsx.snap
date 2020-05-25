@@ -11,9 +11,11 @@ exports[`should render CatalogsPagePure correctly 1`] = `
     <div
       className="col-12"
     >
-      <div>
+      <div
+        className="mb-3"
+      >
         <h2
-          className="fdk-text-strong mb-4"
+          className="fdk-text-strong mb-3"
         >
           RAMSUND OG ROGNAN REVISJON
         </h2>

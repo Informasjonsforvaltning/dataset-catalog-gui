@@ -48,12 +48,18 @@ export const CatalogsPagePure = ({
           return (
             <div key={id} className="row mb-2 mb-md-5">
               <div className="col-12">
-                <div>
-                  <h2 className="fdk-text-strong mb-4">
+                <div className="mb-3">
+                  <h2 className="fdk-text-strong mb-3">
                     {getTranslateText(publisher?.prefLabel) ||
                       publisher?.name ||
                       ''}
                   </h2>
+                  {termsAccepted && (
+                    <a href={`/terms-and-conditions/${id}`}>
+                      Bruksvilkår
+                      <i className="fa fa-external-link fdk-fa-right" />
+                    </a>
+                  )}
                 </div>
                 {!termsAccepted && (
                   <SC.Banner variant={Variant.WARNING}>
