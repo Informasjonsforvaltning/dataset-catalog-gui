@@ -145,7 +145,8 @@ Innsamlet fra tredjepart betyr data innhentet fra f. eks. banker og forsikringss
     description: ''
   },
   Dataset_fdkInformationModel: {
-    abstract: 'Søk etter informasjonsmodeller fra Felles datakatalog og velg fra nedtrekksliste.',
+    abstract:
+      'Søk etter informasjonsmodeller fra Felles datakatalog og velg fra nedtrekksliste.',
     description: ''
   },
   Dataset_externalInformationModel: {
@@ -275,9 +276,18 @@ Velg "Tesauri" dersom datasettbeskrivelsen omhandler en hierarkisk og  assosiati
       'Kontaktpunkt kan være navnet til en gruppe, avdeling, seksjon eller lignende i organisasjonen. Skal ikke være enkeltpersoner.',
     description: ''
   },
-  ContactPoint_hasEmail: { abstract: ' ', description: '' },
-  ContactPoint_hasTelephone: { abstract: ' ', description: '' },
-  ContactPoint_hasURL: { abstract: ' ', description: '' },
+  ContactPoint_hasEmail: {
+    abstract: 'Skal ikke inneholde personopplysninger.',
+    description: ''
+  },
+  ContactPoint_hasTelephone: {
+    abstract: 'Skal ikke inneholde personopplysninger.',
+    description: ''
+  },
+  ContactPoint_hasURL: {
+    abstract: 'Skal ikke inneholde personopplysninger.',
+    description: ''
+  },
   Traffic_Limits: {
     abstract: 'Begrensninger på antall kall til API e.l. per bruker.',
     description: ''

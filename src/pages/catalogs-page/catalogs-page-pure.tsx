@@ -65,8 +65,8 @@ export const CatalogsPagePure = ({
                   <SC.Banner variant={Variant.WARNING}>
                     <a href={`/terms-and-conditions/${id}`}>Bruksvilkår</a> for
                     denne organisasjonen er ikke godkjent. Du har ikke tilgang
-                    til katalogene før du eller en annen bemyndiget person i
-                    din virksomhet har akseptert vilkårene.
+                    til katalogene før du eller en annen bemyndiget person i din
+                    virksomhet har akseptert vilkårene.
                   </SC.Banner>
                 )}
                 <CardGroup>
