@@ -24,8 +24,16 @@ exports[`should render Footer correctly 1`] = `
           <a
             href="https://www.digdir.no/om-oss/personvernerklaering/706"
           >
+            Personvernerklæring
+            <i
+              className="fa fa-external-link fdk-fa-right"
+            />
+          </a>
+          <br />
+          <a
+            href="https://www.digdir.no/om-oss/personvernerklaering/707"
+          >
             Informasjonskapsler
-             og personvern
             <i
               className="fa fa-external-link fdk-fa-right"
             />
@@ -44,7 +52,7 @@ exports[`should render Footer correctly 1`] = `
         <p
           className="fdk-p-footer"
         >
-          Dette er et samarbeidsprosjekt mellom Brønnøysundregistrene, Difi og øvrige SKATE-etater.
+          Digitaliseringsdirektoratet forvalter Felles datakatalog.
         </p>
       </div>
       <div

@@ -25,8 +25,12 @@ export const Footer = () => {
           <div className="col-md-4">
             <p className="fdk-p-footer">
               <a href="https://www.digdir.no/om-oss/personvernerklaering/706">
-                {localization.footer.information}
                 {localization.footer.privacy}
+                <i className="fa fa-external-link fdk-fa-right" />
+              </a>
+              <br />
+              <a href="https://www.digdir.no/om-oss/personvernerklaering/707">
+                {localization.footer.information}
                 <i className="fa fa-external-link fdk-fa-right" />
               </a>
             </p>
