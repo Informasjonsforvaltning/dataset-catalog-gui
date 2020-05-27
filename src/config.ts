@@ -14,19 +14,19 @@ const env = (window as any).env || {
   RECORDS_OF_PROCESSING_ACTIVITIES_API_BASE_URI: 'http://localhost:8141'
 };
 
-// override all env variables to ut1 (inspired by https://registrering.ut1.fellesdatakatalog.brreg.no/config.js)
-// env.SEARCH_HOST = 'https://www.ut1.fellesdatakatalog.brreg.no';
+// override all env variables to staging (inspired by https://registrering.staging.fellesdatakatalog.digdir.no/config.js)
+// env.SEARCH_HOST = 'https://www.staging.fellesdatakatalog.digdir.no';
 // env.SEARCH_API_AUTHORIZATION = 'Basic ZmRrOkJSUkVH';
-// env.REGISTRATION_API_HOST = 'https://registrering.ut1.fellesdatakatalog.brreg.no';
-// env.CONCEPT_REGISTRATION_API_HOST = 'https://registrering-begrep-api.ut1.fellesdatakatalog.brreg.no';
-// env.CONCEPT_REGISTRATION_HOST = 'https://registrering-begrep.ut1.fellesdatakatalog.brreg.no';
-// env.SSO_HOST = 'https://sso.ut1.fellesdatakatalog.brreg.no';
-// env.ORGANIZATION_API_HOST = 'https://organization-catalogue.ut1.fellesdatakatalog.brreg.no';
+// env.REGISTRATION_API_HOST = 'https://registrering.staging.fellesdatakatalog.digdir.no';
+// env.CONCEPT_REGISTRATION_API_HOST = 'https://registrering-begrep-api.staging.fellesdatakatalog.digdir.no';
+// env.CONCEPT_REGISTRATION_HOST = 'https://registrering-begrep.staging.fellesdatakatalog.digdir.no';
+// env.SSO_HOST = 'https://sso.staging.fellesdatakatalog.digdir.no';
+// env.ORGANIZATION_API_HOST = 'https://organization-catalogue.staging.fellesdatakatalog.digdir.no';
 // env.USE_DEMO_LOGO = true;
-// env.RECORDS_OF_PROCESSING_ACTIVITIES_GUI_BASE_URI = 'https://registrering-protokoll.ut1.fellesdatakatalog.brreg.no';
-// env.RECORDS_OF_PROCESSING_ACTIVITIES_API_BASE_URI = 'https://registrering-protokoll-api.ut1.fellesdatakatalog.brreg.no';
+// env.RECORDS_OF_PROCESSING_ACTIVITIES_GUI_BASE_URI = 'https://registrering-protokoll.staging.fellesdatakatalog.digdir.no';
+// env.RECORDS_OF_PROCESSING_ACTIVITIES_API_BASE_URI = 'https://registrering-protokoll-api.staging.fellesdatakatalog.digdir.no';
 
-const searchHost = env.SEARCH_HOST || 'https://fellesdatakatalog.brreg.no';
+const searchHost = env.SEARCH_HOST || 'https://fellesdatakatalog.digdir.no';
 const searchApi = {
   host: env.SEARCH_API_HOST || searchHost,
   // in ut1 and st1, search api requires basic authentication
@@ -48,7 +48,7 @@ const config = {
   searchHost,
   conceptRegistrationHost:
     env.CONCEPT_REGISTRATION_HOST ||
-    'https://registrering-begrep.fellesdatakatalog.brreg.no',
+    'https://registrering-begrep.fellesdatakatalog.digdir.no',
 
   // api modules
   referenceDataApi: defaultToSearchApi(env.REFERENCE_DATA_HOST),
@@ -60,20 +60,20 @@ const config = {
   conceptRegistrationApi: {
     host:
       env.CONCEPT_REGISTRATION_API_HOST ||
-      'https://registrering-begrep-api.fellesdatakatalog.brreg.no'
+      'https://registrering-begrep-api.fellesdatakatalog.digdir.no'
   },
   organizationApi: {
     host:
       env.ORGANIZATION_API_HOST ||
-      'https://organization-catalogue.fellesdatakatalog.brreg.no'
+      'https://organization-catalogue.fellesdatakatalog.digdir.no'
   },
   useDemoLogo: env.USE_DEMO_LOGO || false,
   recordsOfProcessingActivitiesHost:
     env.RECORDS_OF_PROCESSING_ACTIVITIES_GUI_BASE_URI ||
-    'https://registrering-protokoll.fellesdatakatalog.brreg.no',
+    'https://registrering-protokoll.fellesdatakatalog.digdir.no',
   recordsOfProcessingActivitiesApi:
     env.RECORDS_OF_PROCESSING_ACTIVITIES_API_BASE_URI ||
-    'https://registrering-protokoll-api.fellesdatakatalog.brreg.no'
+    'https://registrering-protokoll-api.fellesdatakatalog.digdir.no'
 };
 
 export const getConfig = () => config;
