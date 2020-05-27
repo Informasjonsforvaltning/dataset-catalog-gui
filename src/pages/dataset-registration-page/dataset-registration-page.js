@@ -10,7 +10,7 @@ const mapRouteParams = withProps(({ match: { params } }) =>
 );
 
 const withReadOnly = withProps(({ catalogId }) => ({
-  isReadOnly: !authService.hasOrganizationWritePermission(catalogId)
+  isReadOnly: !authService.hasSystemAdminPermission() && !authService.hasOrganizationWritePermission(catalogId)
 }));
 
 const enhance = compose(

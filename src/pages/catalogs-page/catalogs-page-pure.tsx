@@ -52,14 +52,14 @@ export const CatalogsPagePure = ({
                       publisher?.name ||
                       ''}
                   </h2>
-                  {termsAccepted && (
+                  {authService.hasOrganizationPermission(id) && termsAccepted && (
                     <a href={`/terms-and-conditions/${id}`}>
                       Bruksvilkår
                       <i className="fa fa-external-link fdk-fa-right" />
                     </a>
                   )}
                 </div>
-                {!termsAccepted && (
+                {authService.hasOrganizationPermission(id) && !termsAccepted && (
                   <SC.Banner variant={Variant.WARNING}>
                     <a href={`/terms-and-conditions/${id}`}>Bruksvilkår</a> for
                     denne organisasjonen er ikke godkjent. Du har ikke tilgang
@@ -81,7 +81,7 @@ export const CatalogsPagePure = ({
                           )
                         ).length
                       }
-                      disabled={!termsAccepted}
+                      disabled={!authService.hasSystemAdminPermission && !termsAccepted}
                     />
                   )}
                   {apis && (
@@ -92,23 +92,23 @@ export const CatalogsPagePure = ({
                       type="apis"
                       itemsCount={getAPIItemsCount(apis, id)}
                       isReadOnly={
-                        !authService.hasOrganizationWritePermission(id)
+                        !authService.hasSystemAdminPermission && !authService.hasOrganizationWritePermission(id)
                       }
-                      disabled={!termsAccepted}
+                      disabled={!authService.hasSystemAdminPermission && !termsAccepted}
                     />
                   )}
                   <Catalog
                     key={`concepts-${id}`}
                     catalogId={id}
                     type="concepts"
-                    disabled={!termsAccepted}
+                    disabled={!authService.hasSystemAdminPermission && !termsAccepted}
                   />
                   <Catalog
                     key={`protocol-${id}`}
                     catalogId={id}
                     type="protocol"
-                    isReadOnly={!authService.hasOrganizationWritePermission(id)}
-                    disabled={!termsAccepted}
+                    isReadOnly={!authService.hasSystemAdminPermission && !authService.hasOrganizationWritePermission(id)}
+                    disabled={!authService.hasSystemAdminPermission && !termsAccepted}
                   />
                 </CardGroup>
               </div>

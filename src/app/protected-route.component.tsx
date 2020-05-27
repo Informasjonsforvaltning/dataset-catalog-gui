@@ -21,7 +21,7 @@ export const ProtectedRoute = ({ check, ...props }: Props) => {
     return null;
   }
 
-  if (!authService.hasAcceptedLatestTermsAndConditions(params.catalogId)) {
+  if (!authService.hasSystemAdminPermission() && !authService.hasAcceptedLatestTermsAndConditions(params.catalogId)) {
     return <Redirect to="/catalogs" />;
   }
 
