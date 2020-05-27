@@ -129,7 +129,7 @@ export const CatalogsPagePure = ({
                 {localization.catalogs.missingCatalogs.accessTitle}
               </strong>
               <p>
-                <a href="https://fellesdatakatalog.brreg.no/about-registration">
+                <a href="https://data.norge.no/about-registration">
                   {localization.catalogs.missingCatalogs.accessText}
                   <i className="fa fa-external-link fdk-fa-right" />
                 </a>
