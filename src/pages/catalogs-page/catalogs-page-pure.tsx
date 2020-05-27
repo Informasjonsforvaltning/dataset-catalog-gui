@@ -52,14 +52,14 @@ export const CatalogsPagePure = ({
                       publisher?.name ||
                       ''}
                   </h2>
-                  {authService.hasOrganizationPermission(id) && termsAccepted && (
+                  {authService.hasOrganizationReadPermission(id) && termsAccepted && (
                     <a href={`/terms-and-conditions/${id}`}>
                       Bruksvilkår
                       <i className="fa fa-external-link fdk-fa-right" />
                     </a>
                   )}
                 </div>
-                {authService.hasOrganizationPermission(id) && !termsAccepted && (
+                {authService.hasOrganizationReadPermission(id) && !termsAccepted && (
                   <SC.Banner variant={Variant.WARNING}>
                     <a href={`/terms-and-conditions/${id}`}>Bruksvilkår</a> for
                     denne organisasjonen er ikke godkjent. Du har ikke tilgang
