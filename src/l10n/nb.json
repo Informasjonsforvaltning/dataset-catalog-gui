@@ -114,14 +114,6 @@
     "standard": "Standard",
     "fdk": "Felles datakatalog"
   },
-  "footer": {
-    "organisation.number": "Organisasjonsnummer:",
-    "information": "Informasjonskapsler",
-    "information_text": "Digitaliseringsdirektoratet forvalter Felles datakatalog.",
-    "mail": "fellesdatakatalog@digdir.no",
-    "privacy": "Personvernerklæring",
-    "contact": "Kontakt:"
-  },
   "validation": {
     "required": "Obligatorisk felt, må fylles ut.",
     "minTwoChars": "Feltet må ha minimum to tegn.",

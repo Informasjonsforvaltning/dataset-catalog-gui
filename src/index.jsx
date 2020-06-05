@@ -4,6 +4,7 @@ import 'regenerator-runtime/runtime';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
+import ThemeProvider from '@fellesdatakatalog/theme';
 
 import { App } from './app/app';
 
@@ -22,9 +23,11 @@ async function main() {
   const store = configureStore();
 
   const app = (
-    <Provider store={store}>
-      <App />
-    </Provider>
+    <ThemeProvider useGlobalStyles={false}>
+      <Provider store={store}>
+        <App />
+      </Provider>
+    </ThemeProvider>
   );
 
   ReactDOM.render(app, document.getElementById('root'));
