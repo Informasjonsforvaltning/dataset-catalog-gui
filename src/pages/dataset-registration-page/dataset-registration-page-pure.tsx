@@ -21,6 +21,7 @@ import { ConnectedFormContents } from './form-contents/connected-form-contents.c
 import { FormPublish } from './form-publish/form-publish';
 import { ConnectedFormLOS } from './form-los/connected-form-los.component';
 import { ConnectedFormPublisher } from './form-publisher/connected-form-publisher.component';
+import { ConnectedFormQualifiedAttributions } from './form-qualifiedAttributions/connected-form-qualified-attributions';
 import LanguagePicker from '../../components/language-picker/language-picker.component';
 import {
   accessRightsValues,
@@ -423,6 +424,20 @@ export function DatasetRegistrationPagePure(
                   catalogId={catalogId}
                   datasetId={datasetId}
                   languages={languages}
+                  isReadOnly={isReadOnly}
+                />
+              </FormTemplate>
+
+              <FormTemplate
+                title={
+                  localization.datasets.formTemplates.qualifiedAttributions
+                }
+                showInitially={expandAll}
+              >
+                <ConnectedFormQualifiedAttributions
+                  datasetItem={datasetItem}
+                  catalogId={catalogId}
+                  datasetId={datasetId}
                   isReadOnly={isReadOnly}
                 />
               </FormTemplate>

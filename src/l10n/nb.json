@@ -156,6 +156,12 @@
       "registerBehalfOf": "Du registrerer på vegne av",
       "searchOrgNr": "Søk på organisasjonsnummer"
     },
+    "qualifiedAttributions": {
+      "helptext": {
+        "title": "Innholdsleverandører"
+      },
+      "searchOrgNr": "Søk på organisasjonsnummer"
+    },
     "title": {
       "helptext": {
         "title": "Tittel",
@@ -413,7 +419,8 @@
       "distribution": "Distribusjoner",
       "distributionAPI": "API-distribusjoner",
       "sample": "Eksempeldata",
-      "onBehalf": "Registrer på vegne av andre"
+      "onBehalf": "Registrer på vegne av andre",
+      "qualifiedAttributions": "Innholdsleverandører"
     },
     "formValues": {
       "accessRights": {
