@@ -70,7 +70,7 @@ const FormQualifiedAttributionsPure = ({
                   suggestions={organizations
                     .filter(
                       ({ organizationId }) =>
-                        !datasetItem.qualifiedAttributions.includes(
+                        !datasetItem.qualifiedAttributions?.includes(
                           organizationId
                         )
                     )
