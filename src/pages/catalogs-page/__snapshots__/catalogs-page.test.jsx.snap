@@ -25,14 +25,14 @@ exports[`should render CatalogsPagePure correctly 1`] = `
       >
         <ItemsCountResolver
           catalogId="910244132"
-          disabled={false}
+          disabled={true}
           key="concepts-910244132"
           type="concepts"
         />
         <ItemsCountResolver
           catalogId="910244132"
-          disabled={false}
-          isReadOnly={false}
+          disabled={true}
+          isReadOnly={true}
           key="protocol-910244132"
           type="protocol"
         />

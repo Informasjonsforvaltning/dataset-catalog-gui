@@ -52,21 +52,23 @@ export const CatalogsPagePure = ({
                       publisher?.name ||
                       ''}
                   </h2>
-                  {authService.hasOrganizationReadPermission(id) && termsAccepted && (
-                    <a href={`/terms-and-conditions/${id}`}>
-                      Bruksvilkår
-                      <i className="fa fa-external-link fdk-fa-right" />
-                    </a>
-                  )}
+                  {authService.hasOrganizationReadPermission(id) &&
+                    termsAccepted && (
+                      <a href={`/terms-and-conditions/${id}`}>
+                        Bruksvilkår
+                        <i className="fa fa-external-link fdk-fa-right" />
+                      </a>
+                    )}
                 </div>
-                {authService.hasOrganizationReadPermission(id) && !termsAccepted && (
-                  <SC.Banner variant={Variant.WARNING}>
-                    <a href={`/terms-and-conditions/${id}`}>Bruksvilkår</a> for
-                    denne organisasjonen er ikke godkjent. Du har ikke tilgang
-                    til katalogene før du eller en annen bemyndiget person i din
-                    virksomhet har akseptert vilkårene.
-                  </SC.Banner>
-                )}
+                {authService.hasOrganizationReadPermission(id) &&
+                  !termsAccepted && (
+                    <SC.Banner variant={Variant.WARNING}>
+                      <a href={`/terms-and-conditions/${id}`}>Bruksvilkår</a>{' '}
+                      for denne organisasjonen er ikke godkjent. Du har ikke
+                      tilgang til katalogene før du eller en annen bemyndiget
+                      person i din virksomhet har akseptert vilkårene.
+                    </SC.Banner>
+                  )}
                 <CardGroup>
                   {datasetsState && (
                     <Catalog
@@ -81,7 +83,10 @@ export const CatalogsPagePure = ({
                           )
                         ).length
                       }
-                      disabled={!authService.hasSystemAdminPermission && !termsAccepted}
+                      disabled={
+                        !authService.hasSystemAdminPermission() &&
+                        !termsAccepted
+                      }
                     />
                   )}
                   {apis && (
@@ -92,23 +97,34 @@ export const CatalogsPagePure = ({
                       type="apis"
                       itemsCount={getAPIItemsCount(apis, id)}
                       isReadOnly={
-                        !authService.hasSystemAdminPermission && !authService.hasOrganizationWritePermission(id)
+                        !authService.hasSystemAdminPermission() &&
+                        !authService.hasOrganizationWritePermission(id)
                       }
-                      disabled={!authService.hasSystemAdminPermission && !termsAccepted}
+                      disabled={
+                        !authService.hasSystemAdminPermission() &&
+                        !termsAccepted
+                      }
                     />
                   )}
                   <Catalog
                     key={`concepts-${id}`}
                     catalogId={id}
                     type="concepts"
-                    disabled={!authService.hasSystemAdminPermission && !termsAccepted}
+                    disabled={
+                      !authService.hasSystemAdminPermission() && !termsAccepted
+                    }
                   />
                   <Catalog
                     key={`protocol-${id}`}
                     catalogId={id}
                     type="protocol"
-                    isReadOnly={!authService.hasSystemAdminPermission && !authService.hasOrganizationWritePermission(id)}
-                    disabled={!authService.hasSystemAdminPermission && !termsAccepted}
+                    isReadOnly={
+                      !authService.hasSystemAdminPermission() &&
+                      !authService.hasOrganizationWritePermission(id)
+                    }
+                    disabled={
+                      !authService.hasSystemAdminPermission() && !termsAccepted
+                    }
                   />
                 </CardGroup>
               </div>
