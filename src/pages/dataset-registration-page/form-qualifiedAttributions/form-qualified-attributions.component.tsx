@@ -1,28 +1,62 @@
-import React, { useState } from 'react';
+import React, { memo, FC, useState, useEffect, useRef } from 'react';
+import { compose } from 'redux';
 import { Field } from 'redux-form';
-import ReactTags from 'react-tag-autocomplete';
+import { fromJS } from 'immutable';
 
-import { resolve } from 'react-resolver';
-import { memoizedGetOrganizationList } from '../../../services/api/organization-api/host';
+import withEnhetsregisteret, {
+  Props as EnhetsregisteretProps
+} from '../../../components/with-enhetsregisteret';
+
 import localization from '../../../services/localization';
 import { Helptext } from '../../../components/helptext/helptext.component';
-import { getTranslateText } from '../../../services/translateText';
+import QualifiedAttributionsTagsInput from './qualified-attributions-tags-input';
 
-const FormQualifiedAttributionsPure = ({
+interface Props extends EnhetsregisteretProps {
+  datasetItem: any;
+  isReadOnly: boolean;
+}
+
+export interface QualifiedAttribution {
+  id: string;
+  label: string;
+}
+
+const FormQualifiedAttributionsPure: FC<Props> = ({
   datasetItem,
-  organizations = [],
+  organizations,
+  enhetsregisteretActions: { listOrganizationsRequested: listOrganizations },
   isReadOnly
 }) => {
-  const [qualifiedAttributions, setQualifiedAttributions] = useState(
-    organizations
-      .filter(({ organizationId }) =>
-        datasetItem.qualifiedAttributions?.includes(organizationId)
-      )
-      .map(({ organizationId: id, prefLabel, name }) => ({
-        id,
-        label: getTranslateText(prefLabel) ?? name
-      }))
-  );
+  const previousOrganizations = useRef(organizations);
+
+  const [qualifiedAttributions, setQualifiedAttributions] = useState<
+    QualifiedAttribution[]
+  >([]);
+
+  useEffect(() => {
+    if (datasetItem.qualifiedAttributions.length > 0) {
+      listOrganizations(datasetItem.qualifiedAttributions);
+    }
+  }, []);
+
+  useEffect(() => {
+    if (
+      organizations.length > 0 &&
+      !fromJS(organizations).equals(fromJS(previousOrganizations.current))
+    ) {
+      setQualifiedAttributions(
+        datasetItem.qualifiedAttributions.map(id => {
+          const label = organizations.find(
+            ({ organisasjonsnummer }) => organisasjonsnummer === id
+          )?.navn;
+
+          return { id, label };
+        })
+      );
+
+      previousOrganizations.current = organizations;
+    }
+  }, [organizations]);
 
   return (
     <div className="form-group">
@@ -40,53 +74,9 @@ const FormQualifiedAttributionsPure = ({
         ) : (
           <Field
             name="qualifiedAttributions"
-            component={({ input: { onChange } }) => {
-              const addQualifiedAttribution = (qualifiedAttribution: any) => {
-                const newQualifiedAttributions = [
-                  ...qualifiedAttributions,
-                  qualifiedAttribution
-                ];
-                setQualifiedAttributions(newQualifiedAttributions);
-                onChange(newQualifiedAttributions.map(({ id }) => id));
-              };
-
-              const deleteQualifiedAttribution = (deleteIndex: number) => {
-                const newQualifiedAttributions = qualifiedAttributions.filter(
-                  (_, index) => deleteIndex !== index
-                );
-                setQualifiedAttributions(newQualifiedAttributions);
-                onChange(newQualifiedAttributions.map(({ id }) => id));
-              };
-
-              return (
-                <ReactTags
-                  tags={qualifiedAttributions.map(({ id, label }) => ({
-                    id,
-                    name: label ?? id
-                  }))}
-                  suggestionsFilter={(suggestion, query) =>
-                    suggestion.id.startsWith(query)
-                  }
-                  suggestions={organizations
-                    .filter(
-                      ({ organizationId }) =>
-                        !datasetItem.qualifiedAttributions?.includes(
-                          organizationId
-                        )
-                    )
-                    .map(({ organizationId, prefLabel, name }) => ({
-                      id: organizationId,
-                      name: `${getTranslateText(prefLabel) ??
-                        name} (${organizationId})`,
-                      label: getTranslateText(prefLabel) ?? name
-                    }))}
-                  handleDelete={deleteQualifiedAttribution}
-                  handleAddition={addQualifiedAttribution}
-                  minQueryLength={1}
-                  placeholder=""
-                />
-              );
-            }}
+            component={QualifiedAttributionsTagsInput}
+            qualifiedAttributions={qualifiedAttributions}
+            setQualifiedAttributions={setQualifiedAttributions}
           />
         )}
       </div>
@@ -94,10 +84,7 @@ const FormQualifiedAttributionsPure = ({
   );
 };
 
-const mapProps = {
-  organizations: memoizedGetOrganizationList
-};
-
-export const FormQualifiedAttributions = resolve(mapProps)(
-  FormQualifiedAttributionsPure
-);
+export const FormQualifiedAttributions = compose<FC>(
+  memo,
+  withEnhetsregisteret
+)(FormQualifiedAttributionsPure);

@@ -40,7 +40,7 @@ const getAccessRightLabel = value => {
 };
 
 interface LegalBasisFieldsProps {
-  item: {};
+  item: Record<string, unknown>;
   index: number;
   fields: any;
   titleLabel: string;
@@ -142,10 +142,10 @@ interface FormAccessRightsProps {
   dispatch: (any) => void;
   catalogId: string;
   datasetId: string;
-  languages: {}[];
+  languages: Record<string, unknown>[];
   datasetFormStatus: { lastChangedFields: string[] };
   datasetItem: { accessRights: { uri: string } };
-  losItems: {}[];
+  losItems: Record<string, unknown>[];
   isReadOnly: boolean;
   change: (key: string, value: any) => void;
 }
@@ -244,7 +244,7 @@ export const FormAccessRights = ({
               />
               <FieldArray
                 name="legalBasisForRestriction"
-                component={renderLegalBasis}
+                component={renderLegalBasis as any}
                 titleLabel={
                   localization.schema.accessRights.legalBasisForRestriction
                     .titleLabel
@@ -269,7 +269,7 @@ export const FormAccessRights = ({
               />
               <FieldArray
                 name="legalBasisForProcessing"
-                component={renderLegalBasis}
+                component={renderLegalBasis as any}
                 titleLabel={
                   localization.schema.accessRights.legalBasisForProcessing
                     .titleLabel
@@ -293,7 +293,7 @@ export const FormAccessRights = ({
               />
               <FieldArray
                 name="legalBasisForAccess"
-                component={renderLegalBasis}
+                component={renderLegalBasis as any}
                 titleLabel={
                   localization.schema.accessRights.legalBasisForAccess
                     .titleLabel
