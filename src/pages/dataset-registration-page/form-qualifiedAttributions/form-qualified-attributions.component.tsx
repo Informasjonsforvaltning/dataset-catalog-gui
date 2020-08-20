@@ -34,13 +34,14 @@ const FormQualifiedAttributionsPure: FC<Props> = ({
   >([]);
 
   useEffect(() => {
-    if (datasetItem.qualifiedAttributions.length > 0) {
+    if (datasetItem?.qualifiedAttributions?.length > 0) {
       listOrganizations(datasetItem.qualifiedAttributions);
     }
   }, []);
 
   useEffect(() => {
     if (
+      datasetItem?.qualifiedAttributions?.length > 0 &&
       organizations.length > 0 &&
       !fromJS(organizations).equals(fromJS(previousOrganizations.current))
     ) {
