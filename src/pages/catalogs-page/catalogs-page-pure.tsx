@@ -5,7 +5,6 @@ import { Catalog } from './catalogs/catalog.component';
 import { Variant } from '../../components/banner';
 import { getTranslateText } from '../../services/translateText';
 import { selectorForCatalogDatasetsFromDatasetsState } from '../../redux/modules/datasets';
-import { getAPIItemsCount } from '../../redux/modules/apis';
 import './catalogs-page.scss';
 import { authService } from '../../services/auth/auth-service';
 
@@ -89,23 +88,14 @@ export const CatalogsPagePure = ({
                       }
                     />
                   )}
-                  {apis && (
-                    <Catalog
-                      key={`apis-${id}`}
-                      catalogId={id}
-                      fetchItems={fetchApisIfNeeded}
-                      type="apis"
-                      itemsCount={getAPIItemsCount(apis, id)}
-                      isReadOnly={
-                        !authService.hasSystemAdminPermission() &&
-                        !authService.hasOrganizationWritePermission(id)
-                      }
-                      disabled={
-                        !authService.hasSystemAdminPermission() &&
-                        !termsAccepted
-                      }
-                    />
-                  )}
+                  <Catalog
+                    key={`dataservices-${id}`}
+                    catalogId={id}
+                    type="dataservices"
+                    disabled={
+                      !authService.hasSystemAdminPermission() && !termsAccepted
+                    }
+                  />
                   <Catalog
                     key={`concepts-${id}`}
                     catalogId={id}

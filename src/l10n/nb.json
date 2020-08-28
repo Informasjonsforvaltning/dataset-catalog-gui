@@ -442,12 +442,12 @@
       "accessText": "Les mer om hvordan du får tilgang her"
     },
     "datasets": "Datasettkatalog",
-    "apis": "API-katalog",
+    "dataservices": "API-katalog",
     "concepts": "Begrepskatalog",
     "protocol": "Protokoll",
     "type": {
       "datasets": "datasettbeskrivelser",
-      "apis": "API-beskrivelser",
+      "dataservices": "API-beskrivelser",
       "concepts": "begreper",
       "protocol": "behandlingsaktiviteter"
     }

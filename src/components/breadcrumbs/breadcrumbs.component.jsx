@@ -4,7 +4,6 @@ import withBreadcrumbs from 'react-router-breadcrumbs-hoc';
 import PropTypes from 'prop-types';
 
 import { PathNameBreadcrumb } from './pathname-breadcrumb/pathname-breadcrumb';
-import { ApiDescriptionBreadcrumb } from './api-description-breadcrumb/api-description-breadcrumb';
 import { DatasetBreadcrumb } from './dataset-breadcrumb/dataset-breadcrumb';
 import './breadcrumbs.scss';
 
@@ -15,27 +14,8 @@ const routes = [
     breadcrumb: props => <PathNameBreadcrumb pathName="home" {...props} />
   },
   {
-    path: '/catalogs/:catalogId/apis',
-    breadcrumb: props => (
-      <PathNameBreadcrumb pathName="API-descriptions" {...props} />
-    )
-  },
-  {
     path: '/catalogs/:catalogId/datasets',
     breadcrumb: props => <PathNameBreadcrumb pathName="Datasets" {...props} />
-  },
-  {
-    path: '/catalogs/:catalogId/apis/import',
-    breadcrumb: props => (
-      <PathNameBreadcrumb
-        pathName="Register a new API-description"
-        {...props}
-      />
-    )
-  },
-  {
-    path: '/catalogs/:catalogId/apis/:id',
-    breadcrumb: ApiDescriptionBreadcrumb
   },
   {
     path: '/catalogs/:catalogId/datasets/:id',

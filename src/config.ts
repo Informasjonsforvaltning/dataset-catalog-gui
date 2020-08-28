@@ -11,7 +11,8 @@ const env = (window as any).env || {
   SSO_HOST: 'http://localhost:8084',
   // todo given that the it uses the same port as the organization-api, no-one has ever tried to run these services together. Update when this need arises
   RECORDS_OF_PROCESSING_ACTIVITIES_GUI_BASE_URI: 'http://localhost:8140',
-  RECORDS_OF_PROCESSING_ACTIVITIES_API_BASE_URI: 'http://localhost:8141'
+  RECORDS_OF_PROCESSING_ACTIVITIES_API_BASE_URI: 'http://localhost:8141',
+  DATASERVICE_CATALOG_BASE_URI: 'http://localhost:9080'
 };
 
 // override all env variables to staging (inspired by https://registrering.staging.fellesdatakatalog.digdir.no/config.js)
@@ -25,6 +26,7 @@ const env = (window as any).env || {
 // env.USE_DEMO_LOGO = true;
 // env.RECORDS_OF_PROCESSING_ACTIVITIES_GUI_BASE_URI = 'https://registrering-protokoll.staging.fellesdatakatalog.digdir.no';
 // env.RECORDS_OF_PROCESSING_ACTIVITIES_API_BASE_URI = 'https://registrering-protokoll-api.staging.fellesdatakatalog.digdir.no';
+// env.DATASERVICE_CATALOG_BASE_URI = 'https://dataservice-catalog.staging.fellesdatakatalog.digdir.no';
 
 const searchHost = env.SEARCH_HOST || 'https://fellesdatakatalog.digdir.no';
 const searchApi = {
@@ -73,7 +75,10 @@ const config = {
     'https://registrering-protokoll.fellesdatakatalog.digdir.no',
   recordsOfProcessingActivitiesApi:
     env.RECORDS_OF_PROCESSING_ACTIVITIES_API_BASE_URI ||
-    'https://registrering-protokoll-api.fellesdatakatalog.digdir.no'
+    'https://registrering-protokoll-api.fellesdatakatalog.digdir.no',
+  dataServiceCatalogHost:
+    env.DATASERVICE_CATALOG_BASE_URI ||
+    'https://dataservice-catalog.fellesdatakatalog.digdir.no',
 };
 
 export const getConfig = () => config;

@@ -7,6 +7,7 @@ import { getConfig } from '../../../config';
 import { CatalogItem } from './catalog-item/catalog-item.component';
 import { getConceptCount } from '../../../services/api/concept-registration-api/host';
 import { getRecordsCount } from '../../../services/api/records-registration-api/host';
+import { getDataServicesCount } from '../../../services/api/dataservice-catalog/host';
 
 export const CatalogPure = ({
   catalogId,
@@ -20,6 +21,9 @@ export const CatalogPure = ({
 
   const getLinkUri = () => {
     switch (type) {
+      case 'dataservices': {
+        return `${getConfig().dataServiceCatalogHost}/${catalogId}`;
+      }
       case 'concepts': {
         return `${getConfig().conceptRegistrationHost}/${catalogId}`;
       }
@@ -63,12 +67,16 @@ CatalogPure.propTypes = {
   disabled: PropTypes.bool
 };
 
+const memoizedGetDataServicesCount = memoize(getDataServicesCount);
 const memoizedGetConceptCount = memoize(getConceptCount);
 const memoizedGetRecordsCount = memoize(getRecordsCount);
 
 const mapProps = {
   itemsCount: ({ type, catalogId, itemsCount }) => {
     switch (type) {
+      case 'dataservices': {
+        return memoizedGetDataServicesCount(catalogId);
+      }
       case 'concepts': {
         return memoizedGetConceptCount(catalogId);
       }
