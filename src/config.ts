@@ -78,7 +78,7 @@ const config = {
     'https://registrering-protokoll-api.fellesdatakatalog.digdir.no',
   dataServiceCatalogHost:
     env.DATASERVICE_CATALOG_BASE_URI ||
-    'https://dataservice-catalog.fellesdatakatalog.digdir.no',
+    'https://dataservice-catalog.fellesdatakatalog.digdir.no'
 };
 
 export const getConfig = () => config;

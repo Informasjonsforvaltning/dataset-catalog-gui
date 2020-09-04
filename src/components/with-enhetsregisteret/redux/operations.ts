@@ -7,6 +7,12 @@ interface EnhetsregisteretOrganizationSearchParams {
 }
 
 export const searchOrganizations = async (
-  params: EnhetsregisteretOrganizationSearchParams
+  params: EnhetsregisteretOrganizationSearchParams,
+  isSubordinate?: boolean
 ) =>
-  axios.get('https://data.brreg.no/enhetsregisteret/api/enheter', { params });
+  axios.get(
+    `https://data.brreg.no/enhetsregisteret/api/${
+      isSubordinate ? 'underenheter' : 'enheter'
+    }`,
+    { params }
+  );

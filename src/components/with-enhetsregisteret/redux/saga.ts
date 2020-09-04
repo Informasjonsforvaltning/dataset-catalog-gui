@@ -44,15 +44,33 @@ function* searchOrganizationsRequested({
   try {
     const isOrganisationNumber = /^\d{9}$/.test(query);
 
-    const { data } = yield call(searchOrganizations, {
-      [isOrganisationNumber ? 'organisasjonsnummer' : 'navn']: query,
-      size
-    });
+    const [
+      { data: organizationsData },
+      { data: subordinateOrganizationsData }
+    ] = yield all([
+      call(searchOrganizations, {
+        [isOrganisationNumber ? 'organisasjonsnummer' : 'navn']: query,
+        size
+      }),
+      call(
+        searchOrganizations,
+        {
+          [isOrganisationNumber ? 'organisasjonsnummer' : 'navn']: query,
+          size
+        },
+        true
+      )
+    ]);
 
-    if (data?._embedded?.enheter?.length > 0) {
+    const organizations: EnhetsregisteretOrganization[] =
+      organizationsData?._embedded?.enheter ?? [];
+    const subordinateOrganizations: EnhetsregisteretOrganization[] =
+      subordinateOrganizationsData?._embedded?.underenheter ?? [];
+
+    if (organizations.length > 0 || subordinateOrganizations.length > 0) {
       yield put(
         actions.searchOrganizationsSucceeded(
-          data?._embedded?.enheter as EnhetsregisteretOrganization[]
+          organizations.concat(subordinateOrganizations)
         )
       );
     } else {

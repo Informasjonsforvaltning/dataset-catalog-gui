@@ -43,6 +43,11 @@ const QualifiedAttributionsTagsInput: FC<Props> = ({
     onChange(newQualifiedAttributions.map(({ id }) => id));
   };
 
+  const formatPotentialOrganizationNumber = (query: string) =>
+    /^[\d\s]+$/.test(query) && query.replace(/\s/g, '').length === 9
+      ? query.replace(/\s/g, '')
+      : query;
+
   return (
     <ReactTags
       tags={qualifiedAttributions.map(({ id, label }) => ({
@@ -50,7 +55,7 @@ const QualifiedAttributionsTagsInput: FC<Props> = ({
         name: label ?? id
       }))}
       suggestionsFilter={({ id = '', name = '' }, query) =>
-        id.toLowerCase().startsWith(query) ||
+        id.toLowerCase().startsWith(formatPotentialOrganizationNumber(query)) ||
         name.toLowerCase().startsWith(query)
       }
       suggestions={organizationSuggestions.map(
@@ -60,7 +65,10 @@ const QualifiedAttributionsTagsInput: FC<Props> = ({
           label: navn
         })
       )}
-      handleInputChange={query => searchOrganizations(query, 5)}
+      maxSuggestionsLength={8}
+      handleInputChange={(query: string) =>
+        searchOrganizations(formatPotentialOrganizationNumber(query), 4)
+      }
       handleDelete={deleteQualifiedAttribution}
       handleAddition={addQualifiedAttribution}
       minQueryLength={1}
