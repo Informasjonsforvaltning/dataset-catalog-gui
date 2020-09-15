@@ -11,7 +11,8 @@ export const Routes = () => (
     <ProtectedRoute
       path="/catalogs/:catalogId"
       check={({ catalogId }) =>
-        authService.hasSystemAdminPermission() || authService.hasOrganizationReadPermission(catalogId)
+        authService.hasSystemAdminPermission() ||
+        authService.hasOrganizationReadPermission(catalogId)
       }
       component={CatalogRoutes}
     />

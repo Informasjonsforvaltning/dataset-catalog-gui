@@ -18,8 +18,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => ({
   fetchCatalogsIfNeeded: () => dispatch(fetchCatalogsIfNeeded()),
-  fetchDatasetsIfNeeded: catalogId =>
-    dispatch(fetchDatasetsIfNeeded(catalogId))
+  fetchDatasetsIfNeeded: catalogId => dispatch(fetchDatasetsIfNeeded(catalogId))
 });
 
 export const catalogsPageConnector = connect(

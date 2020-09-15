@@ -5,9 +5,7 @@ import { getConfig } from '../../../config';
 export const getDataServices = async orgnr =>
   axios
     .get(
-      `${
-        getConfig().dataServiceCatalogHost
-      }/catalogs/${orgnr}/dataservices`,
+      `${getConfig().dataServiceCatalogHost}/catalogs/${orgnr}/dataservices`,
       {
         headers: {
           Authorization: await authService.getAuthorizationHeader(),

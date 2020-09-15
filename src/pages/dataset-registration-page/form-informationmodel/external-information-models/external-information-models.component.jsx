@@ -22,25 +22,31 @@ const ExternalInformationModels = ({
   catalogId,
   datasetId
 }) => {
-  const patchInformationModels = (models) => {
+  const patchInformationModels = models => {
     const patch = { [fields.name]: models };
     const thunk = datasetFormPatchThunk({ catalogId, datasetId, patch });
     dispatch(thunk);
   };
 
-  const removeModelAtIndex = (index) => {
+  const removeModelAtIndex = index => {
     const models = fields.getAll();
     models.splice(index, 1);
     patchInformationModels(fields.getAll());
   };
 
-  const isFdkURI = (uri) => uri && uri.includes(`${getConfig().searchHost}/informationmodels/`);
+  const isFdkURI = uri =>
+    uri && uri.includes(`${getConfig().searchHost}/informationmodels/`);
 
   return (
-  <div>
-    {fields &&
-      fields.map((item, index) => (
-        <div key={`fdk-info-model-${item}`} className={isFdkURI(fields.get(index).uri) ? "display-none" : "d-flex mb-2"} >
+    <div>
+      {fields &&
+        fields.map((item, index) => (
+          <div
+            key={`fdk-info-model-${item}`}
+            className={
+              isFdkURI(fields.get(index).uri) ? 'display-none' : 'd-flex mb-2'
+            }
+          >
             <div className="w-50">
               <MultilingualField
                 name={`${item}.prefLabel`}
@@ -58,22 +64,21 @@ const ExternalInformationModels = ({
                 showLabel
               />
             </div>
-            {!isReadOnly &&
+            {!isReadOnly && (
               <div className="d-flex align-items-end">
                 <button
                   className="fdk-btn-no-border"
                   type="button"
                   title="Remove reference"
-                  onClick={() => removeModelAtIndex(index) }
+                  onClick={() => removeModelAtIndex(index)}
                 >
                   <i className="fa fa-trash mr-2" />
                 </button>
               </div>
-            }
+            )}
           </div>
-      ))
-    }
-    {!isReadOnly && (
+        ))}
+      {!isReadOnly && (
         <button
           className="fdk-btn-no-border"
           type="button"
@@ -84,8 +89,8 @@ const ExternalInformationModels = ({
         </button>
       )}
     </div>
-  )
-}
+  );
+};
 
 ExternalInformationModels.defaultProps = {
   fields: null,

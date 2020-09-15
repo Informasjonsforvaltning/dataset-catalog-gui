@@ -54,10 +54,7 @@ export class Auth {
   };
 
   login: () => Promise<void> = () =>
-    this.kc
-      .login()
-      .then()
-      .catch(console.error);
+    this.kc.login().then().catch(console.error);
 
   logout: () => Promise<void> = () =>
     this.kc

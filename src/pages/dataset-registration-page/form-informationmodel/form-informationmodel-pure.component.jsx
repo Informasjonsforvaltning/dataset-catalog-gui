@@ -8,17 +8,25 @@ import { Helptext } from '../../../components/helptext/helptext.component';
 import ExternalInformationModels from './external-information-models/external-information-models.component';
 import FdkInformationModels from './fdk-information-models/fdk-information-models.component';
 
-export const FormInformationModelPure = ({ languages, isReadOnly, dispatch, catalogId, datasetId }) => (
+export const FormInformationModelPure = ({
+  languages,
+  isReadOnly,
+  dispatch,
+  catalogId,
+  datasetId
+}) => (
   <form>
     <div className="form-group">
       <div className="mt-4">
         <div className="form-group">
           <Helptext
-            title={localization.schema.informationModel.helptext.fdkInformationModel}
+            title={
+              localization.schema.informationModel.helptext.fdkInformationModel
+            }
             term="Dataset_fdkInformationModel"
           />
-          <FieldArray 
-            name="informationModel" 
+          <FieldArray
+            name="informationModel"
             component={FdkInformationModels}
             isReadOnly={isReadOnly}
             dispatch={dispatch}
@@ -27,7 +35,8 @@ export const FormInformationModelPure = ({ languages, isReadOnly, dispatch, cata
           />
           <Helptext
             title={
-              localization.schema.informationModel.helptext.externalInformationModel
+              localization.schema.informationModel.helptext
+                .externalInformationModel
             }
             term="Dataset_externalInformationModel"
           />

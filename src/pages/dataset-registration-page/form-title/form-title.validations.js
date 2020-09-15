@@ -8,7 +8,7 @@ export const schema = Yup.object().shape({
   title: Yup.object().shape({
     nb: Yup.string()
       .nullable()
-      .test(function() {
+      .test(function () {
         const { nb, nn, en } = this.parent;
         if (!nb && !nn && !en) {
           return this.createError({
@@ -20,7 +20,7 @@ export const schema = Yup.object().shape({
       }),
     nn: Yup.string()
       .nullable()
-      .test(function() {
+      .test(function () {
         const { nb, nn, en } = this.parent;
         if (!nb && !nn && !en) {
           return this.createError({
@@ -32,7 +32,7 @@ export const schema = Yup.object().shape({
       }),
     en: Yup.string()
       .nullable()
-      .test(function() {
+      .test(function () {
         const { nb, nn, en } = this.parent;
         if (!nb && !nn && !en) {
           return this.createError({
@@ -46,7 +46,7 @@ export const schema = Yup.object().shape({
   description: Yup.object().shape({
     nb: Yup.string()
       .nullable()
-      .test(function() {
+      .test(function () {
         const { nb, nn, en } = this.parent;
         if (!nb && !nn && !en) {
           return this.createError({
@@ -58,7 +58,7 @@ export const schema = Yup.object().shape({
       }),
     nn: Yup.string()
       .nullable()
-      .test(function() {
+      .test(function () {
         const { nb, nn, en } = this.parent;
         if (!nb && !nn && !en) {
           return this.createError({
@@ -70,7 +70,7 @@ export const schema = Yup.object().shape({
       }),
     en: Yup.string()
       .nullable()
-      .test(function() {
+      .test(function () {
         const { nb, nn, en } = this.parent;
         if (!nb && !nn && !en) {
           return this.createError({

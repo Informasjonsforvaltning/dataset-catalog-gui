@@ -26,10 +26,7 @@ test('should handle uncheck NOR', () => {
     target: { value: 'NOR' },
     preventDefault
   };
-  wrapper
-    .find('input')
-    .first()
-    .prop('onChange')(mockedEvent);
+  wrapper.find('input').first().prop('onChange')(mockedEvent);
   expect(onChange).toHaveBeenCalled();
 });
 
@@ -38,10 +35,7 @@ test('should handle check NOR', () => {
     target: { value: 'NOR', checked: 'checked' },
     preventDefault
   };
-  wrapper
-    .find('input')
-    .first()
-    .prop('onChange')(mockedEvent);
+  wrapper.find('input').first().prop('onChange')(mockedEvent);
   expect(onChange).toHaveBeenCalled();
 });
 
@@ -50,10 +44,7 @@ test('should handle check ENG', () => {
     target: { value: 'ENG', checked: 'checked' },
     preventDefault
   };
-  wrapper
-    .find('input')
-    .first()
-    .prop('onChange')(mockedEvent);
+  wrapper.find('input').first().prop('onChange')(mockedEvent);
   expect(onChange).toHaveBeenCalled();
 });
 
@@ -62,9 +53,6 @@ test('should handle check SMI', () => {
     target: { value: 'SMI', checked: 'checked' },
     preventDefault
   };
-  wrapper
-    .find('input')
-    .first()
-    .prop('onChange')(mockedEvent);
+  wrapper.find('input').first().prop('onChange')(mockedEvent);
   expect(onChange).toHaveBeenCalled();
 });

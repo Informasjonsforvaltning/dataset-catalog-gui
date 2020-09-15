@@ -10,7 +10,7 @@ import '../form-informationmodel.component.scss';
 
 export const TestIds = {
   component: 'dataset-fdk-information-models',
-  pill: 'dataset-fdk-information-models-pill',
+  pill: 'dataset-fdk-information-models-pill'
 };
 
 const FdkInformationModels = ({
@@ -20,66 +20,70 @@ const FdkInformationModels = ({
   catalogId,
   datasetId
 }) => {
-
-  const patchInformationModels = (models) => {
+  const patchInformationModels = models => {
     const patch = { [fields.name]: models };
     const thunk = datasetFormPatchThunk({ catalogId, datasetId, patch });
     dispatch(thunk);
   };
 
-  const removeModelAtIndex = (index) => {
+  const removeModelAtIndex = index => {
     const models = fields.getAll();
     models.splice(index, 1);
     patchInformationModels(models);
   };
 
-  const addModel = (model) => {
+  const addModel = model => {
     const models = fields.getAll();
     models.push(model);
     patchInformationModels(models);
   };
 
-  const isFdkURI = (uri) => uri && uri.includes(`${getConfig().searchHost}/informationmodels/`);
+  const isFdkURI = uri =>
+    uri && uri.includes(`${getConfig().searchHost}/informationmodels/`);
 
   return (
-    <div className="fdk-info-models" {...insertTestId(TestIds.component)} >
-      {!isReadOnly &&
+    <div className="fdk-info-models" {...insertTestId(TestIds.component)}>
+      {!isReadOnly && (
         <FdkInformationModelsSuggestionField addInformationModel={addModel} />
-      }
+      )}
       {fields &&
         fields.map((item, index) => (
-          <div 
+          <div
             key={`external-info-model-${item}`}
-            className={isFdkURI(fields.get(index).uri) ? "fdk-info-model-pill" : "display-none"}
+            className={
+              isFdkURI(fields.get(index).uri)
+                ? 'fdk-info-model-pill'
+                : 'display-none'
+            }
             {...insertTestId(TestIds.pill)}
           >
-            <span className="fdk-info-model-pill-label">{getTranslateText(fields.get(index).prefLabel)}</span>
-            {!isReadOnly &&
+            <span className="fdk-info-model-pill-label">
+              {getTranslateText(fields.get(index).prefLabel)}
+            </span>
+            {!isReadOnly && (
               <i
                 className="fa fa-times mr-2 remove-fdk-info-model"
                 role="button"
                 tabIndex="0"
-                onClick={() => removeModelAtIndex(index) }
+                onClick={() => removeModelAtIndex(index)}
                 onKeyPress={e => {
                   removeModelAtIndex(index);
                   e.preventDefault();
                 }}
               />
-            }
+            )}
           </div>
-        ))
-      }
+        ))}
     </div>
   );
-
-}
+};
 
 FdkInformationModels.defaultProps = {
   fields: null,
   isReadOnly: false,
   dispatch: null,
   catalogId: null,
-  datasetId: null,
+  datasetId: null
 };
 
 FdkInformationModels.propTypes = {

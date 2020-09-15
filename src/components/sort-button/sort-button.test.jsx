@@ -22,10 +22,7 @@ test('should render SortButtons correctly', () => {
 });
 
 test('should handle onSortField asc', () => {
-  wrapper
-    .find('button')
-    .first()
-    .prop('onClick')();
+  wrapper.find('button').first().prop('onClick')();
   expect(onSortField).toHaveBeenCalled();
 });
 
@@ -33,9 +30,6 @@ test('should handle onSortField desc', () => {
   wrapper.setProps({
     sortType: 'desc'
   });
-  wrapper
-    .find('button')
-    .at(1)
-    .prop('onClick')();
+  wrapper.find('button').at(1).prop('onClick')();
   expect(onSortField).toHaveBeenCalled();
 });
