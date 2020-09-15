@@ -1,9 +1,11 @@
 import React from 'react';
-import _ from 'lodash';
 import ReactTags from 'react-tag-autocomplete';
 
 import { getTranslateText } from '../../../services/translateText';
-import { searchApis } from '../../../services/api/search-api/apis';
+import {
+  extractSuggestions,
+  getDataserviceSuggestions
+} from '../../../services/api/fulltext-search/suggestions';
 import localization from '../../../services/localization';
 
 const addTagToInput = (updates, { input: { value, onChange } }) =>
@@ -78,12 +80,15 @@ export class InputTagsAPIsField extends React.Component {
   loadSuggestions(value) {
     const suggestionItems = [];
 
-    searchApis({ title: value, returnFields: 'title,id' })
-      .then(responseData => {
-        _.get(responseData, 'hits', []).forEach(item => {
+    getDataserviceSuggestions({
+      q: value
+    })
+      .then(extractSuggestions)
+      .then(suggestions => {
+        suggestions.forEach(suggestion => {
           suggestionItems.push({
-            id: _.get(item, 'id'),
-            name: _.get(item, 'title')
+            id: suggestion.id,
+            name: getTranslateText(suggestion.title)
           });
         });
         this.setState({

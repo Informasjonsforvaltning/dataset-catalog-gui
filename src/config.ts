@@ -27,6 +27,7 @@ const env = (window as any).env || {
 // env.RECORDS_OF_PROCESSING_ACTIVITIES_GUI_BASE_URI = 'https://registrering-protokoll.staging.fellesdatakatalog.digdir.no';
 // env.RECORDS_OF_PROCESSING_ACTIVITIES_API_BASE_URI = 'https://registrering-protokoll-api.staging.fellesdatakatalog.digdir.no';
 // env.DATASERVICE_CATALOG_BASE_URI = 'https://dataservice-catalog.staging.fellesdatakatalog.digdir.no';
+// env.SEARCH_FULLTEXT_HOST = 'https://search.staging.fellesdatakatalog.digdir.no';
 
 const searchHost = env.SEARCH_HOST || 'https://fellesdatakatalog.digdir.no';
 const searchApi = {
@@ -78,7 +79,10 @@ const config = {
     'https://registrering-protokoll-api.fellesdatakatalog.digdir.no',
   dataServiceCatalogHost:
     env.DATASERVICE_CATALOG_BASE_URI ||
-    'https://dataservice-catalog.fellesdatakatalog.digdir.no'
+    'https://dataservice-catalog.fellesdatakatalog.digdir.no',
+  searchFullTextApi:
+    { host: env.SEARCH_FULLTEXT_HOST } ||
+    'https://search.fellesdatakatalog.digdir.no'
 };
 
 export const getConfig = () => config;
