@@ -8,9 +8,9 @@ import './concept-tags-input-field.scss';
 
 import localization from '../../../../services/localization';
 import {
-  extractConcepts,
-  searchConcepts
-} from '../../../../services/api/search-api/concepts';
+  extractSuggestions,
+  getConceptSuggestions
+} from '../../../../services/api/fulltext-search/suggestions';
 import { getTranslateText } from '../../../../services/translateText';
 import '../../../../components/fields/field-input-tags/field-input-tags.scss';
 
@@ -109,17 +109,15 @@ class ConceptTagsInputField extends React.Component {
       isLoading: true
     });
 
-    searchConcepts({
-      prefLabel: value,
-      returnfields: 'uri,definition.text,publisher.prefLabel,publisher.name',
-      size: 25
+    getConceptSuggestions({
+      q: value
     })
-      .then(extractConcepts)
-      .then(concepts => {
+      .then(extractSuggestions)
+      .then(suggestions => {
         this.lastRequestId = setTimeout(() => {
           this.setState({
             isLoading: false,
-            suggestions: concepts
+            suggestions
           });
         }, 250);
       })
