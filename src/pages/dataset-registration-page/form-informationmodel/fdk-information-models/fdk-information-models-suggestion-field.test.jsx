@@ -1,7 +1,7 @@
 import React from 'react';
 import { mount } from 'enzyme';
 import { findByTestId } from '../../../../../test/utils/testUtils';
-import * as searchApi from '../../../../services/api/search-api/information-models';
+import * as informationModelSuggestion from '../../../../services/api/fulltext-search/suggestions';
 import FdkInformationModelsSuggestionField, {
   TestIds
 } from './fdk-information-models-suggestion-field.component';
@@ -14,13 +14,13 @@ function setup() {
 }
 
 const searchSpy = jest
-  .spyOn(searchApi, 'searchInformationModels')
+  .spyOn(informationModelSuggestion, 'getInformationModelSuggestions')
   .mockImplementation(
-    input => new Promise((resolve, reject) => resolve('modell'))
+    () => new Promise((resolve, reject) => resolve('modell'))
   );
 const extractSpy = jest
-  .spyOn(searchApi, 'extractInformationModels')
-  .mockImplementation(extractFrom => {
+  .spyOn(informationModelSuggestion, 'extractSuggestions')
+  .mockImplementation(() => {
     return new Promise((resolve, reject) =>
       resolve([{ title: 'title', publisher: { name: 'name' } }])
     );

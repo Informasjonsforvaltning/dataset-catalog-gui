@@ -2,9 +2,9 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import Autosuggest from 'react-autosuggest';
 import {
-  extractInformationModels,
-  searchInformationModels
-} from '../../../../services/api/search-api/information-models';
+  extractSuggestions,
+  getInformationModelSuggestions
+} from '../../../../services/api/fulltext-search/suggestions';
 import localization from '../../../../services/localization';
 import { getTranslateText } from '../../../../services/translateText';
 import { getConfig } from '../../../../config';
@@ -42,13 +42,15 @@ const FdkInformationModelsSuggestionField = ({ addInformationModel }) => {
 
     setLoading(true);
 
-    searchInformationModels({ q: value })
-      .then(extractInformationModels)
-      .then(models => {
+    getInformationModelSuggestions({
+      q: value
+    })
+      .then(extractSuggestions)
+      .then(suggestions => {
         setLastRequestId(
           setTimeout(() => {
             setLoading(false);
-            setSuggestions(models);
+            setSuggestions(suggestions);
           }, 250)
         );
       })

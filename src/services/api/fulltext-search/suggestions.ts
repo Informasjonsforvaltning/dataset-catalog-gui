@@ -8,3 +8,6 @@ export const getDataserviceSuggestions = (params: any) =>
 
 export const getConceptSuggestions = (params: any) =>
   searchFullTextApiGet('/suggestion/concepts', params);
+
+export const getInformationModelSuggestions = (params: any) =>
+  searchFullTextApiGet('/suggestion/informationmodels', params);
