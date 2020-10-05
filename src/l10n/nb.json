@@ -444,7 +444,7 @@
     "datasets": "Datasettkatalog",
     "dataservices": "API-katalog",
     "concepts": "Begrepskatalog",
-    "protocol": "Protokoll",
+    "protocol": "Behandlingsoversikt",
     "type": {
       "datasets": "datasettbeskrivelser",
       "dataservices": "API-beskrivelser",
