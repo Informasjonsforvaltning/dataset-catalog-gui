@@ -108,10 +108,6 @@ export const CatalogsPagePure = ({
                     key={`protocol-${id}`}
                     catalogId={id}
                     type="protocol"
-                    isReadOnly={
-                      !authService.hasSystemAdminPermission() &&
-                      !authService.hasOrganizationWritePermission(id)
-                    }
                     disabled={
                       !authService.hasSystemAdminPermission() && !termsAccepted
                     }
