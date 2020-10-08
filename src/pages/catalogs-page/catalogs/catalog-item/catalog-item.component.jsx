@@ -38,7 +38,7 @@ export const CatalogItem = ({
     {
       readOnly: isReadOnly,
       disabled,
-      beta: type === 'protocol',
+      beta: false,
       'h-100': !itemsCount
     }
   );

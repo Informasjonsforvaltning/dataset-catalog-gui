@@ -18,15 +18,22 @@ const env = (window as any).env || {
 // override all env variables to staging (inspired by https://registrering.staging.fellesdatakatalog.digdir.no/config.js)
 // env.SEARCH_HOST = 'https://www.staging.fellesdatakatalog.digdir.no';
 // env.SEARCH_API_AUTHORIZATION = 'Basic ZmRrOkJSUkVH';
-// env.REGISTRATION_API_HOST = 'https://registrering.staging.fellesdatakatalog.digdir.no';
-// env.CONCEPT_REGISTRATION_API_HOST = 'https://registrering-begrep-api.staging.fellesdatakatalog.digdir.no';
-// env.CONCEPT_REGISTRATION_HOST = 'https://registrering-begrep.staging.fellesdatakatalog.digdir.no';
+// env.REGISTRATION_API_HOST =
+//   'https://registrering.staging.fellesdatakatalog.digdir.no';
+// env.CONCEPT_REGISTRATION_API_HOST =
+//   'https://registrering-begrep-api.staging.fellesdatakatalog.digdir.no';
+// env.CONCEPT_REGISTRATION_HOST =
+//   'https://registrering-begrep.staging.fellesdatakatalog.digdir.no';
 // env.SSO_HOST = 'https://sso.staging.fellesdatakatalog.digdir.no';
-// env.ORGANIZATION_API_HOST = 'https://organization-catalogue.staging.fellesdatakatalog.digdir.no';
+// env.ORGANIZATION_API_HOST =
+//   'https://organization-catalogue.staging.fellesdatakatalog.digdir.no';
 // env.USE_DEMO_LOGO = true;
-// env.RECORDS_OF_PROCESSING_ACTIVITIES_GUI_BASE_URI = 'https://registrering-protokoll.staging.fellesdatakatalog.digdir.no';
-// env.RECORDS_OF_PROCESSING_ACTIVITIES_API_BASE_URI = 'https://registrering-protokoll-api.staging.fellesdatakatalog.digdir.no';
-// env.DATASERVICE_CATALOG_BASE_URI = 'https://dataservice-catalog.staging.fellesdatakatalog.digdir.no';
+// env.RECORDS_OF_PROCESSING_ACTIVITIES_GUI_BASE_URI =
+//   'https://registrering-protokoll.staging.fellesdatakatalog.digdir.no';
+// env.RECORDS_OF_PROCESSING_ACTIVITIES_API_BASE_URI =
+//   'https://registrering-protokoll.staging.fellesdatakatalog.digdir.no';
+// env.DATASERVICE_CATALOG_BASE_URI =
+//   'https://dataservice-catalog.staging.fellesdatakatalog.digdir.no';
 // env.SEARCH_FULLTEXT_HOST = 'https://search.staging.fellesdatakatalog.digdir.no';
 
 const searchHost = env.SEARCH_HOST || 'https://fellesdatakatalog.digdir.no';
