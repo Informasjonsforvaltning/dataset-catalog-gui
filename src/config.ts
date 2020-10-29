@@ -17,7 +17,6 @@ const env = (window as any).env || {
 
 // override all env variables to staging (inspired by https://registrering.staging.fellesdatakatalog.digdir.no/config.js)
 // env.SEARCH_HOST = 'https://www.staging.fellesdatakatalog.digdir.no';
-// env.SEARCH_API_AUTHORIZATION = 'Basic ZmRrOkJSUkVH';
 // env.REGISTRATION_API_HOST =
 //   'https://registrering.staging.fellesdatakatalog.digdir.no';
 // env.CONCEPT_REGISTRATION_API_HOST =
@@ -35,6 +34,7 @@ const env = (window as any).env || {
 // env.DATASERVICE_CATALOG_BASE_URI =
 //   'https://dataservice-catalog.staging.fellesdatakatalog.digdir.no';
 // env.SEARCH_FULLTEXT_HOST = 'https://search.staging.fellesdatakatalog.digdir.no';
+// env.SKE_THEME_PROFILE = '910244132';
 
 const searchHost = env.SEARCH_HOST || 'https://fellesdatakatalog.digdir.no';
 const searchApi = {
@@ -89,7 +89,8 @@ const config = {
     'https://dataservice-catalog.fellesdatakatalog.digdir.no',
   searchFullTextApi:
     { host: env.SEARCH_FULLTEXT_HOST } ||
-    'https://search.fellesdatakatalog.digdir.no'
+    'https://search.fellesdatakatalog.digdir.no',
+  skeThemeProfile: env.SKE_THEME_PROFILE
 };
 
 export const getConfig = () => config;

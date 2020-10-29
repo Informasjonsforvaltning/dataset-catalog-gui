@@ -25,6 +25,7 @@
   "choose": "Velg",
   "noAccessCatalog": "Du har ikke tilgang til denne katalogen",
   "none": "Ingen",
+  "dataCatalogs": "Datakataloger",
   "breadcrumbs": {
     "home": "Alle kataloger",
     "API-descriptions": "API-beskrivelser",

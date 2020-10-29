@@ -6,7 +6,7 @@ import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import ThemeProvider from '@fellesdatakatalog/theme';
 
-import { App } from './app/app';
+import App from './app/app';
 
 import { configureStore } from './redux/configureStore';
 import { initLocalization } from './services/localization';
