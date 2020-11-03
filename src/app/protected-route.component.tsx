@@ -1,12 +1,12 @@
 import React from 'react';
-import { Route, Redirect } from 'react-router-dom';
+import { Route, Redirect, RouteComponentProps } from 'react-router-dom';
 
 import { authService } from '../services/auth/auth-service';
 import { Timeout } from '../components/timeout.component';
 
 const TIMEOUT = 27.5 * 60 * 1000;
 
-interface Props {
+interface Props extends RouteComponentProps {
   check: (params: any) => boolean;
   computedMatch: any;
 }
