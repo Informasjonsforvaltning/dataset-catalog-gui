@@ -8,7 +8,7 @@ import {
   selectorForDatasetsInCatalog
 } from '../../redux/modules/datasets';
 import { fetchCatalogIfNeeded } from '../../redux/modules/catalog';
-import { DatasetsListPagePure } from './dataset-list-page-pure';
+import DatasetsListPagePure from './dataset-list-page-pure';
 import {
   createDataset,
   datasetPath

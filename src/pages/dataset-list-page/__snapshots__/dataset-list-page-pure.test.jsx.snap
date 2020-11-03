@@ -1,19 +1,18 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`should render DatasetsListPagePure correctly 1`] = `
-<div
-  className="container"
-  id="content"
->
-  <div
-    className="row"
-  >
-    <div
-      className="col-12"
-    />
-  </div>
-  <div
-    className="row mb-2 mb-md-5"
+<Styled(styled.div)>
+  <styled.div>
+    <styled.button
+      onClick={[Function]}
+      type="button"
+    >
+      <AddIcon />
+      Legg til ny datasettbeskrivelse
+    </styled.button>
+  </styled.div>
+  <Memo()
+    catalogId="910244132"
   />
-</div>
+</Styled(styled.div)>
 `;
