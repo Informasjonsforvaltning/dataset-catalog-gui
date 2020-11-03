@@ -1,12 +1,17 @@
-import React, { useState } from 'react';
-import PropTypes from 'prop-types';
-import _ from 'lodash';
+import React, { FC, memo, useState } from 'react';
 
 import localization from '../../../services/localization';
 import { ListItemsPure } from '../../../components/list-items/list-items.component';
 import './dataset-items-list.scss';
 
-export const DatasetItemsList = ({
+interface Props {
+  isReadOnly: boolean;
+  catalogId: string;
+  datasetItems: any;
+  onClickCreateDataset: (catalogId: string) => void;
+}
+
+export const DatasetItemsListPure: FC<Props> = ({
   isReadOnly,
   catalogId,
   datasetItems,
@@ -47,13 +52,4 @@ export const DatasetItemsList = ({
   );
 };
 
-DatasetItemsList.defaultProps = {
-  datasetItems: null,
-  onClickCreateDataset: _.noop
-};
-
-DatasetItemsList.propTypes = {
-  catalogId: PropTypes.string.isRequired,
-  datasetItems: PropTypes.array,
-  onClickCreateDataset: PropTypes.func
-};
+export default memo(DatasetItemsListPure);

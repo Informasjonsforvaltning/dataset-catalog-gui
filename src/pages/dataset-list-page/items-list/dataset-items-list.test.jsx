@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import { DatasetItemsList } from './dataset-item-list.component';
+import { DatasetItemsListPure } from './dataset-item-list.component';
 import datasetsResponse from '../../../mock/datasets.response.json';
 
 const {
@@ -14,7 +14,7 @@ beforeEach(() => {
   defaultProps = {
     catalogId: '123'
   };
-  wrapper = shallow(<DatasetItemsList {...defaultProps} />);
+  wrapper = shallow(<DatasetItemsListPure {...defaultProps} />);
 });
 
 test('should render DatasetItemsList correctly with missing datasetItems', () => {
