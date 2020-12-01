@@ -34,6 +34,7 @@ const env = (window as any).env || {
 // env.DATASERVICE_CATALOG_BASE_URI =
 //   'https://dataservice-catalog.staging.fellesdatakatalog.digdir.no';
 // env.SEARCH_FULLTEXT_HOST = 'https://search.staging.fellesdatakatalog.digdir.no';
+// env.ADMIN_GUI_BASE_URI = 'https://admin.staging.fellesdatakatalog.digdir.no';
 // env.SKE_THEME_PROFILE = '910244132';
 
 const searchHost = env.SEARCH_HOST || 'https://fellesdatakatalog.digdir.no';
@@ -90,7 +91,9 @@ const config = {
   searchFullTextApi:
     { host: env.SEARCH_FULLTEXT_HOST } ||
     'https://search.fellesdatakatalog.digdir.no',
-  skeThemeProfile: env.SKE_THEME_PROFILE
+  skeThemeProfile: env.SKE_THEME_PROFILE,
+  adminGuiHost:
+    env.ADMIN_GUI_BASE_URI || 'https://admin.fellesdatakatalog.digdir.no'
 };
 
 export const getConfig = () => config;

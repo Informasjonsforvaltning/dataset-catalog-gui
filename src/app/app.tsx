@@ -2,6 +2,7 @@ import React, { FC } from 'react';
 import { BrowserRouter } from 'react-router-dom';
 import Footer from '@fellesdatakatalog/internal-footer';
 import Header from '@fellesdatakatalog/internal-header';
+import Link from '@fellesdatakatalog/link';
 
 import { ThemeProfile } from '@fellesdatakatalog/theme';
 import { Breadcrumbs } from '../components/breadcrumbs/breadcrumbs.component';
@@ -28,7 +29,15 @@ const App: FC = () => {
           {...(themeProfile === ThemeProfile.SKE
             ? { skeHomeText: localization.dataCatalogs }
             : {})}
-        />
+        >
+          <Link href={`${getConfig().searchHost}/guidance`}>
+            Registrere data
+          </Link>
+          <Link href={getConfig().adminGuiHost}>Høste data</Link>
+          <Link href={getConfig().searchHost} external>
+            Søk i Felles datakatalog
+          </Link>
+        </Header>
         <Breadcrumbs />
         <div className="site-content d-flex flex-column pt-5">
           <Routes />
