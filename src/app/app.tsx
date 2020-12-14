@@ -11,6 +11,7 @@ import { getConfig } from '../config';
 import { isSkeThemeProfile } from '../lib/theme-profile';
 import { authService } from '../services/auth/auth-service';
 import localization from '../services/localization';
+import { WipPage } from '../components/work-in-progress/wip-page';
 
 const App: FC = () => {
   const themeProfile = isSkeThemeProfile(
@@ -38,9 +39,10 @@ const App: FC = () => {
             Søk i Felles datakatalog
           </Link>
         </Header>
-        <Breadcrumbs />
-        <div className="site-content d-flex flex-column pt-5">
-          <Routes />
+        {/* <Breadcrumbs /> */}
+        <div className="site-content d-flex flex-column">
+          {/* <Routes /> */}
+          <WipPage />
         </div>
         <Footer themeProfile={themeProfile} />
       </div>
