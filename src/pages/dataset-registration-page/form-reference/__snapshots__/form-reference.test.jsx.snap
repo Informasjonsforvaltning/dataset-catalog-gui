@@ -5,7 +5,7 @@ exports[`should render FormReference correctly 1`] = `
   <div
     className="form-group"
   >
-    <withStateHandlers(Component)
+    <withStateHandlers(HelpTextPure)
       term="Dataset_relation"
       title="Relasjoner til datasett"
     />
@@ -19,7 +19,7 @@ exports[`should render FormReference correctly 1`] = `
   <div
     className="form-group"
   >
-    <withStateHandlers(Component)
+    <withStateHandlers(HelpTextPure)
       term="Dataset_relation_resource"
       title="Relaterte ressurser"
     />

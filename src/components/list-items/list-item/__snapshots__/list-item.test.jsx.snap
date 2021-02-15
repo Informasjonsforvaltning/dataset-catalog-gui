@@ -27,7 +27,7 @@ exports[`should render ListItem correctly "DRAFT" item 1`] = `
         <div
           className="d-flex justify-content-left w-25"
         >
-          <Component
+          <RegistrationStatus
             registrationStatus="DRAFT"
           />
         </div>
@@ -64,7 +64,7 @@ exports[`should render ListItem correctly "PUBLISH" item 1`] = `
         <div
           className="d-flex justify-content-left w-25"
         >
-          <Component
+          <RegistrationStatus
             registrationStatus="PUBLISH"
           />
         </div>
@@ -101,7 +101,7 @@ exports[`should render ListItem correctly when missing title 1`] = `
         <div
           className="d-flex justify-content-left w-25"
         >
-          <Component
+          <RegistrationStatus
             registrationStatus="DRAFT"
           />
         </div>
@@ -138,7 +138,7 @@ exports[`should render ListItem correctly with lastModified date 1`] = `
         <div
           className="d-flex justify-content-left w-25"
         >
-          <Component
+          <RegistrationStatus
             registrationStatus="DRAFT"
           />
         </div>

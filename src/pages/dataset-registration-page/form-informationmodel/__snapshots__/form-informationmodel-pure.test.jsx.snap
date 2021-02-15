@@ -11,7 +11,7 @@ exports[`should render FormInformationModelPure correctly 1`] = `
       <div
         className="form-group"
       >
-        <withStateHandlers(Component)
+        <withStateHandlers(HelpTextPure)
           term="Dataset_fdkInformationModel"
           title="Informasjonsmodell fra Felles datakatalog"
         />
@@ -23,7 +23,7 @@ exports[`should render FormInformationModelPure correctly 1`] = `
           isReadOnly={false}
           name="informationModel"
         />
-        <withStateHandlers(Component)
+        <withStateHandlers(HelpTextPure)
           term="Dataset_externalInformationModel"
           title="Informasjonsmodell fra andre kilder"
         />

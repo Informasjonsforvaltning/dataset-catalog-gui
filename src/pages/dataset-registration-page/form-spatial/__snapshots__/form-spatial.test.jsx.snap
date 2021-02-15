@@ -7,22 +7,39 @@ exports[`should render FormSpatial correctly with initialValues 1`] = `
   <div
     className="form-group"
   >
-    <withStateHandlers(Component)
+    <withStateHandlers(HelpTextPure)
       term="Dataset_spatial"
       title="Geografisk avgrensning"
     />
     <Field
-      component={[Function]}
-      fieldLabel="uri"
+      component={
+        Object {
+          "$$typeof": Symbol(react.memo),
+          "compare": null,
+          "type": Object {
+            "$$typeof": Symbol(react.memo),
+            "WrappedComponent": Object {
+              "$$typeof": Symbol(react.memo),
+              "compare": null,
+              "type": [Function],
+            },
+            "compare": null,
+            "displayName": "Connect(Component)",
+            "type": [Function],
+          },
+        }
+      }
+      isReadOnly={false}
       label="Geografisk avgrensning"
       name="spatial"
+      onUpdatePlaces={[Function]}
       type="text"
     />
   </div>
   <div
     className="form-group"
   >
-    <withStateHandlers(Component)
+    <withStateHandlers(HelpTextPure)
       term="Dataset_temporal"
       title="Tidsmessig avgrenset til"
     />
@@ -35,7 +52,7 @@ exports[`should render FormSpatial correctly with initialValues 1`] = `
   <div
     className="form-group"
   >
-    <withStateHandlers(Component)
+    <withStateHandlers(HelpTextPure)
       term="Dataset_issued"
       title="Utgivelsesdato"
     />
@@ -49,7 +66,7 @@ exports[`should render FormSpatial correctly with initialValues 1`] = `
   <div
     className="form-group"
   >
-    <withStateHandlers(Component)
+    <withStateHandlers(HelpTextPure)
       term="Dataset_language"
       title="Språk"
     />

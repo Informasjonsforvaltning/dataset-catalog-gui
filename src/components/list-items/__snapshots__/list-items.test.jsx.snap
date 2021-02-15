@@ -55,7 +55,7 @@ exports[`should render ListItem correctly with props 1`] = `
       </div>
     </div>
   </div>
-  <Component
+  <ListItem
     key="1"
     lastModified={null}
     path="/catalogs/123/datasets/1"
@@ -63,7 +63,7 @@ exports[`should render ListItem correctly with props 1`] = `
     statusNew={false}
     title="Test item"
   />
-  <Component
+  <ListItem
     key="2"
     lastModified={null}
     path="/catalogs/123/datasets/2"

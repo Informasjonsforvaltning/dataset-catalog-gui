@@ -22,7 +22,7 @@ exports[`should render DatasetsListPagePure correctly 1`] = `
       <SearchIcon />
     </styled.div>
   </styled.div>
-  <Memo()
+  <Memo(DatasetItemsListPure)
     catalogId="910244132"
     searchSort={false}
   />

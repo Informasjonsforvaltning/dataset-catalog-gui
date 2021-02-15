@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`should render DatasetItemsList correctly with datasetItems 1`] = `
-<Component
+<ListItemsPure
   catalogId="123"
   defaultEmptyListText={null}
   itemTitleField={
@@ -2023,7 +2023,7 @@ Her er dagens ekstra tekst",
 `;
 
 exports[`should render DatasetItemsList correctly with missing datasetItems 1`] = `
-<Component
+<ListItemsPure
   catalogId="123"
   defaultEmptyListText={null}
   itemTitleField={
@@ -2040,7 +2040,7 @@ exports[`should render DatasetItemsList correctly with missing datasetItems 1`] 
 `;
 
 exports[`should render DatasetItemsList correctly with missing items 1`] = `
-<Component
+<ListItemsPure
   catalogId="123"
   defaultEmptyListText={null}
   itemTitleField={
