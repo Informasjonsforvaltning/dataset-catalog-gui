@@ -28,7 +28,7 @@ export function configureStore() {
   if (module.hot) {
     module.hot.accept('./rootReducer', () => {
       /* eslint-disable-next-line global-require */
-      store.replaceReducer(require('./rootReducer').rootReducer);
+      store.replaceReducer(require('./rootReducer').default);
     });
   }
 

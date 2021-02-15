@@ -10,6 +10,14 @@ export interface EnhetsregisteretOrganization {
   navn: string;
 }
 
+export interface KartverketPlace {
+  id: string;
+  type: string;
+  name: string;
+  municipality: string;
+  county: string;
+}
+
 export interface SearchResult {
   datasets: Dataset[];
   catalogs: Catalog[];
