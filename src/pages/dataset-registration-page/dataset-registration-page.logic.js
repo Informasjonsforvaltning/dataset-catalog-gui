@@ -165,12 +165,8 @@ export const conceptValues = values => {
 export const spatialValues = values => {
   if (values) {
     let retVal = '';
-    const { spatial, temporal, issued, language } = values;
-    if (spatial) {
-      spatial.forEach(item => {
-        retVal += _.get(item, 'uri', null) ? `${_.get(item, 'uri', '')}. ` : '';
-      });
-    }
+    const { temporal, issued, language } = values;
+
     if (temporal) {
       temporal
         .filter(item => item && JSON.stringify(item) !== '{}')

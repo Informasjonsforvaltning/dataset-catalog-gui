@@ -4,11 +4,11 @@ import { Field, FieldArray } from 'redux-form';
 
 import localization from '../../../services/localization';
 import { Helptext } from '../../../components/helptext/helptext.component';
-import TagsInputFieldArray from '../../../components/fields/field-input-tags-objects/tags-input-field-array.component';
-import TagsInputFieldArrayReadOnly from '../../../components/fields/field-input-tags-objects-readonly/field-input-tags-objects-readonly.component';
 import DatepickerField from '../../../components/fields/field-datepicker/field-datepicker.component';
 import CheckboxField from '../../../components/fields/field-checkbox/field-checkbox.component';
 import { datasetFormPatchThunk } from '../formsLib/asyncValidateDatasetInvokePatch';
+
+import SpatialTagsInputField from './spatial-tags-input-field';
 
 export const renderTemporalFields = ({
   item,
@@ -150,6 +150,16 @@ export const FormSpatial = ({
     const thunk = datasetFormPatchThunk({ catalogId, datasetId, patch });
     dispatch(thunk);
   };
+
+  const onUpdatePlaces = name => places =>
+    dispatch(
+      datasetFormPatchThunk({
+        catalogId,
+        datasetId,
+        patch: { [name]: places }
+      })
+    );
+
   if (initialValues) {
     return (
       <form>
@@ -158,24 +168,14 @@ export const FormSpatial = ({
             title={localization.schema.spatial.helptext.spatial}
             term="Dataset_spatial"
           />
-          {isReadOnly && (
-            <Field
-              name="spatial"
-              type="text"
-              component={TagsInputFieldArrayReadOnly}
-              label={localization.schema.spatial.spatialLabel}
-              fieldLabel="uri"
-            />
-          )}
-          {!isReadOnly && (
-            <Field
-              name="spatial"
-              type="text"
-              component={TagsInputFieldArray}
-              label={localization.schema.spatial.spatialLabel}
-              fieldLabel="uri"
-            />
-          )}
+          <Field
+            name="spatial"
+            type="text"
+            component={SpatialTagsInputField}
+            label={localization.schema.spatial.spatialLabel}
+            isReadOnly={isReadOnly}
+            onUpdatePlaces={onUpdatePlaces('spatial')}
+          />
         </div>
         <div className="form-group">
           <Helptext
