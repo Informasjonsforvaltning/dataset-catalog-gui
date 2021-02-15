@@ -185,7 +185,7 @@ const Formats = ({
 
 const renderFormat = ({ input, mediaTypes }) => (
   <FieldArray
-    name={name}
+    name={input.name}
     component={Formats}
     input={input}
     mediaTypes={mediaTypes}

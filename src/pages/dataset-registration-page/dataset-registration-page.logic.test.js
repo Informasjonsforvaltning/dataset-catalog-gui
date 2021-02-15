@@ -48,12 +48,6 @@ it('should run conceptValues without errors', () => {
   expect(conceptValues(null)).toBeNull();
 });
 
-it('should run spatialValues without errors', () => {
-  const dataset = datasets.datasetItems._embedded.datasets[0];
-  expect(spatialValues(dataset)).not.toBeNull();
-  expect(spatialValues(null)).toBeNull();
-});
-
 it('should run provenanceValues without errors', () => {
   const dataset = datasets.datasetItems._embedded.datasets[0];
   expect(provenanceValues(dataset)).not.toBeNull();
