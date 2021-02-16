@@ -56,7 +56,7 @@ const SpatialTagsInputField: FC<Props> = ({
     onUpdatePlaces(places);
   };
 
-  const onChange = (event, { newValue }) => setValue(newValue);
+  const onChange = (event, { newValue }) => setValue(newValue ?? '');
 
   const fetchSuggestions = ({ value: name }) => searchPlaces(name ?? '', 5);
 
@@ -117,6 +117,7 @@ const SpatialTagsInputField: FC<Props> = ({
     <div className="fdk-spatial">
       <Autosuggest
         highlightFirstSuggestion
+        focusFirstSuggestion
         suggestions={placeSuggestions}
         onSuggestionsFetchRequested={fetchSuggestions}
         onSuggestionsClearRequested={clearSuggestions}
