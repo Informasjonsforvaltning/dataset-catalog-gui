@@ -151,12 +151,12 @@ export const FormSpatial = ({
     dispatch(thunk);
   };
 
-  const onUpdatePlaces = name => places =>
+  const onUpdateAdministrativeUnits = name => administrativeUnits =>
     dispatch(
       datasetFormPatchThunk({
         catalogId,
         datasetId,
-        patch: { [name]: places }
+        patch: { [name]: administrativeUnits }
       })
     );
 
@@ -174,7 +174,7 @@ export const FormSpatial = ({
             component={SpatialTagsInputField}
             label={localization.schema.spatial.spatialLabel}
             isReadOnly={isReadOnly}
-            onUpdatePlaces={onUpdatePlaces('spatial')}
+            onUpdateAdministrativeUnits={onUpdateAdministrativeUnits('spatial')}
           />
         </div>
         <div className="form-group">

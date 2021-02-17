@@ -1,4 +1,8 @@
-import { RegistrationStatus, SearchType } from './enums';
+import type {
+  RegistrationStatus,
+  SearchType,
+  AdministrativeUnitType
+} from './enums';
 
 export interface MediaType {
   name: string;
@@ -10,12 +14,10 @@ export interface EnhetsregisteretOrganization {
   navn: string;
 }
 
-export interface KartverketPlace {
-  id: string;
-  type: string;
+export interface AdministrativeUnit {
+  uri: string;
+  type: AdministrativeUnitType;
   name: string;
-  municipality: string;
-  county: string;
 }
 
 export interface SearchResult {

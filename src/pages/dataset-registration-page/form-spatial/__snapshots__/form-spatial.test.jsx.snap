@@ -32,7 +32,7 @@ exports[`should render FormSpatial correctly with initialValues 1`] = `
       isReadOnly={false}
       label="Geografisk avgrensning"
       name="spatial"
-      onUpdatePlaces={[Function]}
+      onUpdateAdministrativeUnits={[Function]}
       type="text"
     />
   </div>

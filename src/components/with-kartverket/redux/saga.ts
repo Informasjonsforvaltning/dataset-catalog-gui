@@ -1,95 +1,29 @@
-import axios from 'axios';
 import { all, call, put, takeLatest } from 'redux-saga/effects';
 
-import {
-  LIST_PLACES_REQUESTED,
-  SEARCH_PLACES_REQUESTED
-} from './actions-types';
+import { SEARCH_ADMINISTRATIVE_UNITS_REQUESTED } from './actions-types';
 import * as actions from './actions';
 
-import type { KartverketPlace } from '../../../types';
+import { searchAdministrativeUnits } from './utils';
 
-function* listPlacesRequested({
-  payload: { ids }
-}: ReturnType<typeof actions.listPlacesRequested>) {
+import type { AdministrativeUnit } from '../../../types';
+
+function* searchAdministrativeUnitsRequested({
+  payload: { name: search, size }
+}: ReturnType<typeof actions.searchAdministrativeUnitsRequested>) {
   try {
-    const places = (yield all(
-      [...new Set(ids)].map(id =>
-        call(axios.get, 'https://ws.geonorge.no/SKWS3Index/ssr/json/sok', {
-          params: { ssrId: id }
-        })
-      )
-    ))
-      .map(({ data }) => data?.stedsnavn)
-      .filter(Boolean);
-
-    if (Array.isArray(places)) {
-      yield put(
-        actions.listPlacesSucceeded(
-          places.map(
-            ({
-              ssrId: id,
-              navnetype: type,
-              stedsnavn: name,
-              kommunenavn: municipality,
-              fylkesnavn: county
-            }) => ({
-              id,
-              type,
-              name,
-              municipality,
-              county
-            })
-          ) as KartverketPlace[]
-        )
-      );
-    } else {
-      yield put(
-        actions.listPlacesFailed(
-          new Error(
-            'An error occurred during an attempt to contact Kartverket API'
-          )
-        )
-      );
-    }
-  } catch (error) {
-    yield put(actions.listPlacesFailed(error));
-  }
-}
-
-function* searchPlacesRequested({
-  payload: { name: searchName, size }
-}: ReturnType<typeof actions.searchPlacesRequested>) {
-  try {
-    const { data: organizationsData } = yield call(
-      axios.get,
-      'https://ws.geonorge.no/SKWS3Index/ssr/json/sok',
-      { params: { navn: `${searchName}*`, antPerSide: size } }
+    const administrativeUnits: AdministrativeUnit[] = yield call(
+      searchAdministrativeUnits,
+      search,
+      size
     );
 
-    if (Array.isArray(organizationsData?.stedsnavn)) {
+    if (Array.isArray(administrativeUnits)) {
       yield put(
-        actions.searchPlacesSucceeded(
-          organizationsData?.stedsnavn.map(
-            ({
-              ssrId: id,
-              navnetype: type,
-              stedsnavn: name,
-              kommunenavn: municipality,
-              fylkesnavn: county
-            }) => ({
-              id,
-              type,
-              name,
-              municipality,
-              county
-            })
-          ) as KartverketPlace[]
-        )
+        actions.searchAdministrativeUnitsSucceeded(administrativeUnits)
       );
     } else {
       yield put(
-        actions.searchPlacesFailed(
+        actions.searchAdministrativeUnitsFailed(
           new Error(
             'An error occurred during an attempt to contact Kartverket API'
           )
@@ -97,13 +31,15 @@ function* searchPlacesRequested({
       );
     }
   } catch (error) {
-    yield put(actions.searchPlacesFailed(error));
+    yield put(actions.searchAdministrativeUnitsFailed(error));
   }
 }
 
 export default function* saga() {
   yield all([
-    takeLatest(LIST_PLACES_REQUESTED, listPlacesRequested),
-    takeLatest(SEARCH_PLACES_REQUESTED, searchPlacesRequested)
+    takeLatest(
+      SEARCH_ADMINISTRATIVE_UNITS_REQUESTED,
+      searchAdministrativeUnitsRequested
+    )
   ]);
 }

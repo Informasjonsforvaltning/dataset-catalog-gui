@@ -33,11 +33,12 @@
     "Datasets": "Datasettkatalog",
     "datasetRegistration": "Registrer ny datasettbeskrivelse"
   },
-  "place": {
+  "administrativeUnit": {
     "name": "Stedsnavn",
     "type": "Stedstype",
     "municipality": "Kommune",
-    "county": "Fylke"
+    "county": "Fylke",
+    "nation": "Nasjon"
   },
   "listItems": {
     "header": {

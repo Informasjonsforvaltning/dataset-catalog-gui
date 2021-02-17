@@ -1,4 +1,4 @@
-import React, { memo, FC, useState, useEffect } from 'react';
+import React, { memo, FC, useState } from 'react';
 import { compose } from 'redux';
 import type { WrappedFieldProps } from 'redux-form';
 import Autosuggest from 'react-autosuggest';
@@ -14,11 +14,14 @@ import TagsInputFieldArrayReadOnly from '../../../../components/fields/field-inp
 
 import './styles.scss';
 
-import type { KartverketPlace } from '../../../../types';
+import type { AdministrativeUnit } from '../../../../types';
+import { AdministrativeUnitType } from '../../../../types/enums';
 
 interface ExternalProps extends WrappedFieldProps {
   isReadOnly?: boolean;
-  onUpdatePlaces: (places: KartverketPlace[]) => void;
+  onUpdateAdministrativeUnits: (
+    administrativeUnits: AdministrativeUnit[]
+  ) => void;
 }
 
 interface Props extends ExternalProps, KartverketProps {}
@@ -26,62 +29,58 @@ interface Props extends ExternalProps, KartverketProps {}
 const SpatialTagsInputField: FC<Props> = ({
   input,
   isReadOnly,
-  places: initialPlaces,
-  placeSuggestions,
+  administrativeUnitSuggestions,
   kartverketActions: {
-    listPlacesRequested: listPlaces,
-    searchPlacesRequested: searchPlaces
+    searchAdministrativeUnitsRequested: searchAdministrativeUnits
   },
-  onUpdatePlaces
+  onUpdateAdministrativeUnits
 }) => {
   const [value, setValue] = useState('');
-  const [places, setPlaces] = useState<KartverketPlace[]>(initialPlaces);
-  const [arePlacesFetched, setArePlacesFetched] = useState(false);
-
-  useEffect(() => {
-    listPlaces(input.value.map(({ uri }) => uri).filter(Boolean));
-  }, []);
-
-  useEffect(() => {
-    if (!arePlacesFetched && initialPlaces.length > 0) {
-      setPlaces(initialPlaces);
-      setArePlacesFetched(true);
-    }
-  }, [initialPlaces]);
 
   const removePlace = (index: number) => () => {
     input.value.splice(index, 1);
-    places.splice(index, 1);
-    setPlaces(places);
-    onUpdatePlaces(places);
+    onUpdateAdministrativeUnits(input.value);
   };
 
   const onChange = (event, { newValue }) => setValue(newValue ?? '');
 
-  const fetchSuggestions = ({ value: name }) => searchPlaces(name ?? '', 5);
+  const fetchSuggestions = ({ value: name }) =>
+    searchAdministrativeUnits(name ?? '', 5);
 
   const onSuggestionSelected = (event, { suggestion }) => {
-    setPlaces([...places, suggestion]);
-    input.value.push({ uri: suggestion.id });
-    onUpdatePlaces(input.value);
-    setValue('');
+    if (!input.value?.find(({ uri }) => uri === suggestion.uri)) {
+      input.value.push({
+        uri: suggestion.uri,
+        extraType: suggestion.type,
+        prefLabel: { nb: suggestion.name }
+      });
+
+      onUpdateAdministrativeUnits(
+        input.value.filter(v => Object.entries(v).length > 0)
+      );
+
+      setValue('');
+    }
   };
 
   const clearSuggestions = () => setValue('');
 
   const getSuggestionValue = ({ title }) => translate(title);
 
-  const renderSuggestion = ({
-    name,
-    type,
-    municipality,
-    county
-  }: KartverketPlace) => (
+  const renderSuggestion = ({ name, type }: AdministrativeUnit) => (
     <div className="d-flex mb-3 suggestion">
       <span>{name}</span>
-      <span className="ml-5">{type}</span>
-      <span className="ml-5">{municipality}</span>
-      <span className="ml-5">{county}</span>
+      {type === AdministrativeUnitType.MUNICIPALITY && (
+        <span className="ml-5">
+          {localization.administrativeUnit.municipality}
+        </span>
+      )}
+      {type === AdministrativeUnitType.COUNTY && (
+        <span className="ml-5">{localization.administrativeUnit.county}</span>
+      )}
+      {type === AdministrativeUnitType.NATION && (
+        <span className="ml-5">{localization.administrativeUnit.nation}</span>
+      )}
     </div>
   );
 
@@ -90,16 +89,10 @@ const SpatialTagsInputField: FC<Props> = ({
       {children && children.props.items.length > 0 && (
         <div className="d-flex mb-3 react_autosuggest__suggestions-heading">
           <span>
-            <strong>{localization.place.name}</strong>
+            <strong>{localization.administrativeUnit.name}</strong>
           </span>
           <span className="ml-5">
-            <strong>{localization.place.type}</strong>
-          </span>
-          <span className="ml-5">
-            <strong>{localization.place.municipality}</strong>
-          </span>
-          <span className="ml-5">
-            <strong>{localization.place.county}</strong>
+            <strong>{localization.administrativeUnit.type}</strong>
           </span>
         </div>
       )}
@@ -118,7 +111,7 @@ const SpatialTagsInputField: FC<Props> = ({
       <Autosuggest
         highlightFirstSuggestion
         focusFirstSuggestion
-        suggestions={placeSuggestions}
+        suggestions={administrativeUnitSuggestions}
         onSuggestionsFetchRequested={fetchSuggestions}
         onSuggestionsClearRequested={clearSuggestions}
         onSuggestionSelected={onSuggestionSelected}
@@ -132,15 +125,15 @@ const SpatialTagsInputField: FC<Props> = ({
           onChange
         }}
       />
-      {places.map(({ id, name }, index) => (
+      {input.value?.map(({ uri, prefLabel }, index) => (
         <div
-          key={`external-spatial-${id}-${index}`}
+          key={`external-spatial-${uri}-${index}`}
           className="fdk-spatial-pill"
         >
-          <span className="fdk-spatial-pill-label">{name}</span>
+          <span className="fdk-spatial-pill-label">{translate(prefLabel)}</span>
           <i
             className="fa fa-times mr-2 remove-fdk-spatial"
-            aria-label={name}
+            aria-label={translate(prefLabel)}
             role="button"
             tabIndex={0}
             onClick={removePlace(index)}

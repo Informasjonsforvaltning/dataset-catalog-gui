@@ -15,3 +15,9 @@ export enum RegistrationStatus {
 export enum SearchType {
   DATASET = 'DATASET_BY_QUERY'
 }
+
+export enum AdministrativeUnitType {
+  NATION = 'http://rdf.kartverket.no/onto/adm_enhet_4.0.owl#Nasjon',
+  COUNTY = 'http://rdf.kartverket.no/onto/adm_enhet_4.0.owl#Fylke',
+  MUNICIPALITY = 'http://rdf.kartverket.no/onto/adm_enhet_4.0.owl#Kommune'
+}

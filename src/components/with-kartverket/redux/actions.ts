@@ -1,57 +1,32 @@
 import {
-  LIST_PLACES_REQUESTED,
-  LIST_PLACES_SUCCEEDED,
-  LIST_PLACES_FAILED,
-  SEARCH_PLACES_REQUESTED,
-  SEARCH_PLACES_SUCCEEDED,
-  SEARCH_PLACES_FAILED
+  SEARCH_ADMINISTRATIVE_UNITS_REQUESTED,
+  SEARCH_ADMINISTRATIVE_UNITS_SUCCEEDED,
+  SEARCH_ADMINISTRATIVE_UNITS_FAILED
 } from './actions-types';
 
-import type { KartverketPlace } from '../../../types';
+import type { AdministrativeUnit } from '../../../types';
 
-export function listPlacesRequested(ids: string[]) {
+export function searchAdministrativeUnitsRequested(name: string, size: number) {
   return {
-    type: LIST_PLACES_REQUESTED,
-    payload: { ids }
-  };
-}
-
-export function listPlacesSucceeded(places: KartverketPlace[]) {
-  return {
-    type: LIST_PLACES_SUCCEEDED,
-    payload: {
-      places
-    }
-  };
-}
-
-export function listPlacesFailed(errors: Error | Error[]) {
-  return {
-    type: LIST_PLACES_FAILED,
-    payload: Array.isArray(errors) ? errors : [errors],
-    error: true
-  };
-}
-
-export function searchPlacesRequested(name: string, size: number) {
-  return {
-    type: SEARCH_PLACES_REQUESTED,
+    type: SEARCH_ADMINISTRATIVE_UNITS_REQUESTED,
     payload: { name, size }
   };
 }
 
-export function searchPlacesSucceeded(places: KartverketPlace[]) {
+export function searchAdministrativeUnitsSucceeded(
+  administrativeUnits: AdministrativeUnit[]
+) {
   return {
-    type: SEARCH_PLACES_SUCCEEDED,
+    type: SEARCH_ADMINISTRATIVE_UNITS_SUCCEEDED,
     payload: {
-      places
+      administrativeUnits
     }
   };
 }
 
-export function searchPlacesFailed(errors: Error | Error[]) {
+export function searchAdministrativeUnitsFailed(errors: Error | Error[]) {
   return {
-    type: SEARCH_PLACES_FAILED,
+    type: SEARCH_ADMINISTRATIVE_UNITS_FAILED,
     payload: Array.isArray(errors) ? errors : [errors],
     error: true
   };

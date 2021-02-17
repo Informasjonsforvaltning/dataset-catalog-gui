@@ -4,13 +4,11 @@ import { connect } from 'react-redux';
 
 import * as actions from './redux/actions';
 
-import type { KartverketPlace } from '../../types';
+import type { AdministrativeUnit } from '../../types';
 
 export interface Props {
-  places: KartverketPlace[];
-  placeSuggestions: KartverketPlace[];
-  isLoadingPlaces: boolean;
-  isLoadingPlaceSuggestions: boolean;
+  administrativeUnitSuggestions: AdministrativeUnit[];
+  isLoadingAdministrativeUnitSuggestions: boolean;
   kartverketActions: typeof actions;
 }
 
@@ -18,11 +16,11 @@ const withKartverket = (Component: ComponentType<any>) => {
   const WrappedComponent: FC<Props> = props => <Component {...props} />;
 
   const mapStateToProps = (state: any) => ({
-    places: state.KartverketReducer.get('places').toJS(),
-    placeSuggestions: state.KartverketReducer.get('placeSuggestions').toJS(),
-    isLoadingPlaces: state.KartverketReducer.get('isLoadingPlaces'),
-    isLoadingPlaceSuggestions: state.KartverketReducer.get(
-      'isLoadingPlaceSuggestions'
+    administrativeUnitSuggestions: state.KartverketReducer.get(
+      'administrativeUnitSuggestions'
+    ).toJS(),
+    isLoadingAdministrativeUnitSuggestions: state.KartverketReducer.get(
+      'isLoadingAdministrativeUnitSuggestions'
     )
   });
 
