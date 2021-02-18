@@ -43,7 +43,11 @@ const SpatialTagsInputField: FC<Props> = ({
     onUpdateAdministrativeUnits(input.value);
   };
 
-  const onChange = (event, { newValue }) => setValue(newValue ?? '');
+  const onChange = (event, { newValue, method }) => {
+    if (method === 'type') {
+      setValue(newValue ?? '');
+    }
+  };
 
   const fetchSuggestions = ({ value: name }) =>
     searchAdministrativeUnits(name ?? '', 5);
