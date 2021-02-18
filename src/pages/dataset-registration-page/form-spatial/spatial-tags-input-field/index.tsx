@@ -31,7 +31,8 @@ const SpatialTagsInputField: FC<Props> = ({
   isReadOnly,
   administrativeUnitSuggestions,
   kartverketActions: {
-    searchAdministrativeUnitsRequested: searchAdministrativeUnits
+    searchAdministrativeUnitsRequested: searchAdministrativeUnits,
+    clearAdministrativeUnitsSearchSuggestions: clearSuggestions
   },
   onUpdateAdministrativeUnits
 }) => {
@@ -62,8 +63,6 @@ const SpatialTagsInputField: FC<Props> = ({
       setValue('');
     }
   };
-
-  const clearSuggestions = () => setValue('');
 
   const getSuggestionValue = ({ title }) => translate(title);
 
