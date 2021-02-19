@@ -56,7 +56,6 @@ const SpatialTagsInputField: FC<Props> = ({
     if (!input.value?.find(({ uri }) => uri === suggestion.uri)) {
       input.value.push({
         uri: suggestion.uri,
-        extraType: suggestion.type,
         prefLabel: { nb: suggestion.name }
       });
 
