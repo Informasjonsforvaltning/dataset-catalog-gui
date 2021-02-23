@@ -1,10 +1,8 @@
 import React from 'react';
 import { Route, Redirect, RouteComponentProps } from 'react-router-dom';
+import IdleTimer from 'react-idle-timer';
 
 import { authService } from '../services/auth/auth-service';
-import { Timeout } from '../components/timeout.component';
-
-const TIMEOUT = 27.5 * 60 * 1000;
 
 interface Props extends RouteComponentProps {
   check: (params: any) => boolean;
@@ -28,10 +26,17 @@ export const ProtectedRoute = ({ check, ...props }: Props) => {
     return <Redirect to="/catalogs" />;
   }
 
+  const logOut = () => authService.logout();
+
   return (
     <>
       <Route {...props} />
-      <Timeout timeout={TIMEOUT} onTimeout={() => authService.logout()} />
+      <IdleTimer
+        element={document}
+        onIdle={logOut}
+        timeout={27.5 * 60 * 1000}
+        debounce={5000}
+      />
     </>
   );
 };
