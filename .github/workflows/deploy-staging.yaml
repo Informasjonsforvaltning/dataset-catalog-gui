@@ -25,16 +25,16 @@ jobs:
         run: gcloud auth configure-docker eu.gcr.io
 
       - name: Build Docker image with GitHub commit sha and staging tag
-        run: docker build . -t eu.gcr.io/digdir-fdk-infra/dataset-catalogue-gui:$GITHUB_SHA -t eu.gcr.io/digdir-fdk-infra/dataset-catalogue-gui:staging_latest
+        run: docker build . -t eu.gcr.io/digdir-fdk-infra/dataset-catalog-gui:$GITHUB_SHA -t eu.gcr.io/digdir-fdk-infra/dataset-catalog-gui:staging_latest
 
       - name: Publish docker image to Google Cloud
-        run: docker -- push eu.gcr.io/digdir-fdk-infra/dataset-catalogue-gui -a
+        run: docker -- push eu.gcr.io/digdir-fdk-infra/dataset-catalog-gui -a
 
       - name: Apply Helm template
         run: |
           helm repo add fdk https://informasjonsforvaltning.github.io/helm-chart/
-          helm fetch --untar --untardir ./helm fdk/dataset-catalogue-gui
-          helm template --set DOCKER_IMAGE_NAME="eu.gcr.io/digdir-fdk-infra/dataset-catalogue-gui:$GITHUB_SHA" -f ./helm/dataset-catalogue-gui/values/staging.yaml ./helm/dataset-catalogue-gui/ > ./kubectlapply.yaml
+          helm fetch --untar --untardir ./helm fdk/dataset-catalog-gui
+          helm template --set DOCKER_IMAGE_NAME="eu.gcr.io/digdir-fdk-infra/dataset-catalog-gui:$GITHUB_SHA" -f ./helm/dataset-catalog-gui/values/staging.yaml ./helm/dataset-catalog-gui/ > ./kubectlapply.yaml
           chmod o+w ./kubectlapply.yaml
           cat kubectlapply.yaml
 
@@ -57,7 +57,7 @@ jobs:
         uses: 8398a7/action-slack@v3
         with:
           status: ${{ job.status }}
-          author_name: 'Application: dataset-catalogue-gui | Environment: staging'
+          author_name: 'Application: dataset-catalog-gui | Environment: staging'
           fields: commit,author,workflow
         env:
           GITHUB_TOKEN: ${{ github.token }}
