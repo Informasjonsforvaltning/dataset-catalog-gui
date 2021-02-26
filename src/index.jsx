@@ -8,7 +8,8 @@ import ThemeProvider from '@fellesdatakatalog/theme';
 
 import App from './app/app';
 
-import { configureStore } from './redux/configureStore';
+import store from './redux/store';
+
 import { initLocalization } from './services/localization';
 import { authService } from './services/auth/auth-service';
 
@@ -20,7 +21,6 @@ async function main() {
     return;
   }
   initLocalization();
-  const store = configureStore();
 
   const app = (
     <ThemeProvider useGlobalStyles={false}>
