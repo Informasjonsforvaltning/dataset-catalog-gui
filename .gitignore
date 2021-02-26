@@ -1,7 +1,12 @@
+.DS_Store
+.vscode
+.vs
 .idea
-node_modules/
-*.iml
+.env
+.envrc
 
-dist/
-coverage/
-.nyc_output
+npm-debug.log
+
+dist
+coverage
+node_modules
