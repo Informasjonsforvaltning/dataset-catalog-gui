@@ -399,7 +399,9 @@ export const FormDistributionPure = ({
       <FieldArray
         name="distribution"
         component={Distributions}
-        openLicenseItems={openLicenseItems}
+        openLicenseItems={openLicenseItems.filter(
+          ({ isReplacedBy }) => !isReplacedBy
+        )}
         mediaTypes={mediaTypes}
         initialValues={initialValues}
         onDeleteFieldAtIndex={deleteFieldAtIndex}
