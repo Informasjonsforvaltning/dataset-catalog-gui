@@ -278,7 +278,11 @@
     "reference": {
       "helptext": {
         "reference": "Relasjoner til datasett",
-        "relatedResources": "Relaterte ressurser"
+        "relatedResources": "Relaterte ressurser",
+        "internal": "Internt",
+        "external": "Eksternt",
+        "publish": "Publisert",
+        "approve": "Godkjent"
       },
       "addReferenceLabel": "Legg til relaterte datasett",
       "addRelationLabel": "Legg til ny ressurs",

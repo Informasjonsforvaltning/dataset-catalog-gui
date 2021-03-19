@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { FC, useEffect, useState } from 'react';
 import _ from 'lodash';
 import pick from 'lodash/pick';
 import unset from 'lodash/unset';
@@ -44,6 +44,14 @@ import { deepKeys } from '../../lib/deep-keys';
 import { RegistrationStatus } from '../../components/registration-status/registration-status.component';
 import { getTranslateText } from '../../services/translateText';
 import { MediaType } from '../../types';
+import {
+  SearchType,
+  RegistrationStatus as RegStatusEnum
+} from '../../types/enums';
+
+import withDatasets, {
+  Props as DatasetsProps
+} from '../../components/with-datasets';
 
 // check the validation state of all rendered forms
 const isAllowedToPublish = form =>
@@ -64,27 +72,27 @@ async function deleteAndNavigateToList({
   }
 }
 
-interface DatasetRegistrationPagePureProps {
+interface DatasetRegistrationPagePureProps extends DatasetsProps {
   dispatchEnsureData: (string) => void;
   dispatchDeleteDataset: () => void;
-  catalogId: string;
-  datasetId: string;
-  themesItems: {}[];
-  provenanceItems: {}[];
-  frequencyItems: {}[];
+  catalogId: string | null;
+  datasetId: string | null;
+  themesItems: any[] | null;
+  provenanceItems: any[] | null;
+  frequencyItems: any[] | null;
   form: any;
-  datasetItem: { registrationStatus: string; _lastModified: string };
-  referenceTypesItems: {}[];
-  referenceDatasetsItems: {}[];
-  openLicenseItems: {}[];
-  mediaTypes: MediaType[];
+  datasetItem: { registrationStatus: string; _lastModified: string } | null;
+  referenceTypesItems: any[] | null;
+  referenceDatasetsItems: any[] | null;
+  openLicenseItems: any[] | null;
+  mediaTypes: MediaType[] | null;
   datasetFormStatus: {
     isSaving: boolean;
     error: any;
     justPublishedOrUnPublished: boolean;
-  };
-  history: {}[];
-  losItems: {}[];
+  } | null;
+  history: any[] | null;
+  losItems: any[] | null;
   languages: string[];
   setInputLanguages: (any) => void;
   toggleInputLanguage: () => void;
@@ -92,33 +100,31 @@ interface DatasetRegistrationPagePureProps {
   isReadOnly: boolean;
 }
 
-export function DatasetRegistrationPagePure(
-  props: DatasetRegistrationPagePureProps
-) {
-  const {
-    dispatchEnsureData,
-    form,
-    themesItems,
-    provenanceItems,
-    frequencyItems,
-    datasetItem,
-    referenceTypesItems,
-    referenceDatasetsItems,
-    openLicenseItems,
-    mediaTypes,
-    datasetFormStatus,
-    catalogId,
-    datasetId,
-    losItems,
-    history,
-    dispatchDeleteDataset,
-    languages,
-    setInputLanguages,
-    toggleInputLanguage,
-    allowDelegatedRegistration,
-    isReadOnly
-  } = props;
-
+export const DatasetRegistrationPagePure: FC<DatasetRegistrationPagePureProps> = ({
+  dispatchEnsureData = _.noop,
+  dispatchDeleteDataset = _.noop,
+  catalogId = null,
+  datasetId = null,
+  themesItems = null,
+  provenanceItems = null,
+  frequencyItems = null,
+  form = {},
+  datasetItem = null,
+  referenceTypesItems = null,
+  referenceDatasetsItems = null,
+  openLicenseItems = null,
+  mediaTypes = null,
+  datasetFormStatus = null,
+  history = null,
+  losItems = null,
+  languages = [],
+  setInputLanguages = _.noop,
+  toggleInputLanguage = _.noop,
+  allowDelegatedRegistration = false,
+  isReadOnly = false,
+  datasets,
+  datasetsActions: { searchDatasetsRequested: requestSearch }
+}: DatasetRegistrationPagePureProps) => {
   const {
     title = {},
     accessRights = {},
@@ -212,6 +218,20 @@ export function DatasetRegistrationPagePure(
     }
   }, [datasetItem]);
 
+  const executeSearch = (query: string) => {
+    if (catalogId) {
+      requestSearch({
+        includeExternalDatasets: true,
+        searchType: SearchType.DATASET,
+        catalogIDs: [catalogId],
+        query,
+        includeStatus: new Set([RegStatusEnum.APPROVE, RegStatusEnum.PUBLISH])
+      });
+    }
+  };
+
+  useEffect(() => executeSearch(''), []);
+
   return (
     <div className="container">
       <div className="row mb-2 mb-md-5">
@@ -220,7 +240,7 @@ export function DatasetRegistrationPagePure(
           provenanceItems &&
           frequencyItems &&
           referenceTypesItems &&
-          referenceDatasetsItems &&
+          datasets &&
           openLicenseItems &&
           losItems && (
             <div className="col-12">
@@ -420,11 +440,12 @@ export function DatasetRegistrationPagePure(
                 <ConnectedFormReference
                   datasetItem={datasetItem}
                   referenceTypesItems={referenceTypesItems}
-                  referenceDatasetsItems={referenceDatasetsItems}
+                  referenceDatasetsItems={datasets}
                   catalogId={catalogId}
                   datasetId={datasetId}
                   languages={languages}
                   isReadOnly={isReadOnly}
+                  onInputChange={executeSearch}
                 />
               </FormTemplate>
 
@@ -524,28 +545,6 @@ export function DatasetRegistrationPagePure(
       </div>
     </div>
   );
-}
-
-DatasetRegistrationPagePure.defaultProps = {
-  dispatchEnsureData: _.noop,
-  dispatchDeleteDataset: _.noop,
-  catalogId: null,
-  datasetId: null,
-  themesItems: null,
-  provenanceItems: null,
-  frequencyItems: null,
-  form: {},
-  datasetItem: null,
-  referenceTypesItems: null,
-  referenceDatasetsItems: null,
-  openLicenseItems: null,
-  mediaTypes: null,
-  datasetFormStatus: null,
-  history: null,
-  losItems: null,
-  languages: [],
-  setInputLanguages: _.noop,
-  toggleInputLanguage: _.noop,
-  allowDelegatedRegistration: false,
-  isReadOnly: false
 };
+
+export default withDatasets(DatasetRegistrationPagePure);

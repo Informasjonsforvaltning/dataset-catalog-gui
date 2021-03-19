@@ -4,42 +4,23 @@ exports[`should render SelectField correctly 1`] = `
 <div
   className="pl-2 mt-3"
 >
-  <Select
-    arrowRenderer={[Function]}
-    autosize={true}
-    backspaceRemoves={true}
-    backspaceToRemoveMessage="Press backspace to remove {label}"
-    clearAllText="Clear all"
-    clearRenderer={[Function]}
-    clearValueText="Clear value"
-    clearable={true}
-    closeOnSelect={true}
-    deleteRemoves={true}
-    delimiter=","
-    disabled={false}
-    escapeClearsValue={true}
-    filterOptions={[Function]}
+  <StateManager
+    components={
+      Object {
+        "Option": [Function],
+        "SingleValue": [Function],
+      }
+    }
+    defaultInputValue=""
+    defaultMenuIsOpen={false}
+    defaultValue={null}
+    filterOption={[Function]}
     id="frequency-select"
-    ignoreAccents={true}
-    ignoreCase={true}
-    inputProps={Object {}}
-    isLoading={false}
-    joinValues={false}
-    labelKey="label"
-    matchPos="any"
-    matchProp="any"
-    menuBuffer={0}
-    menuRenderer={[Function]}
-    multi={false}
+    isClearable={true}
+    isDisabled={false}
+    isOptionSelected={[Function]}
     name="selected-state"
-    noResultsText="No results found"
-    onBlurResetsInput={true}
     onChange={[Function]}
-    onCloseResetsInput={true}
-    onSelectResetsInput={true}
-    openOnClick={true}
-    optionComponent={[Function]}
-    optionRenderer={[Function]}
     options={
       Array [
         Object {
@@ -160,19 +141,8 @@ exports[`should render SelectField correctly 1`] = `
         },
       ]
     }
-    pageSize={5}
     placeholder="Velg"
-    removeSelected={true}
-    required={false}
-    rtl={false}
-    scrollMenuIntoView={true}
-    searchable={true}
-    simpleValue={true}
-    tabSelectsValue={true}
-    trimFilter={true}
-    valueComponent={[Function]}
-    valueKey="uri"
-    valueRenderer={[Function]}
+    value={Object {}}
   />
 </div>
 `;

@@ -40,7 +40,8 @@ const renderReferenceFields = ({
   referenceTypesItems,
   referenceDatasetsItems,
   onDeleteFieldAtIndex,
-  isReadOnly
+  isReadOnly,
+  onInputChange
 }) => (
   <div key={item}>
     {isReadOnly && (
@@ -65,6 +66,7 @@ const renderReferenceFields = ({
             component={SelectField}
             items={referenceDatasetsItems}
             labelKey="title"
+            onInputChange={onInputChange}
           />
         </div>
         <div className="d-flex align-items-end">
@@ -96,7 +98,8 @@ export const renderReference = ({
   referenceTypesItems,
   referenceDatasetsItems,
   onDeleteFieldAtIndex,
-  isReadOnly
+  isReadOnly,
+  onInputChange
 }) => {
   return (
     <div>
@@ -109,7 +112,8 @@ export const renderReference = ({
             referenceTypesItems,
             referenceDatasetsItems,
             onDeleteFieldAtIndex,
-            isReadOnly
+            isReadOnly,
+            onInputChange
           })
         )}
       {!isReadOnly && (
@@ -226,7 +230,8 @@ export const FormReference = ({
   catalogId,
   datasetId,
   languages,
-  isReadOnly
+  isReadOnly,
+  onInputChange
 }) => {
   const { referenceTypesItems, referenceDatasetsItems } = initialValues;
   const deleteFieldAtIndex = (fields, index) => {
@@ -253,6 +258,7 @@ export const FormReference = ({
             referenceDatasetsItems={referenceDatasetsItems}
             onDeleteFieldAtIndex={deleteFieldAtIndex}
             isReadOnly={isReadOnly}
+            onInputChange={onInputChange}
           />
         </div>
         <div className="form-group">

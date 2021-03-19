@@ -42,6 +42,7 @@ export const DatasetsListPagePure: FC<Props> = ({
 
   useEffect(() => {
     requestSearch({
+      includeExternalDatasets: false,
       searchType: SearchType.DATASET,
       catalogIDs: [catalogId],
       query: searchQuery

@@ -6,11 +6,9 @@ import frequency from '../../../../test/fixtures/frequency';
 let defaultProps;
 let wrapper;
 let onChange;
-let preventDefault;
 
 beforeEach(() => {
   onChange = jest.fn();
-  preventDefault = jest.fn();
   const { frequencyItems } = frequency;
   defaultProps = {
     input: {
@@ -40,12 +38,4 @@ beforeEach(() => {
 
 test('should render SelectField correctly', () => {
   expect(wrapper).toMatchSnapshot();
-});
-
-test('should handle check SMI', () => {
-  const mockedEvent = {
-    preventDefault
-  };
-  wrapper.find('Select').prop('onChange')(mockedEvent);
-  expect(onChange).toHaveBeenCalled();
 });

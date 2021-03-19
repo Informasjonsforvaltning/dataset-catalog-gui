@@ -15,6 +15,7 @@ beforeEach(() => {
   const fetchReferenceTypesIfNeeded = jest.fn();
   const fetchReferenceDatasetsIfNeeded = jest.fn();
   const fetchOpenLicensesIfNeeded = jest.fn();
+  const datasetsActions = jest.fn();
   defaultProps = {
     dispatch,
     fetchDatasetsIfNeeded,
@@ -24,7 +25,8 @@ beforeEach(() => {
     fetchReferenceTypesIfNeeded,
     fetchReferenceDatasetsIfNeeded,
     fetchOpenLicensesIfNeeded,
-    isFetching: false
+    isFetching: false,
+    datasetsActions
   };
   wrapper = shallow(<DatasetRegistrationPagePure {...defaultProps} />);
 });

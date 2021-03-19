@@ -26,9 +26,11 @@ export interface SearchResult {
 }
 
 export interface SearchRequest {
+  includeExternalDatasets: boolean;
   searchType: SearchType;
   catalogIDs: string[];
   query: string;
+  includeStatus?: Set<RegistrationStatus>;
 }
 
 export interface Catalog {
@@ -92,6 +94,7 @@ export interface Dataset {
   qualifiedAttributions: Set<string>;
   type: string;
   catalog: Catalog;
+  internal: boolean; // Only used in frontend
 }
 
 export interface Concept {

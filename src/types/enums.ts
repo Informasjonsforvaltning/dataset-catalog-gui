@@ -7,9 +7,9 @@ export enum KeyCode {
 }
 
 export enum RegistrationStatus {
-  DRAFT = 'draft',
-  APPROVE = 'approve',
-  PUBLISH = 'publish'
+  DRAFT = 'DRAFT',
+  APPROVE = 'APPROVE',
+  PUBLISH = 'PUBLISH'
 }
 
 export enum SearchType {
