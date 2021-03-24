@@ -309,7 +309,7 @@ export const DatasetRegistrationPagePure: FC<DatasetRegistrationPagePureProps> =
               </FormTemplate>
               <FormTemplate
                 title={localization.datasets.formTemplates.theme}
-                required
+                recommended
                 values={losValues(themes.values, losItems)}
                 syncErrors={themes.syncErrors}
                 showInitially={expandAll}
@@ -361,6 +361,7 @@ export const DatasetRegistrationPagePure: FC<DatasetRegistrationPagePureProps> =
                 values={conceptValues(concept.values)}
                 syncErrors={concept.syncErrors}
                 showInitially={expandAll}
+                recommended
               >
                 <FormConcept
                   datasetItem={datasetItem}
@@ -376,6 +377,7 @@ export const DatasetRegistrationPagePure: FC<DatasetRegistrationPagePureProps> =
                 values={spatialValues(spatial.values)}
                 syncErrors={spatial.syncErrors}
                 showInitially={expandAll}
+                recommended
               >
                 <ConnectedFormSpatial
                   datasetItem={datasetItem}
@@ -436,6 +438,7 @@ export const DatasetRegistrationPagePure: FC<DatasetRegistrationPagePureProps> =
                 title={localization.datasets.formTemplates.reference}
                 values={referenceValues(reference.values)}
                 showInitially={expandAll}
+                recommended
               >
                 <ConnectedFormReference
                   datasetItem={datasetItem}
@@ -468,6 +471,7 @@ export const DatasetRegistrationPagePure: FC<DatasetRegistrationPagePureProps> =
                 values={contactPointValues(contactPoint.values)}
                 syncErrors={contactPoint.syncErrors}
                 showInitially={expandAll}
+                recommended
               >
                 <ConnectedFormContactPoint
                   datasetItem={datasetItem}
@@ -483,6 +487,7 @@ export const DatasetRegistrationPagePure: FC<DatasetRegistrationPagePureProps> =
                 values={distributionValues(distribution.values)}
                 syncErrors={distribution.syncErrors}
                 showInitially={expandAll}
+                required
               >
                 <FormDistribution
                   datasetItem={datasetItem}

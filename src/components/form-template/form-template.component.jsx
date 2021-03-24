@@ -15,7 +15,8 @@ export const FormTemplate = props => {
     syncErrors,
     required,
     children,
-    showInitially
+    showInitially,
+    recommended
   } = props;
 
   const [collapse, toggleCollapse] = useState(showInitially);
@@ -58,8 +59,13 @@ export const FormTemplate = props => {
           <i className={collapseIconClass} />
           <h2 className="mb-0 text-ellipsis">{title}</h2>
           {required && (
-            <span className="fdk-badge badge fdk-bg-color-warning-lightest ml-2 fdk-text-size-small">
+            <span className="fdk-badge badge-pill fdk-bg-color-button-primary-2 fdk-color-button-text-primary ml-2 fdk-text-size-small">
               {localization.helptext.required}
+            </span>
+          )}
+          {recommended && (
+            <span className="fdk-badge badge-pill fdk-bg-color-link-lighter fdk-color-link-darker ml-2 fdk-text-size-small">
+              {localization.helptext.recommended}
             </span>
           )}
           {syncErrors && (
@@ -89,7 +95,8 @@ FormTemplate.defaultProps = {
   syncErrors: false,
   required: false,
   children: null,
-  showInitially: false
+  showInitially: false,
+  recommended: false
 };
 
 FormTemplate.propTypes = {
@@ -103,5 +110,6 @@ FormTemplate.propTypes = {
   ]),
   required: PropTypes.bool,
   children: PropTypes.node,
-  showInitially: PropTypes.bool
+  showInitially: PropTypes.bool,
+  recommended: PropTypes.bool
 };

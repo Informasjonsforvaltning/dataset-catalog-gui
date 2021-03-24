@@ -138,6 +138,7 @@
   },
   "helptext": {
     "required": "Obligatorisk",
+    "recommended": "Anbefalt",
     "more": "Flere anbefalinger",
     "less": "Færre anbefalinger"
   },
