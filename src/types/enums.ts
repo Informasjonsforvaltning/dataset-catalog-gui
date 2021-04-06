@@ -1,3 +1,10 @@
+export enum Namespace {
+  DEVELOPMENT = 'development',
+  STAGING = 'staging',
+  DEMO = 'demo',
+  PRODUCTION = 'prod'
+}
+
 export enum KeyCode {
   TAB = 9,
   ENTER = 13,

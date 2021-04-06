@@ -1,0 +1,18 @@
+import { Namespace } from './enums';
+
+export interface EnvironmentVariables {
+  NAMESPACE: Namespace;
+  FDK_BASE_URI: string;
+  SSO_HOST: string;
+  SKE_THEME_PROFILE: string;
+  FDK_REGISTRATION_BASE_URI: string;
+  REGISTRATION_API_HOST: string;
+  ADMIN_GUI_BASE_URI: string;
+  ORGANIZATION_API_HOST: string;
+  SEARCH_FULLTEXT_HOST: string;
+  DATASERVICE_CATALOG_BASE_URI: string;
+  CONCEPT_REGISTRATION_HOST: string;
+  CONCEPT_REGISTRATION_API_HOST: string;
+  RECORDS_OF_PROCESSING_ACTIVITIES_GUI_BASE_URI: string;
+  RECORDS_OF_PROCESSING_ACTIVITIES_API_BASE_URI: string;
+}
