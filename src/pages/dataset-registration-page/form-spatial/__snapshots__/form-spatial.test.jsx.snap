@@ -8,6 +8,7 @@ exports[`should render FormSpatial correctly with initialValues 1`] = `
     className="form-group"
   >
     <withStateHandlers(HelpTextPure)
+      recommended={true}
       term="Dataset_spatial"
       title="Geografisk avgrensning"
     />
@@ -40,6 +41,7 @@ exports[`should render FormSpatial correctly with initialValues 1`] = `
     className="form-group"
   >
     <withStateHandlers(HelpTextPure)
+      recommended={true}
       term="Dataset_temporal"
       title="Tidsmessig avgrenset til"
     />
@@ -67,6 +69,7 @@ exports[`should render FormSpatial correctly with initialValues 1`] = `
     className="form-group"
   >
     <withStateHandlers(HelpTextPure)
+      recommended={true}
       term="Dataset_language"
       title="Språk"
     />

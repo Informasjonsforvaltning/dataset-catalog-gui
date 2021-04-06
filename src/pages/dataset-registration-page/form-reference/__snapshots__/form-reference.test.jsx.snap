@@ -6,6 +6,7 @@ exports[`should render FormReference correctly 1`] = `
     className="form-group"
   >
     <withStateHandlers(HelpTextPure)
+      recommended={true}
       term="Dataset_relation"
       title="Relasjoner til datasett"
     />
@@ -20,6 +21,7 @@ exports[`should render FormReference correctly 1`] = `
     className="form-group"
   >
     <withStateHandlers(HelpTextPure)
+      recommended={true}
       term="Dataset_relation_resource"
       title="Relaterte ressurser"
     />

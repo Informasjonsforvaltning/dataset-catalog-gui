@@ -6,6 +6,7 @@ exports[`should render FormContactPoint correctly 1`] = `
     className="form-group"
   >
     <withStateHandlers(HelpTextPure)
+      recommended={true}
       term="ContactPoint_organizational-unit"
       title="Kontaktpunkt"
     />

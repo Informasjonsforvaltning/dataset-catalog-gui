@@ -6,6 +6,7 @@ exports[`should render FormConceptPure correctly 1`] = `
     className="form-group"
   >
     <withStateHandlers(HelpTextPure)
+      recommended={true}
       term="Dataset_content"
       title="Begrep"
     />
@@ -38,6 +39,7 @@ exports[`should render FormConceptPure correctly with errors 1`] = `
     className="form-group"
   >
     <withStateHandlers(HelpTextPure)
+      recommended={true}
       term="Dataset_content"
       title="Begrep"
     />
