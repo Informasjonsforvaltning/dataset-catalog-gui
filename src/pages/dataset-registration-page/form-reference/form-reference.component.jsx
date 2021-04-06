@@ -250,6 +250,7 @@ export const FormReference = ({
           <Helptext
             title={localization.schema.reference.helptext.reference}
             term="Dataset_relation"
+            recommended
           />
           <FieldArray
             name="references"
@@ -265,6 +266,7 @@ export const FormReference = ({
           <Helptext
             title={localization.schema.reference.helptext.relatedResources}
             term="Dataset_relation_resource"
+            recommended
           />
           <FieldArray
             name="relations"

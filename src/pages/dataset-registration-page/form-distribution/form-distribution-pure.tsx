@@ -223,6 +223,7 @@ export const Distributions = ({
               <div className="form-group">
                 <Helptext
                   title={localization.schema.distribution.helptext.title}
+                  recommended
                 />
                 <MultilingualField
                   name={`${distribution}.title`}
@@ -236,6 +237,7 @@ export const Distributions = ({
                 <Helptext
                   title={localization.schema.distribution.helptext.accessURL}
                   term="Distribution_accessURL"
+                  required
                 />
                 <Field
                   name={`${distribution}.accessURL.0`}
@@ -260,7 +262,7 @@ export const Distributions = ({
                 <Helptext
                   title={localization.schema.distribution.helptext.format}
                   term="Distribution_format"
-                  required
+                  recommended
                 />
                 <Field
                   name={`${distribution}.format`}

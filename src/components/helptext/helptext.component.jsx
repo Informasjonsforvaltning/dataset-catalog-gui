@@ -11,7 +11,7 @@ import './helptext.scss';
 import { convertToSanitizedHtml } from '../../lib/markdown-converter';
 
 export const HelpTextPure = props => {
-  const { title, term, required, toggleShowAll, showAll } = props;
+  const { title, term, required, recommended, toggleShowAll, showAll } = props;
 
   const collapseClass = cx('fa', 'fdk-fa-left', {
     'fa-angle-double-down': !showAll,
@@ -26,8 +26,13 @@ export const HelpTextPure = props => {
       <div className="d-flex align-items-center">
         <h3>{title}</h3>
         {required && (
-          <span className="fdk-badge badge fdk-bg-color-warning-lightest ml-2">
+          <span className="fdk-badge badge-pill fdk-bg-color-button-primary-2 fdk-color-button-text-primary ml-2 fdk-text-size-small">
             {localization.helptext.required}
+          </span>
+        )}
+        {recommended && (
+          <span className="fdk-badge badge-pill fdk-bg-color-link-lighter fdk-color-link-darker ml-2 fdk-text-size-small">
+            {localization.helptext.recommended}
           </span>
         )}
       </div>
@@ -67,6 +72,7 @@ HelpTextPure.defaultProps = {
   title: '',
   term: '',
   required: false,
+  recommended: false,
   toggleShowAll: _.noop,
   showAll: false
 };
@@ -75,6 +81,7 @@ HelpTextPure.propTypes = {
   title: PropTypes.string,
   term: PropTypes.string,
   required: PropTypes.bool,
+  recommended: PropTypes.bool,
   toggleShowAll: PropTypes.func,
   showAll: PropTypes.bool
 };

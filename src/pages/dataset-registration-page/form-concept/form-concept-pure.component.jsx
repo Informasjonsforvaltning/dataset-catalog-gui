@@ -17,6 +17,7 @@ export const FormConceptPure = ({ languages, errors, isReadOnly }) => {
         <Helptext
           title={localization.schema.concept.helptext.content}
           term="Dataset_content"
+          recommended
         />
         {isReadOnly && (
           <Field

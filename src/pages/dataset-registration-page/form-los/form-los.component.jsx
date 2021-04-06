@@ -45,7 +45,7 @@ export const FormLOSPure = ({
         <Helptext
           title={localization.schema.los.helptext.title}
           term="themesLos"
-          required
+          recommended
         />
 
         {!isReadOnly && (

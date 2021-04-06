@@ -167,6 +167,7 @@ export const FormSpatial = ({
           <Helptext
             title={localization.schema.spatial.helptext.spatial}
             term="Dataset_spatial"
+            recommended
           />
           <Field
             name="spatial"
@@ -181,6 +182,7 @@ export const FormSpatial = ({
           <Helptext
             title={localization.schema.spatial.helptext.temporal}
             term="Dataset_temporal"
+            recommended
           />
           {isReadOnly && (
             <FieldArray
@@ -225,6 +227,7 @@ export const FormSpatial = ({
           <Helptext
             title={localization.schema.spatial.helptext.language}
             term="Dataset_language"
+            recommended
           />
 
           {isReadOnly && (

@@ -13,6 +13,7 @@ export const FormContactPoint = ({ isReadOnly }) => (
       <Helptext
         title={localization.schema.contactPoint.helptext.organizationalUnit}
         term="ContactPoint_organizational-unit"
+        recommended
       />
       <Field
         name="contactPoint[0].organizationUnit"
