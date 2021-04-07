@@ -6,7 +6,7 @@ COPY  package.json package-lock.json ./
 RUN npm set progress=false && \
   npm config set depth 0 && \
   npm ci
-COPY babel.config.js tsconfig.json jest.config.js ./
+COPY babel.config.js tsconfig.json tsconfig.jest.json tsconfig.webpack.json jest.config.js ./
 COPY webpack ./webpack
 COPY src ./src
 COPY test ./test
