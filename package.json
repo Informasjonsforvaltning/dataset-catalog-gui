@@ -49,7 +49,8 @@
     "test:watch:all:verbose": "jest --passWithNoTests --watchAll --verbose",
     "clean:coverage": "rm -rf coverage",
     "bundle:analyse": "run-s build:webpack:stats",
-    "commit": "git-cz"
+    "commit": "git-cz",
+    "prepare": "husky install"
   },
   "config": {
     "commitizen": {
