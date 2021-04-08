@@ -309,10 +309,10 @@ export const DatasetRegistrationPagePure: FC<DatasetRegistrationPagePureProps> =
               </FormTemplate>
               <FormTemplate
                 title={localization.datasets.formTemplates.theme}
-                recommended
                 values={losValues(themes.values, losItems)}
                 syncErrors={themes.syncErrors}
                 showInitially={expandAll}
+                recommended
               >
                 <ConnectedFormLOS
                   datasetItem={datasetItem}
@@ -487,7 +487,7 @@ export const DatasetRegistrationPagePure: FC<DatasetRegistrationPagePureProps> =
                 values={distributionValues(distribution.values)}
                 syncErrors={distribution.syncErrors}
                 showInitially={expandAll}
-                required
+                recommended
               >
                 <FormDistribution
                   datasetItem={datasetItem}

@@ -83,7 +83,45 @@ export const schema = Yup.object().shape({
   }),
   landingPage: Yup.array().of(
     Yup.string().url(localization.validation.validateLink)
-  )
+  ),
+  objective: Yup.object().shape({
+    nb: Yup.string()
+      .nullable()
+      .test(function () {
+        const { nb, nn, en } = this.parent;
+        if (!nb && !nn && !en) {
+          return this.createError({
+            message: localization.validation.required,
+            path: this.path
+          });
+        }
+        return true;
+      }),
+    nn: Yup.string()
+      .nullable()
+      .test(function () {
+        const { nb, nn, en } = this.parent;
+        if (!nb && !nn && !en) {
+          return this.createError({
+            message: localization.validation.required,
+            path: this.path
+          });
+        }
+        return true;
+      }),
+    en: Yup.string()
+      .nullable()
+      .test(function () {
+        const { nb, nn, en } = this.parent;
+        if (!nb && !nn && !en) {
+          return this.createError({
+            message: localization.validation.required,
+            path: this.path
+          });
+        }
+        return true;
+      })
+  })
 });
 
 /* eslint-enable func-names */

@@ -14,7 +14,7 @@ export default {
             nb: 'tester'
           },
           objective: {
-            nb: ''
+            nb: 'tester'
           },
           publisher: {
             uri: 'http://data.brreg.no/enhetsregisteret/enhet/910244132',

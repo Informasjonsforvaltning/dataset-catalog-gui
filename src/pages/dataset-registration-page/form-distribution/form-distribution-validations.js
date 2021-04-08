@@ -16,7 +16,7 @@ const validate = values => {
     const distributionErrors = distribution.map(distributionItem => {
       let itemErrors = {};
 
-      const accessURL = _.get(distributionItem, ['accessURL', 0]);
+      const accessURL = distributionItem.accessURL || [];
       const license = _.get(distributionItem, ['license', 'uri'], null);
       const description = _.get(
         distributionItem,
@@ -30,9 +30,8 @@ const validate = values => {
           ? distributionItem.page[0].uri
           : null;
       const { conformsTo } = distributionItem || null;
-      const formats = distributionItem.format || [];
 
-      itemErrors = validateURL('accessURL', accessURL, itemErrors, true);
+      itemErrors = validateURL('accessURL', accessURL[0], itemErrors, true);
       itemErrors = validateMinTwoChars('license', license, itemErrors, 'uri');
       itemErrors = validateMinTwoChars('description', description, itemErrors);
       itemErrors = validateLinkReturnAsSkosType(
@@ -42,8 +41,8 @@ const validate = values => {
         'uri'
       );
 
-      if (formats.map(s => s && s.trim()).filter(Boolean).length === 0) {
-        itemErrors.format = localization.validation.required;
+      if (accessURL.map(s => s && s.trim()).filter(Boolean).length === 0) {
+        itemErrors.accessURL = [localization.validation.required];
       }
 
       if (conformsTo) {
