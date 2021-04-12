@@ -1,6 +1,7 @@
 import LocalizedStrings from 'react-localization';
 
-import nb from '../../l10n/nb.json';
+import nb from './documents/nb.json';
+import helptexts from './documents/helptexts.nb';
 
 import type { ChangeLanguageCallback, Tokens } from './types';
 import { Language } from './enums';
@@ -11,7 +12,7 @@ class TranslationsService {
   private changeLanguageCallback?: ChangeLanguageCallback;
 
   private readonly translations = new LocalizedStrings({
-    [Language.NB]: nb
+    [Language.NB]: { ...nb, helptexts }
   });
 
   public async init(

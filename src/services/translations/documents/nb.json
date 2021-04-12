@@ -525,6 +525,7 @@
     "isDraft": "er lagret som utkast",
     "delete": "Slett",
     "confirmDeleted": "ble slettet",
+    "confirmDeletedDataset": "Datasettbeskrivelsen ble slettet",
     "confirmDelete": "Ja, slett",
     "cancelDelete": "Nei, avbryt",
     "confirmChangeStatus": "Ja, endre",
