@@ -1,19 +1,20 @@
 import axios from 'axios';
-import { authService } from '../../auth/auth-service';
-import { getConfig } from '../../../config';
+
+import env from '../../../env';
+
+import AuthService from '../../auth';
+
+const { DATASERVICE_CATALOG_BASE_URI } = env;
 
 export const getDataServices = async orgnr =>
   axios
-    .get(
-      `${getConfig().dataServiceCatalogHost}/catalogs/${orgnr}/dataservices`,
-      {
-        headers: {
-          Authorization: await authService.getAuthorizationHeader(),
-          Accept: 'application/json'
-        }
+    .get(`${DATASERVICE_CATALOG_BASE_URI}/catalogs/${orgnr}/dataservices`, {
+      headers: {
+        Authorization: await AuthService.getAuthorizationHeader(),
+        Accept: 'application/json'
       }
-    )
-    .then(response => response.data);
+    })
+    .then(({ data }) => data);
 
 export const getDataServicesCount = orgnr =>
   getDataServices(orgnr).then(dataservices => dataservices.length);

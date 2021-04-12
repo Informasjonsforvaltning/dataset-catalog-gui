@@ -1,11 +1,15 @@
 import axios from 'axios';
-import { authService } from '../../auth/auth-service';
-import { getConfig } from '../../../config';
+
+import env from '../../../env';
+
+import AuthService from '../../auth';
+
+const { REGISTRATION_API_HOST } = env;
 
 export const registrationApi = async (method, path, data) => {
-  const Authorization = await authService.getAuthorizationHeader();
+  const Authorization = await AuthService.getAuthorizationHeader();
   const response = await axios({
-    url: `${getConfig().registrationApi.host}${path}`,
+    url: `${REGISTRATION_API_HOST}${path}`,
     method,
     data,
     headers: {

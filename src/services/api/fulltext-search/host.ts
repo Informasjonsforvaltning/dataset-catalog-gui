@@ -1,6 +1,9 @@
 import axios from 'axios';
 import cleanDeep from 'clean-deep';
-import { getConfig } from '../../../config';
+
+import env from '../../../env';
+
+const { SEARCH_FULLTEXT_HOST } = env;
 
 interface Props {
   path: string;
@@ -10,11 +13,11 @@ interface Props {
 
 export const searchFullTextApi = ({ path, method, params }: Props) =>
   axios({
-    url: `${getConfig().searchFullTextApi.host}${path}`,
+    url: `${SEARCH_FULLTEXT_HOST}${path}`,
     method,
     params
   })
-    .then(response => cleanDeep(response.data))
+    .then(({ data }) => cleanDeep(data))
     .catch(() => null);
 
 export const searchFullTextApiGet = (path: string, params: any) =>

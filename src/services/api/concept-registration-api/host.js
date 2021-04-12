@@ -1,13 +1,17 @@
 import axios from 'axios';
-import { authService } from '../../auth/auth-service';
-import { getConfig } from '../../../config';
+
+import env from '../../../env';
+
+import AuthService from '../../auth';
+
+const { CONCEPT_REGISTRATION_API_HOST } = env;
 
 export const getConcepts = async orgnr =>
   axios
-    .get(`${getConfig().conceptRegistrationApi.host}/begreper`, {
+    .get(`${CONCEPT_REGISTRATION_API_HOST}/begreper`, {
       params: { orgNummer: orgnr },
       headers: {
-        Authorization: await authService.getAuthorizationHeader(),
+        Authorization: await AuthService.getAuthorizationHeader(),
         Accept: 'application/json'
       }
     })
