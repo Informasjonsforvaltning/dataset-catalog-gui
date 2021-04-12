@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import { FormContactPoint } from './form-contactPoint.component';
+import FormContactPoint from './form-contactPoint.component';
 
 let defaultProps;
 let wrapper;
