@@ -1,8 +1,4 @@
-import type {
-  RegistrationStatus,
-  SearchType,
-  AdministrativeUnitType
-} from './enums';
+import type { RegistrationStatus, AdministrativeUnitType } from './enums';
 
 export interface MediaType {
   name: string;
@@ -23,14 +19,6 @@ export interface AdministrativeUnit {
 export interface SearchResult {
   datasets: Dataset[];
   catalogs: Catalog[];
-}
-
-export interface SearchRequest {
-  includeExternalDatasets: boolean;
-  searchType: SearchType;
-  catalogIDs: string[];
-  query: string;
-  includeStatus?: Set<RegistrationStatus>;
 }
 
 export interface Catalog {
@@ -153,6 +141,7 @@ export interface Publisher {
   name: string;
   orgPath: string;
   prefLabel: Record<string, string>;
+  allowDelegatedRegistration?: boolean;
 }
 
 export interface SkosCode {
