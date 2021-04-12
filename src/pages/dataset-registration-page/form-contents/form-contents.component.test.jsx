@@ -1,5 +1,5 @@
 import { shallow } from 'enzyme';
-import { FormContentsComponent } from './form-contents.component';
+import FormContentsComponent from './form-contents.component';
 
 let defaultProps;
 let wrapper;

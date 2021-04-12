@@ -4,7 +4,8 @@ import {
   validateMinTwoChars,
   validateURL
 } from '../../../validation/validation';
-import localization from '../../../services/localization';
+
+import TranslationsService from '../../../services/translations';
 
 const validate = values => {
   const errors = {};
@@ -14,7 +15,7 @@ const validate = values => {
   let errorHasRelevanceAnnotation = {};
   const hasRelevanceAnnotation = _get(
     values,
-    ['hasRelevanceAnnotation', 'hasBody', localization.getLanguage()],
+    ['hasRelevanceAnnotation', 'hasBody', TranslationsService.getLanguage()],
     null
   );
   errorHasRelevanceAnnotation = validateMinTwoChars(
@@ -29,7 +30,7 @@ const validate = values => {
   let errorHasCompletenessAnnotation = {};
   const hasCompletenessAnnotation = _get(
     values,
-    ['hasCompletenessAnnotation', 'hasBody', localization.getLanguage()],
+    ['hasCompletenessAnnotation', 'hasBody', TranslationsService.getLanguage()],
     null
   );
   errorHasCompletenessAnnotation = validateMinTwoChars(
@@ -44,7 +45,7 @@ const validate = values => {
   let errorHasAccuracyAnnotation = {};
   const hasAccuracyAnnotation = _get(
     values,
-    ['hasAccuracyAnnotation', 'hasBody', localization.getLanguage()],
+    ['hasAccuracyAnnotation', 'hasBody', TranslationsService.getLanguage()],
     null
   );
   errorHasAccuracyAnnotation = validateMinTwoChars(
@@ -59,7 +60,7 @@ const validate = values => {
   let errorHasAvailabilityAnnotation = {};
   const hasAvailabilityAnnotation = _get(
     values,
-    ['hasAvailabilityAnnotation', 'hasBody', localization.getLanguage()],
+    ['hasAvailabilityAnnotation', 'hasBody', TranslationsService.getLanguage()],
     null
   );
   errorHasAvailabilityAnnotation = validateMinTwoChars(
@@ -76,7 +77,7 @@ const validate = values => {
       let itemErrors = {};
       const conformsToPrefLabel = _get(
         item,
-        ['prefLabel', localization.getLanguage()],
+        ['prefLabel', TranslationsService.getLanguage()],
         null
       );
       const conformsToURI = item.uri || null;

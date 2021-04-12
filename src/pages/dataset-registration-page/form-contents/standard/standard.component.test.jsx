@@ -1,5 +1,5 @@
 import { shallow } from 'enzyme';
-import { Standard } from './standard.component';
+import Standard from './standard.component';
 
 let wrapper;
 
