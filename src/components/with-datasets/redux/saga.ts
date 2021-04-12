@@ -1,7 +1,13 @@
 import { all, call, put, takeLatest } from 'redux-saga/effects';
-import { authService } from '../../../services/auth/auth-service';
 
-import { SEARCH_DATASETS_REQUESTED } from './actions-types';
+import env from '../../../env';
+
+import AuthService from '../../../services/auth';
+
+import {
+  LIST_DATASETS_REQUESTED,
+  SEARCH_DATASETS_REQUESTED
+} from './actions-types';
 import * as actions from './actions';
 
 import { searchDatasetRegistration, searchFullTextApi } from './operations';
@@ -9,52 +15,68 @@ import { searchDatasetRegistration, searchFullTextApi } from './operations';
 import type { Dataset } from '../../../types';
 import { RegistrationStatus } from '../../../types/enums';
 
-function* searchRequested({
-  payload: { searchRequest }
-}: ReturnType<typeof actions.searchDatasetsRequested>) {
-  try {
-    const auth = yield call(authService.getAuthorizationHeader);
+const { FDK_REGISTRATION_BASE_URI } = env;
 
-    const [registrationSearch, fulltextSearch] = yield all([
-      call(searchDatasetRegistration, searchRequest, auth),
-      call(searchFullTextApi, searchRequest)
+function* listDatasetsRequested({
+  payload: { catalogId, size }
+}: ReturnType<typeof actions.listDatasetsRequested>) {
+  try {
+    const authorization: string = yield call([
+      AuthService,
+      AuthService.getAuthorizationHeader
     ]);
 
-    const internalDatasetUris = new Set(
-      registrationSearch.map(({ uri }: Dataset) => uri)
+    const { data } = yield call(
+      axios.get,
+      `${FDK_REGISTRATION_BASE_URI}/catalogs/${catalogId}/datasets`,
+      {
+        params: { size },
+        headers: {
+          authorization,
+          accept: 'application/json',
+          'cache-control': 'no-cache'
+        }
+      }
     );
 
-    const internalDatasets = registrationSearch.reduce(
-      (previous, current) =>
-        searchRequest.includeStatus?.has(current.registrationStatus) ?? true
-          ? [...previous, { ...current, internal: true }]
-          : previous,
-      [] as Dataset[]
+    if (Array.isArray(data?._embedded.datasets)) {
+      yield put(
+        actions.listDatasetsSucceeded(data._embedded.datasets as Dataset[])
+      );
+    } else {
+      yield put(
+        actions.listDatasetsFailed(
+          'An error occurred during an attempt to list datasets.'
+        )
+      );
+    }
+  } catch (error) {
+    yield put(actions.listDatasetsFailed(error));
+  }
+}
+
+function* searchDatasetsRequested({
+  payload: { query, searchType, catalogIDs }
+}: ReturnType<typeof actions.searchDatasetsRequested>) {
+  try {
+    const authorization: string = yield call([
+      AuthService,
+      AuthService.getAuthorizationHeader
+    ]);
+
+    const { data } = yield call(
+      axios.post,
+      `${FDK_REGISTRATION_BASE_URI}/search`,
+      { query, searchType, catalogIDs },
+      { headers: { authorization } }
     );
 
-    const externalDatasets = fulltextSearch.reduce(
-      (previous, current) =>
-        !internalDatasetUris.has(current.uri)
-          ? [
-              ...previous,
-              {
-                ...current,
-                internal: false,
-                registrationStatus: RegistrationStatus.PUBLISH
-              }
-            ]
-          : previous,
-      [] as Dataset[]
-    );
-
-    const datasets: Dataset[] = [...internalDatasets, ...externalDatasets];
-
-    if (datasets) {
-      yield put(actions.searchDatasetsSucceeded(datasets));
+    if (Array.isArray(data?.datasets)) {
+      yield put(actions.searchDatasetsSucceeded(data.datasets as Dataset[]));
     } else {
       yield put(
         actions.searchDatasetsFailed(
-          'An error occurred during an attempt to search the Dataset Catalog.'
+          'An error occurred during an attempt to search the dataset catalog.'
         )
       );
     }
@@ -64,5 +86,8 @@ function* searchRequested({
 }
 
 export default function* saga() {
-  yield all([takeLatest(SEARCH_DATASETS_REQUESTED, searchRequested)]);
+  yield all([
+    takeLatest(LIST_DATASETS_REQUESTED, listDatasetsRequested),
+    takeLatest(SEARCH_DATASETS_REQUESTED, searchDatasetsRequested)
+  ]);
 }
