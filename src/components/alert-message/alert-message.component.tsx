@@ -1,12 +1,14 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React, { memo, FC, PropsWithChildren } from 'react';
+import { compose } from 'redux';
 import cx from 'classnames';
 
-export const AlertMessage = props => {
-  const { type, children } = props;
-  if (!(type && children)) {
-    return null;
-  }
+interface ExternalProps {
+  type: 'success' | 'warning' | 'danger' | 'info';
+}
+
+interface Props extends ExternalProps {}
+
+const AlertMessage: FC<PropsWithChildren<Props>> = ({ type, children }) => {
   const alertClassnames = cx('d-flex', 'alert', 'pt-3', 'pb-3', 'mt-3', {
     'alert-success': type === 'success',
     'alert-warning': type === 'warning',
@@ -18,15 +20,13 @@ export const AlertMessage = props => {
     'fa-info-circle fdk-color-link': type === 'info',
     'fa-check': type === 'success'
   });
-  return (
+
+  return type && children ? (
     <div className={alertClassnames}>
       <i className={iconClassnames} />
       <span>{children}</span>
     </div>
-  );
+  ) : null;
 };
 
-AlertMessage.propTypes = {
-  type: PropTypes.oneOf(['success', 'warning', 'danger', 'info']).isRequired,
-  children: PropTypes.node.isRequired
-};
+export default compose<FC<ExternalProps>>(memo)(AlertMessage);
