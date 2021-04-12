@@ -1,7 +1,7 @@
 import { reduxForm } from 'redux-form';
 import _throttle from 'lodash/throttle';
 
-import { FormAccessRights } from './form-accessRights.component';
+import FormAccessRights from './form-accessRights.component';
 import validate from './form-accessRights.validations';
 import { asyncValidateDatasetInvokePatch } from '../formsLib/asyncValidateDatasetInvokePatch';
 

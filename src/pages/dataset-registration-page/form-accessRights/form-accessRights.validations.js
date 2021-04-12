@@ -4,7 +4,8 @@ import {
   validateMinTwoChars,
   validateURL
 } from '../../../validation/validation';
-import localization from '../../../services/localization';
+
+import TranslationsService from '../../../services/translations';
 
 const validate = values => {
   let errors = {};
@@ -25,7 +26,7 @@ const validate = values => {
       let itemErrors = {};
       const legalBasisForRestrictionPrefLabel = _get(
         item,
-        ['prefLabel', localization.getLanguage()],
+        ['prefLabel', TranslationsService.getLanguage()],
         null
       );
       const legalBasisForRestrictionURI = item.uri || null;
@@ -54,7 +55,7 @@ const validate = values => {
       let itemErrors = {};
       const legalBasisForProcessingPrefLabel = _get(
         item,
-        ['prefLabel', localization.getLanguage()],
+        ['prefLabel', TranslationsService.getLanguage()],
         null
       );
       const legalBasisForProcessingURI = item.uri ? item.uri : null;
@@ -83,7 +84,7 @@ const validate = values => {
       let itemErrors = {};
       const legalBasisForAccessPrefLabel = _get(
         item,
-        ['prefLabel', localization.getLanguage()],
+        ['prefLabel', TranslationsService.getLanguage()],
         null
       );
       const legalBasisForAccessURI = item.uri ? item.uri : null;

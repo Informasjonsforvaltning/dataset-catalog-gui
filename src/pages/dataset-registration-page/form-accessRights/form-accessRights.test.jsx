@@ -1,7 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import {
-  FormAccessRights,
+import FormAccessRights, {
   renderLegalBasis
 } from './form-accessRights.component';
 
