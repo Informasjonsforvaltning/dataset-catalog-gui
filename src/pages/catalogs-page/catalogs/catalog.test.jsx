@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import { CatalogPure } from './catalog.component';
+import CatalogPure from './catalog.component';
 
 let defaultProps;
 let wrapper;
@@ -10,7 +10,7 @@ let items;
 beforeEach(() => {
   fetchItems = jest.fn();
   items = {
-    '910244132': {
+    910244132: {
       items: [
         {
           id: 'aab2063b-adf4-483a-a342-9e75c9a7c948'

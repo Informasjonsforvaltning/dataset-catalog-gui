@@ -1,9 +1,9 @@
 import { connect } from 'react-redux';
-import { fetchCatalogsIfNeeded } from '../../redux/modules/catalogs';
+import { fetchCatalogsIfNeeded } from '../../entrypoints/main/redux/modules/catalogs';
 import {
   fetchDatasetsIfNeeded,
   selectorForDatasetsState
-} from '../../redux/modules/datasets';
+} from '../../entrypoints/main/redux/modules/datasets';
 
 const mapStateToProps = state => {
   const { catalogs } = state;

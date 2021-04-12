@@ -1,15 +1,34 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React, { memo, FC } from 'react';
+import { compose } from 'redux';
 import memoize from 'lodash/memoize';
-
 import { resolve } from 'react-resolver';
-import { getConfig } from '../../../config';
-import { CatalogItem } from './catalog-item/catalog-item.component';
+
+import env from '../../../env';
+
 import { getConceptCount } from '../../../services/api/concept-registration-api/host';
 import { getRecordsCount } from '../../../services/api/records-registration-api/host';
 import { getDataServicesCount } from '../../../services/api/dataservice-catalog/host';
 
-export const CatalogPure = ({
+import CatalogItem from './catalog-item/catalog-item.component';
+
+const {
+  DATASERVICE_CATALOG_BASE_URI,
+  CONCEPT_REGISTRATION_HOST,
+  RECORDS_OF_PROCESSING_ACTIVITIES_GUI_BASE_URI
+} = env;
+
+interface ExternalProps {
+  catalogId: string;
+  type: string;
+  fetchItems?: (id: string) => void;
+  itemsCount?: number;
+  isReadOnly?: boolean;
+  disabled: boolean;
+}
+
+interface Props extends ExternalProps {}
+
+const Catalog: FC<Props> = ({
   catalogId,
   type,
   fetchItems,
@@ -17,18 +36,18 @@ export const CatalogPure = ({
   isReadOnly,
   disabled
 }) => {
-  fetchItems(catalogId);
+  fetchItems?.(catalogId);
 
   const getLinkUri = () => {
     switch (type) {
       case 'dataservices': {
-        return `${getConfig().dataServiceCatalogHost}/${catalogId}`;
+        return `${DATASERVICE_CATALOG_BASE_URI}/${catalogId}`;
       }
       case 'concepts': {
-        return `${getConfig().conceptRegistrationHost}/${catalogId}`;
+        return `${CONCEPT_REGISTRATION_HOST}/${catalogId}`;
       }
       case 'protocol': {
-        return `${getConfig().recordsOfProcessingActivitiesHost}/${catalogId}`;
+        return `${RECORDS_OF_PROCESSING_ACTIVITIES_GUI_BASE_URI}/${catalogId}`;
       }
       default:
         return `/catalogs/${catalogId}/${type}`;
@@ -41,7 +60,6 @@ export const CatalogPure = ({
     <CatalogItem
       linkUri={linkUri}
       key={catalogId}
-      publisherId={catalogId}
       type={type}
       itemsCount={itemsCount}
       isReadOnly={isReadOnly}
@@ -50,29 +68,12 @@ export const CatalogPure = ({
   );
 };
 
-CatalogPure.defaultProps = {
-  catalogId: null,
-  fetchItems: () => {},
-  itemsCount: null,
-  isReadOnly: false,
-  disabled: true
-};
-
-CatalogPure.propTypes = {
-  catalogId: PropTypes.string,
-  type: PropTypes.string.isRequired,
-  fetchItems: PropTypes.func,
-  itemsCount: PropTypes.number,
-  isReadOnly: PropTypes.bool,
-  disabled: PropTypes.bool
-};
-
 const memoizedGetDataServicesCount = memoize(getDataServicesCount);
 const memoizedGetConceptCount = memoize(getConceptCount);
 const memoizedGetRecordsCount = memoize(getRecordsCount);
 
 const mapProps = {
-  itemsCount: ({ type, catalogId, itemsCount }) => {
+  itemsCount: ({ type, catalogId, itemsCount }: any) => {
     switch (type) {
       case 'dataservices': {
         return memoizedGetDataServicesCount(catalogId);
@@ -89,4 +90,4 @@ const mapProps = {
   }
 };
 
-export const Catalog = resolve(mapProps)(CatalogPure);
+export default compose<FC<ExternalProps>>(memo, resolve(mapProps))(Catalog);

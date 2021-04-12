@@ -1,12 +1,14 @@
 import React from 'react';
 import { CardGroup } from 'reactstrap';
-import localization from '../../services/localization';
-import { Catalog } from './catalogs/catalog.component';
+
+import AuthService from '../../services/auth';
+
+import Translation from '../../components/translation';
+import Catalog from './catalogs/catalog.component';
 import { Variant } from '../../components/banner';
-import { getTranslateText } from '../../services/translateText';
-import { selectorForCatalogDatasetsFromDatasetsState } from '../../redux/modules/datasets';
+import { selectorForCatalogDatasetsFromDatasetsState } from '../../entrypoints/main/redux/modules/datasets';
+
 import './catalogs-page.scss';
-import { authService } from '../../services/auth/auth-service';
 
 import SC from './styled';
 
@@ -14,10 +16,8 @@ interface Props {
   catalogItems: any[];
   isFetchingCatalogs: boolean;
   datasetsState: any;
-  apis: any;
   fetchCatalogsIfNeeded: () => void;
   fetchDatasetsIfNeeded: () => void;
-  fetchApisIfNeeded: () => void;
 }
 
 export const CatalogsPagePure = ({
@@ -25,9 +25,7 @@ export const CatalogsPagePure = ({
   fetchCatalogsIfNeeded,
   catalogItems,
   datasetsState,
-  apis,
-  fetchDatasetsIfNeeded,
-  fetchApisIfNeeded
+  fetchDatasetsIfNeeded
 }: Props) => {
   fetchCatalogsIfNeeded && fetchCatalogsIfNeeded();
 
@@ -36,30 +34,32 @@ export const CatalogsPagePure = ({
   }
 
   return (
-    <div className="container">
+    <div className='container'>
       {catalogItems &&
         catalogItems.map(({ id, publisher }) => {
-          const termsAccepted = authService.hasAcceptedLatestTermsAndConditions(
+          const termsAccepted = AuthService.hasAcceptedLatestTermsAndConditions(
             id
           );
           return (
-            <div key={id} className="row mb-2 mb-md-5">
-              <div className="col-12">
-                <div className="mb-3">
-                  <h2 className="fdk-text-strong mb-3">
-                    {getTranslateText(publisher?.prefLabel) ||
-                      publisher?.name ||
-                      ''}
+            <div key={id} className='row mb-2 mb-md-5'>
+              <div className='col-12'>
+                <div className='mb-3'>
+                  <h2 className='fdk-text-strong mb-3'>
+                    {publisher?.prefLabel ? (
+                      <Translation object={publisher?.prefLabel} />
+                    ) : (
+                      publisher?.name || ''
+                    )}
                   </h2>
-                  {authService.hasOrganizationReadPermission(id) &&
+                  {AuthService.hasOrganizationReadPermission(id) &&
                     termsAccepted && (
                       <a href={`/terms-and-conditions/${id}`}>
                         Bruksvilkår
-                        <i className="fa fa-external-link fdk-fa-right" />
+                        <i className='fa fa-external-link fdk-fa-right' />
                       </a>
                     )}
                 </div>
-                {authService.hasOrganizationReadPermission(id) &&
+                {AuthService.hasOrganizationReadPermission(id) &&
                   !termsAccepted && (
                     <SC.Banner variant={Variant.WARNING}>
                       <a href={`/terms-and-conditions/${id}`}>Bruksvilkår</a>{' '}
@@ -73,7 +73,7 @@ export const CatalogsPagePure = ({
                     <Catalog
                       key={`datasets-${id}`}
                       catalogId={id}
-                      type="datasets"
+                      type='datasets'
                       fetchItems={fetchDatasetsIfNeeded}
                       itemsCount={
                         Object.keys(
@@ -83,7 +83,7 @@ export const CatalogsPagePure = ({
                         ).length
                       }
                       disabled={
-                        !authService.hasSystemAdminPermission() &&
+                        !AuthService.hasSystemAdminPermission() &&
                         !termsAccepted
                       }
                     />
@@ -91,25 +91,25 @@ export const CatalogsPagePure = ({
                   <Catalog
                     key={`dataservices-${id}`}
                     catalogId={id}
-                    type="dataservices"
+                    type='dataservices'
                     disabled={
-                      !authService.hasSystemAdminPermission() && !termsAccepted
+                      !AuthService.hasSystemAdminPermission() && !termsAccepted
                     }
                   />
                   <Catalog
                     key={`concepts-${id}`}
                     catalogId={id}
-                    type="concepts"
+                    type='concepts'
                     disabled={
-                      !authService.hasSystemAdminPermission() && !termsAccepted
+                      !AuthService.hasSystemAdminPermission() && !termsAccepted
                     }
                   />
                   <Catalog
                     key={`protocol-${id}`}
                     catalogId={id}
-                    type="protocol"
+                    type='protocol'
                     disabled={
-                      !authService.hasSystemAdminPermission() && !termsAccepted
+                      !AuthService.hasSystemAdminPermission() && !termsAccepted
                     }
                   />
                 </CardGroup>
@@ -118,22 +118,22 @@ export const CatalogsPagePure = ({
           );
         })}
       {!catalogItems && (
-        <div className="row mb-2 mb-md-5">
-          <div id="no-catalogs">
-            <h1 className="fdk-text-strong">
-              {localization.catalogs.missingCatalogs.title}
+        <div className='row mb-2 mb-md-5'>
+          <div id='no-catalogs'>
+            <h1 className='fdk-text-strong'>
+              <Translation id='catalogs.missingCatalogs.title' />
             </h1>
-            <div className="mt-2 mb-2">
-              {localization.catalogs.missingCatalogs.ingress}
+            <div className='mt-2 mb-2'>
+              <Translation id='catalogs.missingCatalogs.ingress' />
             </div>
-            <div className="fdk-text-size-small">
+            <div className='fdk-text-size-small'>
               <strong>
-                {localization.catalogs.missingCatalogs.accessTitle}
+                <Translation id='catalogs.missingCatalogs.accessTitle' />
               </strong>
               <p>
-                <a href="https://data.norge.no/about-registration">
-                  {localization.catalogs.missingCatalogs.accessText}
-                  <i className="fa fa-external-link fdk-fa-right" />
+                <a href='https://data.norge.no/about-registration'>
+                  <Translation id='catalogs.missingCatalogs.accessText' />
+                  <i className='fa fa-external-link fdk-fa-right' />
                 </a>
               </p>
             </div>
