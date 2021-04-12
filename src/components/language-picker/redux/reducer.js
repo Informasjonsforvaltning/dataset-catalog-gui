@@ -1,26 +1,22 @@
 import { SET_INPUT_LANGUAGES, TOGGLE_INPUT_LANGUAGE } from './actionTypes';
 
-import localization from '../../../services/localization';
-
-const NB = 'nb';
-const NN = 'nn';
-const EN = 'en';
+import TranslationsService, { Language } from '../../../services/translations';
 
 const initialState = {
   languages: [
     {
-      code: NB,
-      title: localization.lang.NO_NB,
+      code: Language.NB,
+      title: TranslationsService.translate('lang.NO_NB'),
       selected: true
     },
     {
-      code: NN,
-      title: localization.lang.NO_NN,
+      code: Language.NN,
+      title: TranslationsService.translate('lang.NO_NN'),
       selected: false
     },
     {
-      code: EN,
-      title: localization.lang.ENG,
+      code: Language.EN,
+      title: TranslationsService.translate('lang.ENG'),
       selected: false
     }
   ]

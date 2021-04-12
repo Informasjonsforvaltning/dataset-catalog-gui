@@ -1,22 +1,37 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React, { memo, FC } from 'react';
+import { compose } from 'redux';
 import cx from 'classnames';
 import { Button } from 'reactstrap';
 
-import localization from '../../services/localization';
+import Translation from '../translation';
 
 import './language-picker.styles.scss';
 
-const LanguagePicker = ({ languages, toggleInputLanguage }) => {
-  const shouldDisableLanguage = code => {
+interface Language {
+  code: string;
+  title: string;
+  selected: boolean;
+}
+
+interface ExternalProps {
+  languages: Language[];
+  toggleInputLanguage: (language: string) => void;
+}
+
+interface Props extends ExternalProps {}
+
+const LanguagePicker: FC<Props> = ({ languages, toggleInputLanguage }) => {
+  const shouldDisableLanguage = (code: string) => {
     const selectedLanguages = languages.filter(({ selected }) => selected);
     return selectedLanguages.length === 1 && selectedLanguages[0].code === code;
   };
 
   return (
-    <div className="language-picker">
-      <p>{`${localization.lang.choose}:`}</p>
-      <div className="language-button-group">
+    <div className='language-picker'>
+      <p>
+        <Translation id='lang.choose' />:
+      </p>
+      <div className='language-button-group'>
         {languages.map(({ code, title, selected }) => (
           <Button
             key={code}
@@ -30,7 +45,7 @@ const LanguagePicker = ({ languages, toggleInputLanguage }) => {
             onClick={() => toggleInputLanguage(code)}
           >
             {selected && (
-              <img src="/img/icon-checked-white-sm.svg" alt="icon" />
+              <img src='/img/icon-checked-white-sm.svg' alt='icon' />
             )}
             {title}
           </Button>
@@ -40,14 +55,4 @@ const LanguagePicker = ({ languages, toggleInputLanguage }) => {
   );
 };
 
-LanguagePicker.defaultProps = {
-  languages: [],
-  toggleInputLanguage: () => {}
-};
-
-LanguagePicker.propTypes = {
-  languages: PropTypes.array,
-  toggleInputLanguage: PropTypes.func
-};
-
-export default LanguagePicker;
+export default compose<FC<ExternalProps>>(memo)(LanguagePicker);
