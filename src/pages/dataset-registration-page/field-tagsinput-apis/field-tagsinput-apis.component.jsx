@@ -1,19 +1,19 @@
 import React from 'react';
 import ReactTags from 'react-tag-autocomplete';
 
-import { getTranslateText } from '../../../services/translateText';
+import TranslationsService from '../../../services/translations';
+
 import {
   extractSuggestions,
   getDataserviceSuggestions
 } from '../../../services/api/fulltext-search/suggestions';
-import localization from '../../../services/localization';
 
 const addTagToInput = (updates, { input: { value, onChange } }) =>
   onChange(
     (value || []).concat({
       id: updates.id,
       description: {
-        [localization.getLanguage()]: updates.name
+        [TranslationsService.getLanguage()]: updates.name
       },
       endpointDescription: [
         {
@@ -53,7 +53,7 @@ export class InputTagsAPIsField extends React.Component {
       this.setState({
         tags: accessServices.filter(Boolean).map(({ id, description }) => ({
           id,
-          name: getTranslateText(description)
+          name: TranslationsService.translate(description)
         }))
       });
     }
@@ -88,7 +88,7 @@ export class InputTagsAPIsField extends React.Component {
         suggestions.forEach(suggestion => {
           suggestionItems.push({
             id: suggestion.id,
-            name: getTranslateText(suggestion.title)
+            name: TranslationsService.translate(suggestion.title)
           });
         });
         this.setState({
@@ -105,11 +105,11 @@ export class InputTagsAPIsField extends React.Component {
   render() {
     const { tags, suggestions } = this.state;
     return (
-      <div className="pl-2">
-        <div className="d-flex align-items-center">
+      <div className='pl-2'>
+        <div className='d-flex align-items-center'>
           <ReactTags
             autofocus={false}
-            placeholder=""
+            placeholder=''
             tags={tags}
             minQueryLength={1}
             suggestions={suggestions}
