@@ -1,5 +1,5 @@
 import get from 'lodash/get';
-import { isNapTheme } from '../redux/modules/referenceData';
+import { isNapTheme } from '../entrypoints/main/redux/modules/referenceData';
 
 export const isNapPublish = (losItems, datasetItem) =>
   get(datasetItem, ['accessRights', 'uri']) ===
