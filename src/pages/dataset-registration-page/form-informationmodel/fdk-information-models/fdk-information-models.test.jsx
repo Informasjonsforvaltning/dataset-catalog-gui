@@ -1,12 +1,17 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import { findByTestId } from '../../../../../test/utils/testUtils';
+
+import env from '../../../../env';
+
 import FdkInformationModels, {
   TestIds
 } from './fdk-information-models.component';
-import { getConfig } from '../../../../config';
 
-const fdkURI = `${getConfig().searchHost}/informationmodels/`;
+import { findByTestId } from '../../../../../test/utils/testUtils';
+
+const { FDK_BASE_URI } = env;
+
+const fdkURI = `${FDK_BASE_URI}/informationmodels/`;
 
 function setup(fields) {
   const wrapper = shallow(
@@ -14,20 +19,18 @@ function setup(fields) {
       fields={fields}
       isReadOnly={false}
       dispatch={() => {}}
-      catalogId="1"
-      datasetId="2"
+      catalogId='1'
+      datasetId='2'
     />
   );
   return wrapper;
 }
 
-const createFields = fieldArray => {
-  return {
-    map: callback =>
-      fieldArray.map((field, index) => callback(`item[${index}]`, index)),
-    get: index => fieldArray[index]
-  };
-};
+const createFields = fieldArray => ({
+  map: callback =>
+    fieldArray.map((field, index) => callback(`item[${index}]`, index)),
+  get: index => fieldArray[index]
+});
 
 describe('FdkInformationModels content', () => {
   it('should render without error', () => {

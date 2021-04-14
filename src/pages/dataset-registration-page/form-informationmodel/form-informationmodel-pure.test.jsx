@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import { FormInformationModelPure } from './form-informationmodel-pure.component';
+import FormInformationModelPure from './form-informationmodel-pure.component';
 
 let defaultProps;
 let wrapper;

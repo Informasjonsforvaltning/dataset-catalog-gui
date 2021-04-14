@@ -4,7 +4,8 @@ import {
   validateMinTwoChars,
   validateURL
 } from '../../../validation/validation';
-import localization from '../../../services/localization';
+
+import TranslationsService from '../../../services/translations';
 
 const validate = values => {
   const errors = {};
@@ -15,7 +16,7 @@ const validate = values => {
       let itemErrors = {};
       const informationModelPrefLabel = _get(
         item,
-        ['prefLabel', localization.getLanguage()],
+        ['prefLabel', TranslationsService.getLanguage()],
         null
       );
       const informationModelURI = item.uri || null;

@@ -3,7 +3,7 @@ import { getFormSyncErrors, reduxForm } from 'redux-form';
 
 import { asyncValidateDatasetInvokePatch } from '../formsLib/asyncValidateDatasetInvokePatch';
 
-import { FormInformationModelPure } from './form-informationmodel-pure.component';
+import FormInformationModelPure from './form-informationmodel-pure.component';
 import { informationModelType } from '../../../schemaTypes';
 import validate from './form-informationmodel-validations';
 

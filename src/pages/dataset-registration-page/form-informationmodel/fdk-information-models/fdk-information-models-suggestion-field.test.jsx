@@ -15,16 +15,15 @@ function setup() {
 
 const searchSpy = jest
   .spyOn(informationModelSuggestion, 'getInformationModelSuggestions')
-  .mockImplementation(
-    () => new Promise((resolve, reject) => resolve('modell'))
-  );
+  .mockImplementation(() => new Promise(resolve => resolve('modell')));
 const extractSpy = jest
   .spyOn(informationModelSuggestion, 'extractSuggestions')
-  .mockImplementation(() => {
-    return new Promise((resolve, reject) =>
-      resolve([{ title: 'title', publisher: { name: 'name' } }])
-    );
-  });
+  .mockImplementation(
+    () =>
+      new Promise(resolve =>
+        resolve([{ title: 'title', publisher: { name: 'name' } }])
+      )
+  );
 
 describe('FdkInformationModelsSuggestionField content', () => {
   let wrapper;
