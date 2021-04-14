@@ -1,7 +1,7 @@
 import _ from 'lodash';
 import { reduxForm } from 'redux-form';
 
-import { FormPublisher } from './form-publisher.component';
+import FormPublisher from './form-publisher.component';
 import { asyncValidateDatasetInvokePatch } from '../formsLib/asyncValidateDatasetInvokePatch';
 
 const config = {
