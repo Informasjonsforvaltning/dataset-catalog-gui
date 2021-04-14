@@ -1,5 +1,5 @@
 import { compose, withProps } from 'recompose';
-import { FormPublishPure } from '../../../components/form-publish/form-publish-pure.component';
+import FormPublishPure from '../../../components/form-publish/form-publish-pure.component';
 import { formPublishConnector } from './form-publish-connector';
 import { formPublishConfigurer } from './form-publish-configurer';
 
