@@ -1,21 +1,22 @@
 import _get from 'lodash/get';
 
 import { validateMinTwoChars } from '../../../validation/validation';
-import localization from '../../../services/localization';
+
+import TranslationsService from '../../../services/translations';
 
 const validate = values => {
   const errors = {};
   let errorHasCurrentnessAnnotation = {};
   const hasCurrentnessAnnotation = _get(
     values,
-    ['hasCurrentnessAnnotation', 'hasBody', localization.getLanguage()],
+    ['hasCurrentnessAnnotation', 'hasBody', TranslationsService.getLanguage()],
     null
   );
   errorHasCurrentnessAnnotation = validateMinTwoChars(
     'hasBody',
     hasCurrentnessAnnotation,
     errorHasCurrentnessAnnotation,
-    localization.getLanguage()
+    TranslationsService.getLanguage()
   );
 
   if (JSON.stringify(errorHasCurrentnessAnnotation) !== '{}') {

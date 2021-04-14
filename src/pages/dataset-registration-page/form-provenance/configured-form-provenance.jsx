@@ -1,7 +1,7 @@
 import { reduxForm } from 'redux-form';
 import _throttle from 'lodash/throttle';
 
-import { FormProvenance } from './form-provenance.component';
+import FormProvenance from './form-provenance.component';
 import validate from './form-provenance-validations';
 import { asyncValidateDatasetInvokePatch } from '../formsLib/asyncValidateDatasetInvokePatch';
 
