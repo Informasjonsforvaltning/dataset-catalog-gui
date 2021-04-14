@@ -1,18 +1,16 @@
-/* eslint-disable func-names */
-
 import * as Yup from 'yup';
 
-import localization from '../../../services/localization';
+import TranslationsService from '../../../services/translations';
 
 export const schema = Yup.object().shape({
   title: Yup.object().shape({
     nb: Yup.string()
       .nullable()
-      .test(function () {
+      .test(function test() {
         const { nb, nn, en } = this.parent;
         if (!nb && !nn && !en) {
           return this.createError({
-            message: localization.validation.required,
+            message: TranslationsService.translate('validation.required'),
             path: this.path
           });
         }
@@ -20,11 +18,11 @@ export const schema = Yup.object().shape({
       }),
     nn: Yup.string()
       .nullable()
-      .test(function () {
+      .test(function test() {
         const { nb, nn, en } = this.parent;
         if (!nb && !nn && !en) {
           return this.createError({
-            message: localization.validation.required,
+            message: TranslationsService.translate('validation.required'),
             path: this.path
           });
         }
@@ -32,11 +30,11 @@ export const schema = Yup.object().shape({
       }),
     en: Yup.string()
       .nullable()
-      .test(function () {
+      .test(function test() {
         const { nb, nn, en } = this.parent;
         if (!nb && !nn && !en) {
           return this.createError({
-            message: localization.validation.required,
+            message: TranslationsService.translate('validation.required'),
             path: this.path
           });
         }
@@ -46,11 +44,11 @@ export const schema = Yup.object().shape({
   description: Yup.object().shape({
     nb: Yup.string()
       .nullable()
-      .test(function () {
+      .test(function test() {
         const { nb, nn, en } = this.parent;
         if (!nb && !nn && !en) {
           return this.createError({
-            message: localization.validation.required,
+            message: TranslationsService.translate('validation.required'),
             path: this.path
           });
         }
@@ -58,11 +56,11 @@ export const schema = Yup.object().shape({
       }),
     nn: Yup.string()
       .nullable()
-      .test(function () {
+      .test(function test() {
         const { nb, nn, en } = this.parent;
         if (!nb && !nn && !en) {
           return this.createError({
-            message: localization.validation.required,
+            message: TranslationsService.translate('validation.required'),
             path: this.path
           });
         }
@@ -70,11 +68,11 @@ export const schema = Yup.object().shape({
       }),
     en: Yup.string()
       .nullable()
-      .test(function () {
+      .test(function test() {
         const { nb, nn, en } = this.parent;
         if (!nb && !nn && !en) {
           return this.createError({
-            message: localization.validation.required,
+            message: TranslationsService.translate('validation.required'),
             path: this.path
           });
         }
@@ -82,8 +80,6 @@ export const schema = Yup.object().shape({
       })
   }),
   landingPage: Yup.array().of(
-    Yup.string().url(localization.validation.validateLink)
+    Yup.string().url(TranslationsService.translate('validation.validateLink'))
   )
 });
-
-/* eslint-enable func-names */

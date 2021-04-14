@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import { FormTitle } from './form-title.component';
+import FormTitle from './form-title.component';
 
 let defaultProps;
 let wrapper;

@@ -1,7 +1,7 @@
 import _ from 'lodash';
 import { reduxForm } from 'redux-form';
 
-import { FormTitle } from './form-title.component';
+import FormTitle from './form-title.component';
 import { schema } from './form-title.validations';
 import { asyncValidateDatasetInvokePatch } from '../formsLib/asyncValidateDatasetInvokePatch';
 import { yupValidation } from '../../../lib/yupValidation';
