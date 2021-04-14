@@ -3,13 +3,16 @@ import { compose } from 'redux';
 import type { WrappedFieldProps } from 'redux-form';
 import Autosuggest from 'react-autosuggest';
 
-import localization from '../../../../services/localization';
-import { getTranslateText as translate } from '../../../../services/translateText';
+import {
+  withTranslations,
+  Props as TranslationsProps
+} from '../../../../providers/translations';
 
 import withKartverket, {
   Props as KartverketProps
 } from '../../../../components/with-kartverket';
 
+import Translation from '../../../../components/translation';
 import TagsInputFieldArrayReadOnly from '../../../../components/fields/field-input-tags-objects-readonly/field-input-tags-objects-readonly.component';
 
 import './styles.scss';
@@ -24,17 +27,19 @@ interface ExternalProps extends WrappedFieldProps {
   ) => void;
 }
 
-interface Props extends ExternalProps, KartverketProps {}
+interface Props extends ExternalProps, TranslationsProps, KartverketProps {}
 
 const SpatialTagsInputField: FC<Props> = ({
   input,
+  meta,
   isReadOnly,
   administrativeUnitSuggestions,
   kartverketActions: {
     searchAdministrativeUnitsRequested: searchAdministrativeUnits,
     clearAdministrativeUnitsSearchSuggestions: clearSuggestions
   },
-  onUpdateAdministrativeUnits
+  onUpdateAdministrativeUnits,
+  translationsService
 }) => {
   const [value, setValue] = useState('');
 
@@ -43,58 +48,67 @@ const SpatialTagsInputField: FC<Props> = ({
     onUpdateAdministrativeUnits(input.value);
   };
 
-  const onChange = (event, { newValue, method }) => {
+  const onChange = (_: any, { newValue, method }: any) => {
     if (method === 'type') {
       setValue(newValue ?? '');
     }
   };
 
-  const fetchSuggestions = ({ value: name }) =>
+  const fetchSuggestions = ({ value: name }: any) =>
     searchAdministrativeUnits(name ?? '', 5);
 
-  const onSuggestionSelected = (event, { suggestion }) => {
-    if (!input.value?.find(({ uri }) => uri === suggestion.uri)) {
+  const onSuggestionSelected = (_: any, { suggestion }: any) => {
+    if (!input.value?.find(({ uri }: any) => uri === suggestion.uri)) {
       input.value.push({
         uri: suggestion.uri,
         prefLabel: { nb: suggestion.name }
       });
 
       onUpdateAdministrativeUnits(
-        input.value.filter(v => Object.entries(v).length > 0)
+        input.value.filter((v: any) => Object.entries(v).length > 0)
       );
 
       setValue('');
     }
   };
 
-  const getSuggestionValue = ({ title }) => translate(title);
+  const getSuggestionValue = ({ title }: any) =>
+    translationsService.translate(title);
 
   const renderSuggestion = ({ name, type }: AdministrativeUnit) => (
-    <div className="d-flex mb-3 suggestion">
+    <div className='d-flex mb-3 suggestion'>
       <span>{name}</span>
       {type === AdministrativeUnitType.MUNICIPALITY && (
-        <span className="ml-5">
-          {localization.administrativeUnit.municipality}
+        <span className='ml-5'>
+          <Translation id='administrativeUnit.municipality' />
         </span>
       )}
       {type === AdministrativeUnitType.COUNTY && (
-        <span className="ml-5">{localization.administrativeUnit.county}</span>
+        <span className='ml-5'>
+          <Translation id='administrativeUnit.county' />
+        </span>
       )}
       {type === AdministrativeUnitType.NATION && (
-        <span className="ml-5">{localization.administrativeUnit.nation}</span>
+        <span className='ml-5'>
+          <Translation id='administrativeUnit.nation' />
+        </span>
       )}
     </div>
   );
 
-  const renderSuggestionsContainer = ({ containerProps, children }) => (
+  const renderSuggestionsContainer = ({ containerProps, children }: any) => (
     <div {...containerProps}>
       {children && children.props.items.length > 0 && (
-        <div className="d-flex mb-3 react_autosuggest__suggestions-heading">
+        <div className='d-flex mb-3 react_autosuggest__suggestions-heading'>
           <span>
-            <strong>{localization.administrativeUnit.name}</strong>
+            <strong>
+              <Translation id='administrativeUnit.name' />
+            </strong>
           </span>
-          <span className="ml-5">
-            <strong>{localization.administrativeUnit.type}</strong>
+          <span className='ml-5'>
+            <strong>
+              <Translation id='administrativeUnit.type' />
+            </strong>
           </span>
         </div>
       )}
@@ -102,17 +116,16 @@ const SpatialTagsInputField: FC<Props> = ({
     </div>
   );
 
-  const renderInputComponent = inputProps => (
-    <input {...inputProps} className="form-control react-autosuggest__input" />
+  const renderInputComponent = (inputProps: any) => (
+    <input {...inputProps} className='form-control react-autosuggest__input' />
   );
 
   return isReadOnly ? (
-    <TagsInputFieldArrayReadOnly input={input} />
+    <TagsInputFieldArrayReadOnly input={input} meta={meta} />
   ) : (
-    <div className="fdk-spatial">
+    <div className='fdk-spatial'>
       <Autosuggest
         highlightFirstSuggestion
-        focusFirstSuggestion
         suggestions={administrativeUnitSuggestions}
         onSuggestionsFetchRequested={fetchSuggestions}
         onSuggestionsClearRequested={clearSuggestions}
@@ -127,16 +140,18 @@ const SpatialTagsInputField: FC<Props> = ({
           onChange
         }}
       />
-      {input.value?.map(({ uri, prefLabel }, index) => (
+      {input.value?.map(({ uri, prefLabel }: any, index: number) => (
         <div
           key={`external-spatial-${uri}-${index}`}
-          className="fdk-spatial-pill"
+          className='fdk-spatial-pill'
         >
-          <span className="fdk-spatial-pill-label">{translate(prefLabel)}</span>
+          <span className='fdk-spatial-pill-label'>
+            <Translation object={prefLabel} />
+          </span>
           <i
-            className="fa fa-times mr-2 remove-fdk-spatial"
-            aria-label={translate(prefLabel)}
-            role="button"
+            className='fa fa-times mr-2 remove-fdk-spatial'
+            aria-label={translationsService.translate(prefLabel)}
+            role='button'
             tabIndex={0}
             onClick={removePlace(index)}
             onKeyPress={removePlace(index)}
@@ -149,5 +164,6 @@ const SpatialTagsInputField: FC<Props> = ({
 
 export default compose<FC<ExternalProps>>(
   memo,
+  withTranslations,
   withKartverket
 )(SpatialTagsInputField);

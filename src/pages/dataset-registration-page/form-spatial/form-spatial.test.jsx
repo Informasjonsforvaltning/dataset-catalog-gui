@@ -1,11 +1,6 @@
-import _ from 'lodash';
 import React from 'react';
 import { shallow } from 'enzyme';
-import {
-  FormSpatial,
-  renderTemporal,
-  renderTemporalFields
-} from './form-spatial.component';
+import FormSpatial from './form-spatial.component';
 
 let defaultProps;
 let wrapper;
@@ -38,23 +33,5 @@ test('should render FormSpatial correctly with initialValues', () => {
       language: []
     }
   });
-  expect(wrapper).toMatchSnapshot();
-});
-
-test('should render renderTemporal correctly', () => {
-  wrapper = shallow(renderTemporal({ item: {} }));
-  expect(wrapper).toMatchSnapshot();
-});
-
-test('should render renderTemporalFields correctly', () => {
-  const temporal = [{}];
-  wrapper = shallow(
-    renderTemporalFields({
-      item: temporal,
-      index: 0,
-      fields: null,
-      onDeleteFieldAtIndex: _.noop
-    })
-  );
   expect(wrapper).toMatchSnapshot();
 });
