@@ -24,9 +24,7 @@ const QualifiedAttributionsTagsInput: FC<Props> = ({
   qualifiedAttributions,
   setQualifiedAttributions
 }) => {
-  const addQualifiedAttribution = (
-    qualifiedAttribution: QualifiedAttribution
-  ) => {
+  const addQualifiedAttribution = (qualifiedAttribution: any) => {
     const newQualifiedAttributions = [
       ...qualifiedAttributions,
       qualifiedAttribution
@@ -55,7 +53,9 @@ const QualifiedAttributionsTagsInput: FC<Props> = ({
         name: label ?? id
       }))}
       suggestionsFilter={({ id = '', name = '' }, query) =>
-        id.toLowerCase().startsWith(formatPotentialOrganizationNumber(query)) ||
+        (id as any)
+          .toLowerCase()
+          .startsWith(formatPotentialOrganizationNumber(query)) ||
         name.toLowerCase().startsWith(query)
       }
       suggestions={organizationSuggestions.map(
@@ -66,13 +66,12 @@ const QualifiedAttributionsTagsInput: FC<Props> = ({
         })
       )}
       maxSuggestionsLength={8}
-      handleInputChange={(query: string) =>
+      onInput={(query: string) =>
         searchOrganizations(formatPotentialOrganizationNumber(query), 4)
       }
-      handleDelete={deleteQualifiedAttribution}
-      handleAddition={addQualifiedAttribution}
+      onDelete={deleteQualifiedAttribution}
+      onAddition={addQualifiedAttribution}
       minQueryLength={1}
-      placeholder=""
     />
   );
 };

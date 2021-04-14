@@ -3,15 +3,19 @@ import { compose } from 'redux';
 import { Field } from 'redux-form';
 import { fromJS } from 'immutable';
 
+import {
+  withTranslations,
+  Props as TranslationsProps
+} from '../../../providers/translations';
+
 import withEnhetsregisteret, {
   Props as EnhetsregisteretProps
 } from '../../../components/with-enhetsregisteret';
 
-import localization from '../../../services/localization';
-import { Helptext } from '../../../components/helptext/helptext.component';
+import Helptext from '../../../components/helptext/helptext.component';
 import QualifiedAttributionsTagsInput from './qualified-attributions-tags-input';
 
-interface Props extends EnhetsregisteretProps {
+interface Props extends EnhetsregisteretProps, TranslationsProps {
   datasetItem: any;
   isReadOnly: boolean;
 }
@@ -25,7 +29,8 @@ const FormQualifiedAttributionsPure: FC<Props> = ({
   datasetItem,
   organizations,
   enhetsregisteretActions: { listOrganizationsRequested: listOrganizations },
-  isReadOnly
+  isReadOnly,
+  translationsService
 }) => {
   const previousOrganizations = useRef(organizations);
 
@@ -46,7 +51,7 @@ const FormQualifiedAttributionsPure: FC<Props> = ({
       !fromJS(organizations).equals(fromJS(previousOrganizations.current))
     ) {
       setQualifiedAttributions(
-        datasetItem.qualifiedAttributions.map(id => {
+        datasetItem.qualifiedAttributions.map((id: string) => {
           const label = organizations.find(
             ({ organisasjonsnummer }) => organisasjonsnummer === id
           )?.navn;
@@ -60,21 +65,25 @@ const FormQualifiedAttributionsPure: FC<Props> = ({
   }, [organizations]);
 
   return (
-    <div className="form-group">
+    <div className='form-group'>
       <Helptext
-        title={localization.schema.qualifiedAttributions.helptext.title}
+        title={translationsService.translate(
+          'schema.qualifiedAttributions.helptext.title'
+        )}
       />
       {!isReadOnly && (
-        <label className="fdk-form-label mb-2" htmlFor="publisher">
-          {localization.schema.qualifiedAttributions.searchOrg}
+        <label className='fdk-form-label mb-2' htmlFor='publisher'>
+          {translationsService.translate(
+            'schema.qualifiedAttributions.searchOrg'
+          )}
         </label>
       )}
-      <div className="d-flex">
+      <div className='d-flex'>
         {isReadOnly ? (
           qualifiedAttributions.map(({ label }) => label).join(', ')
         ) : (
           <Field
-            name="qualifiedAttributions"
+            name='qualifiedAttributions'
             component={QualifiedAttributionsTagsInput}
             qualifiedAttributions={qualifiedAttributions}
             setQualifiedAttributions={setQualifiedAttributions}
@@ -87,5 +96,6 @@ const FormQualifiedAttributionsPure: FC<Props> = ({
 
 export const FormQualifiedAttributions = compose<FC>(
   memo,
+  withTranslations,
   withEnhetsregisteret
 )(FormQualifiedAttributionsPure);
