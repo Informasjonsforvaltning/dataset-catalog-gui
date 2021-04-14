@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import { FormConceptPure } from './form-concept-pure.component';
+import FormConceptPure from './form-concept-pure.component';
 
 let defaultProps;
 let wrapper;

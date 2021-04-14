@@ -9,7 +9,7 @@ import {
 import { asyncValidateDatasetInvokePatch } from '../formsLib/asyncValidateDatasetInvokePatch';
 
 import validate from './form-concept-validations';
-import { FormConceptPure } from './form-concept-pure.component';
+import FormConceptPure from './form-concept-pure.component';
 
 const mapStateToProps = (state, { datasetItem }) => {
   const { concepts = [], keyword = [] } = datasetItem;
