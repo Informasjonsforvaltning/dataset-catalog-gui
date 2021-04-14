@@ -1,50 +1,72 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React, { memo, FC, useState } from 'react';
+import { compose } from 'redux';
 import _ from 'lodash';
 import includes from 'lodash/includes';
 import { Field } from 'redux-form';
 import Autocomplete from 'react-autocomplete';
 import cx from 'classnames';
-import { withState, withHandlers, compose } from 'recompose';
 
-import localization from '../../../services/localization';
-import { Helptext } from '../../../components/helptext/helptext.component';
-import { FieldTreeLos } from './field-tree-los/field-tree-los.component';
-import { FilterPillsLos } from './filter-pills-los/filter-pills-los.component';
-import { getLosItemParentsAndChildren } from '../../../redux/modules/referenceData';
+import { isNapPublish, isNapUnPublishTheme } from '../../../lib/napPublish';
+
+import {
+  withTranslations,
+  Props as TranslationsProps
+} from '../../../providers/translations';
+
+import Translation from '../../../components/translation';
+import Helptext from '../../../components/helptext/helptext.component';
+import AlertMessage from '../../../components/alert-message/alert-message.component';
+import FieldTreeLos from './field-tree-los/field-tree-los.component';
+import FilterPillsLos from './filter-pills-los/filter-pills-los.component';
+
+import { getLosItemParentsAndChildren } from '../../../entrypoints/main/redux/modules/referenceData';
+
 import {
   matchInputStateToLosTerm,
   onClearSearchInput,
   onChangeSearchInput,
   onSelectSearchedLosItem
 } from './autocomplete-helper';
-import './form-los.scss';
-import { isNapPublish, isNapUnPublishTheme } from '../../../lib/napPublish';
-import { AlertMessage } from '../../../components/alert-message/alert-message.component';
 import { losValues } from '../dataset-registration-page.logic';
 
-export const FormLOSPure = ({
+import './form-los.scss';
+
+interface ExternalProps {
+  losItems: any[];
+  datasetItem: any;
+  datasetFormStatus: any;
+  isReadOnly: boolean;
+  themes: any;
+}
+
+interface Props extends ExternalProps, TranslationsProps {}
+
+const FormLOS: FC<Props> = ({
   losItems,
-  filterText,
-  searchedItem,
-  handleSetFilterText,
-  handleSetSearchedItem,
   datasetItem,
   datasetFormStatus,
   isReadOnly,
-  themes
+  themes,
+  translationsService
 }) => {
+  const [filterText, setFilterText] = useState('');
+  const [searchedItem, setSearchedItem] = useState<any>(undefined);
+
+  const handleSetFilterText = setFilterText;
+
+  const handleSetSearchedItem = setSearchedItem;
+
   const losItemsToShow = _.uniqBy(
     getLosItemParentsAndChildren(losItems, searchedItem),
-    item => item.uri
+    ({ uri }: any) => uri
   );
 
   if (losItemsToShow) {
     return (
-      <div className="form-group">
+      <div className='form-group'>
         <Helptext
-          title={localization.schema.los.helptext.title}
-          term="themesLos"
+          title={translationsService.translate('schema.los.helptext.title')}
+          term='themesLos'
           recommended
         />
 
@@ -55,17 +77,19 @@ export const FormLOSPure = ({
               getItemValue={item => item.name.nb}
               items={losItems}
               renderInput={props => (
-                <div className="input-group">
+                <div className='input-group'>
                   <input
-                    type="text"
-                    className="form-control"
+                    type='text'
+                    className='form-control'
                     {...props}
-                    placeholder={localization.schema.los.losSearchPlaceholder}
+                    placeholder={translationsService.translate(
+                      'schema.los.losSearchPlaceholder'
+                    )}
                   />
-                  <span className="input-group-btn input-group-append">
+                  <span className='input-group-btn input-group-append'>
                     <button
-                      type="button"
-                      className="btn btn-default input-group-text"
+                      type='button'
+                      className='btn btn-default input-group-text'
                       onClick={() =>
                         onClearSearchInput(
                           handleSetFilterText,
@@ -73,7 +97,7 @@ export const FormLOSPure = ({
                         )
                       }
                     >
-                      <i className="fa fa-times-circle" />
+                      <i className='fa fa-times-circle' />
                     </button>
                   </span>
                 </div>
@@ -85,12 +109,16 @@ export const FormLOSPure = ({
                 return (
                   <div key={item.uri} className={itemClass}>
                     {item.name.nb} [
-                    {item.isTema ? localization.category : localization.topic}]
+                    <Translation id={item.isTema ? 'category' : 'topic'} />]
                   </div>
                 );
               }}
               renderMenu={(items, value, style) => (
-                <div className="fdk-autocomplete-menu" style={{ ...style }}>
+                <div
+                  key={value}
+                  className='fdk-autocomplete-menu'
+                  style={{ ...style }}
+                >
                   {items.slice(0, 50)}
                 </div>
               )}
@@ -110,18 +138,18 @@ export const FormLOSPure = ({
                   handleSetSearchedItem
                 )
               }
-              menuStyle={{ zIndex: '1000' }}
+              menuStyle={{ zIndex: 1000 }}
               shouldItemRender={matchInputStateToLosTerm}
             />
 
             <form>
               <Field
-                name="theme"
+                name='theme'
                 component={FilterPillsLos}
                 losItems={losItems}
               />
               <Field
-                name="theme"
+                name='theme'
                 component={FieldTreeLos}
                 losItems={losItemsToShow}
                 defaultOpenTree={typeof searchedItem !== 'undefined'}
@@ -136,22 +164,26 @@ export const FormLOSPure = ({
         )}
 
         {isReadOnly && (
-          <div className="pl-3">{losValues(themes.values, losItems)}</div>
+          <div className='pl-3'>{losValues(themes.values, losItems)}</div>
         )}
 
         {datasetFormStatus &&
           includes(datasetFormStatus.lastChangedFields, 'theme') &&
           isNapPublish(losItems, datasetItem) && (
-            <AlertMessage type="info">
-              <span>{localization.formStatus.napPublish}</span>
+            <AlertMessage type='info'>
+              <span>
+                <Translation id='formStatus.napPublish' />
+              </span>
             </AlertMessage>
           )}
 
         {datasetFormStatus &&
           includes(datasetFormStatus.lastChangedFields, 'theme') &&
           isNapUnPublishTheme(losItems, datasetItem) && (
-            <AlertMessage type="info">
-              <span>{localization.formStatus.napUnPublish}</span>
+            <AlertMessage type='info'>
+              <span>
+                <Translation id='formStatus.napUnPublish' />
+              </span>
             </AlertMessage>
           )}
       </div>
@@ -160,42 +192,4 @@ export const FormLOSPure = ({
   return null;
 };
 
-FormLOSPure.defaultProps = {
-  losItems: null,
-  filterText: '',
-  searchedItem: undefined,
-  handleSetFilterText: _.noop,
-  handleSetSearchedItem: _.noop,
-  datasetItem: null,
-  datasetFormStatus: null,
-  isReadOnly: false,
-  themes: null
-};
-
-FormLOSPure.propTypes = {
-  losItems: PropTypes.array,
-  filterText: PropTypes.string,
-  searchedItem: PropTypes.object,
-  handleSetFilterText: PropTypes.func,
-  handleSetSearchedItem: PropTypes.func,
-  datasetItem: PropTypes.object,
-  datasetFormStatus: PropTypes.object,
-  isReadOnly: PropTypes.bool,
-  themes: PropTypes.object
-};
-
-const enhance = compose(
-  withState('filterText', 'setFilterText', ''),
-  withState('searchedItem', 'setSearchedItem', undefined),
-  withHandlers({
-    handleSetFilterText: props => value => {
-      props.setFilterText(value);
-    },
-    handleSetSearchedItem: props => item => {
-      props.setSearchedItem(item);
-    }
-  })
-);
-
-export const FormLOSWithState = enhance(FormLOSPure);
-export const FormLOS = FormLOSWithState;
+export default compose<FC<ExternalProps>>(memo, withTranslations)(FormLOS);
