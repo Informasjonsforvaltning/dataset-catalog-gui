@@ -2,7 +2,7 @@ import { compose, withProps } from 'recompose';
 import { reduxForm } from 'redux-form';
 import _throttle from 'lodash/throttle';
 
-import { FormDistributionPure } from './form-distribution-pure';
+import FormDistributionPure from './form-distribution-pure';
 import { distributionTypes } from './distribution-types';
 import validate from './form-distribution-validations';
 import { asyncValidateDatasetInvokePatch } from '../formsLib/asyncValidateDatasetInvokePatch';

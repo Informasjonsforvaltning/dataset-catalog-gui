@@ -5,7 +5,8 @@ import {
   validateLinkReturnAsSkosType,
   validateURL
 } from '../../../validation/validation';
-import localization from '../../../services/localization';
+
+import TranslationsService from '../../../services/translations';
 
 const validate = values => {
   const errors = {};
@@ -20,7 +21,7 @@ const validate = values => {
       const license = _.get(distributionItem, ['license', 'uri'], null);
       const description = _.get(
         distributionItem,
-        ['description', localization.getLanguage()],
+        ['description', TranslationsService.getLanguage()],
         null
       );
       const page =
@@ -42,7 +43,9 @@ const validate = values => {
       );
 
       if (accessURL.map(s => s && s.trim()).filter(Boolean).length === 0) {
-        itemErrors.accessURL = [localization.validation.required];
+        itemErrors.accessURL = TranslationsService.translate(
+          'validation.required'
+        );
       }
 
       if (conformsTo) {
@@ -50,7 +53,7 @@ const validate = values => {
           let conformsToItemErrors = {};
           const conformsToPrefLabel = _.get(
             conformsToItem,
-            ['prefLabel', localization.getLanguage()],
+            ['prefLabel', TranslationsService.getLanguage()],
             null
           );
           const conformsToURI = conformsToItem.uri || null;
