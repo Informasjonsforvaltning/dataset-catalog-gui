@@ -5,7 +5,8 @@ import {
   validateLinkReturnAsSkosType,
   validateURL
 } from '../../../validation/validation';
-import localization from '../../../services/localization';
+
+import TranslationsService from '../../../services/translations';
 
 const validate = values => {
   const errors = {};
@@ -19,7 +20,7 @@ const validate = values => {
       const license = (sampleItem.license && sampleItem.license.uri) || null;
       const description = _get(
         sampleItem,
-        ['description', localization.getLanguage()],
+        ['description', TranslationsService.getLanguage()],
         null
       );
       const page =
@@ -59,7 +60,7 @@ const validate = values => {
           let itemErrors = {};
           const conformsToPrefLabel = _get(
             item,
-            ['prefLabel', localization.getLanguage()],
+            ['prefLabel', TranslationsService.getLanguage()],
             null
           );
           const conformsToURI = item.uri || null;

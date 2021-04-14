@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import { FormSample, renderSamples } from './form-sample.component';
+import FormSample from './form-sample.component';
 import { sampleTypes } from './connected-form-sample.component';
 import openlicenses from '../../../../test/fixtures/openlicenses';
 import samples from '../../../../test/fixtures/samples';
@@ -20,10 +20,5 @@ beforeEach(() => {
 });
 
 test('should render FormSample correctly', () => {
-  expect(wrapper).toMatchSnapshot();
-});
-
-test('should render renderSamples correctly', () => {
-  wrapper = shallow(renderSamples(defaultProps));
   expect(wrapper).toMatchSnapshot();
 });
