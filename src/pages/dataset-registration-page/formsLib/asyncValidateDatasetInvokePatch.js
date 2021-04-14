@@ -2,8 +2,8 @@ import {
   datasetFormPatchErrorAction,
   datasetFormPatchIsSavingAction,
   datasetFormPatchSuccessAction
-} from '../../../redux/modules/dataset-form-status';
-import { datasetSuccessAction } from '../../../redux/modules/datasets';
+} from '../../../entrypoints/main/redux/modules/dataset-form-status';
+import { datasetSuccessAction } from '../../../entrypoints/main/redux/modules/datasets';
 import { patchDataset } from '../../../services/api/registration-api/datasets';
 
 export const datasetFormPatchThunk = ({
@@ -37,5 +37,5 @@ export const asyncValidateDatasetInvokePatch = (values, dispatch, props) => {
 
   return dispatch(
     datasetFormPatchThunk({ catalogId, datasetId, patch: values })
-  ).catch(console.error); // handle rejects because form validation api expects certain format of rejects
+  ).catch(() => {}); // handle rejects because form validation api expects certain format of rejects
 };
