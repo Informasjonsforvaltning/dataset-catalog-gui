@@ -1,17 +1,18 @@
 import _ from 'lodash';
 import moment from 'moment';
 
-import localization from '../../services/localization';
-import { getTranslateText } from '../../services/translateText';
+import TranslationsService from '../../services/translations';
 
 export const titleValues = values => {
   if (values) {
     let retVal = '';
     const { title, description, landingPage } = values;
 
-    retVal += getTranslateText(title) ? `${getTranslateText(title)}. ` : '';
-    retVal += getTranslateText(description)
-      ? `${getTranslateText(description)}. `
+    retVal += TranslationsService.translate(title)
+      ? `${TranslationsService.translate(title)}. `
+      : '';
+    retVal += TranslationsService.translate(description)
+      ? `${TranslationsService.translate(description)}. `
       : '';
     retVal += _.get(landingPage, '[0]', '');
 
@@ -35,25 +36,31 @@ export const accessRightsValues = values => {
       accessRights.uri ===
       'http://publications.europa.eu/resource/authority/access-right/RESTRICTED'
     ) {
-      retVal += `${localization.datasets.formValues.accessRights.restricted}. `;
+      retVal += `${TranslationsService.translate(
+        'datasets.formValues.accessRights.restricted'
+      )}. `;
     } else if (
       accessRights.uri ===
       'http://publications.europa.eu/resource/authority/access-right/PUBLIC'
     ) {
-      retVal += `${localization.datasets.formValues.accessRights.publicString}. `;
+      retVal += `${TranslationsService.translate(
+        'datasets.formValues.accessRights.publicString'
+      )}. `;
     } else if (
       accessRights.uri ===
       'http://publications.europa.eu/resource/authority/access-right/NON_PUBLIC'
     ) {
-      retVal += `${localization.datasets.formValues.accessRights.nonPublic}. `;
+      retVal += `${TranslationsService.translate(
+        'datasets.formValues.accessRights.nonPublic'
+      )}. `;
     }
 
     if (legalBasisForRestriction) {
       legalBasisForRestriction
         .filter(item => item && item.uri && item.uri !== '')
         .forEach(item => {
-          retVal += getTranslateText(item.prefLabel)
-            ? `${getTranslateText(item.prefLabel)} - `
+          retVal += TranslationsService.translate(item.prefLabel)
+            ? `${TranslationsService.translate(item.prefLabel)} - `
             : '';
           retVal += _.get(item, 'uri', null)
             ? `${_.get(item, 'uri', '')} `
@@ -65,8 +72,8 @@ export const accessRightsValues = values => {
       legalBasisForProcessing
         .filter(item => item && item.uri && item.uri !== '')
         .forEach(item => {
-          retVal += getTranslateText(item.prefLabel)
-            ? `${getTranslateText(item.prefLabel)} - `
+          retVal += TranslationsService.translate(item.prefLabel)
+            ? `${TranslationsService.translate(item.prefLabel)} - `
             : '';
           retVal += _.get(item, 'uri', null)
             ? `${_.get(item, 'uri', '')} `
@@ -78,8 +85,8 @@ export const accessRightsValues = values => {
       legalBasisForAccess
         .filter(item => item && item.uri && item.uri !== '')
         .forEach(item => {
-          retVal += getTranslateText(item.prefLabel)
-            ? `${getTranslateText(item.prefLabel)} - `
+          retVal += TranslationsService.translate(item.prefLabel)
+            ? `${TranslationsService.translate(item.prefLabel)} - `
             : '';
           retVal += _.get(item, 'uri', null)
             ? `${_.get(item, 'uri', '')} `
@@ -98,8 +105,8 @@ export const themesValues = values => {
     const { theme } = values;
     let retVal = '';
     theme.forEach(item => {
-      retVal += getTranslateText(item.title)
-        ? `${getTranslateText(item.title)}. `
+      retVal += TranslationsService.translate(item.title)
+        ? `${TranslationsService.translate(item.title)}. `
         : '';
     });
     if (retVal.trim().length > 0) {
@@ -117,7 +124,9 @@ export const losValues = (values, losItems) => {
   let retVal = '';
   theme.forEach(item => {
     const losItem = _.find(losItems, { uri: item.uri });
-    retVal += losItem ? `${getTranslateText(_.get(losItem, 'name'))}. ` : '';
+    retVal += losItem
+      ? `${TranslationsService.translate(_.get(losItem, 'name'))}. `
+      : '';
   });
   return retVal;
 };
@@ -142,14 +151,16 @@ export const conceptValues = values => {
     const { concepts, keyword } = values;
     if (concepts) {
       concepts.forEach(item => {
-        retVal += getTranslateText(item.prefLabel)
-          ? `${getTranslateText(item.prefLabel)}. `
+        retVal += TranslationsService.translate(item.prefLabel)
+          ? `${TranslationsService.translate(item.prefLabel)}. `
           : '';
       });
     }
     if (keyword) {
-      (keyword[localization.getLanguage()] || []).forEach(item => {
-        retVal += getTranslateText(item) ? `${getTranslateText(item)}. ` : '';
+      (keyword[TranslationsService.getLanguage()] || []).forEach(item => {
+        retVal += TranslationsService.translate(item)
+          ? `${TranslationsService.translate(item)}. `
+          : '';
       });
     }
     if (retVal.trim().length > 0) {
@@ -184,7 +195,7 @@ export const spatialValues = values => {
     }
     if (language) {
       language.forEach(item => {
-        retVal += `${localization.lang[item.code]}. `;
+        retVal += `${TranslationsService.translate(`lang.${item.code}`)}. `;
       });
     }
     if (retVal.trim().length > 0) {
@@ -205,24 +216,22 @@ export const provenanceValues = values => {
     } = values;
 
     retVal +=
-      provenance && getTranslateText(provenance.prefLabel)
-        ? `${getTranslateText(provenance.prefLabel)}. `
+      provenance && TranslationsService.translate(provenance.prefLabel)
+        ? `${TranslationsService.translate(provenance.prefLabel)}. `
         : '';
 
     retVal += _.get(accrualPeriodicity, 'code', null)
-      ? `${
-          localization.schema.provenance.accrualPeriodicity[
-            accrualPeriodicity.code
-          ]
-        }. `
+      ? `${TranslationsService.translate(
+          `schema.provenance.accrualPeriodicity.${accrualPeriodicity.code}`
+        )}. `
       : '';
 
     if (modified) {
       retVal += `${moment(modified).format('DD.MM.YYYY')}. `;
     }
 
-    retVal += getTranslateText(hasCurrentnessAnnotation.hasBody)
-      ? `${getTranslateText(hasCurrentnessAnnotation.hasBody)}. `
+    retVal += TranslationsService.translate(hasCurrentnessAnnotation.hasBody)
+      ? `${TranslationsService.translate(hasCurrentnessAnnotation.hasBody)}. `
       : '';
 
     if (retVal.trim().length > 0) {
@@ -244,29 +253,35 @@ export const contentsValues = values => {
     } = values;
     if (conformsTo) {
       retVal += conformsTo.map(item =>
-        getTranslateText(item.prefLabel)
-          ? `${getTranslateText(item.prefLabel)}. `
+        TranslationsService.translate(item.prefLabel)
+          ? `${TranslationsService.translate(item.prefLabel)}. `
           : ''
       );
     }
 
     retVal +=
-      hasRelevanceAnnotation && getTranslateText(hasRelevanceAnnotation.hasBody)
-        ? `${getTranslateText(hasRelevanceAnnotation.hasBody)}. `
+      hasRelevanceAnnotation &&
+      TranslationsService.translate(hasRelevanceAnnotation.hasBody)
+        ? `${TranslationsService.translate(hasRelevanceAnnotation.hasBody)}. `
         : '';
     retVal +=
       hasCompletenessAnnotation &&
-      getTranslateText(hasCompletenessAnnotation.hasBody)
-        ? `${getTranslateText(hasCompletenessAnnotation.hasBody)}. `
+      TranslationsService.translate(hasCompletenessAnnotation.hasBody)
+        ? `${TranslationsService.translate(
+            hasCompletenessAnnotation.hasBody
+          )}. `
         : '';
     retVal +=
-      hasAccuracyAnnotation && getTranslateText(hasAccuracyAnnotation.hasBody)
-        ? `${getTranslateText(hasAccuracyAnnotation.hasBody)}. `
+      hasAccuracyAnnotation &&
+      TranslationsService.translate(hasAccuracyAnnotation.hasBody)
+        ? `${TranslationsService.translate(hasAccuracyAnnotation.hasBody)}. `
         : '';
     retVal +=
       hasAvailabilityAnnotation &&
-      getTranslateText(hasAvailabilityAnnotation.hasBody)
-        ? `${getTranslateText(hasAvailabilityAnnotation.hasBody)}. `
+      TranslationsService.translate(hasAvailabilityAnnotation.hasBody)
+        ? `${TranslationsService.translate(
+            hasAvailabilityAnnotation.hasBody
+          )}. `
         : '';
 
     if (retVal.trim().length > 0) {
@@ -282,8 +297,8 @@ export const informationModelValues = values => {
     const { informationModel } = values;
     if (informationModel) {
       informationModel.forEach(item => {
-        retVal += getTranslateText(item.prefLabel)
-          ? `${getTranslateText(item.prefLabel)}`
+        retVal += TranslationsService.translate(item.prefLabel)
+          ? `${TranslationsService.translate(item.prefLabel)}`
           : '';
         retVal += _.get(item, 'uri', '') ? ` - ${_.get(item, 'uri', '')} ` : '';
       });
@@ -305,7 +320,9 @@ export const referenceValues = values => {
       ).length;
     }
     if (countReferences > 0) {
-      return `${countReferences} ${localization.datasets.formValues.references}`;
+      return `${countReferences} ${TranslationsService.translate(
+        'datasets.formValues.references'
+      )}`;
     }
     return null;
   }
@@ -349,7 +366,9 @@ export const distributionValues = values => {
       ).length;
     }
     if (countDistributions > 0) {
-      return `${countDistributions} ${localization.datasets.formValues.distributions}`;
+      return `${countDistributions} ${TranslationsService.translate(
+        'datasets.formValues.distributions'
+      )}`;
     }
   }
   return null;
@@ -365,7 +384,9 @@ export const sampleValues = values => {
       ).length;
     }
     if (countSamples > 0) {
-      return `${countSamples} ${localization.datasets.formValues.sample}`;
+      return `${countSamples} ${TranslationsService.translate(
+        'datasets.formValues.sample'
+      )}`;
     }
   }
   return null;

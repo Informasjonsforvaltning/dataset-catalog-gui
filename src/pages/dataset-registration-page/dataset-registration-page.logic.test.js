@@ -4,7 +4,6 @@ import {
   themesValues,
   typeValues,
   conceptValues,
-  spatialValues,
   provenanceValues,
   contentsValues,
   informationModelValues,

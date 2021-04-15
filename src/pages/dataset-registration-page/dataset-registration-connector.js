@@ -3,9 +3,8 @@ import _ from 'lodash';
 
 import {
   deleteDatasetThunk,
-  selectorForDataset,
   selectorForDatasetsInCatalog
-} from '../../redux/modules/datasets';
+} from '../../entrypoints/main/redux/modules/datasets';
 import {
   setInputLanguages,
   toggleInputLanguage
@@ -18,8 +17,8 @@ import {
   REFERENCEDATA_PATH_REFERENCETYPES,
   REFERENCEDATA_PATH_MEDIATYPES,
   REFERENCEDATA_PATH_THEMES
-} from '../../redux/modules/referenceData';
-import { selectorForDatasetFormStatus } from '../../redux/modules/dataset-form-status';
+} from '../../entrypoints/main/redux/modules/referenceData';
+import { selectorForDatasetFormStatus } from '../../entrypoints/main/redux/modules/dataset-form-status';
 import { datasetRegistrationEnsureDataThunk } from './dataset-registration-ensure-data-thunk';
 
 const mapStateToProps = (state, { catalogId, datasetId }) => {
@@ -29,7 +28,6 @@ const mapStateToProps = (state, { catalogId, datasetId }) => {
     inputLanguage: { languages }
   } = state;
   const datasetFormStatus = selectorForDatasetFormStatus(datasetId)(state);
-  const datasetItem = selectorForDataset(catalogId, datasetId)(state);
   const referenceDatasetsItems = Object.values(
     selectorForDatasetsInCatalog(catalogId)(state)
   );
@@ -37,7 +35,6 @@ const mapStateToProps = (state, { catalogId, datasetId }) => {
   return {
     form,
     datasetFormStatus,
-    datasetItem,
     provenanceItems: _.get(referenceData, [
       'items',
       REFERENCEDATA_PATH_PROVENANCE

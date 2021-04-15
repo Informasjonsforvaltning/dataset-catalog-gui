@@ -1,5 +1,5 @@
 import { batch } from 'react-redux';
-import { fetchDatasetsIfNeeded } from '../../redux/modules/datasets';
+
 import {
   fetchReferenceDataIfNeededAction,
   REFERENCEDATA_PATH_FREQUENCY,
@@ -9,11 +9,10 @@ import {
   REFERENCEDATA_PATH_REFERENCETYPES,
   REFERENCEDATA_PATH_MEDIATYPES,
   REFERENCEDATA_PATH_THEMES
-} from '../../redux/modules/referenceData';
+} from '../../entrypoints/main/redux/modules/referenceData';
 
-export const datasetRegistrationEnsureDataThunk = catalogId => dispatch => {
+export const datasetRegistrationEnsureDataThunk = () => dispatch => {
   batch(() => {
-    dispatch(fetchDatasetsIfNeeded(catalogId));
     dispatch(fetchReferenceDataIfNeededAction(REFERENCEDATA_PATH_PROVENANCE));
     dispatch(fetchReferenceDataIfNeededAction(REFERENCEDATA_PATH_FREQUENCY));
     dispatch(fetchReferenceDataIfNeededAction(REFERENCEDATA_PATH_THEMES));

@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import { DatasetRegistrationPagePure } from './dataset-registration-page-pure';
+import DatasetRegistrationPagePure from './dataset-registration-page-pure';
 
 let defaultProps;
 let wrapper;
