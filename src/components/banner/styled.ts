@@ -28,6 +28,7 @@ const Banner = styled.div<{ variant: Variant }>`
 
           & > svg {
             color: #007d69;
+            fill: #007d69;
           }
         `;
       case Variant.WARNING:
@@ -38,6 +39,7 @@ const Banner = styled.div<{ variant: Variant }>`
 
           & > svg {
             color: #8f640e;
+            fill: #8f640e;
           }
         `;
       case Variant.ERROR:
