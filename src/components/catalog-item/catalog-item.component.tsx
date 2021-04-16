@@ -3,7 +3,7 @@ import { compose } from 'redux';
 import { Link } from 'react-router-dom';
 import cx from 'classnames';
 
-import Translation from '../../../../components/translation';
+import Translation from '../translation';
 
 import './catalog-item.component.scss';
 

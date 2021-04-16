@@ -3,13 +3,14 @@ import { compose } from 'redux';
 import memoize from 'lodash/memoize';
 import { resolve } from 'react-resolver';
 
-import env from '../../../env';
+import env from '../../env';
 
-import { getConceptCount } from '../../../services/api/concept-registration-api/host';
-import { getRecordsCount } from '../../../services/api/records-registration-api/host';
-import { getDataServicesCount } from '../../../services/api/dataservice-catalog/host';
+import { getDatasetsCount } from '../../services/api/registration-api/datasets';
+import { getConceptCount } from '../../services/api/concept-registration-api/host';
+import { getRecordsCount } from '../../services/api/records-registration-api/host';
+import { getDataServicesCount } from '../../services/api/dataservice-catalog/host';
 
-import CatalogItem from './catalog-item/catalog-item.component';
+import CatalogItem from '../catalog-item/catalog-item.component';
 
 const {
   DATASERVICE_CATALOG_BASE_URI,
@@ -20,24 +21,21 @@ const {
 interface ExternalProps {
   catalogId: string;
   type: string;
-  fetchItems?: (id: string) => void;
-  itemsCount?: number;
   isReadOnly?: boolean;
   disabled: boolean;
 }
 
-interface Props extends ExternalProps {}
+interface Props extends ExternalProps {
+  itemsCount?: number;
+}
 
 const Catalog: FC<Props> = ({
   catalogId,
   type,
-  fetchItems,
   itemsCount,
   isReadOnly,
   disabled
 }) => {
-  fetchItems?.(catalogId);
-
   const getLinkUri = () => {
     switch (type) {
       case 'dataservices': {
@@ -68,6 +66,7 @@ const Catalog: FC<Props> = ({
   );
 };
 
+const memoizedGetDatasetsCount = memoize(getDatasetsCount);
 const memoizedGetDataServicesCount = memoize(getDataServicesCount);
 const memoizedGetConceptCount = memoize(getConceptCount);
 const memoizedGetRecordsCount = memoize(getRecordsCount);
@@ -75,6 +74,9 @@ const memoizedGetRecordsCount = memoize(getRecordsCount);
 const mapProps = {
   itemsCount: ({ type, catalogId, itemsCount }: any) => {
     switch (type) {
+      case 'datasets': {
+        return memoizedGetDatasetsCount(catalogId);
+      }
       case 'dataservices': {
         return memoizedGetDataServicesCount(catalogId);
       }

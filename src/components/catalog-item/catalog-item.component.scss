@@ -1,5 +1,5 @@
-@import '../../../../../node_modules/designsystemet/fdk-designsystem-bootstrap4/scss/colors.scss';
-@import '../../../../../node_modules/designsystemet/fdk-designsystem-bootstrap4/scss/mixins.scss';
+@import '../../../node_modules/designsystemet/fdk-designsystem-bootstrap4/scss/colors.scss';
+@import '../../../node_modules/designsystemet/fdk-designsystem-bootstrap4/scss/mixins.scss';
 
 .catalog-item {
 
@@ -32,12 +32,12 @@
 
 .catalog-item__body {
 
-  &.beta {
-    background-image: url("/img/banner-beta.svg");
-    background-repeat: no-repeat;
-    background-position: top right;
-    background-size: 3em;
-  }
+  // &.beta {
+  //   background-image: url("/img/banner-beta.svg");
+  //   background-repeat: no-repeat;
+  //   background-position: top right;
+  //   background-size: 3em;
+  // }
 
   &.readOnly {
     opacity: 0.5;
@@ -74,18 +74,18 @@
   padding-top: 3em;
 }
 
-.catalog-icon--dataset {
-  background-image: url("/img/icon-catalog-dataset-lg.svg");
-}
+// .catalog-icon--dataset {
+//   background-image: url("/img/icon-catalog-dataset-lg.svg");
+// }
 
-.catalog-icon--api {
-  background-image: url("/img/icon-catalog-api-lg.svg");
-}
+// .catalog-icon--api {
+//   background-image: url("/img/icon-catalog-api-lg.svg");
+// }
 
-.catalog-icon--concepts {
-  background-image: url("/img/icon-catalog-concept-lg.svg");
-}
+// .catalog-icon--concepts {
+//   background-image: url("/img/icon-catalog-concept-lg.svg");
+// }
 
-.catalog-icon--protokoll {
-  background-image: url("/img/icon-catalog-protocol-xl.svg");
-}
+// .catalog-icon--protokoll {
+//   background-image: url("/img/icon-catalog-protocol-xl.svg");
+// }

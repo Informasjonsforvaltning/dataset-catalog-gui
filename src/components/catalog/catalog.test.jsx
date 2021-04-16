@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import CatalogPure from './catalog.component';
+import CatalogPure from '.';
 
 let defaultProps;
 let wrapper;
