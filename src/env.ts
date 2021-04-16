@@ -21,10 +21,10 @@ export default validateEnv(
     CONCEPT_REGISTRATION_HOST:
       'https://registrering-begrep.staging.fellesdatakatalog.digdir.no',
     CONCEPT_REGISTRATION_API_HOST:
-      'https://registrering-begrep-api.fellesdatakatalog.digdir.no',
+      'https://registrering-begrep-api.staging.fellesdatakatalog.digdir.no',
     RECORDS_OF_PROCESSING_ACTIVITIES_GUI_BASE_URI:
       'https://registrering-protokoll.staging.fellesdatakatalog.digdir.no',
     RECORDS_OF_PROCESSING_ACTIVITIES_API_BASE_URI:
-      'https://registrering-protokoll-api.fellesdatakatalog.digdir.no'
+      'https://registrering-protokoll.staging.fellesdatakatalog.digdir.no'
   }
 );
