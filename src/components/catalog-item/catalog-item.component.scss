@@ -1,10 +1,30 @@
 @import '../../../node_modules/designsystemet/fdk-designsystem-bootstrap4/scss/colors.scss';
 @import '../../../node_modules/designsystemet/fdk-designsystem-bootstrap4/scss/mixins.scss';
 
-.catalog-item {
+.catalog-items {
+  &.col-md-4 {
+    margin-left: 0;
+  }
 
+  @media (min-width: 768px) {
+    &.col-md-4 {
+      flex: 1 0 calc(100% / 3 - 2 * 12px);
+    }
+
+    &.col-md-4:nth-child(n + 2) {
+      margin-left: 12px;
+    }
+
+    &.col-md-4:nth-child(3n + 4) {
+      margin-left: 0;
+    }
+  }
+}
+
+.catalog-item {
   color: $color-neutral-darkest;
-  text-decoration: none;
+  text-decoration: none !important;
+
   &:hover, &:focus, &:active {
     .catalog-item__body.readOnly {
       opacity: 0.3;
@@ -31,13 +51,6 @@
 }
 
 .catalog-item__body {
-
-  // &.beta {
-  //   background-image: url("/img/banner-beta.svg");
-  //   background-repeat: no-repeat;
-  //   background-position: top right;
-  //   background-size: 3em;
-  // }
 
   &.readOnly {
     opacity: 0.5;
@@ -66,26 +79,3 @@
     transform: none;
   }
 }
-
-.catalog-icon {
-  background-repeat: no-repeat;
-  background-position: center 0;
-  background-size: 2.5em;
-  padding-top: 3em;
-}
-
-// .catalog-icon--dataset {
-//   background-image: url("/img/icon-catalog-dataset-lg.svg");
-// }
-
-// .catalog-icon--api {
-//   background-image: url("/img/icon-catalog-api-lg.svg");
-// }
-
-// .catalog-icon--concepts {
-//   background-image: url("/img/icon-catalog-concept-lg.svg");
-// }
-
-// .catalog-icon--protokoll {
-//   background-image: url("/img/icon-catalog-protocol-xl.svg");
-// }

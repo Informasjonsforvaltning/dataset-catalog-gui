@@ -10,7 +10,7 @@ import { getConceptCount } from '../../services/api/concept-registration-api/hos
 import { getRecordsCount } from '../../services/api/records-registration-api/host';
 import { getDataServicesCount } from '../../services/api/dataservice-catalog/host';
 
-import CatalogItem from '../catalog-item/catalog-item.component';
+import CatalogItem from '../catalog-item';
 
 const {
   DATASERVICE_CATALOG_BASE_URI,
