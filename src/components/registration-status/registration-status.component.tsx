@@ -3,6 +3,10 @@ import { compose } from 'redux';
 
 import Translation from '../translation';
 
+import DraftStatusSVG from '../../images/icon-draft-circle-md.svg';
+import ApprovedStatusSVG from '../../images/icon-approved-circle-md.svg';
+import PublishedStatusSVG from '../../images/icon-published-circle-md.svg';
+
 import './registration-status.scss';
 
 interface ExternalProps {
@@ -13,15 +17,15 @@ interface Props extends ExternalProps {}
 
 const statusAndIcon = {
   DRAFT: {
-    icon: 'icon-draft-circle-md.svg',
+    icon: <DraftStatusSVG />,
     label: 'formStatus.draft'
   },
   APPROVE: {
-    icon: 'icon-approved-circle-md.svg',
+    icon: <ApprovedStatusSVG />,
     label: 'formStatus.approveChecked'
   },
   PUBLISH: {
-    icon: 'icon-published-circle-md.svg',
+    icon: <PublishedStatusSVG />,
     label: 'formStatus.publishChecked'
   }
 };
@@ -31,7 +35,7 @@ const RegistrationStatus: FC<Props> = ({ registrationStatus = 'DRAFT' }) => {
 
   return (
     <div className='fdk-registration-status'>
-      <img src={`/img/${icon}`} className='mr-2' alt='icon' />
+      {icon}
       <span>
         <Translation id={label} />
       </span>

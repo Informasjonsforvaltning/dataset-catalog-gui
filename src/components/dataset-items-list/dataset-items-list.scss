@@ -1,6 +1,6 @@
 @import '../../../node_modules/designsystemet/fdk-designsystem-bootstrap4/scss/colors.scss';
 
-.fdk-datasets-list-header {
+.fdk-list-header {
   background-color: $color-neutral-dark;
   color: $color-white;
   margin-bottom: .5em;
@@ -9,6 +9,7 @@
 
   .header-item {
     font-weight: 500;
+    color: $color-white;
   }
   .sortButton {
     padding: 0 .5em;

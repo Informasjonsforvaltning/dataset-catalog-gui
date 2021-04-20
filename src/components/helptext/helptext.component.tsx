@@ -50,7 +50,7 @@ const HelpText: FC<Props> = ({
       <div className='d-flex align-items-center'>
         <h3>{title}</h3>
         {required && (
-          <span className='fdk-badge badge fdk-bg-color-warning-lightest ml-2'>
+          <span className='fdk-badge badge fdk-obligatorisk fdk-bg-color-warning-lightest ml-2'>
             <Translation id='helptext.required' />
           </span>
         )}

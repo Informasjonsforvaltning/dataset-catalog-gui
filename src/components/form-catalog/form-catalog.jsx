@@ -39,6 +39,7 @@ const mapStateToProps = (__, { catalog, catalogId }) => ({
   }
 });
 
-const enhance = compose(connect(mapStateToProps), formConfigurer);
-
-export const FormCatalog = enhance(FormCatalogPure);
+export const FormCatalog = compose(
+  connect(mapStateToProps),
+  formConfigurer
+)(FormCatalogPure);

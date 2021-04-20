@@ -88,7 +88,7 @@ const FormCatalog: FC<Props> = ({
               }}
             >
               <i className='fa fa-pencil mr-2' />
-              <Translation key='schema.catalog.editDescriptionLabel' />
+              <Translation id='schema.catalog.editDescriptionLabel' />
             </button>
           )}
         </div>
