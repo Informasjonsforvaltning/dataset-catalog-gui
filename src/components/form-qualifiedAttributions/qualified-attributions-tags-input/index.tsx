@@ -5,7 +5,7 @@ import ReactTags from 'react-tag-autocomplete';
 
 import withEnhetsregisteret, {
   Props as EnhetsregisteretProps
-} from '../../../../components/with-enhetsregisteret';
+} from '../../with-enhetsregisteret';
 
 import type { QualifiedAttribution } from '../form-qualified-attributions.component';
 

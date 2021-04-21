@@ -6,13 +6,13 @@ import { fromJS } from 'immutable';
 import {
   withTranslations,
   Props as TranslationsProps
-} from '../../../providers/translations';
+} from '../../providers/translations';
 
 import withEnhetsregisteret, {
   Props as EnhetsregisteretProps
-} from '../../../components/with-enhetsregisteret';
+} from '../with-enhetsregisteret';
 
-import Helptext from '../../../components/helptext/helptext.component';
+import Helptext from '../helptext/helptext.component';
 import QualifiedAttributionsTagsInput from './qualified-attributions-tags-input';
 
 interface Props extends EnhetsregisteretProps, TranslationsProps {
