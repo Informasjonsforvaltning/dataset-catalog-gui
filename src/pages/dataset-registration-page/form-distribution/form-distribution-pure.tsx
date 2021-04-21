@@ -15,7 +15,7 @@ import Helptext from '../../../components/helptext/helptext.component';
 import InputField from '../../../components/fields/field-input/field-input.component';
 import TextAreaField from '../../../components/fields/field-textarea/field-textarea.component';
 import SelectField from '../../../components/fields/field-select/field-select.component';
-import { InputTagsAPIsField } from '../field-tagsinput-apis/field-tagsinput-apis.component';
+import InputTagsAPIsField from '../../../components/field-tagsinput-apis';
 import { licenseType, textType } from '../../../schemaTypes';
 import { datasetFormPatchThunk } from '../formsLib/asyncValidateDatasetInvokePatch';
 import MultilingualField from '../../../components/multilingual-field/multilingual-field.component';
