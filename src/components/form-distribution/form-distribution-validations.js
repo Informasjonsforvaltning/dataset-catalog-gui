@@ -4,9 +4,9 @@ import {
   validateMinTwoChars,
   validateLinkReturnAsSkosType,
   validateURL
-} from '../../../validation/validation';
+} from '../../validation/validation';
 
-import TranslationsService from '../../../services/translations';
+import TranslationsService from '../../services/translations';
 
 const validate = values => {
   const errors = {};

@@ -1,9 +1,9 @@
 import React from 'react';
 import { createMockStore } from 'redux-test-utils';
-import shallowWithStore from '../../../../test/shallowWithStore';
+import shallowWithStore from '../../../test/shallowWithStore';
 import { FormDistribution } from './form-distribution';
-import dataset from '../../../../test/fixtures/datasets';
-import openlicenses from '../../../../test/fixtures/openlicenses';
+import dataset from '../../../test/fixtures/datasets';
+import openlicenses from '../../../test/fixtures/openlicenses';
 
 test('should render FormDistribution correctly', () => {
   const testState = {};

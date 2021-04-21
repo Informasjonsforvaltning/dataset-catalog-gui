@@ -1,4 +1,4 @@
-import { licenseType, textType } from '../../../schemaTypes';
+import { licenseType, textType } from '../../schemaTypes';
 
 export const distributionTypes = values => {
   let distributions = null;

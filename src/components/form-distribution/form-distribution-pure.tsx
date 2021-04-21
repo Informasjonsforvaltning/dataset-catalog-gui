@@ -8,19 +8,19 @@ import cx from 'classnames';
 import {
   withTranslations,
   Props as TranslationsProps
-} from '../../../providers/translations';
+} from '../../providers/translations';
 
-import Translation from '../../../components/translation';
-import Helptext from '../../../components/helptext/helptext.component';
-import InputField from '../../../components/fields/field-input/field-input.component';
-import TextAreaField from '../../../components/fields/field-textarea/field-textarea.component';
-import SelectField from '../../../components/fields/field-select/field-select.component';
-import InputTagsAPIsField from '../../../components/field-tagsinput-apis';
-import { licenseType, textType } from '../../../schemaTypes';
-import { datasetFormPatchThunk } from '../formsLib/asyncValidateDatasetInvokePatch';
-import MultilingualField from '../../../components/multilingual-field/multilingual-field.component';
-import LinkReadonlyField from '../../../components/fields/field-link-readonly/field-link-readonly.component';
-import InputFieldReadonly from '../../../components/fields/field-input-readonly/field-input-readonly.component';
+import Translation from '../translation';
+import Helptext from '../helptext/helptext.component';
+import InputField from '../fields/field-input/field-input.component';
+import TextAreaField from '../fields/field-textarea/field-textarea.component';
+import SelectField from '../fields/field-select/field-select.component';
+import InputTagsAPIsField from '../field-tagsinput-apis';
+import { licenseType, textType } from '../../schemaTypes';
+import { datasetFormPatchThunk } from '../../pages/dataset-registration-page/formsLib/asyncValidateDatasetInvokePatch';
+import MultilingualField from '../multilingual-field/multilingual-field.component';
+import LinkReadonlyField from '../fields/field-link-readonly/field-link-readonly.component';
+import InputFieldReadonly from '../fields/field-input-readonly/field-input-readonly.component';
 
 interface ExternalProps {
   initialValues: any;

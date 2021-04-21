@@ -2,8 +2,8 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import FormDistributionPure from './form-distribution-pure';
 import { distributionTypes } from './distribution-types';
-import openlicenses from '../../../../test/fixtures/openlicenses';
-import distribution from '../../../../test/fixtures/distributions';
+import openlicenses from '../../../test/fixtures/openlicenses';
+import distribution from '../../../test/fixtures/distributions';
 
 let defaultProps;
 let wrapper;
