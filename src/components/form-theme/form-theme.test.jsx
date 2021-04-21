@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import FormThemes from './form-theme.component';
-import themes from '../../../../test/fixtures/themes';
+import themes from '../../../test/fixtures/themes';
 
 let defaultProps;
 let wrapper;

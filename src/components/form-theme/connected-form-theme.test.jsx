@@ -1,9 +1,9 @@
 import React from 'react';
 import { createMockStore } from 'redux-test-utils';
-import shallowWithStore from '../../../../test/shallowWithStore';
+import shallowWithStore from '../../../test/shallowWithStore';
 import { ConnectedFormThemes } from './connected-form-theme.component';
-import dataset from '../../../../test/fixtures/datasets';
-import themes from '../../../../test/fixtures/themes';
+import dataset from '../../../test/fixtures/datasets';
+import themes from '../../../test/fixtures/themes';
 
 test('should render ConnectedFormThemes correctly', () => {
   const testState = {};

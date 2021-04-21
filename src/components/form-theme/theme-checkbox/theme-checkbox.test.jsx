@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import CheckboxFieldTheme from './theme-checkbox.component';
-import themes from '../../../../../test/fixtures/themes';
+import themes from '../../../../test/fixtures/themes';
 
 let defaultProps;
 let wrapper;

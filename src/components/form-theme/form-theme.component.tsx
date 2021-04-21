@@ -5,13 +5,13 @@ import { Field } from 'redux-form';
 import {
   withTranslations,
   Props as TranslationsProps
-} from '../../../providers/translations';
+} from '../../providers/translations';
 
-import Translation from '../../../components/translation';
-import Helptext from '../../../components/helptext/helptext.component';
+import Translation from '../translation';
+import Helptext from '../helptext/helptext.component';
 import CheckboxFieldTheme from './theme-checkbox/theme-checkbox.component';
-import AlertMessage from '../../../components/alert-message/alert-message.component';
-import { themesValues } from '../dataset-registration-page.logic';
+import AlertMessage from '../alert-message/alert-message.component';
+import { themesValues } from '../../pages/dataset-registration-page/dataset-registration-page.logic';
 
 interface ExternalProps {
   initialValues: any;
