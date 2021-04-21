@@ -8,7 +8,7 @@ import {
   completenessAnnotationType,
   accuracyAnnotationType,
   availabilityAnnotationType
-} from '../../../schemaTypes';
+} from '../../schemaTypes';
 
 const mapStateToProps = ({ state }, { datasetItem = {} }) => {
   const {

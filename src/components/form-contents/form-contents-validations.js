@@ -1,11 +1,8 @@
 import _get from 'lodash/get';
 
-import {
-  validateMinTwoChars,
-  validateURL
-} from '../../../validation/validation';
+import { validateMinTwoChars, validateURL } from '../../validation/validation';
 
-import TranslationsService from '../../../services/translations';
+import TranslationsService from '../../services/translations';
 
 const validate = values => {
   const errors = {};
