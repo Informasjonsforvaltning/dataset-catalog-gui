@@ -3,8 +3,8 @@ import { reduxForm } from 'redux-form';
 
 import FormTitle from './form-title.component';
 import { schema } from './form-title.validations';
-import { asyncValidateDatasetInvokePatch } from '../formsLib/asyncValidateDatasetInvokePatch';
-import { yupValidation } from '../../../lib/yupValidation';
+import { asyncValidateDatasetInvokePatch } from '../../pages/dataset-registration-page/formsLib/asyncValidateDatasetInvokePatch';
+import { yupValidation } from '../../lib/yupValidation';
 
 const config = {
   form: 'title',

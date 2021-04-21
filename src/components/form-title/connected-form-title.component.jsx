@@ -2,7 +2,7 @@ import { getFormSyncErrors } from 'redux-form';
 import { connect } from 'react-redux';
 import _ from 'lodash';
 
-import { emptyArray } from '../../../schemaTypes';
+import { emptyArray } from '../../schemaTypes';
 import { ConfiguredFormTitle } from './configured-form-title';
 
 const mapStateToProps = (state, { datasetItem = {} }) => ({

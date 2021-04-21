@@ -5,14 +5,14 @@ import { Field, FieldArray } from 'redux-form';
 import {
   withTranslations,
   Props as TranslationsProps
-} from '../../../providers/translations';
+} from '../../providers/translations';
 
-import Helptext from '../../../components/helptext/helptext.component';
-import InputField from '../../../components/fields/field-input/field-input.component';
-import LinkReadonlyField from '../../../components/fields/field-link-readonly/field-link-readonly.component';
-import InputFieldReadonly from '../../../components/fields/field-input-readonly/field-input-readonly.component';
-import MultilingualField from '../../../components/multilingual-field/multilingual-field.component';
-import TextAreaField from '../../../components/fields/field-textarea/field-textarea.component';
+import Helptext from '../helptext/helptext.component';
+import InputField from '../fields/field-input/field-input.component';
+import LinkReadonlyField from '../fields/field-link-readonly/field-link-readonly.component';
+import InputFieldReadonly from '../fields/field-input-readonly/field-input-readonly.component';
+import MultilingualField from '../multilingual-field/multilingual-field.component';
+import TextAreaField from '../fields/field-textarea/field-textarea.component';
 
 interface ExternalProps {
   languages: any[];

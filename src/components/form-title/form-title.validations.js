@@ -1,6 +1,6 @@
 import * as Yup from 'yup';
 
-import TranslationsService from '../../../services/translations';
+import TranslationsService from '../../services/translations';
 
 export const schema = Yup.object().shape({
   title: Yup.object().shape({
