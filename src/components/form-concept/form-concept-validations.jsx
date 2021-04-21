@@ -1,4 +1,4 @@
-import { validateMinTwoChars } from '../../../validation/validation';
+import { validateMinTwoChars } from '../../validation/validation';
 
 const validate = ({ keyword }) => {
   let errors = {};

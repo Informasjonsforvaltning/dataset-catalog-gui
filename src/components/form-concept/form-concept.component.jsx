@@ -5,8 +5,8 @@ import { compose } from 'recompose';
 import {
   multilingualObjectToMultilingualTagsArray,
   multilingualTagsArrayToMultilingualObject
-} from '../../../lib/multilingual-tags-converter';
-import { asyncValidateDatasetInvokePatch } from '../formsLib/asyncValidateDatasetInvokePatch';
+} from '../../lib/multilingual-tags-converter';
+import { asyncValidateDatasetInvokePatch } from '../../pages/dataset-registration-page/formsLib/asyncValidateDatasetInvokePatch';
 
 import validate from './form-concept-validations';
 import FormConceptPure from './form-concept-pure.component';

@@ -7,17 +7,17 @@ import TagsInput from 'react-tagsinput';
 import {
   withTranslations,
   Props as TranslationsProps
-} from '../../../../providers/translations';
+} from '../../../providers/translations';
 
 import {
   extractSuggestions,
   getConceptSuggestions
-} from '../../../../services/api/fulltext-search/suggestions';
+} from '../../../services/api/fulltext-search/suggestions';
 
-import Translation from '../../../../components/translation';
+import Translation from '../../translation';
 
 import './concept-tags-input-field.scss';
-import '../../../../components/fields/field-input-tags/field-input-tags.scss';
+import '../../fields/field-input-tags/field-input-tags.scss';
 
 interface ExternalProps {}
 
