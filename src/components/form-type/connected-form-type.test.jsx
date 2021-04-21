@@ -1,8 +1,8 @@
 import React from 'react';
 import { createMockStore } from 'redux-test-utils';
-import shallowWithStore from '../../../../test/shallowWithStore';
+import shallowWithStore from '../../../test/shallowWithStore';
 import { ConnectedFormType } from './connected-form-type.component';
-import dataset from '../../../../test/fixtures/datasets';
+import dataset from '../../../test/fixtures/datasets';
 
 test('should render ConnectedFormType correctly', () => {
   const testState = {};

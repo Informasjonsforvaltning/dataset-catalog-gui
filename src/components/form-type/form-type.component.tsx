@@ -5,11 +5,11 @@ import { Field } from 'redux-form';
 import {
   withTranslations,
   Props as TranslationsProps
-} from '../../../providers/translations';
+} from '../../providers/translations';
 
-import Helptext from '../../../components/helptext/helptext.component';
+import Helptext from '../helptext/helptext.component';
 import CheckBoxFieldType from './field-checkbox-type/field-checkbox.component';
-import { typeValues } from '../dataset-registration-page.logic';
+import { typeValues } from '../../pages/dataset-registration-page/dataset-registration-page.logic';
 
 interface Props extends TranslationsProps {
   syncErrors: any;
