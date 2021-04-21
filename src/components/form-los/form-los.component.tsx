@@ -6,20 +6,20 @@ import { Field } from 'redux-form';
 import Autocomplete from 'react-autocomplete';
 import cx from 'classnames';
 
-import { isNapPublish, isNapUnPublishTheme } from '../../../lib/napPublish';
+import { isNapPublish, isNapUnPublishTheme } from '../../lib/napPublish';
 
 import {
   withTranslations,
   Props as TranslationsProps
-} from '../../../providers/translations';
+} from '../../providers/translations';
 
-import Translation from '../../../components/translation';
-import Helptext from '../../../components/helptext/helptext.component';
-import AlertMessage from '../../../components/alert-message/alert-message.component';
+import Translation from '../translation';
+import Helptext from '../helptext/helptext.component';
+import AlertMessage from '../alert-message/alert-message.component';
 import FieldTreeLos from './field-tree-los/field-tree-los.component';
 import FilterPillsLos from './filter-pills-los/filter-pills-los.component';
 
-import { getLosItemParentsAndChildren } from '../../../entrypoints/main/redux/modules/referenceData';
+import { getLosItemParentsAndChildren } from '../../entrypoints/main/redux/modules/referenceData';
 
 import {
   matchInputStateToLosTerm,
@@ -27,7 +27,7 @@ import {
   onChangeSearchInput,
   onSelectSearchedLosItem
 } from './autocomplete-helper';
-import { losValues } from '../dataset-registration-page.logic';
+import { losValues } from '../../pages/dataset-registration-page/dataset-registration-page.logic';
 
 import './form-los.scss';
 

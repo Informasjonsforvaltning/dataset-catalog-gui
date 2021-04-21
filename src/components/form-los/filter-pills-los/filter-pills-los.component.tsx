@@ -2,7 +2,7 @@ import React, { memo, FC } from 'react';
 import { compose } from 'redux';
 import type { WrappedFieldProps } from 'redux-form';
 
-import Translation from '../../../../components/translation';
+import Translation from '../../translation';
 
 import { getLosItemsFromInput } from '../field-tree-los/field-tree-los-helper';
 import { removeValueFromInputValueArray } from '../form-helper';

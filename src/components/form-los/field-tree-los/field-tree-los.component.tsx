@@ -7,14 +7,14 @@ import 'react-treeview/react-treeview.css';
 import {
   withTranslations,
   Props as TranslationsProps
-} from '../../../../providers/translations';
+} from '../../../providers/translations';
 
 import {
   getAllLosParentNodes,
   getAllLosChildrenNodes
-} from '../../../../entrypoints/main/redux/modules/referenceData';
+} from '../../../entrypoints/main/redux/modules/referenceData';
 
-import Translation from '../../../../components/translation';
+import Translation from '../../translation';
 
 import TreeLosOption from './field-tree-los-option.component';
 
