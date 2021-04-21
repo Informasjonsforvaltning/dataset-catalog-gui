@@ -6,19 +6,19 @@ import Autosuggest from 'react-autosuggest';
 import {
   withTranslations,
   Props as TranslationsProps
-} from '../../../../providers/translations';
+} from '../../../providers/translations';
 
 import withKartverket, {
   Props as KartverketProps
-} from '../../../../components/with-kartverket';
+} from '../../with-kartverket';
 
-import Translation from '../../../../components/translation';
-import TagsInputFieldArrayReadOnly from '../../../../components/fields/field-input-tags-objects-readonly/field-input-tags-objects-readonly.component';
+import Translation from '../../translation';
+import TagsInputFieldArrayReadOnly from '../../fields/field-input-tags-objects-readonly/field-input-tags-objects-readonly.component';
 
 import './styles.scss';
 
-import type { AdministrativeUnit } from '../../../../types';
-import { AdministrativeUnitType } from '../../../../types/enums';
+import type { AdministrativeUnit } from '../../../types';
+import { AdministrativeUnitType } from '../../../types/enums';
 
 interface ExternalProps extends WrappedFieldProps {
   isReadOnly?: boolean;

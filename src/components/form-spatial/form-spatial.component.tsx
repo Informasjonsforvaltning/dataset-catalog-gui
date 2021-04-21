@@ -5,13 +5,13 @@ import { Field, FieldArray } from 'redux-form';
 import {
   withTranslations,
   Props as TranslationsProps
-} from '../../../providers/translations';
+} from '../../providers/translations';
 
-import Translation from '../../../components/translation';
-import Helptext from '../../../components/helptext/helptext.component';
-import DatepickerField from '../../../components/fields/field-datepicker/field-datepicker.component';
-import CheckboxField from '../../../components/fields/field-checkbox/field-checkbox.component';
-import { datasetFormPatchThunk } from '../formsLib/asyncValidateDatasetInvokePatch';
+import Translation from '../translation';
+import Helptext from '../helptext/helptext.component';
+import DatepickerField from '../fields/field-datepicker/field-datepicker.component';
+import CheckboxField from '../fields/field-checkbox/field-checkbox.component';
+import { datasetFormPatchThunk } from '../../pages/dataset-registration-page/formsLib/asyncValidateDatasetInvokePatch';
 
 import SpatialTagsInputField from './spatial-tags-input-field';
 
