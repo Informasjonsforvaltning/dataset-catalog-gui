@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 
 import { ConfiguredFormSample } from './configured-form-sample';
-import { textType, licenseType } from '../../../schemaTypes';
+import { textType, licenseType } from '../../schemaTypes';
 
 export const sampleTypes = values => {
   let samples = null;

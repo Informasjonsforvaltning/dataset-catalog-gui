@@ -1,9 +1,9 @@
 import React from 'react';
 import { createMockStore } from 'redux-test-utils';
-import shallowWithStore from '../../../../test/shallowWithStore';
+import shallowWithStore from '../../../test/shallowWithStore';
 import { ConnectedFormSample } from './connected-form-sample.component';
-import dataset from '../../../../test/fixtures/datasets';
-import openlicenses from '../../../../test/fixtures/openlicenses';
+import dataset from '../../../test/fixtures/datasets';
+import openlicenses from '../../../test/fixtures/openlicenses';
 
 test('should render ConnectedFormSample correctly', () => {
   const testState = {};
