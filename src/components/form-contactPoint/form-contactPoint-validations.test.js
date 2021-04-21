@@ -1,5 +1,5 @@
 import validate from './form-contactPoint-validations';
-import datasets from '../../../../test/fixtures/datasets';
+import datasets from '../../../test/fixtures/datasets';
 
 it('should validate without errors', () => {
   const dataset = datasets.datasetItems._embedded.datasets[0];

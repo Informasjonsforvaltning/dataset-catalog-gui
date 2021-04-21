@@ -3,7 +3,7 @@ import {
   validateURL,
   validateEmail,
   validatePhone
-} from '../../../validation/validation';
+} from '../../validation/validation';
 
 const validate = values => {
   const errors = {};

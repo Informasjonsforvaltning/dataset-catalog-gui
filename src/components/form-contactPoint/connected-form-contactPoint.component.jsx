@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import _ from 'lodash';
 
 import { ConfiguredFormTitle } from './configured-form-contactPoint';
-import { contactPointType } from '../../../schemaTypes';
+import { contactPointType } from '../../schemaTypes';
 
 const mapStateToProps = (state, ownProps) => {
   const { datasetItem } = ownProps;
