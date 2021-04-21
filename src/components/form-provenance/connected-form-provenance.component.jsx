@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 import moment from 'moment';
 
 import { ConfiguredFormProvenance } from './configured-form-provenance';
-import { currentnessAnnotationType } from '../../../schemaTypes';
+import { currentnessAnnotationType } from '../../schemaTypes';
 
 const mapStateToProps = (
   state,

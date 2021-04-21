@@ -1,10 +1,10 @@
 import React from 'react';
 import { createMockStore } from 'redux-test-utils';
-import shallowWithStore from '../../../../test/shallowWithStore';
+import shallowWithStore from '../../../test/shallowWithStore';
 import { ConnectedFormProvenance } from './connected-form-provenance.component';
-import dataset from '../../../../test/fixtures/datasets';
-import frequency from '../../../../test/fixtures/frequency';
-import provenance from '../../../../test/fixtures/provenance';
+import dataset from '../../../test/fixtures/datasets';
+import frequency from '../../../test/fixtures/frequency';
+import provenance from '../../../test/fixtures/provenance';
 
 test('should render ConnectedFormProvenance correctly', () => {
   const testState = {};

@@ -5,15 +5,15 @@ import { Field } from 'redux-form';
 import {
   withTranslations,
   Props as TranslationsProps
-} from '../../../providers/translations';
+} from '../../providers/translations';
 
-import Translation from '../../../components/translation';
-import Helptext from '../../../components/helptext/helptext.component';
-import SelectField from '../../../components/fields/field-select/field-select.component';
-import TextAreaField from '../../../components/fields/field-textarea/field-textarea.component';
-import InputFieldReadonly from '../../../components/fields/field-input-readonly/field-input-readonly.component';
-import DatepickerField from '../../../components/fields/field-datepicker/field-datepicker.component';
-import MultilingualField from '../../../components/multilingual-field/multilingual-field.component';
+import Translation from '../translation';
+import Helptext from '../helptext/helptext.component';
+import SelectField from '../fields/field-select/field-select.component';
+import TextAreaField from '../fields/field-textarea/field-textarea.component';
+import InputFieldReadonly from '../fields/field-input-readonly/field-input-readonly.component';
+import DatepickerField from '../fields/field-datepicker/field-datepicker.component';
+import MultilingualField from '../multilingual-field/multilingual-field.component';
 
 interface ExternalProps {
   initialValues: any;
