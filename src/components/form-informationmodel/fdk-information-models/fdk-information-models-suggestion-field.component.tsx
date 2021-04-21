@@ -2,23 +2,23 @@ import React, { memo, FC, useState } from 'react';
 import { compose } from 'redux';
 import Autosuggest from 'react-autosuggest';
 
-import env from '../../../../env';
+import env from '../../../env';
 
 import {
   withTranslations,
   Props as TranslationsProps
-} from '../../../../providers/translations';
+} from '../../../providers/translations';
 
 import {
   extractSuggestions,
   getInformationModelSuggestions
-} from '../../../../services/api/fulltext-search/suggestions';
+} from '../../../services/api/fulltext-search/suggestions';
 
-import Translation from '../../../../components/translation';
+import Translation from '../../translation';
 
-import { informationModelType } from '../../../../schemaTypes';
+import { informationModelType } from '../../../schemaTypes';
 
-import { insertTestId } from '../../../../../test/utils/testUtils';
+import { insertTestId } from '../../../../test/utils/testUtils';
 
 import '../form-informationmodel.component.scss';
 

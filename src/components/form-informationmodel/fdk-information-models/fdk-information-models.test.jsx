@@ -1,13 +1,13 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 
-import env from '../../../../env';
+import env from '../../../env';
 
 import FdkInformationModels, {
   TestIds
 } from './fdk-information-models.component';
 
-import { findByTestId } from '../../../../../test/utils/testUtils';
+import { findByTestId } from '../../../../test/utils/testUtils';
 
 const { FDK_BASE_URI } = env;
 

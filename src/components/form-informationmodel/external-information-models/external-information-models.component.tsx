@@ -2,13 +2,13 @@ import React, { memo, FC } from 'react';
 import { compose } from 'redux';
 import { Field, WrappedFieldArrayProps } from 'redux-form';
 
-import env from '../../../../env';
+import env from '../../../env';
 
-import InputField from '../../../../components/fields/field-input/field-input.component';
-import MultilingualField from '../../../../components/multilingual-field/multilingual-field.component';
-import LinkReadonlyField from '../../../../components/fields/field-link-readonly/field-link-readonly.component';
-import InputFieldReadonly from '../../../../components/fields/field-input-readonly/field-input-readonly.component';
-import { datasetFormPatchThunk } from '../../formsLib/asyncValidateDatasetInvokePatch';
+import InputField from '../../fields/field-input/field-input.component';
+import MultilingualField from '../../multilingual-field/multilingual-field.component';
+import LinkReadonlyField from '../../fields/field-link-readonly/field-link-readonly.component';
+import InputFieldReadonly from '../../fields/field-input-readonly/field-input-readonly.component';
+import { datasetFormPatchThunk } from '../../../pages/dataset-registration-page/formsLib/asyncValidateDatasetInvokePatch';
 
 import '../form-informationmodel.component.scss';
 

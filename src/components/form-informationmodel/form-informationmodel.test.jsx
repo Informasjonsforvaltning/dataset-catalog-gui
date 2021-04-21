@@ -1,8 +1,8 @@
 import React from 'react';
 import { createMockStore } from 'redux-test-utils';
-import shallowWithStore from '../../../../test/shallowWithStore';
+import shallowWithStore from '../../../test/shallowWithStore';
 import { FormInformationModel } from './form-informationmodel.component';
-import dataset from '../../../../test/fixtures/datasets';
+import dataset from '../../../test/fixtures/datasets';
 
 let wrapper;
 

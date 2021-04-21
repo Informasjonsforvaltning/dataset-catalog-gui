@@ -5,9 +5,9 @@ import { FieldArray } from 'redux-form';
 import {
   withTranslations,
   Props as TranslationsProps
-} from '../../../providers/translations';
+} from '../../providers/translations';
 
-import Helptext from '../../../components/helptext/helptext.component';
+import Helptext from '../helptext/helptext.component';
 import ExternalInformationModels from './external-information-models/external-information-models.component';
 import FdkInformationModels from './fdk-information-models/fdk-information-models.component';
 

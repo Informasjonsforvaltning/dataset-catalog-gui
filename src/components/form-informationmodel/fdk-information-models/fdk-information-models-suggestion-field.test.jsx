@@ -1,7 +1,7 @@
 import React from 'react';
 import { mount } from 'enzyme';
-import { findByTestId } from '../../../../../test/utils/testUtils';
-import * as informationModelSuggestion from '../../../../services/api/fulltext-search/suggestions';
+import { findByTestId } from '../../../../test/utils/testUtils';
+import * as informationModelSuggestion from '../../../services/api/fulltext-search/suggestions';
 import FdkInformationModelsSuggestionField, {
   TestIds
 } from './fdk-information-models-suggestion-field.component';

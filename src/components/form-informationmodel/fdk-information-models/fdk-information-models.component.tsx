@@ -2,15 +2,15 @@ import React, { memo, FC } from 'react';
 import { compose } from 'redux';
 import type { WrappedFieldArrayProps } from 'redux-form';
 
-import env from '../../../../env';
+import env from '../../../env';
 
-import { datasetFormPatchThunk } from '../../formsLib/asyncValidateDatasetInvokePatch';
+import { datasetFormPatchThunk } from '../../../pages/dataset-registration-page/formsLib/asyncValidateDatasetInvokePatch';
 
-import Translation from '../../../../components/translation';
+import Translation from '../../translation';
 
 import FdkInformationModelsSuggestionField from './fdk-information-models-suggestion-field.component';
 
-import { insertTestId } from '../../../../../test/utils/testUtils';
+import { insertTestId } from '../../../../test/utils/testUtils';
 
 import '../form-informationmodel.component.scss';
 
