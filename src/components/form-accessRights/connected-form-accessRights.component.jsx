@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import _ from 'lodash';
 
 import { ConfiguredFormAccessRights } from './configured-form-accessRights';
-import { accessRights, legalBasisType } from '../../../schemaTypes';
+import { accessRights, legalBasisType } from '../../schemaTypes';
 
 const selector = formValueSelector('accessRights');
 

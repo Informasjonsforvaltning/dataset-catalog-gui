@@ -3,9 +3,9 @@ import {
   validateRequired,
   validateMinTwoChars,
   validateURL
-} from '../../../validation/validation';
+} from '../../validation/validation';
 
-import TranslationsService from '../../../services/translations';
+import TranslationsService from '../../services/translations';
 
 const validate = values => {
   let errors = {};

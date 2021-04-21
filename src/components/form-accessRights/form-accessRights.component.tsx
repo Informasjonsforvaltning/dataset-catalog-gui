@@ -3,26 +3,23 @@ import { compose } from 'redux';
 import { Field, FieldArray } from 'redux-form';
 import includes from 'lodash/includes';
 
-import {
-  isNapPublish,
-  isNapUnPublishAccessRights
-} from '../../../lib/napPublish';
+import { isNapPublish, isNapUnPublishAccessRights } from '../../lib/napPublish';
 
 import {
   withTranslations,
   Props as TranslationsProps
-} from '../../../providers/translations';
+} from '../../providers/translations';
 
-import Translation from '../../../components/translation';
-import Helptext from '../../../components/helptext/helptext.component';
-import InputField from '../../../components/fields/field-input/field-input.component';
-import InputFieldReadonly from '../../../components/fields/field-input-readonly/field-input-readonly.component';
-import MultilingualField from '../../../components/multilingual-field/multilingual-field.component';
-import LinkReadonlyField from '../../../components/fields/field-link-readonly/field-link-readonly.component';
-import RadioField from '../../../components/fields/field-radio/field-radio.component';
-import { legalBasisType } from '../../../schemaTypes';
-import { datasetFormPatchThunk } from '../formsLib/asyncValidateDatasetInvokePatch';
-import AlertMessage from '../../../components/alert-message/alert-message.component';
+import Translation from '../translation';
+import Helptext from '../helptext/helptext.component';
+import InputField from '../fields/field-input/field-input.component';
+import InputFieldReadonly from '../fields/field-input-readonly/field-input-readonly.component';
+import MultilingualField from '../multilingual-field/multilingual-field.component';
+import LinkReadonlyField from '../fields/field-link-readonly/field-link-readonly.component';
+import RadioField from '../fields/field-radio/field-radio.component';
+import { legalBasisType } from '../../schemaTypes';
+import { datasetFormPatchThunk } from '../../pages/dataset-registration-page/formsLib/asyncValidateDatasetInvokePatch';
+import AlertMessage from '../alert-message/alert-message.component';
 
 /*
  Resets fields when radio button "Offentlig" is chosen.
