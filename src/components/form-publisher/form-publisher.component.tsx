@@ -5,10 +5,10 @@ import { Field } from 'redux-form';
 import {
   withTranslations,
   Props as TranslationsProps
-} from '../../../providers/translations';
+} from '../../providers/translations';
 
-import Translation from '../../../components/translation';
-import Helptext from '../../../components/helptext/helptext.component';
+import Translation from '../translation';
+import Helptext from '../helptext/helptext.component';
 import { SearchPublisher } from './search-publisher/search-publisher.component';
 import PublisherField from './field-publisher/field-publisher.component';
 
