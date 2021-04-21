@@ -2,7 +2,7 @@ import { getFormSyncErrors } from 'redux-form';
 import { connect } from 'react-redux';
 
 import { ConfiguredFormTitle } from './configured-form-reference';
-import { languageType } from '../../../schemaTypes';
+import { languageType } from '../../schemaTypes';
 
 const mapStateToProps = (
   state,

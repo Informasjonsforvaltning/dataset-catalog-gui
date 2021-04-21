@@ -5,16 +5,16 @@ import { Field, FieldArray } from 'redux-form';
 import {
   withTranslations,
   Props as TranslationsProps
-} from '../../../providers/translations';
+} from '../../providers/translations';
 
-import Translation from '../../../components/translation';
-import Helptext from '../../../components/helptext/helptext.component';
-import SelectField from '../../../components/fields/field-select/field-select.component';
-import MultilingualField from '../../../components/multilingual-field/multilingual-field.component';
-import InputField from '../../../components/fields/field-input/field-input.component';
-import InputFieldReadonly from '../../../components/fields/field-input-readonly/field-input-readonly.component';
+import Translation from '../translation';
+import Helptext from '../helptext/helptext.component';
+import SelectField from '../fields/field-select/field-select.component';
+import MultilingualField from '../multilingual-field/multilingual-field.component';
+import InputField from '../fields/field-input/field-input.component';
+import InputFieldReadonly from '../fields/field-input-readonly/field-input-readonly.component';
 
-import { datasetFormPatchThunk } from '../formsLib/asyncValidateDatasetInvokePatch';
+import { datasetFormPatchThunk } from '../../pages/dataset-registration-page/formsLib/asyncValidateDatasetInvokePatch';
 
 interface ExternalProps {
   initialValues: any;
