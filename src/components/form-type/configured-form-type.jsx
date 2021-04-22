@@ -1,7 +1,7 @@
 import { reduxForm } from 'redux-form';
 
 import FormType from './form-type.component';
-import { asyncValidateDatasetInvokePatch } from '../../pages/dataset-registration-page/formsLib/asyncValidateDatasetInvokePatch';
+import { asyncValidateDatasetInvokePatch } from '../../entrypoints/main/router/datasets/pages/dataset-page/formsLib/asyncValidateDatasetInvokePatch';
 
 const config = {
   form: 'type',

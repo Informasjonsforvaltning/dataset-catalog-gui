@@ -2,9 +2,9 @@ import {
   datasetFormPatchErrorAction,
   datasetFormPatchIsSavingAction,
   datasetFormPatchSuccessAction
-} from '../../../entrypoints/main/redux/modules/dataset-form-status';
-import { datasetSuccessAction } from '../../../entrypoints/main/redux/modules/datasets';
-import { patchDataset } from '../../../services/api/registration-api/datasets';
+} from '../../../../../redux/modules/dataset-form-status';
+import { datasetSuccessAction } from '../../../../../redux/modules/datasets';
+import { patchDataset } from '../../../../../../../services/api/registration-api/datasets';
 
 export const datasetFormPatchThunk = ({
   catalogId,

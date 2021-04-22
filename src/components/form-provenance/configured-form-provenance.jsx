@@ -3,7 +3,7 @@ import _throttle from 'lodash/throttle';
 
 import FormProvenance from './form-provenance.component';
 import validate from './form-provenance-validations';
-import { asyncValidateDatasetInvokePatch } from '../../pages/dataset-registration-page/formsLib/asyncValidateDatasetInvokePatch';
+import { asyncValidateDatasetInvokePatch } from '../../entrypoints/main/router/datasets/pages/dataset-page/formsLib/asyncValidateDatasetInvokePatch';
 
 const config = {
   form: 'provenance',

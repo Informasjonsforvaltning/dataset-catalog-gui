@@ -17,7 +17,7 @@ import TextAreaField from '../fields/field-textarea/field-textarea.component';
 import SelectField from '../fields/field-select/field-select.component';
 import InputTagsAPIsField from '../field-tagsinput-apis';
 import { licenseType, textType } from '../../schemaTypes';
-import { datasetFormPatchThunk } from '../../pages/dataset-registration-page/formsLib/asyncValidateDatasetInvokePatch';
+import { datasetFormPatchThunk } from '../../entrypoints/main/router/datasets/pages/dataset-page/formsLib/asyncValidateDatasetInvokePatch';
 import MultilingualField from '../multilingual-field/multilingual-field.component';
 import LinkReadonlyField from '../fields/field-link-readonly/field-link-readonly.component';
 import InputFieldReadonly from '../fields/field-input-readonly/field-input-readonly.component';
