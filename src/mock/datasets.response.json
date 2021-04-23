@@ -6,7 +6,6 @@
         "uri": "http://brreg.no/catalogs/910258028/datasets/c536ddb2-1133-4443-96d1-ef0445d43543",
         "title": {},
         "description": {},
-        "objective": {},
         "publisher": {
           "uri": "https://data.brreg.no/enhetsregisteret/api/enheter/910258028",
           "name": "LILAND OG ERDAL REVISJON"
@@ -24,7 +23,6 @@
         "description": {
           "nb": "Når testdirektøren er på fest, danser..."
         },
-        "objective": {},
         "keyword": [],
         "publisher": {
           "uri": "https://data.brreg.no/enhetsregisteret/api/enheter/910258028",
@@ -132,7 +130,6 @@
         "description": {
           "nb": "to"
         },
-        "objective": {},
         "publisher": {
           "uri": "https://data.brreg.no/enhetsregisteret/api/enheter/910258028",
           "name": "LILAND OG ERDAL REVISJON"
@@ -180,7 +177,6 @@
         "description": {
           "nb": "En samling av navneendringer på statlige eide foretak.   \nHer er dagens ekstra tekst"
         },
-        "objective": {},
         "contactPoint": [
           {
             "email": "mail@mail.no",
@@ -538,7 +534,6 @@
           "nb": "Dette er norsk",
           "en": "This is english"
         },
-        "objective": {},
         "keyword": [],
         "publisher": {
           "uri": "https://data.brreg.no/enhetsregisteret/api/enheter/910258028",
@@ -654,9 +649,6 @@
         "description": {
           "nb": "Servieedition bugfix testen"
         },
-        "objective": {
-          "nb": "test "
-        },
         "keyword": [
           {
             "nb": "tullogtøys"
@@ -760,9 +752,6 @@
           "nb": "Oppfølger til Ut mot havet",
           "nn": "Oppfølgjer"
         },
-        "objective": {
-          "nb": ""
-        },
         "publisher": {
           "uri": "https://data.brreg.no/enhetsregisteret/api/enheter/910258028",
           "name": "LILAND OG ERDAL REVISJON"
@@ -818,9 +807,6 @@
         },
         "description": {
           "nb": "En historisk oversikt"
-        },
-        "objective": {
-          "nb": "Hvem satt på tinget når?..."
         },
         "keyword": [
           {
@@ -1005,7 +991,6 @@
         "description": {
           "nb": "En oversikt over midtbanespillere som Kante, Fabinho, Dunga, Makelele, Skammelsrud"
         },
-        "objective": {},
         "keyword": [],
         "publisher": {
           "uri": "https://data.brreg.no/enhetsregisteret/api/enheter/910258028",
@@ -1112,9 +1097,6 @@
         },
         "description": {
           "nb": "En litt lang beskrivelse som skal vise  at dette er litt mer utførlig test av regresjonsløsningen etter at det er utført en litt større refaktorering"
-        },
-        "objective": {
-          "nb": "Forsatt er formålet utstrakt test av "
         },
         "contactPoint": [
           {
@@ -1742,9 +1724,6 @@
         },
         "description": {
           "nb": "Dette er en hyllest av Rune Rudberg."
-        },
-        "objective": {
-          "nb": "Det finnes ikke noe formål."
         },
         "contactPoint": [
           {

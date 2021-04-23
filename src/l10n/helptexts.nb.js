@@ -17,10 +17,6 @@ Se spesifikasjonen <a href='https://data.norge.no/specification/dcat-ap-no/#Data
 
 Se spesifikasjonen <a href='https://data.norge.no/specification/dcat-ap-no/#Datasett-beskrivelse' target='_blank'><span>Datasett: beskrivelse</span><i class="fa fa-external-link fdk-fa-right"></i></a>`
   },
-  Dataset_objective: {
-    abstract: 'Oppsummer formålet i én setning.',
-    description: `Hvis datasettet inneholder personopplysninger må formålet med dette oppgis.`
-  },
   Dataset_spatial: {
     abstract:
       'Dersom datasettet kun har innhold fra visse geografiske områder angis dette med lenke til Administrative enheter fra Kartverket eller GeoNames.',

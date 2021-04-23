@@ -9,7 +9,6 @@ const mapStateToProps = (state, { datasetItem = {} }) => ({
   initialValues: {
     title: datasetItem.title || {},
     description: datasetItem.description || {},
-    objective: datasetItem.objective || {},
     landingPage: _.get(datasetItem, 'landingPage', emptyArray)
   },
   syncErrors: getFormSyncErrors('title')(state)

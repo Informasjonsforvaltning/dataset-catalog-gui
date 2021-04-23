@@ -153,7 +153,6 @@ export const DatasetRegistrationPagePure: FC<DatasetRegistrationPagePureProps> =
   const translatableFields = [
     'title',
     'description',
-    'objective',
     'legalBasisForRestriction',
     'legalBasisForProcessing',
     'legalBasisForAccess',

@@ -38,22 +38,6 @@ exports[`should render FormTitle, { renderLandingpage  correctly 1`] = `
     className="form-group"
   >
     <withStateHandlers(HelpTextPure)
-      required={true}
-      term="Dataset_objective"
-      title="Formålet med datasettet"
-    />
-    <MultilingualField
-      component={[Function]}
-      label="Formål"
-      languages={Array []}
-      name="objective"
-      showLabel={false}
-    />
-  </div>
-  <div
-    className="form-group"
-  >
-    <withStateHandlers(HelpTextPure)
       term="Dataset_landingpage"
       title="Lenke til mer informasjon om datasettet"
     />

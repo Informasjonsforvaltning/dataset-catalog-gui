@@ -58,7 +58,6 @@ export interface Dataset {
   title: Record<string, string>;
   description: Record<string, string>;
   descriptionFormatted: Record<string, string>;
-  objective: Record<string, string>;
   contactPoint: Contact[];
   keyword: Record<string, string>[];
   publisher: Publisher;

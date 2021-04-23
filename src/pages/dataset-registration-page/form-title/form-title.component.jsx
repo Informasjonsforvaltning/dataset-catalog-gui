@@ -51,19 +51,6 @@ export const FormTitle = ({ languages, isReadOnly }) => (
         label={localization.schema.title.descriptionLabel}
       />
     </div>
-    <div className="form-group">
-      <Helptext
-        title={localization.schema.title.helptext.objective}
-        term="Dataset_objective"
-        required
-      />
-      <MultilingualField
-        name="objective"
-        component={isReadOnly ? InputFieldReadonly : TextAreaField}
-        label={localization.schema.title.objectiveLabel}
-        languages={languages}
-      />
-    </div>
 
     <div className="form-group">
       <Helptext

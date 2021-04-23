@@ -7,14 +7,11 @@ import { getTranslateText } from '../../services/translateText';
 export const titleValues = values => {
   if (values) {
     let retVal = '';
-    const { title, description, objective, landingPage } = values;
+    const { title, description, landingPage } = values;
 
     retVal += getTranslateText(title) ? `${getTranslateText(title)}. ` : '';
     retVal += getTranslateText(description)
       ? `${getTranslateText(description)}. `
-      : '';
-    retVal += getTranslateText(objective)
-      ? `${getTranslateText(objective)}. `
       : '';
     retVal += _.get(landingPage, '[0]', '');
 

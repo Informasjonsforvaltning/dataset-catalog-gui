@@ -176,12 +176,10 @@
       "helptext": {
         "title": "Tittel",
         "description": "Beskrivelse av datasettet",
-        "objective": "Formålet med datasettet",
         "landingPage": "Lenke til mer informasjon om datasettet"
       },
       "titleLabel": "Tittel",
-      "descriptionLabel": "Beskrivelse",
-      "objectiveLabel": "Formål"
+      "descriptionLabel": "Beskrivelse"
     },
     "accessRights": {
       "heading": "Tilgangsnivå",
