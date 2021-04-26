@@ -5,6 +5,8 @@ import { Button } from 'reactstrap';
 
 import Translation from '../translation';
 
+import CheckSVG from '../../images/icon-checked-white-sm.svg';
+
 import './language-picker.styles.scss';
 
 interface Language {
@@ -44,9 +46,7 @@ const LanguagePicker: FC<Props> = ({ languages, toggleInputLanguage }) => {
             disabled={shouldDisableLanguage(code)}
             onClick={() => toggleInputLanguage(code)}
           >
-            {selected && (
-              <img src='/img/icon-checked-white-sm.svg' alt='icon' />
-            )}
+            {selected && <CheckSVG />}
             {title}
           </Button>
         ))}

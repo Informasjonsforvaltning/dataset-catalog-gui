@@ -17,8 +17,18 @@
       display: flex;
       justify-content: center;
       align-items: center;
+      padding: 10px 12px;
+      font-size: 1.5rem;
 
-      img {
+      &.fdk-bg-color-primary-lighter {
+        background: #E5F9FF;
+      }
+
+      &.fdk-color-link-darker {
+        color: #004A73;
+      }
+
+      svg {
         height: 18px;
         width: 18px;
         margin-right: 5px;
