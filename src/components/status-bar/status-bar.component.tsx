@@ -1,4 +1,4 @@
-import React, { memo, FC, useState } from 'react';
+import React, { memo, FC, useState, useEffect } from 'react';
 import { compose } from 'redux';
 
 import {
@@ -45,6 +45,16 @@ const StatusBar: FC<Props> = ({
     false
   );
   const [showValidatonError, setShowValidationError] = useState(false);
+
+  useEffect(() => {
+    document.getElementsByTagName('footer')?.[0]?.classList.add('with-offset');
+
+    return function cleanup() {
+      document
+        .getElementsByTagName('footer')?.[0]
+        ?.classList.remove('with-offset');
+    };
+  });
 
   return (
     <>

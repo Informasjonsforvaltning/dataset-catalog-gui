@@ -101,17 +101,17 @@ const DefaultDialog: FC<Props> = ({
           <>
             <Button
               id='dataset-setPublish-button'
-              className='fdk-button'
+              className='fdk-button px-4 py-3'
               color={isDraft(registrationStatus) ? 'dark' : 'primary'}
               style={{ border: 0, borderRadius: 0 }}
               onClick={onShowConfirmDraft}
             >
-              <i className='fa fa-pencil mr-2' />
+              <i className='fa fa-pencil mr-2 text-white' />
               <Translation id='formStatus.draft' />
             </Button>
             <Button
               id='dataset-setPublish-button'
-              className='fdk-button'
+              className='fdk-button px-4 py-3'
               color={isApproved(registrationStatus) ? 'dark' : 'primary'}
               style={{ border: 0, borderRadius: 0 }}
               onClick={
@@ -120,7 +120,7 @@ const DefaultDialog: FC<Props> = ({
                   : () => onChange('APPROVE')
               }
             >
-              <i className='fa fa-check-square-o mr-2' />
+              <i className='fa fa-check-square-o mr-2 text-white' />
               <Translation
                 id={
                   isApproved(registrationStatus)
@@ -131,7 +131,7 @@ const DefaultDialog: FC<Props> = ({
             </Button>
             <Button
               id='dataset-setPublish-button'
-              className='fdk-button'
+              className='fdk-button px-4 py-3'
               color={isPublished(registrationStatus) ? 'dark' : 'primary'}
               style={{ border: 0, borderRadius: 0 }}
               onClick={
