@@ -7,7 +7,10 @@ import {
   GET_DATASET_FAILED,
   CREATE_DATASET_REQUESTED,
   CREATE_DATASET_SUCCEEDED,
-  CREATE_DATASET_FAILED
+  CREATE_DATASET_FAILED,
+  DELETE_DATASET_REQUESTED,
+  DELETE_DATASET_SUCCEEDED,
+  DELETE_DATASET_FAILED
 } from './actions-types';
 
 import type { Actions } from '../../../types';
@@ -16,7 +19,8 @@ const initialState = fromJS({
   dataset: undefined,
   createdDataset: undefined,
   isLoadingDataset: false,
-  isCreatingDataset: false
+  isCreatingDataset: false,
+  isDeletingDataset: false
 });
 
 export default function reducer(
@@ -45,6 +49,15 @@ export default function reducer(
         .set('isCreatingDataset', false);
     case CREATE_DATASET_FAILED:
       return state.set('isCreatingDataset', false);
+    case DELETE_DATASET_REQUESTED:
+      return state.set('isDeletingDataset', true);
+    case DELETE_DATASET_SUCCEEDED:
+      return state
+        .set('dataset', undefined)
+        .set('createdDataset', undefined)
+        .set('isDeletingDataset', false);
+    case DELETE_DATASET_FAILED:
+      return state.set('isDeletingDataset', false);
     default:
       return state;
   }

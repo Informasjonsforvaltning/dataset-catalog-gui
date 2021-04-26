@@ -4,7 +4,10 @@ import {
   GET_DATASET_FAILED,
   CREATE_DATASET_REQUESTED,
   CREATE_DATASET_SUCCEEDED,
-  CREATE_DATASET_FAILED
+  CREATE_DATASET_FAILED,
+  DELETE_DATASET_REQUESTED,
+  DELETE_DATASET_SUCCEEDED,
+  DELETE_DATASET_FAILED
 } from './actions-types';
 
 import type { Dataset } from '../../../types';
@@ -58,6 +61,36 @@ export function createDatasetSucceeded(dataset: Dataset) {
 export function createDatasetFailed(message: string) {
   return {
     type: CREATE_DATASET_FAILED,
+    payload: {
+      message
+    }
+  };
+}
+
+export function deleteDatasetRequested(
+  catalogId: string,
+  datasetId: string,
+  onSuccess?: () => void
+) {
+  return {
+    type: DELETE_DATASET_REQUESTED,
+    payload: {
+      catalogId,
+      datasetId,
+      onSuccess
+    }
+  };
+}
+
+export function deleteDatasetSucceeded() {
+  return {
+    type: DELETE_DATASET_SUCCEEDED
+  };
+}
+
+export function deleteDatasetFailed(message: string) {
+  return {
+    type: DELETE_DATASET_FAILED,
     payload: {
       message
     }

@@ -1,4 +1,4 @@
-import axios from 'axios';
+import axios, { AxiosResponse } from 'axios';
 import { all, call, put, takeLatest } from 'redux-saga/effects';
 
 import env from '../../../env';
@@ -7,7 +7,8 @@ import AuthService from '../../../services/auth';
 
 import {
   GET_DATASET_REQUESTED,
-  CREATE_DATASET_REQUESTED
+  CREATE_DATASET_REQUESTED,
+  DELETE_DATASET_REQUESTED
 } from './actions-types';
 import * as actions from './actions';
 
@@ -24,7 +25,7 @@ function* getDatasetRequested({
       AuthService.getAuthorizationHeader
     ]);
 
-    const { data } = yield call(
+    const { data }: AxiosResponse = yield call(
       axios.get,
       `${FDK_REGISTRATION_BASE_URI}/catalogs/${catalogId}/datasets/${datasetId}`,
       {
@@ -59,7 +60,7 @@ function* createDatasetRequested({
       AuthService.getAuthorizationHeader
     ]);
 
-    const { data } = yield call(
+    const { data }: AxiosResponse = yield call(
       axios.post,
       `${FDK_REGISTRATION_BASE_URI}/catalogs/${catalogId}/datasets`,
       {},
@@ -86,9 +87,47 @@ function* createDatasetRequested({
   }
 }
 
+function* deleteDatasetRequested({
+  payload: { catalogId, datasetId, onSuccess }
+}: ReturnType<typeof actions.deleteDatasetRequested>) {
+  try {
+    const authorization: string = yield call([
+      AuthService,
+      AuthService.getAuthorizationHeader
+    ]);
+
+    const { status }: AxiosResponse = yield call(
+      axios.delete,
+      `${FDK_REGISTRATION_BASE_URI}/catalogs/${catalogId}/datasets/${datasetId}`,
+      {
+        headers: {
+          authorization,
+          accept: 'application/json',
+          'cache-control': 'no-cache'
+        }
+      }
+    );
+
+    if (status === 200) {
+      yield put(actions.deleteDatasetSucceeded());
+
+      onSuccess?.();
+    } else {
+      yield put(
+        actions.deleteDatasetFailed(
+          'An error occurred during an attempt to delete a dataset.'
+        )
+      );
+    }
+  } catch (error) {
+    yield put(actions.deleteDatasetFailed(error));
+  }
+}
+
 export default function* saga() {
   yield all([
     takeLatest(GET_DATASET_REQUESTED, getDatasetRequested),
-    takeLatest(CREATE_DATASET_REQUESTED, createDatasetRequested)
+    takeLatest(CREATE_DATASET_REQUESTED, createDatasetRequested),
+    takeLatest(DELETE_DATASET_REQUESTED, deleteDatasetRequested)
   ]);
 }

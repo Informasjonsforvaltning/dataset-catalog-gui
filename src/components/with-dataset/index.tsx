@@ -12,6 +12,7 @@ export interface Props {
   datasetActions: typeof actions;
   isLoadingDataset: boolean;
   isCreatingDataset: boolean;
+  isDeletingDataset: boolean;
 }
 
 const withDataset = (Component: ComponentType<any>) => {
@@ -21,7 +22,8 @@ const withDataset = (Component: ComponentType<any>) => {
     dataset: state.DatasetReducer.get('dataset')?.toJS(),
     createdDataset: state.DatasetReducer.get('createdDataset')?.toJS(),
     isLoadingDataset: state.DatasetReducer.get('isLoadingDataset'),
-    isCreatingDataset: state.DatasetReducer.get('isCreatingDataset')
+    isCreatingDataset: state.DatasetReducer.get('isCreatingDataset'),
+    isDeletingDataset: state.DatasetReducer.get('isDeletingDataset')
   });
 
   const mapDispatchToProps = (dispatch: Dispatch) => ({
