@@ -1,4 +1,8 @@
-import type { RegistrationStatus, AdministrativeUnitType } from './enums';
+import type {
+  RegistrationStatus,
+  AdministrativeUnitType,
+  ReferenceDataCode
+} from './enums';
 
 export interface MediaType {
   name: string;
@@ -228,3 +232,5 @@ export interface Subject {
   inScheme: string[];
   datasets: Dataset[];
 }
+
+export type ReferenceData = { [key in ReferenceDataCode]?: any[] };

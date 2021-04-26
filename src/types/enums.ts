@@ -28,3 +28,15 @@ export enum AdministrativeUnitType {
   COUNTY = 'http://rdf.kartverket.no/onto/adm_enhet_4.0.owl#Fylke',
   MUNICIPALITY = 'http://rdf.kartverket.no/onto/adm_enhet_4.0.owl#Kommune'
 }
+
+export enum ReferenceDataCode {
+  LOS = 'los',
+  THEMES = 'themes',
+  API_SERVICE_TYPE = 'codes/apiservicetype',
+  API_STATUS = 'codes/apistatus',
+  FREQUENCY = 'codes/frequency',
+  OPEN_LICENCES = 'codes/openlicenses',
+  PROVENANCE = 'codes/provenancestatement',
+  REFERENCE_TYPES = 'codes/referencetypes',
+  MEDIA_TYPES = 'codes/mediatypes'
+}
