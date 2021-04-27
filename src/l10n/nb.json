@@ -170,7 +170,8 @@
       "helptext": {
         "title": "Innholdsleverandører"
       },
-      "searchOrgNr": "Søk på organisasjonsnummer"
+      "searchOrgNr": "Søk på organisasjonsnummer",
+      "searchOrg": "Søk på organisasjon"
     },
     "title": {
       "helptext": {

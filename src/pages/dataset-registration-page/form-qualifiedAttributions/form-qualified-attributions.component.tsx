@@ -66,7 +66,7 @@ const FormQualifiedAttributionsPure: FC<Props> = ({
       />
       {!isReadOnly && (
         <label className="fdk-form-label mb-2" htmlFor="publisher">
-          {localization.schema.qualifiedAttributions.searchOrgNr}
+          {localization.schema.qualifiedAttributions.searchOrg}
         </label>
       )}
       <div className="d-flex">
