@@ -27,7 +27,7 @@ import {
   onChangeSearchInput,
   onSelectSearchedLosItem
 } from './autocomplete-helper';
-import { losValues } from '../../pages/dataset-registration-page/dataset-registration-page.logic';
+import { losValues } from '../dataset-registration-form/dataset-registration-page.logic';
 
 import './form-los.scss';
 

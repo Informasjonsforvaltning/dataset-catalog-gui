@@ -11,7 +11,7 @@ import Translation from '../translation';
 import Helptext from '../helptext/helptext.component';
 import CheckboxFieldTheme from './theme-checkbox/theme-checkbox.component';
 import AlertMessage from '../alert-message/alert-message.component';
-import { themesValues } from '../../pages/dataset-registration-page/dataset-registration-page.logic';
+import { themesValues } from '../dataset-registration-form/dataset-registration-page.logic';
 
 interface ExternalProps {
   initialValues: any;

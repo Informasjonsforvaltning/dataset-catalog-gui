@@ -9,7 +9,7 @@ import {
 
 import Helptext from '../helptext/helptext.component';
 import CheckBoxFieldType from './field-checkbox-type/field-checkbox.component';
-import { typeValues } from '../../pages/dataset-registration-page/dataset-registration-page.logic';
+import { typeValues } from '../dataset-registration-form/dataset-registration-page.logic';
 
 interface Props extends TranslationsProps {
   syncErrors: any;
