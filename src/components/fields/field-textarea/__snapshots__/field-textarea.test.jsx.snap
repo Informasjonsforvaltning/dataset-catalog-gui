@@ -12,8 +12,7 @@ exports[`should render TextAreaField correctly 1`] = `
     <textarea
       className="form-control"
       name="textarea"
-      rows="5"
-      type="textarea"
+      rows={5}
       value="Datakatalog for RAMSUND OG ROGNAN REVISJON"
     />
   </label>

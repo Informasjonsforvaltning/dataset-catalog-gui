@@ -1,23 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`should render FormType, { renderLandingpage  correctly 1`] = `
-<form>
-  <div
-    className="form-group"
-  >
-    <withStateHandlers(HelpTextPure)
-      term="Dataset_type"
-      title="Type"
-    />
-    <Field
-      component={[Function]}
-      name="type"
-    />
-    <div
-      className="alert alert-danger mt-3"
-    >
-      <Component />
-    </div>
-  </div>
-</form>
+<ContextConsumer>
+  <Component />
+</ContextConsumer>
 `;

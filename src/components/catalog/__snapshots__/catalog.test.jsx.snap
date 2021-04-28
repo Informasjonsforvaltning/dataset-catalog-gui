@@ -1,25 +1,50 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`should render CatalogPure correctly with minimum props 1`] = `
-<CatalogItem
-  disabled={true}
-  isReadOnly={false}
-  itemsCount={null}
-  key="910244132"
-  linkUri="/catalogs/910244132/datasets"
-  publisherId="910244132"
-  type="datasets"
-/>
+<Resolver
+  data={Object {}}
+  props={
+    Object {
+      "catalogId": "910244132",
+      "fetchItems": [MockFunction],
+      "type": "datasets",
+    }
+  }
+  resolve={
+    Object {
+      "itemsCount": [Function],
+    }
+  }
+>
+  <Component />
+</Resolver>
 `;
 
 exports[`should render CatalogPure correctly with one dataset item 1`] = `
-<CatalogItem
-  disabled={true}
-  isReadOnly={false}
-  itemsCount={null}
-  key="910244132"
-  linkUri="/catalogs/910244132/datasets"
-  publisherId="910244132"
-  type="datasets"
-/>
+<Resolver
+  data={Object {}}
+  props={
+    Object {
+      "catalogId": "910244132",
+      "fetchItems": [MockFunction],
+      "items": Object {
+        "910244132": Object {
+          "items": Array [
+            Object {
+              "id": "aab2063b-adf4-483a-a342-9e75c9a7c948",
+            },
+          ],
+        },
+      },
+      "type": "datasets",
+    }
+  }
+  resolve={
+    Object {
+      "itemsCount": [Function],
+    }
+  }
+>
+  <Component />
+</Resolver>
 `;

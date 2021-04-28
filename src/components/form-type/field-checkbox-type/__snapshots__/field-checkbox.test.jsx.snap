@@ -8,15 +8,21 @@ exports[`should render CheckboxFieldType correctly 1`] = `
     key="0"
   >
     <input
-      checked=""
+      checked={false}
       id="Data"
       name="types"
       onChange={[Function]}
+      style={
+        Object {
+          "height": "18px",
+          "width": "18px",
+        }
+      }
       type="checkbox"
       value="Data"
     />
     <span
-      className="form-check-label fdk-form-check-label"
+      className="form-check-label fdk-form-check-label mr-3"
     />
     <span>
       Data
@@ -28,15 +34,21 @@ exports[`should render CheckboxFieldType correctly 1`] = `
     key="1"
   >
     <input
-      checked=""
+      checked={false}
       id="Kodelister"
       name="types"
       onChange={[Function]}
+      style={
+        Object {
+          "height": "18px",
+          "width": "18px",
+        }
+      }
       type="checkbox"
       value="Kodelister"
     />
     <span
-      className="form-check-label fdk-form-check-label"
+      className="form-check-label fdk-form-check-label mr-3"
     />
     <span>
       Kodelister
@@ -48,15 +60,21 @@ exports[`should render CheckboxFieldType correctly 1`] = `
     key="2"
   >
     <input
-      checked=""
+      checked={false}
       id="Tesauri"
       name="types"
       onChange={[Function]}
+      style={
+        Object {
+          "height": "18px",
+          "width": "18px",
+        }
+      }
       type="checkbox"
       value="Tesauri"
     />
     <span
-      className="form-check-label fdk-form-check-label"
+      className="form-check-label fdk-form-check-label mr-3"
     />
     <span>
       Tesauri
@@ -68,15 +86,21 @@ exports[`should render CheckboxFieldType correctly 1`] = `
     key="3"
   >
     <input
-      checked=""
+      checked={false}
       id="Taksonomi"
       name="types"
       onChange={[Function]}
+      style={
+        Object {
+          "height": "18px",
+          "width": "18px",
+        }
+      }
       type="checkbox"
       value="Taksonomi"
     />
     <span
-      className="form-check-label fdk-form-check-label"
+      className="form-check-label fdk-form-check-label mr-3"
     />
     <span>
       Taksonomi
@@ -88,15 +112,21 @@ exports[`should render CheckboxFieldType correctly 1`] = `
     key="4"
   >
     <input
-      checked=""
+      checked={false}
       id="Testdata"
       name="types"
       onChange={[Function]}
+      style={
+        Object {
+          "height": "18px",
+          "width": "18px",
+        }
+      }
       type="checkbox"
       value="Testdata"
     />
     <span
-      className="form-check-label fdk-form-check-label"
+      className="form-check-label fdk-form-check-label mr-3"
     />
     <span>
       Testdata

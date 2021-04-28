@@ -28,7 +28,6 @@ exports[`should render InputTagsField correctly 1`] = `
       }
       maxTags={-1}
       name="input"
-      onChange={[Function]}
       onlyUnique={false}
       pasteSplit={[Function]}
       preventSubmit={true}

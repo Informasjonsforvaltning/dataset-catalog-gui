@@ -1,14 +1,8 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`should render DatasetItemsList correctly with datasetItems 1`] = `
-<ListItemsPure
+<Memo()
   catalogId="123"
-  defaultEmptyListText={null}
-  itemTitleField={
-    Array [
-      "title",
-    ]
-  }
   items={
     Array [
       Object {
@@ -2017,41 +2011,28 @@ Her er dagens ekstra tekst",
   }
   onSortField={[Function]}
   prefixPath="/catalogs/123/datasets"
-  sortField=""
+  sortField="none"
   sortType=""
 />
 `;
 
 exports[`should render DatasetItemsList correctly with missing datasetItems 1`] = `
-<ListItemsPure
+<Memo()
   catalogId="123"
-  defaultEmptyListText={null}
-  itemTitleField={
-    Array [
-      "title",
-    ]
-  }
-  items={null}
   onSortField={[Function]}
   prefixPath="/catalogs/123/datasets"
-  sortField=""
+  sortField="none"
   sortType=""
 />
 `;
 
 exports[`should render DatasetItemsList correctly with missing items 1`] = `
-<ListItemsPure
+<Memo()
   catalogId="123"
-  defaultEmptyListText={null}
-  itemTitleField={
-    Array [
-      "title",
-    ]
-  }
   items={null}
   onSortField={[Function]}
   prefixPath="/catalogs/123/datasets"
-  sortField=""
+  sortField="none"
   sortType=""
 />
 `;

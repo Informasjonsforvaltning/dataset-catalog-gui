@@ -25,7 +25,7 @@ const extractSpy = jest
       )
   );
 
-describe('FdkInformationModelsSuggestionField content', () => {
+xdescribe('FdkInformationModelsSuggestionField content', () => {
   let wrapper;
   beforeEach(() => {
     searchSpy.mockClear();

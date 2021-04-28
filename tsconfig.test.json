@@ -33,12 +33,13 @@
     ],
     "typeRoots": [
       "node_modules/@types",
-      "test/types"
+      "test/types/*"
     ]
   },
   "include": [
     "test",
-    "src/**/__tests__/**/*"
+    "src/**/__tests__/**/*",
+    "src/**/*"
   ],
   "exclude": [
     "node_modules"

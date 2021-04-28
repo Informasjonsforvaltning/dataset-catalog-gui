@@ -1,15 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`should render FormSample correctly 1`] = `
-<form>
-  <FieldArray
-    component={[Function]}
-    isReadOnly={false}
-    languages={Array []}
-    name="sample"
-    onDeleteFieldAtIndex={[Function]}
-  />
-</form>
+<ContextConsumer>
+  <Component />
+</ContextConsumer>
 `;
-
-exports[`should render renderSamples correctly 1`] = `<div />`;

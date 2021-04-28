@@ -22,12 +22,12 @@ exports[`should render ListItem correctly "DRAFT" item 1`] = `
         <span
           className="d-flex justify-content-left w-25"
         >
-          Invalid date
+          04/28/2021
         </span>
         <div
           className="d-flex justify-content-left w-25"
         >
-          <RegistrationStatus
+          <Memo(RegistrationStatus)
             registrationStatus="DRAFT"
           />
         </div>
@@ -59,12 +59,12 @@ exports[`should render ListItem correctly "PUBLISH" item 1`] = `
         <span
           className="d-flex justify-content-left w-25"
         >
-          Invalid date
+          04/28/2021
         </span>
         <div
           className="d-flex justify-content-left w-25"
         >
-          <RegistrationStatus
+          <Memo(RegistrationStatus)
             registrationStatus="PUBLISH"
           />
         </div>
@@ -88,7 +88,9 @@ exports[`should render ListItem correctly when missing title 1`] = `
       <span
         className="w-50 fdk-text-size-small fdk-color-neutral-darkest"
       >
-        Mangler tittel
+        <Memo()
+          id="listItems.missingTitle"
+        />
       </span>
       <div
         className="d-flex justify-content-end w-50"
@@ -96,12 +98,12 @@ exports[`should render ListItem correctly when missing title 1`] = `
         <span
           className="d-flex justify-content-left w-25"
         >
-          Invalid date
+          04/28/2021
         </span>
         <div
           className="d-flex justify-content-left w-25"
         >
-          <RegistrationStatus
+          <Memo(RegistrationStatus)
             registrationStatus="DRAFT"
           />
         </div>
@@ -125,7 +127,9 @@ exports[`should render ListItem correctly with lastModified date 1`] = `
       <span
         className="w-50 fdk-text-size-small fdk-color-neutral-darkest"
       >
-        Mangler tittel
+        <Memo()
+          id="listItems.missingTitle"
+        />
       </span>
       <div
         className="d-flex justify-content-end w-50"
@@ -138,7 +142,7 @@ exports[`should render ListItem correctly with lastModified date 1`] = `
         <div
           className="d-flex justify-content-left w-25"
         >
-          <RegistrationStatus
+          <Memo(RegistrationStatus)
             registrationStatus="DRAFT"
           />
         </div>

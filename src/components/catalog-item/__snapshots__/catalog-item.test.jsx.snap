@@ -2,7 +2,7 @@
 
 exports[`should render CatalogItem correctly with itemsCount set to 10 1`] = `
 <div
-  className="col-md-4 pl-0 mb-4"
+  className="catalog-items col-md-4 pl-0 pr-0 mb-4"
 >
   <div
     className="catalog-item"
@@ -10,17 +10,20 @@ exports[`should render CatalogItem correctly with itemsCount set to 10 1`] = `
     <div
       className="catalog-item__body d-flex flex-column align-items-center disabled"
     >
-      <h3
-        className="catalog-icon catalog-icon--dataset"
-      >
-        Datasettkatalog
-      </h3>
+      <Styled(SvgIconCatalogDatasetLg) />
+      <styled.h3>
+        <Memo()
+          id="catalogs.datasets"
+        />
+      </styled.h3>
       <span
         className="fdk-text-size-small fdk-color-neutral-dark"
       >
         10
          
-        datasettbeskrivelser
+        <Memo()
+          id="catalogs.type.datasets"
+        />
       </span>
     </div>
   </div>
@@ -29,7 +32,7 @@ exports[`should render CatalogItem correctly with itemsCount set to 10 1`] = `
 
 exports[`should render CatalogItem correctly with missing itemsCount 1`] = `
 <div
-  className="col-md-4 pl-0 mb-4"
+  className="catalog-items col-md-4 pl-0 pr-0 mb-4"
 >
   <div
     className="catalog-item"
@@ -37,17 +40,22 @@ exports[`should render CatalogItem correctly with missing itemsCount 1`] = `
     <div
       className="catalog-item__body d-flex flex-column align-items-center disabled h-100"
     >
-      <h3
-        className="catalog-icon catalog-icon--dataset"
-      >
-        Datasettkatalog
-      </h3>
+      <Styled(SvgIconCatalogDatasetLg) />
+      <styled.h3>
+        <Memo()
+          id="catalogs.datasets"
+        />
+      </styled.h3>
       <span
         className="fdk-text-size-small fdk-color-neutral-dark"
       >
-        Ingen
+        <Memo()
+          id="none"
+        />
          
-        datasettbeskrivelser
+        <Memo()
+          id="catalogs.type.datasets"
+        />
       </span>
     </div>
   </div>

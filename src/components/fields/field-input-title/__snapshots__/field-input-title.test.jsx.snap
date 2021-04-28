@@ -13,7 +13,9 @@ exports[`should render InputTitleField correctly 1`] = `
       <i
         className="fa fa-pencil mr-2"
       />
-      Rediger tittel
+      <Memo()
+        id="app.editTitle"
+      />
     </button>
   </div>
 </div>

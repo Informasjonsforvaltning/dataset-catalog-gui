@@ -1,3 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`should render FormProvenance correctly 1`] = `""`;
+exports[`should render FormProvenance correctly 1`] = `
+<ContextConsumer>
+  <Component />
+</ContextConsumer>
+`;

@@ -1,3 +1,4 @@
+import React from 'react';
 import { shallow } from 'enzyme';
 import FormContentsComponent from './form-contents.component';
 
@@ -6,7 +7,7 @@ let wrapper;
 
 beforeEach(() => {
   defaultProps = {};
-  wrapper = shallow(FormContentsComponent(defaultProps));
+  wrapper = shallow(<FormContentsComponent {...defaultProps} />);
 });
 
 test('should render FormContentsComponent, { renderS correctly', () => {

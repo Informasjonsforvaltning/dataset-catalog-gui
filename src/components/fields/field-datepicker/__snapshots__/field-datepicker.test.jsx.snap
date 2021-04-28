@@ -7,22 +7,29 @@ exports[`should render DatepickerField correctly 1`] = `
   <label
     className="fdk-form-label"
     htmlFor="date"
+    id="date"
   >
-     
     label
-    <DatePicker
+    <r
       allowSameDay={false}
       className="fdk-reg-datepicker"
-      dateFormat="DD.MM.YYYY"
-      dateFormatCalendar="MMMM YYYY"
+      customTimeInput={null}
+      dateFormat="dd.MM.yyyy"
+      dateFormatCalendar="LLLL yyyy"
       disabled={false}
       disabledKeyboardNavigation={false}
       dropdownMode="scroll"
+      enableTabLoop={true}
+      excludeScrollbar={true}
+      focusSelectedMonth={false}
       id="date"
-      locale="nb-no"
+      locale="no"
       monthsShown={1}
-      nextMonthButtonLabel="Next month"
+      nextMonthButtonLabel="Next Month"
+      nextYearButtonLabel="Next Year"
       onBlur={[Function]}
+      onCalendarClose={[Function]}
+      onCalendarOpen={[Function]}
       onChange={[Function]}
       onClickOutside={[Function]}
       onFocus={[Function]}
@@ -34,16 +41,29 @@ exports[`should render DatepickerField correctly 1`] = `
       onYearChange={[Function]}
       preventOpenOnFocus={false}
       previousMonthButtonLabel="Previous Month"
+      previousYearButtonLabel="Previous Year"
       readOnly={false}
       renderDayContents={[Function]}
-      selected={"2018-05-15T12:46:34.495Z"}
+      selected={2018-05-15T12:46:34.495Z}
       shouldCloseOnSelect={true}
+      showFourColumnMonthYearPicker={false}
+      showFullMonthYearPicker={false}
+      showMonthYearPicker={false}
+      showPopperArrow={true}
+      showPreviousMonths={false}
+      showQuarterYearPicker={false}
+      showTimeInput={false}
       showTimeSelect={false}
+      showTwoColumnMonthYearPicker={false}
       showYearDropdown={true}
+      showYearPicker={false}
+      strictParsing={false}
       timeCaption="Time"
+      timeInputLabel="Time"
       timeIntervals={30}
       withPortal={false}
       yearDropdownItemNumber={5}
+      yearItemNumber={12}
     />
   </label>
 </div>

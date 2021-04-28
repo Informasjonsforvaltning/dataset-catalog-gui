@@ -1,46 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`should render FormInformationModelPure correctly 1`] = `
-<form>
-  <div
-    className="form-group"
-  >
-    <div
-      className="mt-4"
-    >
-      <div
-        className="form-group"
-      >
-        <withStateHandlers(HelpTextPure)
-          term="Dataset_fdkInformationModel"
-          title="Informasjonsmodell fra Felles datakatalog"
-        />
-        <FieldArray
-          catalogId={null}
-          component={[Function]}
-          datasetId={null}
-          dispatch={null}
-          isReadOnly={false}
-          name="informationModel"
-        />
-        <withStateHandlers(HelpTextPure)
-          term="Dataset_externalInformationModel"
-          title="Informasjonsmodell fra andre kilder"
-        />
-        <FieldArray
-          addLabel="Legg til ny informasjonsmodell"
-          catalogId={null}
-          component={[Function]}
-          datasetId={null}
-          dispatch={null}
-          isReadOnly={false}
-          languages={Array []}
-          linkLabel="URL til informasjonsmodell"
-          name="informationModel"
-          titleLabel="Tittel på informasjonsmodell"
-        />
-      </div>
-    </div>
-  </div>
-</form>
+<ContextConsumer>
+  <Component />
+</ContextConsumer>
 `;
