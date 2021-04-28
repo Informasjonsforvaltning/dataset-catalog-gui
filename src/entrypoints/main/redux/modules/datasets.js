@@ -1,16 +1,12 @@
 import _ from 'lodash';
 import { compose } from 'recompose';
-import {
-  datasetListAllPath,
-  deleteDataset
-} from '../../services/api/registration-api/datasets';
-import { reduxFsaThunk } from '../../lib/redux-fsa-thunk';
-import { registrationApiGet } from '../../services/api/registration-api/host';
+import { datasetListAllPath } from '../../../../services/api/registration-api/datasets';
+import { reduxFsaThunk } from '../../../../lib/redux-fsa-thunk';
+import { registrationApiGet } from '../../../../services/api/registration-api/host';
 
 export const DATASETS_REQUEST = 'DATASETS_REQUEST';
 export const DATASETS_SUCCESS = 'DATASETS_SUCCESS';
 export const DATASETS_FAILURE = 'DATASETS_FAILURE';
-export const DATASETS_ITEM_DELETE = 'DATASETS_ITEM_DELETE';
 export const DATASET_SUCCESS = 'DATASET_SUCCESS';
 
 function shouldFetch(metaState) {
@@ -32,22 +28,10 @@ export const fetchDatasetsIfNeeded = catalogId => (dispatch, getState) =>
     })
   );
 
-export const deleteDatasetItemAction = (catalogId, datasetId) => ({
-  type: DATASETS_ITEM_DELETE,
-  catalogId,
-  datasetId
-});
-
 export const datasetSuccessAction = dataset => ({
   type: DATASET_SUCCESS,
   payload: dataset
 });
-
-export const deleteDatasetThunk = (catalogId, datasetId) => dispatch => {
-  return deleteDataset(catalogId, datasetId).then(() =>
-    dispatch(deleteDatasetItemAction(catalogId, datasetId))
-  );
-};
 
 const initialState = {};
 
@@ -108,13 +92,6 @@ export function datasetsReducer(state = initialState, action) {
         }
       };
     }
-    case DATASETS_ITEM_DELETE:
-      return {
-        ...state,
-        [action.catalogId]: {
-          ..._.omit(state, [action.catalogId, 'items'], action.datasetId)
-        }
-      };
     default:
       return state;
   }
