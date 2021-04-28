@@ -1,5 +1,5 @@
 import {
-  registrationApiDelete,
+  registrationApiGet,
   registrationApiPatch,
   registrationApiPost,
   registrationApiPut
@@ -15,9 +15,6 @@ export const datasetListAllPath = catalogId =>
 export const datasetPath = (catalogId, datasetId) =>
   `${datasetListPath(catalogId)}/${datasetId}`;
 
-export const deleteDataset = (catalogId, datasetId) =>
-  registrationApiDelete(datasetPath(catalogId, datasetId));
-
 export const patchDataset = (catalogId, datasetId, patch) =>
   registrationApiPatch(datasetPath(catalogId, datasetId), patch);
 
@@ -26,3 +23,8 @@ export const createDataset = catalogId =>
 
 export const saveCatalog = catalog =>
   registrationApiPut(catalogPath(catalog.id), catalog);
+
+export const getDatasetsCount = catalogId =>
+  registrationApiGet(datasetListAllPath(catalogId)).then(
+    datasets => datasets?._embedded?.catalogs?.length ?? 0
+  );

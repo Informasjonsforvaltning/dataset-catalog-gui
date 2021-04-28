@@ -21,8 +21,6 @@ export const registrationApi = async (method, path, data) => {
   return response.data;
 };
 
-export const registrationApiDelete = path => registrationApi('DELETE', path);
-
 export const registrationApiPatch = (path, body) =>
   registrationApi('PATCH', path, body);
 

@@ -17,7 +17,8 @@ export const getRecords = async orgnr =>
         }
       }
     )
-    .then(({ data }) => data);
+    .then(({ data }) => data)
+    .catch(() => {});
 
 export const getRecordsCount = orgnr =>
   getRecords(orgnr).then(data => data && data.hits && data.hits.length);
