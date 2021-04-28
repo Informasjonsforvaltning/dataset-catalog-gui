@@ -87,7 +87,7 @@ const FormProvenance: FC<Props> = ({
 
   return provenance ? (
     <form>
-      <div className='form-group'>
+      <div className='form-group mb-0'>
         <Helptext
           title={translationsService.translate(
             'schema.provenance.helptext.provenance'
@@ -99,7 +99,7 @@ const FormProvenance: FC<Props> = ({
           component={isReadOnly ? renderProvenanceReadOnly : renderProvenance}
         />
       </div>
-      <div className='form-group'>
+      <div className='form-group mb-0'>
         <Helptext
           title={translationsService.translate(
             'schema.provenance.helptext.accruralPeriodicity'
@@ -112,7 +112,7 @@ const FormProvenance: FC<Props> = ({
           items={frequencyItems}
         />
       </div>
-      <div className='form-group'>
+      <div className='form-group mb-0'>
         <Helptext
           title={translationsService.translate(
             'schema.provenance.helptext.modified'
@@ -128,7 +128,7 @@ const FormProvenance: FC<Props> = ({
           )}
         />
       </div>
-      <div className='form-group'>
+      <div className='form-group mb-0'>
         <Helptext
           title={translationsService.translate(
             'schema.provenance.helptext.currentness'

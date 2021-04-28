@@ -1,7 +1,7 @@
 import { getFormSyncErrors } from 'redux-form';
 import { connect } from 'react-redux';
 
-import { ConfiguredFormTitle } from './configured-form-contents';
+import { ConfiguredFormContents } from './configured-form-contents';
 import {
   conformsToType,
   relevanceAnnotationType,
@@ -32,5 +32,5 @@ const mapStateToProps = ({ state }, { datasetItem = {} }) => {
 };
 
 export const ConnectedFormContents = connect(mapStateToProps)(
-  ConfiguredFormTitle
+  ConfiguredFormContents
 );

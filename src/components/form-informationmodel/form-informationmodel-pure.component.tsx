@@ -30,9 +30,9 @@ const FormInformationModel: FC<Props> = ({
   translationsService
 }) => (
   <form>
-    <div className='form-group'>
+    <div className='form-group mb-0'>
       <div className='mt-4'>
-        <div className='form-group'>
+        <div className='form-group mb-0'>
           <Helptext
             title={translationsService.translate(
               'schema.informationModel.helptext.fdkInformationModel'

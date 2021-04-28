@@ -103,39 +103,54 @@ const ConceptTagsInputField: FC<Props> = ({ input, translationsService }) => {
 
   const onSuggestionsClearRequested = () => setSuggestions([]);
 
-  const autosuggestRenderInput = ({ addTag }: any) => (
-    <>
-      <Autosuggest
-        suggestions={suggestions}
-        shouldRenderSuggestions={(value: any) =>
-          value && value.trim().length > 0
-        }
-        getSuggestionValue={getSuggestionValue}
-        renderSuggestion={renderSuggestion}
-        renderSuggestionsContainer={({ containerProps, children }) =>
-          renderSuggestionContainer(containerProps, children)
-        }
-        inputProps={{ ...input }}
-        onSuggestionSelected={(_, { suggestion }) => addTag(suggestion)}
-        onSuggestionsClearRequested={onSuggestionsClearRequested}
-        onSuggestionsFetchRequested={onSuggestionsFetchRequested}
-      />
-      {isLoading && (
-        <i
-          className='fa fa-spinner fa-spin'
-          style={{ position: 'absolute', right: '10px', top: '12px' }}
-        />
-      )}
-    </>
-  );
+  const autosuggestRenderInput = ({ addTag, onChange, ...props }: any) => {
+    const handleOnChange = (e: any, { method }: any) => {
+      if (method === 'enter') {
+        e.preventDefault();
+      } else {
+        onChange(e);
+      }
+    };
 
-  const handleChange = ({ changed, changedIndexes }: any) => {
+    return (
+      <>
+        <Autosuggest
+          suggestions={suggestions}
+          shouldRenderSuggestions={(value: any) => value?.trim().length > 0}
+          getSuggestionValue={getSuggestionValue}
+          renderSuggestion={renderSuggestion}
+          renderSuggestionsContainer={({ containerProps, children }) =>
+            renderSuggestionContainer(containerProps, children)
+          }
+          inputProps={{
+            ...props,
+            onChange: handleOnChange
+          }}
+          onSuggestionSelected={(_, { suggestion }) => addTag(suggestion)}
+          onSuggestionsClearRequested={onSuggestionsClearRequested}
+          onSuggestionsFetchRequested={onSuggestionsFetchRequested}
+        />
+        {isLoading && (
+          <i
+            className='fa fa-spinner fa-spin'
+            style={{ position: 'absolute', right: '10px', top: '12px' }}
+          />
+        )}
+      </>
+    );
+  };
+
+  const handleChange = (
+    _tags: any[],
+    changed: any[],
+    changedIndexes: number[]
+  ) => {
     // if changedIndex er smaller than number of tags, then it must be deletion of the tag
     if (changedIndexes < input.value.length) {
       const newValue = input.value;
       newValue.splice(changedIndexes[0], 1);
       input.onChange(newValue);
-    } else if (typeof changed[0] === 'object') {
+    } else if (typeof changed?.[0] === 'object') {
       // only add if object was selected from droptown, not free text
       const newValue = input.value || [];
       newValue.push(changed[0]);

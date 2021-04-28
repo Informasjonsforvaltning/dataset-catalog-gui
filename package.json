@@ -71,6 +71,7 @@
     "classnames": "^2.3.1",
     "clean-deep": "^3.4.0",
     "core-js": "^3.10.0",
+    "date-fns": "^2.21.1",
     "designsystemet": "git+https://github.com/Informasjonsforvaltning/designsystemet.git#1.4.24",
     "font-awesome": "^4.7.0",
     "immutable": "^4.0.0-rc.12",

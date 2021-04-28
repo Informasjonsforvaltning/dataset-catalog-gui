@@ -28,6 +28,105 @@ interface ExternalProps {
 
 interface Props extends ExternalProps, TranslationsProps {}
 
+const renderFormatReadOnly = ({ input }: any) => (
+  <div>{input.value.join(', ')}</div>
+);
+
+const renderSamples = ({
+  fields,
+  onDeleteFieldAtIndex,
+  languages,
+  isReadOnly,
+  translationsService
+}: any) => (
+  <div>
+    {fields?.map((sample: any, index: number) => (
+      <div key={index}>
+        {!isReadOnly && (
+          <div className='d-flex'>
+            <button
+              className='fdk-btn-no-border'
+              type='button'
+              title={translationsService.translate(
+                'schema.sample.removeSample'
+              )}
+              onClick={() => onDeleteFieldAtIndex(fields, index)}
+            >
+              <i className='fa fa-trash mr-2' />
+              <Translation id='schema.sample.deleteSampleLabel' />
+            </button>
+          </div>
+        )}
+        <div className='form-group mb-0'>
+          <Helptext
+            title={translationsService.translate(
+              'schema.sample.helptext.accessURL'
+            )}
+          />
+          <Field
+            name={`${sample}.accessURL.0`}
+            type='text'
+            component={isReadOnly ? LinkReadonlyField : InputField}
+            label={translationsService.translate(
+              'schema.sample.accessURLLabel'
+            )}
+          />
+        </div>
+        <div className='form-group mb-0'>
+          <Helptext
+            title={translationsService.translate(
+              'schema.sample.helptext.format'
+            )}
+            term='Distribution_format'
+          />
+          <Field
+            name={`${sample}.format`}
+            type='text'
+            component={isReadOnly ? renderFormatReadOnly : InputTagsField}
+            label={translationsService.translate('schema.sample.formatLabel')}
+          />
+        </div>
+        <div className='form-group mb-0'>
+          <Helptext
+            title={translationsService.translate(
+              'schema.sample.helptext.description'
+            )}
+          />
+          <MultilingualField
+            name={`${sample}.description`}
+            component={isReadOnly ? InputFieldReadonly : TextAreaField}
+            label={translationsService.translate(
+              'schema.sample.descriptionLabel'
+            )}
+            languages={languages}
+          />
+        </div>
+      </div>
+    ))}
+    {fields && fields.length === 0 && (
+      <button
+        className='fdk-btn-no-border'
+        type='button'
+        onClick={() =>
+          fields.push({
+            id: '',
+            description: textType,
+            accessURL: [],
+            license: licenseType,
+            conformsTo: [],
+            page: [licenseType],
+            format: [],
+            type: ''
+          })
+        }
+      >
+        <i className='fa fa-plus mr-2' />
+        <Translation id='schema.sample.addSampleLabel' />
+      </button>
+    )}
+  </div>
+);
+
 const FormSample: FC<Props> = ({
   dispatch,
   catalogId,
@@ -45,99 +144,6 @@ const FormSample: FC<Props> = ({
     dispatch(thunk);
   };
 
-  const renderFormatReadOnly = ({ input }: any) => (
-    <div>{input.value.join(', ')}</div>
-  );
-
-  const renderSamples = ({ fields, onDeleteFieldAtIndex }: any) => (
-    <div>
-      {fields?.map((sample: any, index: number) => (
-        <div key={index}>
-          {!isReadOnly && (
-            <div className='d-flex'>
-              <button
-                className='fdk-btn-no-border'
-                type='button'
-                title={translationsService.translate(
-                  'schema.sample.removeSample'
-                )}
-                onClick={() => onDeleteFieldAtIndex(fields, index)}
-              >
-                <i className='fa fa-trash mr-2' />
-                <Translation id='schema.sample.deleteSampleLabel' />
-              </button>
-            </div>
-          )}
-          <div className='form-group'>
-            <Helptext
-              title={translationsService.translate(
-                'schema.sample.helptext.accessURL'
-              )}
-            />
-            <Field
-              name={`${sample}.accessURL.0`}
-              type='text'
-              component={isReadOnly ? LinkReadonlyField : InputField}
-              label={translationsService.translate(
-                'schema.sample.accessURLLabel'
-              )}
-            />
-          </div>
-          <div className='form-group'>
-            <Helptext
-              title={translationsService.translate(
-                'schema.sample.helptext.format'
-              )}
-              term='Distribution_format'
-            />
-            <Field
-              name={`${sample}.format`}
-              type='text'
-              component={isReadOnly ? renderFormatReadOnly : InputTagsField}
-              label={translationsService.translate('schema.sample.formatLabel')}
-            />
-          </div>
-          <div className='form-group'>
-            <Helptext
-              title={translationsService.translate(
-                'schema.sample.helptext.description'
-              )}
-            />
-            <MultilingualField
-              name={`${sample}.description`}
-              component={isReadOnly ? InputFieldReadonly : TextAreaField}
-              label={translationsService.translate(
-                'schema.sample.descriptionLabel'
-              )}
-              languages={languages}
-            />
-          </div>
-        </div>
-      ))}
-      {fields && fields.length === 0 && (
-        <button
-          className='fdk-btn-no-border'
-          type='button'
-          onClick={() =>
-            fields.push({
-              id: '',
-              description: textType,
-              accessURL: [],
-              license: licenseType,
-              conformsTo: [],
-              page: [licenseType],
-              format: [],
-              type: ''
-            })
-          }
-        >
-          <i className='fa fa-plus mr-2' />
-          <Translation id='schema.sample.addSampleLabel' />
-        </button>
-      )}
-    </div>
-  );
-
   return (
     <form>
       <FieldArray
@@ -146,6 +152,7 @@ const FormSample: FC<Props> = ({
         onDeleteFieldAtIndex={deleteFieldAtIndex}
         languages={languages}
         isReadOnly={isReadOnly}
+        translationsService={translationsService}
       />
     </form>
   );

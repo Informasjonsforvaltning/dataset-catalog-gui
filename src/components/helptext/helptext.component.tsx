@@ -62,7 +62,7 @@ const HelpText: FC<Props> = ({
       </div>
       <div className='d-md-flex'>
         {abstract && (
-          <div
+          <pre
             dangerouslySetInnerHTML={{
               __html: convertToSanitizedHtml(abstract)
             }}
@@ -81,7 +81,7 @@ const HelpText: FC<Props> = ({
       </div>
       {description && (
         <Collapse className='mt-3' isOpen={showAll}>
-          <div
+          <pre
             dangerouslySetInnerHTML={{
               __html: convertToSanitizedHtml(description)
             }}

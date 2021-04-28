@@ -10,4 +10,4 @@ const config = {
   asyncValidate: asyncValidateDatasetInvokePatch
 };
 
-export const ConfiguredFormTitle = reduxForm(config)(FormReference);
+export const ConfiguredFormReference = reduxForm(config)(FormReference);

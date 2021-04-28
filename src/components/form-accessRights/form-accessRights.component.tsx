@@ -173,7 +173,7 @@ const FormAccessRights: FC<FormAccessRightsProps> = ({
   };
   return (
     <form>
-      <div className='form-group'>
+      <div className='form-group mb-0'>
         <Helptext
           title={translationsService.translate('schema.accessRights.heading')}
           term='Dataset_accessRights'
@@ -247,7 +247,7 @@ const FormAccessRights: FC<FormAccessRightsProps> = ({
           hasAccessRightsURI ===
             'http://publications.europa.eu/resource/authority/access-right/NON_PUBLIC') && (
           <div className='mt-4'>
-            <div className='form-group'>
+            <div className='form-group mb-0'>
               <Helptext
                 title={translationsService.translate(
                   'schema.accessRights.legalBasisForRestriction.heading'
@@ -269,7 +269,7 @@ const FormAccessRights: FC<FormAccessRightsProps> = ({
               />
             </div>
 
-            <div className='form-group'>
+            <div className='form-group mb-0'>
               <Helptext
                 title={translationsService.translate(
                   'schema.accessRights.legalBasisForProcessing.heading'
@@ -291,7 +291,7 @@ const FormAccessRights: FC<FormAccessRightsProps> = ({
               />
             </div>
 
-            <div className='form-group'>
+            <div className='form-group mb-0'>
               <Helptext
                 title={translationsService.translate(
                   'schema.accessRights.legalBasisForAccess.heading'

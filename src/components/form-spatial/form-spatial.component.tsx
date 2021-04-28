@@ -25,6 +25,110 @@ interface ExternalProps {
 
 interface Props extends ExternalProps, TranslationsProps {}
 
+const renderTemporalFields = ({
+  item,
+  fields,
+  onDeleteFieldAtIndex,
+  index,
+  translationsService
+}: any) => (
+  <div className='d-flex mb-2' key={index}>
+    <div className='w-50'>
+      <Field
+        name={`${item}.startDate`}
+        type='text'
+        component={DatepickerField}
+        label={translationsService.translate('schema.common.startDateLabel')}
+        showLabel
+      />
+    </div>
+    <div className='w-50'>
+      <Field
+        name={`${item}.endDate`}
+        type='text'
+        component={DatepickerField}
+        label={translationsService.translate('schema.common.endDateLabel')}
+        showLabel
+      />
+    </div>
+    <div className='d-flex align-items-end'>
+      <button
+        className='fdk-btn-no-border'
+        type='button'
+        title='Remove temporal'
+        onClick={() => onDeleteFieldAtIndex(fields, index)}
+      >
+        <i className='fa fa-trash mr-2' />
+      </button>
+    </div>
+  </div>
+);
+
+const renderTemporal = ({
+  fields,
+  onDeleteFieldAtIndex,
+  translationsService
+}: any) => (
+  <div>
+    {fields?.map((item: any, index: number) =>
+      renderTemporalFields({
+        item,
+        index,
+        fields,
+        onDeleteFieldAtIndex,
+        translationsService
+      })
+    )}
+    <button
+      className='fdk-btn-no-border'
+      type='button'
+      onClick={() => fields.push({})}
+    >
+      <i className='fa fa-plus mr-2' />
+      <Translation id='schema.common.addTime' />
+    </button>
+  </div>
+);
+
+const renderTemporalReadOnly = ({ fields, translationsService }: any) =>
+  fields?.map((item: any) => (
+    <div className='pl-3' key={item}>
+      <Field
+        name={`${item}.endDate`}
+        type='text'
+        component={({ input }: any) => <span>{input.value} - </span>}
+        label={translationsService.translate('schema.common.endDateLabel')}
+        showLabel
+      />
+      <Field
+        name={`${item}.startDate`}
+        type='text'
+        component={({ input }: any) => <span>{input.value}</span>}
+        label={translationsService.translate('schema.common.endDateLabel')}
+        showLabel
+      />
+    </div>
+  ));
+
+const translateCode = (code: any) => {
+  switch (code) {
+    case 'NOR':
+      return 'Norsk';
+    case 'SMI':
+      return 'Samisk';
+    case 'ENG':
+      return 'Engelsk';
+    default:
+      return '';
+  }
+};
+
+const renderLanguageReadOnly = ({ input }: any) => (
+  <div className='pl-3'>
+    {input.value.map((item: any) => translateCode(item.code)).join(', ')}
+  </div>
+);
+
 const FormSpatial: FC<Props> = ({
   initialValues,
   dispatch,
@@ -53,103 +157,9 @@ const FormSpatial: FC<Props> = ({
       })
     );
 
-  const translateCode = (code: any) => {
-    switch (code) {
-      case 'NOR':
-        return 'Norsk';
-      case 'SMI':
-        return 'Samisk';
-      case 'ENG':
-        return 'Engelsk';
-      default:
-        return '';
-    }
-  };
-
-  const renderTemporalFields = ({
-    item,
-    index,
-    fields,
-    onDeleteFieldAtIndex
-  }: any) => (
-    <div className='d-flex mb-2' key={index}>
-      <div className='w-50'>
-        <Field
-          name={`${item}.startDate`}
-          type='text'
-          component={DatepickerField}
-          label={translationsService.translate('schema.common.startDateLabel')}
-          showLabel
-        />
-      </div>
-      <div className='w-50'>
-        <Field
-          name={`${item}.endDate`}
-          type='text'
-          component={DatepickerField}
-          label={translationsService.translate('schema.common.endDateLabel')}
-          showLabel
-        />
-      </div>
-      <div className='d-flex align-items-end'>
-        <button
-          className='fdk-btn-no-border'
-          type='button'
-          title='Remove temporal'
-          onClick={() => onDeleteFieldAtIndex(fields, index)}
-        >
-          <i className='fa fa-trash mr-2' />
-        </button>
-      </div>
-    </div>
-  );
-
-  const renderTemporal = ({ fields, onDeleteFieldAtIndex }: any) => (
-    <div>
-      {fields &&
-        fields.map((item: any, index: number) =>
-          renderTemporalFields({ item, index, fields, onDeleteFieldAtIndex })
-        )}
-      <button
-        className='fdk-btn-no-border'
-        type='button'
-        onClick={() => fields.push({})}
-      >
-        <i className='fa fa-plus mr-2' />
-        <Translation id='schema.common.addTime' />
-      </button>
-    </div>
-  );
-
-  const renderTemporalReadOnly = ({ fields }: any) =>
-    fields.map((item: any) => (
-      <div className='pl-3' key={item}>
-        <Field
-          name={`${item}.endDate`}
-          type='text'
-          component={({ input }: any) => <span>{input.value} - </span>}
-          label={translationsService.translate('schema.common.endDateLabel')}
-          showLabel
-        />
-        <Field
-          name={`${item}.startDate`}
-          type='text'
-          component={({ input }: any) => <span>{input.value}</span>}
-          label={translationsService.translate('schema.common.endDateLabel')}
-          showLabel
-        />
-      </div>
-    ));
-
-  const renderLanguageReadOnly = ({ input }: any) => (
-    <div className='pl-3'>
-      {input.value.map((item: any) => translateCode(item.code)).join(', ')}
-    </div>
-  );
-
   return initialValues ? (
     <form>
-      <div className='form-group'>
+      <div className='form-group mb-0'>
         <Helptext
           title={translationsService.translate(
             'schema.spatial.helptext.spatial'
@@ -166,7 +176,7 @@ const FormSpatial: FC<Props> = ({
           onUpdateAdministrativeUnits={onUpdateAdministrativeUnits('spatial')}
         />
       </div>
-      <div className='form-group'>
+      <div className='form-group mb-0'>
         <Helptext
           title={translationsService.translate(
             'schema.spatial.helptext.temporal'
@@ -178,7 +188,7 @@ const FormSpatial: FC<Props> = ({
           <FieldArray
             name='temporal'
             component={renderTemporalReadOnly}
-            onDeleteFieldAtIndex={deleteFieldAtIndex}
+            translationsService={translationsService}
           />
         )}
         {!isReadOnly && (
@@ -186,10 +196,11 @@ const FormSpatial: FC<Props> = ({
             name='temporal'
             component={renderTemporal}
             onDeleteFieldAtIndex={deleteFieldAtIndex}
+            translationsService={translationsService}
           />
         )}
       </div>
-      <div className='form-group'>
+      <div className='form-group mb-0'>
         <Helptext
           title={translationsService.translate(
             'schema.spatial.helptext.issued'
@@ -215,7 +226,7 @@ const FormSpatial: FC<Props> = ({
           />
         )}
       </div>
-      <div className='form-group'>
+      <div className='form-group mb-0'>
         <Helptext
           title={translationsService.translate(
             'schema.spatial.helptext.language'

@@ -26,9 +26,9 @@ const FormContentsComponent: FC<Props> = ({
   translationsService
 }) => (
   <form>
-    <div className='form-group'>
+    <div className='form-group mb-0'>
       <div className='mt-4'>
-        <div className='form-group'>
+        <div className='form-group mb-0'>
           <Helptext
             title={translationsService.translate(
               'schema.content.helptext.conformsTo'
@@ -48,7 +48,7 @@ const FormContentsComponent: FC<Props> = ({
         </div>
       </div>
     </div>
-    <div className='form-group'>
+    <div className='form-group mb-0'>
       <Helptext
         title={translationsService.translate(
           'schema.content.helptext.relevance'
@@ -64,7 +64,7 @@ const FormContentsComponent: FC<Props> = ({
         languages={languages}
       />
     </div>
-    <div className='form-group'>
+    <div className='form-group mb-0'>
       <Helptext
         title={translationsService.translate(
           'schema.content.helptext.completeness'
@@ -80,7 +80,7 @@ const FormContentsComponent: FC<Props> = ({
         languages={languages}
       />
     </div>
-    <div className='form-group'>
+    <div className='form-group mb-0'>
       <Helptext
         title={translationsService.translate(
           'schema.content.helptext.accuracy'
@@ -96,7 +96,7 @@ const FormContentsComponent: FC<Props> = ({
         languages={languages}
       />
     </div>
-    <div className='form-group'>
+    <div className='form-group mb-0'>
       <Helptext
         title={translationsService.translate(
           'schema.content.helptext.availability'

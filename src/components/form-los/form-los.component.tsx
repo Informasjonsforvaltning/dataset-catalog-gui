@@ -63,7 +63,7 @@ const FormLOS: FC<Props> = ({
 
   if (losItemsToShow) {
     return (
-      <div className='form-group'>
+      <div className='form-group mb-0'>
         <Helptext
           title={translationsService.translate('schema.los.helptext.title')}
           term='themesLos'

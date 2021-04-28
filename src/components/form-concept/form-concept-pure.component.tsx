@@ -29,7 +29,7 @@ const FormConcept: FC<Props> = ({
   translationsService
 }) => (
   <form>
-    <div className='form-group'>
+    <div className='form-group mb-0'>
       <Helptext
         title={translationsService.translate('schema.concept.helptext.content')}
         term='Dataset_content'
@@ -46,7 +46,7 @@ const FormConcept: FC<Props> = ({
         <Field name='concepts' component={ConceptTagsInputField} />
       )}
     </div>
-    <div className='form-group'>
+    <div className='form-group mb-0'>
       <Helptext
         title={translationsService.translate('schema.concept.helptext.keyword')}
         term='Dataset_keyword'

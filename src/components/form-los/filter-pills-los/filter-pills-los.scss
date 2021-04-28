@@ -1,7 +1,12 @@
 @import '../../../../node_modules/designsystemet/fdk-designsystem-bootstrap4/scss/colors.scss';
 
 .fdk-filter-pill {
+  display: flex;
+  padding: 4px 6px;
+  font-size: 1.4rem;
+  color: white;
   cursor: pointer;
+
   &:after {
     content: '\2715';
     color: $color-white;

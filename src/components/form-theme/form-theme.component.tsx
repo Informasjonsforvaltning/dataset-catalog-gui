@@ -31,7 +31,7 @@ const FormThemes: FC<Props> = ({
 }) =>
   theme && themesItems ? (
     <form>
-      <div className='form-group'>
+      <div className='form-group mb-0'>
         <Helptext
           title={translationsService.translate('schema.theme.helptext.theme')}
           term='Dataset_theme'

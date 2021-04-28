@@ -1,7 +1,7 @@
 import { getFormSyncErrors } from 'redux-form';
 import { connect } from 'react-redux';
 
-import { ConfiguredFormTitle } from './configured-form-reference';
+import { ConfiguredFormReference } from './configured-form-reference';
 import { languageType } from '../../schemaTypes';
 
 const mapStateToProps = (
@@ -25,5 +25,5 @@ const mapStateToProps = (
 });
 
 export const ConnectedFormReference = connect(mapStateToProps)(
-  ConfiguredFormTitle
+  ConfiguredFormReference
 );

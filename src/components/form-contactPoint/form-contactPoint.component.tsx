@@ -20,7 +20,7 @@ interface Props extends ExternalProps, TranslationsProps {}
 
 const FormContactPoint: FC<Props> = ({ isReadOnly, translationsService }) => (
   <form>
-    <div className='form-group'>
+    <div className='form-group mb-0'>
       <Helptext
         title={translationsService.translate(
           'schema.contactPoint.helptext.organizationalUnit'
@@ -37,7 +37,7 @@ const FormContactPoint: FC<Props> = ({ isReadOnly, translationsService }) => (
         isOnlyOneSelectedLanguage
       />
     </div>
-    <div className='form-group'>
+    <div className='form-group mb-0'>
       <Helptext
         title={translationsService.translate(
           'schema.contactPoint.helptext.hasURL'
@@ -51,7 +51,7 @@ const FormContactPoint: FC<Props> = ({ isReadOnly, translationsService }) => (
         isOnlyOneSelectedLanguage
       />
     </div>
-    <div className='form-group'>
+    <div className='form-group mb-0'>
       <Helptext
         title={translationsService.translate(
           'schema.contactPoint.helptext.hasEmail'
@@ -65,7 +65,7 @@ const FormContactPoint: FC<Props> = ({ isReadOnly, translationsService }) => (
         isOnlyOneSelectedLanguage
       />
     </div>
-    <div className='form-group'>
+    <div className='form-group mb-0'>
       <Helptext
         title={translationsService.translate(
           'schema.contactPoint.helptext.hasTelephone'

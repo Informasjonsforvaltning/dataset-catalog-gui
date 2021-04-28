@@ -22,7 +22,6 @@ const SelectField: FC<Props> = ({
   meta: { touched, error, warning },
   items = [],
   valueKey = 'uri',
-  labelKey = 'prefLabel',
   saveObject,
   translationsService
 }) => {
@@ -58,7 +57,10 @@ const SelectField: FC<Props> = ({
     <div className='pl-2 mt-3'>
       <Select
         id='frequency-select'
-        options={items}
+        options={items.map(({ uri, prefLabel }) => ({
+          value: uri,
+          label: translationsService.translate(prefLabel)
+        }))}
         simpleValue
         clearable
         name='selected-state'
@@ -67,13 +69,6 @@ const SelectField: FC<Props> = ({
           referencedInputObject
             ? referencedInputObject[valueKey]
             : value[valueKey]
-        }
-        valueKey={valueKey}
-        optionRenderer={(option: any) =>
-          translationsService.translate(option[labelKey])
-        }
-        valueRenderer={(option: any) =>
-          translationsService.translate(option[labelKey])
         }
         onChange={handleChange}
         rtl={false}

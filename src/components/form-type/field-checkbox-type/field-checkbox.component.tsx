@@ -53,12 +53,13 @@ const CheckboxFieldType: FC<Props> = ({ input }) => {
           <input
             type='checkbox'
             name='types'
+            style={{ height: '18px', width: '18px' }}
             id={type.label}
             value={type.label}
             checked={input?.value === type.label}
             onChange={handleChange}
           />
-          <span className='form-check-label fdk-form-check-label' />
+          <span className='form-check-label fdk-form-check-label mr-3' />
           <span>{type.label}</span>
         </label>
       ))}

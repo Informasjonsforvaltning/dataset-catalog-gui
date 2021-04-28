@@ -51,12 +51,13 @@ const CheckboxFieldTheme: FC<Props> = ({ input, themesItems }) => {
           <input
             type='checkbox'
             name='themes'
+            style={{ height: '18px', width: '18px' }}
             id={theme.id}
             value={theme.id}
             checked={themeCodes.includes(theme.id)}
             onChange={handleChange}
           />
-          <span className='form-check-label fdk-form-check-label' />
+          <span className='form-check-label fdk-form-check-label mr-3' />
           <span>{theme.title.nb}</span>
         </label>
       ))}

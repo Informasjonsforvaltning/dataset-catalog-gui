@@ -1,8 +1,9 @@
 import React, { memo, FC } from 'react';
 import { compose } from 'redux';
 import type { WrappedFieldProps } from 'redux-form';
-import DatePicker from 'react-datepicker';
+import DatePicker, { registerLocale } from 'react-datepicker';
 import moment from 'moment';
+import no from 'date-fns/locale/nb';
 
 import './field-datepicker.scss';
 
@@ -12,6 +13,8 @@ interface ExternalProps extends WrappedFieldProps {
 }
 
 interface Props extends ExternalProps {}
+
+registerLocale('no', no);
 
 const DatepickerField: FC<Props> = ({
   input: { name, value, onChange },
@@ -29,20 +32,20 @@ const DatepickerField: FC<Props> = ({
           <DatePicker
             id={name}
             className='fdk-reg-datepicker'
-            dateFormat='DD.MM.YYYY'
-            locale='nb-no'
+            dateFormat='dd.MM.yyyy'
+            locale='no'
             showYearDropdown
             yearDropdownItemNumber={5}
-            selected={value && !!moment(value)}
+            selected={value ? moment(value).toDate() : null}
             onChange={handleChange}
           />
         )}
-        {(!value || (value && value === 'Invalid date')) && (
+        {(!value || value === 'Invalid date') && (
           <DatePicker
             id={name}
             className='fdk-reg-datepicker'
-            dateFormat='DD.MM.YYYY'
-            locale='nb-no'
+            dateFormat='dd.MM.yyyy'
+            locale='no'
             showYearDropdown
             yearDropdownItemNumber={5}
             onChange={handleChange}
