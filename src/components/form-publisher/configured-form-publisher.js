@@ -2,7 +2,7 @@ import _ from 'lodash';
 import { reduxForm } from 'redux-form';
 
 import FormPublisher from './form-publisher.component';
-import { asyncValidateDatasetInvokePatch } from '../../entrypoints/main/router/datasets/pages/dataset-page/formsLib/asyncValidateDatasetInvokePatch';
+import { asyncValidateDatasetInvokePatch } from '../dataset-registration-form/formsLib/asyncValidateDatasetInvokePatch';
 
 const config = {
   form: 'publisher',

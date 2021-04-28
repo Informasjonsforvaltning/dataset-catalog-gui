@@ -11,7 +11,7 @@ import Translation from '../translation';
 import Helptext from '../helptext/helptext.component';
 import DatepickerField from '../fields/field-datepicker/field-datepicker.component';
 import CheckboxField from '../fields/field-checkbox/field-checkbox.component';
-import { datasetFormPatchThunk } from '../../entrypoints/main/router/datasets/pages/dataset-page/formsLib/asyncValidateDatasetInvokePatch';
+import { datasetFormPatchThunk } from '../dataset-registration-form/formsLib/asyncValidateDatasetInvokePatch';
 
 import SpatialTagsInputField from './spatial-tags-input-field';
 

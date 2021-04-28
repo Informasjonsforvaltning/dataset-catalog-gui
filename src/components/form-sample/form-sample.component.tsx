@@ -14,7 +14,7 @@ import MultilingualField from '../multilingual-field/multilingual-field.componen
 import InputTagsField from '../fields/field-input-tags/field-input-tags.component';
 import TextAreaField from '../fields/field-textarea/field-textarea.component';
 import { licenseType, textType } from '../../schemaTypes';
-import { datasetFormPatchThunk } from '../../entrypoints/main/router/datasets/pages/dataset-page/formsLib/asyncValidateDatasetInvokePatch';
+import { datasetFormPatchThunk } from '../dataset-registration-form/formsLib/asyncValidateDatasetInvokePatch';
 import LinkReadonlyField from '../fields/field-link-readonly/field-link-readonly.component';
 import InputFieldReadonly from '../fields/field-input-readonly/field-input-readonly.component';
 

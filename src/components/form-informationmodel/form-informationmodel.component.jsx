@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import { getFormSyncErrors, reduxForm } from 'redux-form';
 
-import { asyncValidateDatasetInvokePatch } from '../../entrypoints/main/router/datasets/pages/dataset-page/formsLib/asyncValidateDatasetInvokePatch';
+import { asyncValidateDatasetInvokePatch } from '../dataset-registration-form/formsLib/asyncValidateDatasetInvokePatch';
 
 import FormInformationModelPure from './form-informationmodel-pure.component';
 import { informationModelType } from '../../schemaTypes';

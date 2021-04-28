@@ -4,7 +4,7 @@ import type { WrappedFieldArrayProps } from 'redux-form';
 
 import env from '../../../env';
 
-import { datasetFormPatchThunk } from '../../../entrypoints/main/router/datasets/pages/dataset-page/formsLib/asyncValidateDatasetInvokePatch';
+import { datasetFormPatchThunk } from '../../dataset-registration-form/formsLib/asyncValidateDatasetInvokePatch';
 
 import Translation from '../../translation';
 

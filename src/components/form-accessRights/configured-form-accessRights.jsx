@@ -3,7 +3,7 @@ import _throttle from 'lodash/throttle';
 
 import FormAccessRights from './form-accessRights.component';
 import validate from './form-accessRights.validations';
-import { asyncValidateDatasetInvokePatch } from '../../entrypoints/main/router/datasets/pages/dataset-page/formsLib/asyncValidateDatasetInvokePatch';
+import { asyncValidateDatasetInvokePatch } from '../dataset-registration-form/formsLib/asyncValidateDatasetInvokePatch';
 
 const config = {
   form: 'accessRights',

@@ -18,7 +18,7 @@ import MultilingualField from '../multilingual-field/multilingual-field.componen
 import LinkReadonlyField from '../fields/field-link-readonly/field-link-readonly.component';
 import RadioField from '../fields/field-radio/field-radio.component';
 import { legalBasisType } from '../../schemaTypes';
-import { datasetFormPatchThunk } from '../../entrypoints/main/router/datasets/pages/dataset-page/formsLib/asyncValidateDatasetInvokePatch';
+import { datasetFormPatchThunk } from '../dataset-registration-form/formsLib/asyncValidateDatasetInvokePatch';
 import AlertMessage from '../alert-message/alert-message.component';
 
 /*

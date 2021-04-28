@@ -14,7 +14,7 @@ import MultilingualField from '../multilingual-field/multilingual-field.componen
 import InputField from '../fields/field-input/field-input.component';
 import InputFieldReadonly from '../fields/field-input-readonly/field-input-readonly.component';
 
-import { datasetFormPatchThunk } from '../../entrypoints/main/router/datasets/pages/dataset-page/formsLib/asyncValidateDatasetInvokePatch';
+import { datasetFormPatchThunk } from '../dataset-registration-form/formsLib/asyncValidateDatasetInvokePatch';
 
 interface ExternalProps {
   initialValues: any;

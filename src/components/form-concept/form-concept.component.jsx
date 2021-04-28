@@ -6,7 +6,7 @@ import {
   multilingualObjectToMultilingualTagsArray,
   multilingualTagsArrayToMultilingualObject
 } from '../../lib/multilingual-tags-converter';
-import { asyncValidateDatasetInvokePatch } from '../../entrypoints/main/router/datasets/pages/dataset-page/formsLib/asyncValidateDatasetInvokePatch';
+import { asyncValidateDatasetInvokePatch } from '../dataset-registration-form/formsLib/asyncValidateDatasetInvokePatch';
 
 import validate from './form-concept-validations';
 import FormConceptPure from './form-concept-pure.component';

@@ -1,7 +1,7 @@
 import { reduxForm } from 'redux-form';
 
 import FormThemes from './form-theme.component';
-import { asyncValidateDatasetInvokePatch } from '../../entrypoints/main/router/datasets/pages/dataset-page/formsLib/asyncValidateDatasetInvokePatch';
+import { asyncValidateDatasetInvokePatch } from '../dataset-registration-form/formsLib/asyncValidateDatasetInvokePatch';
 
 const config = {
   form: 'themes',
