@@ -4,12 +4,12 @@ import env from '../../../env';
 
 import AuthService from '../../auth';
 
-const { REGISTRATION_API_HOST } = env;
+const { FDK_REGISTRATION_BASE_URI } = env;
 
 export const registrationApi = async (method, path, data) => {
   const Authorization = await AuthService.getAuthorizationHeader();
   const response = await axios({
-    url: `${REGISTRATION_API_HOST}${path}`,
+    url: `${FDK_REGISTRATION_BASE_URI}${path}`,
     method,
     data,
     headers: {

@@ -18,9 +18,9 @@ An application for managing datasets.
 #### Running application in a Docker container
 
 - Build a Docker container using the following command:
-  - `docker build -t account-web .`
+  - `docker build -t dataset-catalog-gui .`
 - Run the container using the following comand:
-  - `docker run -d -p 4301:8080 -e NAMESPACE -e FDK_BASE_URI -e SSO_HOST -e SKE_THEME_PROFILE -e FDK_REGISTRATION_BASE_URI -e REGISTRATION_API_HOST -e ADMIN_GUI_BASE_URI -e ORGANIZATION_API_HOST -e SEARCH_FULLTEXT_HOST -e DATASERVICE_CATALOG_BASE_URI -e CONCEPT_REGISTRATION_HOST -e CONCEPT_REGISTRATION_API_HOST -e RECORDS_OF_PROCESSING_ACTIVITIES_GUI_BASE_URI -e RECORDS_OF_PROCESSING_ACTIVITIES_API_BASE_URI dataset-catalog-gui`
+  - `docker run -d -p 4301:8080 -e NAMESPACE -e FDK_BASE_URI -e SSO_HOST -e SKE_THEME_PROFILE -e FDK_REGISTRATION_BASE_URI -e ADMIN_GUI_BASE_URI -e ORGANIZATION_API_HOST -e SEARCH_FULLTEXT_HOST -e DATASERVICE_CATALOG_BASE_URI -e CONCEPT_REGISTRATION_HOST -e CONCEPT_REGISTRATION_API_HOST -e RECORDS_OF_PROCESSING_ACTIVITIES_BASE_URI dataset-catalog-gui`
 
 #### Running application using Docker Compose
 
@@ -38,15 +38,13 @@ An application for managing datasets.
 - `SSO_HOST` - SSO hostname
 - `SKE_THEME_PROFILE` - comma-separated list of organization numbers
 - `FDK_REGISTRATION_BASE_URI` - FDK registration GUI base URI
-- `REGISTRATION_API_HOST` - FDK registration API hostname
 - `ADMIN_GUI_BASE_URI` - FDK admin GUI base URI
 - `ORGANIZATION_API_HOST` - FDK organization catalog API hostname
 - `SEARCH_FULLTEXT_HOST` - FDK full-text search API hostname
 - `DATASERVICE_CATALOG_BASE_URI` - FDK data service catalog GUI base URI
 - `CONCEPT_REGISTRATION_HOST` - FDK concept registration GUI hostname
 - `CONCEPT_REGISTRATION_API_HOST` - FDK concept registration API hostname
-- `RECORDS_OF_PROCESSING_ACTIVITIES_GUI_BASE_URI` - FDK records of processing activities GUI base URI
-- `RECORDS_OF_PROCESSING_ACTIVITIES_API_BASE_URI` - FDK records of processing activities API base URI
+- `RECORDS_OF_PROCESSING_ACTIVITIES_BASE_URI` - FDK records of processing activities base URI
 
 ## Contributing
 

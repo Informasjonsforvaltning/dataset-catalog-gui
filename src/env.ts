@@ -10,8 +10,6 @@ export default validateEnv(
     SKE_THEME_PROFILE: '910244132',
     FDK_REGISTRATION_BASE_URI:
       'https://registrering.staging.fellesdatakatalog.digdir.no',
-    REGISTRATION_API_HOST:
-      'https://registrering.staging.fellesdatakatalog.digdir.no',
     ADMIN_GUI_BASE_URI: 'https://admin.staging.fellesdatakatalog.digdir.no',
     ORGANIZATION_API_HOST:
       'https://organization-catalogue.staging.fellesdatakatalog.digdir.no',
@@ -22,9 +20,7 @@ export default validateEnv(
       'https://registrering-begrep.staging.fellesdatakatalog.digdir.no',
     CONCEPT_REGISTRATION_API_HOST:
       'https://registrering-begrep-api.staging.fellesdatakatalog.digdir.no',
-    RECORDS_OF_PROCESSING_ACTIVITIES_GUI_BASE_URI:
-      'https://registrering-protokoll.staging.fellesdatakatalog.digdir.no',
-    RECORDS_OF_PROCESSING_ACTIVITIES_API_BASE_URI:
+    RECORDS_OF_PROCESSING_ACTIVITIES_BASE_URI:
       'https://registrering-protokoll.staging.fellesdatakatalog.digdir.no'
   }
 );

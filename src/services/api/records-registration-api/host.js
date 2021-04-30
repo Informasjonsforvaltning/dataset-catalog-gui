@@ -4,12 +4,12 @@ import env from '../../../env';
 
 import AuthService from '../../auth';
 
-const { RECORDS_OF_PROCESSING_ACTIVITIES_API_BASE_URI } = env;
+const { RECORDS_OF_PROCESSING_ACTIVITIES_BASE_URI } = env;
 
 export const getRecords = async orgnr =>
   axios
     .get(
-      `${RECORDS_OF_PROCESSING_ACTIVITIES_API_BASE_URI}/api/organizations/${orgnr}/records`,
+      `${RECORDS_OF_PROCESSING_ACTIVITIES_BASE_URI}/api/organizations/${orgnr}/records`,
       {
         headers: {
           Authorization: await AuthService.getAuthorizationHeader(),

@@ -15,7 +15,7 @@ import CatalogItem from '../catalog-item';
 const {
   DATASERVICE_CATALOG_BASE_URI,
   CONCEPT_REGISTRATION_HOST,
-  RECORDS_OF_PROCESSING_ACTIVITIES_GUI_BASE_URI
+  RECORDS_OF_PROCESSING_ACTIVITIES_BASE_URI
 } = env;
 
 interface ExternalProps {
@@ -45,7 +45,7 @@ const Catalog: FC<Props> = ({
         return `${CONCEPT_REGISTRATION_HOST}/${catalogId}`;
       }
       case 'protocol': {
-        return `${RECORDS_OF_PROCESSING_ACTIVITIES_GUI_BASE_URI}/${catalogId}`;
+        return `${RECORDS_OF_PROCESSING_ACTIVITIES_BASE_URI}/${catalogId}`;
       }
       default:
         return `/catalogs/${catalogId}/${type}`;
