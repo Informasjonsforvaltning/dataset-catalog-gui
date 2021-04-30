@@ -10,7 +10,6 @@ exports[`should render DatasetItemsList correctly with datasetItems 1`] = `
         "catalogId": "910258028",
         "description": Object {},
         "id": "c536ddb2-1133-4443-96d1-ef0445d43543",
-        "objective": Object {},
         "publisher": Object {
           "name": "LILAND OG ERDAL REVISJON",
           "uri": "https://data.brreg.no/enhetsregisteret/api/enheter/910258028",
@@ -94,7 +93,6 @@ exports[`should render DatasetItemsList correctly with datasetItems 1`] = `
             "uri": "",
           },
         ],
-        "objective": Object {},
         "publisher": Object {
           "name": "LILAND OG ERDAL REVISJON",
           "uri": "https://data.brreg.no/enhetsregisteret/api/enheter/910258028",
@@ -159,7 +157,6 @@ exports[`should render DatasetItemsList correctly with datasetItems 1`] = `
             "uri": "",
           },
         ],
-        "objective": Object {},
         "publisher": Object {
           "name": "LILAND OG ERDAL REVISJON",
           "uri": "https://data.brreg.no/enhetsregisteret/api/enheter/910258028",
@@ -433,7 +430,6 @@ Her er dagens ekstra tekst",
           },
         ],
         "modified": "2019-04-03T22:00:00.000+0000",
-        "objective": Object {},
         "provenance": Object {
           "code": "BRUKER",
           "prefLabel": Object {
@@ -624,7 +620,6 @@ Her er dagens ekstra tekst",
             "uri": "",
           },
         ],
-        "objective": Object {},
         "publisher": Object {
           "name": "LILAND OG ERDAL REVISJON",
           "uri": "https://data.brreg.no/enhetsregisteret/api/enheter/910258028",
@@ -730,9 +725,6 @@ Her er dagens ekstra tekst",
             "uri": "",
           },
         ],
-        "objective": Object {
-          "nb": "test ",
-        },
         "publisher": Object {
           "name": "LILAND OG ERDAL REVISJON",
           "uri": "https://data.brreg.no/enhetsregisteret/api/enheter/910258028",
@@ -794,9 +786,6 @@ Her er dagens ekstra tekst",
             "uri": "https://vg.no",
           },
         ],
-        "objective": Object {
-          "nb": "",
-        },
         "publisher": Object {
           "name": "LILAND OG ERDAL REVISJON",
           "uri": "https://data.brreg.no/enhetsregisteret/api/enheter/910258028",
@@ -938,9 +927,6 @@ Her er dagens ekstra tekst",
           },
         ],
         "modified": "2019-12-02T00:00:00.000+0000",
-        "objective": Object {
-          "nb": "Hvem satt på tinget når?...",
-        },
         "provenance": Object {
           "code": "VEDTAK",
           "prefLabel": Object {
@@ -1076,7 +1062,6 @@ Her er dagens ekstra tekst",
             "uri": "",
           },
         ],
-        "objective": Object {},
         "publisher": Object {
           "name": "LILAND OG ERDAL REVISJON",
           "uri": "https://data.brreg.no/enhetsregisteret/api/enheter/910258028",
@@ -1573,9 +1558,6 @@ Her er dagens ekstra tekst",
           },
         ],
         "modified": "2019-05-31T22:00:00.000+0000",
-        "objective": Object {
-          "nb": "Forsatt er formålet utstrakt test av ",
-        },
         "provenance": Object {
           "code": "BRUKER",
           "prefLabel": Object {
@@ -1931,9 +1913,6 @@ Her er dagens ekstra tekst",
           },
         ],
         "modified": "2019-11-27T00:00:00.000+0000",
-        "objective": Object {
-          "nb": "Det finnes ikke noe formål.",
-        },
         "provenance": Object {
           "code": "TREDJEPART",
           "prefLabel": Object {

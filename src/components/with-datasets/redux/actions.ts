@@ -8,7 +8,7 @@ import {
 } from './actions-types';
 
 import type { Dataset } from '../../../types';
-import { SearchType } from '../../../types/enums';
+import { SearchType, RegistrationStatus } from '../../../types/enums';
 
 export function listDatasetsRequested(catalogId: string, size?: number) {
   return {
@@ -41,14 +41,18 @@ export function listDatasetsFailed(message: string) {
 export function searchDatasetsRequested(
   query: string,
   searchType: SearchType,
-  catalogIDs: string[]
+  catalogIds: string[],
+  includeExternalDatasets?: boolean,
+  includeStatus?: RegistrationStatus[]
 ) {
   return {
     type: SEARCH_DATASETS_REQUESTED,
     payload: {
       query,
       searchType,
-      catalogIDs
+      catalogIds,
+      includeStatus,
+      includeExternalDatasets
     }
   };
 }

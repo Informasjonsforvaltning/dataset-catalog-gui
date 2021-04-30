@@ -27,7 +27,7 @@ const FormTitle: FC<Props> = ({
   translationsService
 }) => (
   <form>
-    <div className='form-group'>
+    <div className='form-group mb-0'>
       <Helptext
         title={translationsService.translate('schema.title.helptext.title')}
         required
@@ -40,7 +40,7 @@ const FormTitle: FC<Props> = ({
         label={translationsService.translate('schema.title.titleLabel')}
       />
     </div>
-    <div className='form-group'>
+    <div className='form-group mb-0'>
       <Helptext
         title={translationsService.translate(
           'schema.title.helptext.description'
@@ -56,7 +56,7 @@ const FormTitle: FC<Props> = ({
       />
     </div>
 
-    <div className='form-group'>
+    <div className='form-group mb-0'>
       <Helptext
         title={translationsService.translate(
           'schema.title.helptext.landingPage'

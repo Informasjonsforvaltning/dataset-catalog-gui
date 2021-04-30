@@ -22,7 +22,7 @@ exports[`should render ListItem correctly "DRAFT" item 1`] = `
         <span
           className="d-flex justify-content-left w-25"
         >
-          04/28/2021
+          04/30/2021
         </span>
         <div
           className="d-flex justify-content-left w-25"
@@ -59,7 +59,7 @@ exports[`should render ListItem correctly "PUBLISH" item 1`] = `
         <span
           className="d-flex justify-content-left w-25"
         >
-          04/28/2021
+          04/30/2021
         </span>
         <div
           className="d-flex justify-content-left w-25"
@@ -98,7 +98,7 @@ exports[`should render ListItem correctly when missing title 1`] = `
         <span
           className="d-flex justify-content-left w-25"
         >
-          04/28/2021
+          04/30/2021
         </span>
         <div
           className="d-flex justify-content-left w-25"

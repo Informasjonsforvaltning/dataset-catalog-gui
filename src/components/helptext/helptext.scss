@@ -22,9 +22,21 @@
 .fdk-obligatorisk {
   font-size: 1.4rem;
   line-height: 1.6em;
-  font-weight: 400;
+  font-weight: 500;
   color: #ffffff;
   background-color: #005484;
+  padding: .1em .6em;
+  border-radius: 10rem;
+  position: relative;
+  top: -2px;
+}
+
+.fdk-anbefalt {
+  font-size: 1.4rem;
+  line-height: 1.6em;
+  font-weight: 500;
+  color: #004A73;
+  background-color: #CCE1ED;
   padding: .1em .6em;
   border-radius: 10rem;
   position: relative;

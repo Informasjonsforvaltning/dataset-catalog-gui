@@ -13,9 +13,6 @@ export default {
           description: {
             nb: 'tester'
           },
-          objective: {
-            nb: 'tester'
-          },
           publisher: {
             uri: 'http://data.brreg.no/enhetsregisteret/enhet/910244132',
             name: 'RAMSUND OG ROGNAN REVISJON'

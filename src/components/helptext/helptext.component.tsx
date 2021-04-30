@@ -50,12 +50,12 @@ const HelpText: FC<Props> = ({
       <div className='d-flex align-items-center'>
         <h3>{title}</h3>
         {required && (
-          <span className='fdk-badge badge fdk-obligatorisk fdk-bg-color-warning-lightest ml-2'>
+          <span className='fdk-badge badge-pill fdk-obligatorisk fdk-bg-color-button-primary-2 fdk-color-button-text-primary ml-2 fdk-text-size-small'>
             <Translation id='helptext.required' />
           </span>
         )}
         {recommended && (
-          <span className='fdk-badge badge-pill fdk-bg-color-link-lighter fdk-color-link-darker ml-2 fdk-text-size-small'>
+          <span className='fdk-badge badge-pill fdk-anbefalt fdk-bg-color-link-lighter fdk-color-link-darker ml-2 fdk-text-size-small'>
             <Translation id='helptext.recommended' />
           </span>
         )}

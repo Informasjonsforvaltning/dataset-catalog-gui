@@ -263,6 +263,7 @@ const renderDistributions = ({
             title={translationsService.translate(
               'schema.distribution.helptext.title'
             )}
+            recommended
           />
           <MultilingualField
             name={`${distribution}.title`}
@@ -278,6 +279,7 @@ const renderDistributions = ({
               'schema.distribution.helptext.accessURL'
             )}
             term='Distribution_accessURL'
+            required
           />
           <Field
             name={`${distribution}.accessURL.0`}
@@ -310,7 +312,7 @@ const renderDistributions = ({
               'schema.distribution.helptext.format'
             )}
             term='Distribution_format'
-            required
+            recommended
           />
           <Field
             name={`${distribution}.format`}

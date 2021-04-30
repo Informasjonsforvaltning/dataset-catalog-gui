@@ -189,13 +189,10 @@ const DatasetRegistrationPage: FC<Props> = ({
 
   const executeSearch = (query: string) => {
     if (catalogId) {
-      searchDatasets({
-        includeExternalDatasets: true,
-        searchType: SearchType.DATASET,
-        catalogIDs: [catalogId],
-        query,
-        includeStatus: new Set([RegStatusEnum.APPROVE, RegStatusEnum.PUBLISH])
-      });
+      searchDatasets(query, SearchType.DATASET, [catalogId], true, [
+        RegStatusEnum.APPROVE,
+        RegStatusEnum.PUBLISH
+      ]);
     }
   };
 

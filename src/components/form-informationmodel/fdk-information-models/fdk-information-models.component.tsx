@@ -79,7 +79,7 @@ const FdkInformationModels: FC<Props> = ({
             </span>
             {!isReadOnly && (
               <i
-                className='fa fa-times mr-2 remove-fdk-info-model'
+                className='fa fa-times mr-2 remove-fdk-info-model text-white'
                 role='button'
                 tabIndex={0}
                 onClick={() => removeModelAtIndex(index)}

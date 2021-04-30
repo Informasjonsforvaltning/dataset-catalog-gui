@@ -65,12 +65,12 @@ const FormTemplate: FC<PropsWithChildren<Props>> = ({
           <i className={collapseIconClass} />
           <h2 className='mb-0 text-ellipsis'>{title}</h2>
           {required && (
-            <span className='fdk-badge badge-pill fdk-bg-color-button-primary-2 fdk-color-button-text-primary ml-2 fdk-text-size-small'>
+            <span className='fdk-badge badge-pill fdk-obligatorisk fdk-bg-color-button-primary-2 fdk-color-button-text-primary ml-2 fdk-text-size-small'>
               <Translation id='helptext.required' />
             </span>
           )}
           {recommended && (
-            <span className='fdk-badge badge-pill fdk-bg-color-link-lighter fdk-color-link-darker ml-2 fdk-text-size-small'>
+            <span className='fdk-badge badge-pill fdk-anbefalt fdk-bg-color-link-lighter fdk-color-link-darker ml-2 fdk-text-size-small'>
               <Translation id='helptext.recommended' />
             </span>
           )}

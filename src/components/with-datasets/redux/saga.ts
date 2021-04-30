@@ -1,3 +1,4 @@
+import axios from 'axios';
 import { all, call, put, takeLatest } from 'redux-saga/effects';
 
 import env from '../../../env';
@@ -10,12 +11,10 @@ import {
 } from './actions-types';
 import * as actions from './actions';
 
-import { searchDatasetRegistration, searchFullTextApi } from './operations';
-
 import type { Dataset } from '../../../types';
 import { RegistrationStatus } from '../../../types/enums';
 
-const { FDK_REGISTRATION_BASE_URI } = env;
+const { FDK_REGISTRATION_BASE_URI, SEARCH_FULLTEXT_HOST } = env;
 
 function* listDatasetsRequested({
   payload: { catalogId, size }
@@ -56,7 +55,13 @@ function* listDatasetsRequested({
 }
 
 function* searchDatasetsRequested({
-  payload: { query, searchType, catalogIDs }
+  payload: {
+    query,
+    searchType,
+    includeStatus,
+    catalogIds: catalogIDs,
+    includeExternalDatasets
+  }
 }: ReturnType<typeof actions.searchDatasetsRequested>) {
   try {
     const authorization: string = yield call([
@@ -64,15 +69,51 @@ function* searchDatasetsRequested({
       AuthService.getAuthorizationHeader
     ]);
 
-    const { data } = yield call(
-      axios.post,
-      `${FDK_REGISTRATION_BASE_URI}/search`,
-      { query, searchType, catalogIDs },
-      { headers: { authorization } }
+    const { registration, fulltext } = yield all({
+      registration: call(
+        axios.post,
+        `${FDK_REGISTRATION_BASE_URI}/search`,
+        { query, searchType, catalogIDs },
+        { headers: { authorization } }
+      ),
+      fulltext: includeExternalDatasets
+        ? call(axios.get, `${SEARCH_FULLTEXT_HOST}/suggestion/datasets`, {
+            headers: { authorization },
+            params: { q: query }
+          })
+        : null
+    });
+
+    const internalDatasetUris: string[] =
+      registration?.data?.datasets?.map(({ uri }: Dataset) => uri) ?? [];
+
+    const internalDatasets = registration?.data?.datasets?.reduce(
+      (previous: any, current: any) =>
+        includeStatus?.includes(current?.registrationStatus) ?? true
+          ? [...previous, { ...current, internal: true }]
+          : previous,
+      [] as Dataset[]
     );
 
-    if (Array.isArray(data?.datasets)) {
-      yield put(actions.searchDatasetsSucceeded(data.datasets as Dataset[]));
+    const externalDatasets = fulltext?.data?.suggestions?.reduce(
+      (previous: any, current: any) =>
+        !internalDatasetUris.includes(current.uri)
+          ? [
+              ...previous,
+              {
+                ...current,
+                internal: false,
+                registrationStatus: RegistrationStatus.PUBLISH
+              }
+            ]
+          : previous,
+      [] as Dataset[]
+    );
+
+    const datasets: Dataset[] = [...internalDatasets, ...externalDatasets];
+
+    if (Array.isArray(datasets)) {
+      yield put(actions.searchDatasetsSucceeded(datasets));
     } else {
       yield put(
         actions.searchDatasetsFailed(
