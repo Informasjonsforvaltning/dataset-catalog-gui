@@ -7,7 +7,8 @@ let wrapper;
 
 beforeEach(() => {
   defaultProps = {
-    catalogId: '123'
+    catalogId: '123',
+    lastModified: '04/30/2021'
   };
   wrapper = shallow(<ListItem {...defaultProps} />);
 });
