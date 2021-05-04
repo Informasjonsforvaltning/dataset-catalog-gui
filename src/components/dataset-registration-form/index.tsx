@@ -105,7 +105,7 @@ interface Props extends ExtenralProps, TranslationsProps, DatasetsProps {
 
 const DatasetRegistrationPage: FC<Props> = ({
   form,
-  datasets,
+  datasetSuggestions,
   datasetsActions: { searchDatasetsRequested: searchDatasets },
   themesItems,
   provenanceItems,
@@ -213,7 +213,7 @@ const DatasetRegistrationPage: FC<Props> = ({
         frequencyItems &&
         referenceTypesItems &&
         referenceDatasetsItems &&
-        datasets &&
+        datasetSuggestions &&
         openLicenseItems &&
         losItems && (
           <div className='col-12'>
@@ -451,7 +451,7 @@ const DatasetRegistrationPage: FC<Props> = ({
               <ConnectedFormReference
                 datasetItem={datasetItem as any}
                 referenceTypesItems={referenceTypesItems}
-                referenceDatasetsItems={datasets}
+                referenceDatasetsItems={datasetSuggestions}
                 catalogId={catalogId}
                 datasetId={datasetId}
                 languages={languages}

@@ -115,6 +115,7 @@ const renderReference = ({
   referenceTypesItems,
   referenceDatasetsItems,
   isReadOnly,
+  onInputChange,
   translationsService
 }: any) => (
   <div>
@@ -127,6 +128,7 @@ const renderReference = ({
         referenceDatasetsItems,
         onDeleteFieldAtIndex,
         isReadOnly,
+        onInputChange,
         translationsService
       })
     )}

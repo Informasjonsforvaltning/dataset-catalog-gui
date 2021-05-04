@@ -87,28 +87,30 @@ function* searchDatasetsRequested({
     const internalDatasetUris: string[] =
       registration?.data?.datasets?.map(({ uri }: Dataset) => uri) ?? [];
 
-    const internalDatasets = registration?.data?.datasets?.reduce(
-      (previous: any, current: any) =>
-        includeStatus?.includes(current?.registrationStatus) ?? true
-          ? [...previous, { ...current, internal: true }]
-          : previous,
-      [] as Dataset[]
-    );
+    const internalDatasets =
+      registration?.data?.datasets?.reduce(
+        (previous: any, current: any) =>
+          includeStatus?.includes(current?.registrationStatus) ?? true
+            ? [...previous, { ...current, internal: true }]
+            : previous,
+        [] as Dataset[]
+      ) ?? [];
 
-    const externalDatasets = fulltext?.data?.suggestions?.reduce(
-      (previous: any, current: any) =>
-        !internalDatasetUris.includes(current.uri)
-          ? [
-              ...previous,
-              {
-                ...current,
-                internal: false,
-                registrationStatus: RegistrationStatus.PUBLISH
-              }
-            ]
-          : previous,
-      [] as Dataset[]
-    );
+    const externalDatasets =
+      fulltext?.data?.suggestions?.reduce(
+        (previous: any, current: any) =>
+          !internalDatasetUris.includes(current.uri)
+            ? [
+                ...previous,
+                {
+                  ...current,
+                  internal: false,
+                  registrationStatus: RegistrationStatus.PUBLISH
+                }
+              ]
+            : previous,
+        [] as Dataset[]
+      ) ?? [];
 
     const datasets: Dataset[] = [...internalDatasets, ...externalDatasets];
 
