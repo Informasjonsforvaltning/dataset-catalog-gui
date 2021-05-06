@@ -63,7 +63,7 @@
     "redux-thunk": "^2.2.0",
     "regenerator-runtime": "^0.13.3",
     "resolve-url-loader": "^3.1.2",
-    "sanitize-html": "^1.20.0",
+    "sanitize-html": "^2.3.2",
     "showdown": "^1.9.1",
     "styled-components": "^5.1.0",
     "yup": "^0.27.0"
