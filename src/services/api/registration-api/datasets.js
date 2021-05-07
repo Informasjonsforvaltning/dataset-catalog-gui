@@ -26,5 +26,5 @@ export const saveCatalog = catalog =>
 
 export const getDatasetsCount = catalogId =>
   registrationApiGet(datasetListAllPath(catalogId)).then(
-    datasets => datasets?._embedded?.catalogs?.length ?? 0
+    datasets => datasets?._embedded?.datasets?.length ?? 0
   );
