@@ -14,6 +14,5 @@ const mapStateToProps = (state, ownProps) => {
   };
 };
 
-export const ConnectedFormThemes = connect(mapStateToProps)(
-  ConfiguredFormThemes
-);
+export const ConnectedFormThemes =
+  connect(mapStateToProps)(ConfiguredFormThemes);

@@ -146,16 +146,15 @@ const FormSpatial: FC<Props> = ({
     dispatch(thunk);
   };
 
-  const onUpdateAdministrativeUnits = (name: any) => (
-    administrativeUnits: any
-  ) =>
-    dispatch(
-      datasetFormPatchThunk({
-        catalogId,
-        datasetId,
-        patch: { [name]: administrativeUnits }
-      })
-    );
+  const onUpdateAdministrativeUnits =
+    (name: any) => (administrativeUnits: any) =>
+      dispatch(
+        datasetFormPatchThunk({
+          catalogId,
+          datasetId,
+          patch: { [name]: administrativeUnits }
+        })
+      );
 
   return initialValues ? (
     <form>

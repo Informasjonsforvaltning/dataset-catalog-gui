@@ -6,31 +6,29 @@ import {
 import { datasetSuccessAction } from '../../../entrypoints/main/redux/modules/datasets';
 import { patchDataset } from '../../../services/api/registration-api/datasets';
 
-export const datasetFormPatchThunk = ({
-  catalogId,
-  datasetId,
-  patch
-}) => dispatch => {
-  if (!(catalogId && datasetId)) {
-    throw new Error('catalogId and datasetId required');
-  }
+export const datasetFormPatchThunk =
+  ({ catalogId, datasetId, patch }) =>
+  dispatch => {
+    if (!(catalogId && datasetId)) {
+      throw new Error('catalogId and datasetId required');
+    }
 
-  dispatch(datasetFormPatchIsSavingAction({ datasetId }));
+    dispatch(datasetFormPatchIsSavingAction({ datasetId }));
 
-  return patchDataset(catalogId, datasetId, patch)
-    .then(dataset => {
-      dispatch(datasetFormPatchSuccessAction({ datasetId, patch }));
-      dispatch(datasetSuccessAction(dataset));
-    })
-    .catch(error =>
-      dispatch(
-        datasetFormPatchErrorAction({
-          datasetId,
-          error
-        })
-      )
-    );
-};
+    return patchDataset(catalogId, datasetId, patch)
+      .then(dataset => {
+        dispatch(datasetFormPatchSuccessAction({ datasetId, patch }));
+        dispatch(datasetSuccessAction(dataset));
+      })
+      .catch(error =>
+        dispatch(
+          datasetFormPatchErrorAction({
+            datasetId,
+            error
+          })
+        )
+      );
+  };
 
 export const asyncValidateDatasetInvokePatch = (values, dispatch, props) => {
   const { catalogId, datasetId } = props;

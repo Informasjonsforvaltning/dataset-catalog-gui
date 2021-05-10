@@ -101,8 +101,9 @@ export const getDatasetItemByDatasetiId = (datasets, catalogId, id) =>
   _.get(datasets, [catalogId, 'items', id]);
 
 export const selectorForDatasetsState = state => state.datasets;
-export const selectorForCatalogDatasetsFromDatasetsState = catalogId => datasetsState =>
-  _.get(datasetsState, [catalogId, 'items'], {});
+export const selectorForCatalogDatasetsFromDatasetsState =
+  catalogId => datasetsState =>
+    _.get(datasetsState, [catalogId, 'items'], {});
 
 export const selectorForDatasetsInCatalog = catalogId =>
   compose(

@@ -18,6 +18,5 @@ const mapStateToProps = (state, ownProps) => {
   };
 };
 
-export const ConnectedFormContactPoint = connect(mapStateToProps)(
-  ConfiguredFormTitle
-);
+export const ConnectedFormContactPoint =
+  connect(mapStateToProps)(ConfiguredFormTitle);

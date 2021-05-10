@@ -41,9 +41,8 @@ const StatusBar: FC<Props> = ({
 }) => {
   const [showConfirmDelete, setShowConfirmDelete] = useState(false);
   const [showConfirmStatusDraft, setShowConfirmStatusDraft] = useState(false);
-  const [showConfirmStatusApprove, setShowConfirmStatusApprove] = useState(
-    false
-  );
+  const [showConfirmStatusApprove, setShowConfirmStatusApprove] =
+    useState(false);
   const [showValidatonError, setShowValidationError] = useState(false);
 
   useEffect(() => {

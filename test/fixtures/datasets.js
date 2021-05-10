@@ -5,8 +5,7 @@ export default {
       datasets: [
         {
           id: '084f747f-04a9-460e-b07e-ee74c60a2086',
-          uri:
-            'http://brreg.no/catalogs/910244132/datasets/084f747f-04a9-460e-b07e-ee74c60a2086',
+          uri: 'http://brreg.no/catalogs/910244132/datasets/084f747f-04a9-460e-b07e-ee74c60a2086',
           title: {
             nb: 'test ois'
           },
@@ -27,16 +26,14 @@ export default {
               }
             },
             {
-              uri:
-                'http://publications.europa.eu/resource/authority/data-theme/AGRI',
+              uri: 'http://publications.europa.eu/resource/authority/data-theme/AGRI',
               title: {
                 nb: 'Jordbruk, fiskeri, skogbruk og mat'
               }
             }
           ],
           accessRights: {
-            uri:
-              'http://publications.europa.eu/resource/authority/access-right/NON_PUBLIC',
+            uri: 'http://publications.europa.eu/resource/authority/access-right/NON_PUBLIC',
             prefLabel: {}
           },
           legalBasisForRestriction: [
@@ -81,8 +78,7 @@ export default {
                 no: 'alt som er registrert med et organisasjonsnummer '
               },
               note: {
-                no:
-                  'Alle hovedenheter, underenheter og organisasjonsledd som er identifisert med et organisasjonsnummer.'
+                no: 'Alle hovedenheter, underenheter og organisasjonsledd som er identifisert med et organisasjonsnummer.'
               },
               source: 'https://jira.brreg.no/browse/BEGREP-208',
               creator: {
@@ -122,8 +118,7 @@ export default {
                 prefLabel: {}
               },
               source: {
-                uri:
-                  'http://brreg.no/catalogs/910244132/datasets/0aa1861a-9af0-4388-a81e-6b05de0fb63e',
+                uri: 'http://brreg.no/catalogs/910244132/datasets/0aa1861a-9af0-4388-a81e-6b05de0fb63e',
                 prefLabel: null,
                 extraType: null
               }
@@ -256,8 +251,7 @@ export default {
             }
           },
           accrualPeriodicity: {
-            uri:
-              'http://publications.europa.eu/resource/authority/frequency/ANNUAL',
+            uri: 'http://publications.europa.eu/resource/authority/frequency/ANNUAL',
             code: 'ANNUAL',
             prefLabel: {}
           },
@@ -274,8 +268,7 @@ export default {
     },
     _links: {
       self: {
-        href:
-          'http://registration-api:8080/catalogs/910244132/datasets?page=0&size=1000'
+        href: 'http://registration-api:8080/catalogs/910244132/datasets?page=0&size=1000'
       }
     },
     page: {

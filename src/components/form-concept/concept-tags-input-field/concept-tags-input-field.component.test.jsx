@@ -19,8 +19,7 @@ beforeEach(() => {
             no: 'alt som er registrert med et organisasjonsnummer '
           },
           note: {
-            no:
-              'Alle hovedenheter, underenheter og organisasjonsledd som er identifisert med et organisasjonsnummer.'
+            no: 'Alle hovedenheter, underenheter og organisasjonsledd som er identifisert med et organisasjonsnummer.'
           },
           source: 'https://jira.brreg.no/browse/BEGREP-208',
           creator: {
