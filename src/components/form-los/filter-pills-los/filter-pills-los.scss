@@ -2,9 +2,11 @@
 
 .fdk-filter-pill {
   display: flex;
-  padding: 4px 6px;
+  padding: 6px 8px;
+  border-radius: 3px;
   font-size: 1.4rem;
   color: white;
+  background: $color-neutral-darkest;
   cursor: pointer;
 
   &:after {
