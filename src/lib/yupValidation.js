@@ -1,20 +1,14 @@
-import { unFlattenObject } from './unFlattenObject';
+import set from 'lodash/set';
 
 export function yupValidation(schema, values) {
-  let validationErrors = {};
   try {
     schema.validateSync(values, { abortEarly: false });
   } catch (errors) {
-    errors.inner.forEach(error => {
-      if (error.path.includes('[')) {
-        validationErrors = {
-          ...validationErrors,
-          [error.path.split('[')[0]]: [error.message]
-        };
-      } else {
-        validationErrors = { ...validationErrors, [error.path]: error.message };
-      }
-    });
+    return errors.inner.reduce(
+      (previous, { path, message }) => set(previous, path, message),
+      {}
+    );
   }
-  return unFlattenObject(validationErrors);
+
+  return {};
 }

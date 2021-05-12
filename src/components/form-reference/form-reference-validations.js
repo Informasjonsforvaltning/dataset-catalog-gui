@@ -1,16 +1,13 @@
-import _get from 'lodash/get';
+import * as yup from 'yup';
 
 import TranslationsService from '../../services/translations';
 
-const validate = values => {
-  const errors = {};
-  const spatial = _get(values, ['spatial', 'uri'], null);
-  if (spatial && spatial.length < 2) {
-    errors.spatial = {
-      uri: TranslationsService.translate('validation.minTwoChars')
-    };
-  }
-  return errors;
-};
-
-export default validate;
+export default yup.object().shape({
+  relations: yup.array().of(
+    yup.object().shape({
+      uri: yup
+        .string()
+        .url(TranslationsService.translate('validation.validateLink'))
+    })
+  )
+});
