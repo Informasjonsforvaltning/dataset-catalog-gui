@@ -79,6 +79,7 @@ class TranslationsService {
     return (
       object[this.language] ??
       object[Language.NB] ??
+      object[Language.NO] ??
       object[Language.NN] ??
       object[Language.EN] ??
       ''
