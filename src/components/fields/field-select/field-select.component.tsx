@@ -22,6 +22,7 @@ interface ExternalProps extends WrappedFieldProps {
   valueKey?: string;
   labelKey?: string;
   onInputChange?: (arg: string) => void;
+  placeholder?: string;
 }
 
 interface Props extends ExternalProps, TranslationsProps {}
@@ -32,6 +33,7 @@ const SelectField: FC<Props> = ({
   items = [],
   labelKey = 'prefLabel',
   valueKey = 'uri',
+  placeholder,
   onInputChange,
   translationsService
 }) => {
@@ -51,8 +53,9 @@ const SelectField: FC<Props> = ({
 
   const getValue = () => {
     if (typeof value === 'string' && items) {
-      return items.find(item => item[valueKey] === value) ?? {};
+      return items?.find(item => item[valueKey] === value) ?? null;
     }
+
     return getLabel(value) ? value : null;
   };
 
@@ -65,7 +68,7 @@ const SelectField: FC<Props> = ({
         onChange({
           uri: null,
           prefLabel: {
-            no: null
+            nb: null
           }
         });
         break;
@@ -107,6 +110,14 @@ const SelectField: FC<Props> = ({
     ) : null;
   };
 
+  const Placeholder = (props: any) => (
+    <components.Placeholder {...props}>{placeholder}</components.Placeholder>
+  );
+
+  const SingleValue = ({ data, hasValue, ...props }: any) => (
+    <components.SingleValue {...props}>{getLabel(data)}</components.SingleValue>
+  );
+
   return (
     <div className='pl-2 mt-3'>
       <Select
@@ -116,10 +127,11 @@ const SelectField: FC<Props> = ({
         name='selected-state'
         isDisabled={false}
         components={{
+          Placeholder,
           Option,
-          SingleValue: props => getLabel(props.data) as any
+          SingleValue
         }}
-        placeholder='Velg'
+        placeholder={placeholder ?? 'Velg'}
         filterOption={onInputChange ? null : createFilter(defaultFilter)}
         onInputChange={onInputChange}
         onChange={saveOption}

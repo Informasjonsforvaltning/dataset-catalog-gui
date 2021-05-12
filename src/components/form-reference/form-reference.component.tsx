@@ -4,7 +4,8 @@ import { Field, FieldArray } from 'redux-form';
 
 import {
   withTranslations,
-  Props as TranslationsProps
+  Props as TranslationsProps,
+  Language
 } from '../../providers/translations';
 
 import Translation from '../translation';
@@ -17,12 +18,13 @@ import InputFieldReadonly from '../fields/field-input-readonly/field-input-reado
 import { datasetFormPatchThunk } from '../dataset-registration-form/formsLib/asyncValidateDatasetInvokePatch';
 
 interface ExternalProps {
-  initialValues: any;
   dispatch: (arg: any) => void;
   catalogId: string;
   datasetId: string;
   isReadOnly: boolean;
   onInputChange: () => void;
+  referenceTypesItems: any[];
+  referenceDatasetsItems: any[];
   languages: any[];
 }
 
@@ -78,6 +80,7 @@ const renderReferenceFields = ({
             name={`${item}.referenceType`}
             component={SelectField}
             items={referenceTypesItems}
+            placeholder='Velg type'
           />
         </div>
         <div className='w-50'>
@@ -85,16 +88,20 @@ const renderReferenceFields = ({
             name={`${item}.source`}
             component={SelectField}
             items={referenceDatasetsItems.map(
-              ({ uri, title: prefLabel, publisher }: any) => ({
+              ({ uri, title, publisher }: any) => ({
                 uri,
-                title: `${translationsService.translate(prefLabel)} (eies av: ${
-                  translationsService.translate(publisher?.prefLabel) ||
-                  publisher?.name
-                })`
+                prefLabel: {
+                  [Language.NB]: `${translationsService.translate(
+                    title
+                  )} (Eier: ${
+                    translationsService.translate(publisher?.prefLabel) ||
+                    publisher?.name
+                  })`
+                }
               })
             )}
-            labelKey='title'
             onInputChange={onInputChange}
+            placeholder='Søk på datasett'
           />
         </div>
         <div className='d-flex align-items-end'>
@@ -236,13 +243,14 @@ const renderRelations = ({
 );
 
 const FormReference: FC<Props> = ({
-  initialValues: { referenceTypesItems, referenceDatasetsItems },
   dispatch,
   catalogId,
   datasetId,
   languages,
   isReadOnly,
   onInputChange,
+  referenceTypesItems,
+  referenceDatasetsItems,
   translationsService
 }) => {
   const deleteFieldAtIndex = (fields: any, index: number) => {

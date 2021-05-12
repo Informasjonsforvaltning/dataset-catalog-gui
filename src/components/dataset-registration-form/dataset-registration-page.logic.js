@@ -315,9 +315,7 @@ export const referenceValues = values => {
     let countReferences = 0;
     const { references } = values;
     if (references) {
-      countReferences = references.filter(
-        item => item.source && item.source.uri !== null
-      ).length;
+      countReferences = references.filter(({ source }) => source?.uri).length;
     }
     if (countReferences > 0) {
       return `${countReferences} ${TranslationsService.translate(
