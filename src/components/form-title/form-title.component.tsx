@@ -21,6 +21,19 @@ interface ExternalProps {
 
 interface Props extends ExternalProps, TranslationsProps {}
 
+const renderLandingPage = ({ fields, isReadOnly }: any) => (
+  <div>
+    {fields.map((item: any, index: number) => (
+      <Field
+        key={index}
+        name={`${item}`}
+        component={isReadOnly ? LinkReadonlyField : InputField}
+        label='Landingsside'
+      />
+    ))}
+  </div>
+);
+
 const FormTitle: FC<Props> = ({
   languages,
   isReadOnly,
@@ -66,18 +79,7 @@ const FormTitle: FC<Props> = ({
       <FieldArray
         name='landingPage'
         isReadOnly={isReadOnly}
-        component={({ fields }: any) => (
-          <div>
-            {fields.map((item: any, index: number) => (
-              <Field
-                key={index}
-                name={`${item}`}
-                component={isReadOnly ? LinkReadonlyField : InputField}
-                label='Landingsside'
-              />
-            ))}
-          </div>
-        )}
+        component={renderLandingPage}
       />
     </div>
   </form>
