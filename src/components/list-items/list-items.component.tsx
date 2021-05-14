@@ -20,9 +20,6 @@ interface ExternalProps {
   items?: any[];
   itemTitleField?: string[];
   defaultEmptyListText?: string;
-  sortField?: string;
-  sortType?: string;
-  onSortField?: (field: string, type: string) => void;
 }
 
 interface Props extends ExternalProps, TranslationsProps {}
@@ -32,13 +29,10 @@ const ListItems: FC<Props> = ({
   itemTitleField = ['title'],
   prefixPath,
   defaultEmptyListText,
-  sortField: sortFieldExternal = '',
-  sortType: sortTypeExternal = '',
-  onSortField: onSortFieldExternal,
   translationsService
 }) => {
-  const [sortField, setSortField] = useState(sortFieldExternal);
-  const [sortType, setSortType] = useState(sortTypeExternal);
+  const [sortField, setSortField] = useState('none');
+  const [sortType, setSortType] = useState('');
 
   const onSortField = (field: string, type: string) => {
     setSortField(field);
@@ -113,7 +107,7 @@ const ListItems: FC<Props> = ({
             field='title'
             sortField={sortField}
             sortType={sortType}
-            onSortField={onSortFieldExternal ?? onSortField}
+            onSortField={onSortField}
           />
         </div>
         <div className='d-flex align-items-center justify-content-end w-50'>
@@ -125,7 +119,7 @@ const ListItems: FC<Props> = ({
               field='lastModified'
               sortField={sortField}
               sortType={sortType}
-              onSortField={onSortFieldExternal ?? onSortField}
+              onSortField={onSortField}
             />
           </div>
           <div className='d-flex align-items-center w-25 ml-3'>
@@ -136,7 +130,7 @@ const ListItems: FC<Props> = ({
               field='registrationStatus'
               sortField={sortField}
               sortType={sortType}
-              onSortField={onSortFieldExternal ?? onSortField}
+              onSortField={onSortField}
             />
           </div>
         </div>
