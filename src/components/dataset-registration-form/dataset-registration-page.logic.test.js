@@ -25,7 +25,7 @@ it('should run titleValues without errors', () => {
 it('should run accessRightsValues without errors', () => {
   const dataset = datasets.datasetItems._embedded.datasets[0];
   expect(accessRightsValues(dataset)).not.toBeNull();
-  expect(accessRightsValues(null)).toBeNull();
+  expect(accessRightsValues(undefined)).toBeNull();
 });
 
 it('should run themesValues without errors', () => {

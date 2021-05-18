@@ -23,76 +23,34 @@ export const titleValues = values => {
   return null;
 };
 
-export const accessRightsValues = values => {
-  if (values) {
+export const accessRightsValues = ({ accessRights } = {}) => {
+  if (accessRights) {
     let retVal = '';
-    const {
-      accessRights,
-      legalBasisForRestriction,
-      legalBasisForProcessing,
-      legalBasisForAccess
-    } = values;
-    if (
+
+    const isPublic =
       accessRights.uri ===
-      'http://publications.europa.eu/resource/authority/access-right/RESTRICTED'
-    ) {
+      'http://publications.europa.eu/resource/authority/access-right/PUBLIC';
+    const isRestricted =
+      accessRights.uri ===
+      'http://publications.europa.eu/resource/authority/access-right/RESTRICTED';
+    const isNonPublic =
+      accessRights.uri ===
+      'http://publications.europa.eu/resource/authority/access-right/NON_PUBLIC';
+
+    if (isRestricted) {
       retVal += `${TranslationsService.translate(
         'datasets.formValues.accessRights.restricted'
       )}. `;
-    } else if (
-      accessRights.uri ===
-      'http://publications.europa.eu/resource/authority/access-right/PUBLIC'
-    ) {
+    } else if (isPublic) {
       retVal += `${TranslationsService.translate(
         'datasets.formValues.accessRights.publicString'
       )}. `;
-    } else if (
-      accessRights.uri ===
-      'http://publications.europa.eu/resource/authority/access-right/NON_PUBLIC'
-    ) {
+    } else if (isNonPublic) {
       retVal += `${TranslationsService.translate(
         'datasets.formValues.accessRights.nonPublic'
       )}. `;
     }
 
-    if (legalBasisForRestriction) {
-      legalBasisForRestriction
-        .filter(item => item && item.uri && item.uri !== '')
-        .forEach(item => {
-          retVal += TranslationsService.translate(item.prefLabel)
-            ? `${TranslationsService.translate(item.prefLabel)} - `
-            : '';
-          retVal += _.get(item, 'uri', null)
-            ? `${_.get(item, 'uri', '')} `
-            : '';
-        });
-    }
-
-    if (legalBasisForProcessing) {
-      legalBasisForProcessing
-        .filter(item => item && item.uri && item.uri !== '')
-        .forEach(item => {
-          retVal += TranslationsService.translate(item.prefLabel)
-            ? `${TranslationsService.translate(item.prefLabel)} - `
-            : '';
-          retVal += _.get(item, 'uri', null)
-            ? `${_.get(item, 'uri', '')} `
-            : '';
-        });
-    }
-
-    if (legalBasisForAccess) {
-      legalBasisForAccess
-        .filter(item => item && item.uri && item.uri !== '')
-        .forEach(item => {
-          retVal += TranslationsService.translate(item.prefLabel)
-            ? `${TranslationsService.translate(item.prefLabel)} - `
-            : '';
-          retVal += _.get(item, 'uri', null)
-            ? `${_.get(item, 'uri', '')} `
-            : '';
-        });
-    }
     if (retVal.trim().length > 0) {
       return retVal;
     }
