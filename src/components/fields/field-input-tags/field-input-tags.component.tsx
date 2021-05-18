@@ -1,7 +1,7 @@
 import React, { memo, FC } from 'react';
 import { compose } from 'redux';
-import type { WrappedFieldProps } from 'redux-form';
 import TagsInput from 'react-tagsinput';
+import type { WrappedFieldProps } from 'redux-form';
 
 import './field-input-tags.scss';
 

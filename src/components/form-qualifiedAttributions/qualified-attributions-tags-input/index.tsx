@@ -7,7 +7,10 @@ import withEnhetsregisteret, {
   Props as EnhetsregisteretProps
 } from '../../with-enhetsregisteret';
 
-import type { QualifiedAttribution } from '../form-qualified-attributions.component';
+interface QualifiedAttribution {
+  id: string;
+  label: string;
+}
 
 interface Props extends EnhetsregisteretProps, WrappedFieldProps {
   qualifiedAttributions: QualifiedAttribution[];

@@ -1,8 +1,8 @@
 import React, { memo, FC, useState } from 'react';
 import { compose } from 'redux';
-import type { WrappedFieldProps } from 'redux-form';
 import Autosuggest from 'react-autosuggest';
 import TagsInput from 'react-tagsinput';
+import type { WrappedFieldProps } from 'redux-form';
 
 import {
   withTranslations,

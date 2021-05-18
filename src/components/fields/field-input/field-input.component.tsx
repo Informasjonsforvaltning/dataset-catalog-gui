@@ -1,7 +1,7 @@
 import React, { memo, FC } from 'react';
 import { compose } from 'redux';
-import type { WrappedFieldProps } from 'redux-form';
 import cx from 'classnames';
+import type { WrappedFieldProps } from 'redux-form';
 
 interface ExternalProps extends WrappedFieldProps {
   label?: string;

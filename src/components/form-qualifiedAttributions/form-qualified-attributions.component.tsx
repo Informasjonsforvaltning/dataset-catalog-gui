@@ -20,7 +20,7 @@ interface Props extends EnhetsregisteretProps, TranslationsProps {
   isReadOnly: boolean;
 }
 
-export interface QualifiedAttribution {
+interface QualifiedAttribution {
   id: string;
   label: string;
 }

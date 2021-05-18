@@ -1,9 +1,9 @@
 import React, { memo, FC } from 'react';
 import { compose } from 'redux';
-import type { WrappedFieldProps } from 'redux-form';
 import DatePicker, { registerLocale } from 'react-datepicker';
 import moment from 'moment';
 import no from 'date-fns/locale/nb';
+import type { WrappedFieldProps } from 'redux-form';
 
 import './field-datepicker.scss';
 

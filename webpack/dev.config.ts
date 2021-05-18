@@ -1,4 +1,3 @@
-import type { Configuration } from 'webpack';
 import { resolve } from 'path';
 import {
   mergeWithCustomize,
@@ -8,6 +7,7 @@ import {
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import ReactRefreshWebpackPlugin from '@pmmmwh/react-refresh-webpack-plugin';
 import ForkTsCheckerWebpackPlugin from 'fork-ts-checker-webpack-plugin';
+import type { Configuration } from 'webpack';
 
 import baseConfig from './base.config';
 

@@ -1,5 +1,5 @@
-import type { Configuration } from 'webpack';
 import { merge } from 'webpack-merge';
+import type { Configuration } from 'webpack';
 
 import baseConfig from './base.config';
 
