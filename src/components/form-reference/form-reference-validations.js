@@ -7,6 +7,7 @@ export default yup.object().shape({
     yup.object().shape({
       uri: yup
         .string()
+        .ensure()
         .url(TranslationsService.translate('validation.validateLink'))
     })
   )
