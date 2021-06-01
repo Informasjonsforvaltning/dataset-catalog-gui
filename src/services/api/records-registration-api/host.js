@@ -11,6 +11,7 @@ export const getRecords = async orgnr =>
     .get(
       `${RECORDS_OF_PROCESSING_ACTIVITIES_BASE_URI}/api/organizations/${orgnr}/records`,
       {
+        params: { limit: 1000 },
         headers: {
           Authorization: await AuthService.getAuthorizationHeader(),
           Accept: 'application/json'
