@@ -146,11 +146,15 @@ const SpatialTagsInputField: FC<Props> = ({
           className='fdk-spatial-pill'
         >
           <span className='fdk-spatial-pill-label'>
-            <Translation object={prefLabel} />
+            {prefLabel.length > 0 ? <Translation object={prefLabel} /> : uri}
           </span>
           <i
             className='fa fa-times mr-2 remove-fdk-spatial'
-            aria-label={translationsService.translate(prefLabel)}
+            aria-label={
+              Object.keys(prefLabel).length > 0
+                ? translationsService.translate(prefLabel)
+                : uri
+            }
             role='button'
             tabIndex={0}
             onClick={removePlace(index)}
