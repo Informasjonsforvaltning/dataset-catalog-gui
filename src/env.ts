@@ -21,6 +21,8 @@ export default validateEnv(
     CONCEPT_REGISTRATION_API_HOST:
       'https://registrering-begrep-api.staging.fellesdatakatalog.digdir.no',
     RECORDS_OF_PROCESSING_ACTIVITIES_BASE_URI:
-      'https://registrering-protokoll.staging.fellesdatakatalog.digdir.no'
+      'https://registrering-protokoll.staging.fellesdatakatalog.digdir.no',
+    FDK_COMMUNITY_BASE_URI:
+      'https://community.staging.fellesdatakatalog.digdir.no/'
   }
 );

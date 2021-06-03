@@ -12,7 +12,12 @@ import {
   Props as TranslationsProps
 } from '../../providers/translations';
 
-const { FDK_BASE_URI, ADMIN_GUI_BASE_URI, SKE_THEME_PROFILE } = env;
+const {
+  FDK_BASE_URI,
+  ADMIN_GUI_BASE_URI,
+  SKE_THEME_PROFILE,
+  FDK_COMMUNITY_BASE_URI
+} = env;
 
 interface Props extends AuthProps, TranslationsProps {}
 
@@ -43,6 +48,9 @@ const Header: FC<Props> = ({ authService, translationsService }) => {
     >
       <Link href={`${FDK_BASE_URI}/guidance`}>Registrere data</Link>
       <Link href={ADMIN_GUI_BASE_URI}>Høste data</Link>
+      <Link href={FDK_COMMUNITY_BASE_URI} external>
+        Datalandsbyen
+      </Link>
       <Link href={FDK_BASE_URI} external>
         Søk i Felles datakatalog
       </Link>

@@ -13,4 +13,5 @@ export interface EnvironmentVariables {
   CONCEPT_REGISTRATION_HOST: string;
   CONCEPT_REGISTRATION_API_HOST: string;
   RECORDS_OF_PROCESSING_ACTIVITIES_BASE_URI: string;
+  FDK_COMMUNITY_BASE_URI: string;
 }

@@ -45,6 +45,7 @@ An application for managing datasets.
 - `CONCEPT_REGISTRATION_HOST` - FDK concept registration GUI hostname
 - `CONCEPT_REGISTRATION_API_HOST` - FDK concept registration API hostname
 - `RECORDS_OF_PROCESSING_ACTIVITIES_BASE_URI` - FDK records of processing activities base URI
+- `FDK_COMMUNITY_BASE_URI` - FDK Data community uri
 
 ## Contributing
 
