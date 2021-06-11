@@ -7,10 +7,8 @@ import {
   Props as TranslationsProps
 } from '../../providers/translations';
 
-import Translation from '../translation';
 import Helptext from '../helptext/helptext.component';
 import CheckboxFieldTheme from './theme-checkbox/theme-checkbox.component';
-import AlertMessage from '../alert-message/alert-message.component';
 import { themesValues } from '../dataset-registration-form/dataset-registration-page.logic';
 
 interface ExternalProps {
@@ -36,12 +34,6 @@ const FormThemes: FC<Props> = ({
           title={translationsService.translate('schema.theme.helptext.theme')}
           term='Dataset_theme'
         />
-        <AlertMessage type='warning'>
-          <i className='fa fa-info-circle mr-2' />
-          <span>
-            <Translation id='schema.theme.deprecatedTheme' />
-          </span>
-        </AlertMessage>
         {isReadOnly && (
           <div className='pl-3'>{themesValues(themes.values)}</div>
         )}

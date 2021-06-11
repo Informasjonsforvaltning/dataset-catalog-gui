@@ -204,7 +204,6 @@
       }
     },
     "theme": {
-      "deprecatedTheme": "Disse EU-temaene skal fases ut. Vi anbefaler at du benytter Los-temaene i listen over i stedet.",
       "helptext": {
         "theme": "Tema"
       }
