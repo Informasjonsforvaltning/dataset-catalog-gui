@@ -26,14 +26,10 @@ const InputTagsAPIsField: FC<Props> = ({
     onChange(
       (value || []).concat({
         id: updates.id,
+        uri: updates.uri,
         description: {
           [translationsService.getLanguage()]: updates.name
-        },
-        endpointDescription: [
-          {
-            uri: updates.id
-          }
-        ]
+        }
       })
     );
 
@@ -47,8 +43,9 @@ const InputTagsAPIsField: FC<Props> = ({
       .then(extractSuggestions)
       .then(items =>
         setSuggestions(
-          items.map(({ id, title }: any) => ({
+          items.map(({ id, uri, title }: any) => ({
             id,
+            uri,
             name: translationsService.translate(title)
           }))
         )
