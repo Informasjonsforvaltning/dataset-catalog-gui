@@ -40,7 +40,7 @@ jobs:
         id: meta
         uses: docker/metadata-action@v3
         with:
-          images: eu.gcr.io/digdir-fdk-infra/dataset-catalog-gui
+          images: eu.gcr.io/digdir-fdk-infra/dataset-catalogue-gui
           flavor: |
             latest=false
           tags: |
