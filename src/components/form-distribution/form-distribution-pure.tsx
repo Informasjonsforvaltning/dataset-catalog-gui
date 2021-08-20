@@ -2,7 +2,6 @@ import React, { memo, FC, useState } from 'react';
 import { compose } from 'redux';
 import { Field, FieldArray } from 'redux-form';
 import Autocomplete from 'react-autocomplete';
-import TagsInput from 'react-tagsinput';
 import cx from 'classnames';
 
 import {
@@ -68,7 +67,7 @@ const renderLicence = ({ input }: any) => (
 );
 
 const Formats = ({
-  input: { name: fieldName, value: inputValue, onChange },
+  input: { value: inputValue, onChange },
   mediaTypes,
   translationsService
 }: any) => {
@@ -77,16 +76,10 @@ const Formats = ({
     <>
       <Autocomplete
         wrapperProps={{ style: { width: '100%' } }}
-        getItemValue={({ code }) => code}
-        items={mediaTypes.filter(({ code, name }: any) => {
-          const match = inputValue?.find(
-            (mediaType: any) => code === mediaType
-          );
-          return (
-            !match &&
-            (code.toLowerCase().includes(filterText) ||
-              name.toLowerCase().includes(filterText))
-          );
+        getItemValue={({ uri }) => uri}
+        items={mediaTypes.filter(({ uri, name }: any) => {
+          const match = inputValue?.find((mediaType: any) => uri === mediaType);
+          return !match && name.toLowerCase().includes(filterText);
         })}
         renderInput={props => (
           <div className='input-group'>
@@ -109,12 +102,12 @@ const Formats = ({
             </span>
           </div>
         )}
-        renderItem={({ code, name }, isHighlighted) => {
+        renderItem={({ uri, name }, isHighlighted) => {
           const itemClass = cx('px-2', {
             'fdk-bg-color-neutral-lightest': isHighlighted
           });
           return (
-            <div key={code} className={itemClass}>
+            <div key={uri} className={itemClass}>
               {name}
             </div>
           );
@@ -138,14 +131,14 @@ const Formats = ({
           onChange([
             ...inputValue
               .filter((value: any) =>
-                mediaTypes.find(({ code }: any) => code === value)
+                mediaTypes.find(({ uri }: any) => uri === value)
               )
               .filter(Boolean),
             val,
             ...inputValue
               .filter(
                 (value: any) =>
-                  !mediaTypes.find(({ code }: any) => code === value)
+                  !mediaTypes.find(({ uri }: any) => uri === value)
               )
               .filter(Boolean)
           ]);
@@ -155,7 +148,7 @@ const Formats = ({
       <div className='d-flex flex-wrap my-2'>
         {inputValue
           .filter((value: any) =>
-            mediaTypes.find(({ code }: any) => code === value)
+            mediaTypes.find(({ uri }: any) => uri === value)
           )
           .filter(Boolean)
           .map((value: any, index: number) => (
@@ -176,38 +169,13 @@ const Formats = ({
                 }}
               >
                 <span className='fdk-filter-pill'>
-                  {mediaTypes.find(({ code }: any) => code === value)?.name ??
+                  {mediaTypes.find(({ uri }: any) => uri === value)?.name ??
                     value}
                 </span>
               </div>
             </div>
           ))}
       </div>
-      <TagsInput
-        className='fdk-reg-input-tags'
-        inputProps={{
-          name: fieldName,
-          placeholder: translationsService.translate(
-            'schema.distribution.formatPlaceholderAlt'
-          )
-        }}
-        value={inputValue
-          .filter(
-            (value: any) => !mediaTypes.find(({ code }: any) => code === value)
-          )
-          .filter(Boolean)}
-        onChange={tags =>
-          onChange([
-            ...inputValue
-              .filter((value: any) =>
-                mediaTypes.find(({ code }: any) => code === value)
-              )
-              .filter(Boolean),
-            ...tags
-          ])
-        }
-        addOnBlur
-      />
     </>
   );
 };
@@ -227,7 +195,7 @@ const renderFomatsReadOnly = ({ input: { value }, mediaTypes }: any) => (
     {value
       .map(
         (item: any) =>
-          mediaTypes.find(({ code }: any) => code === item)?.name ?? item
+          mediaTypes.find(({ uri }: any) => uri === item)?.name ?? item
       )
       .join(', ')}
   </div>

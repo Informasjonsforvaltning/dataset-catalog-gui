@@ -6,7 +6,7 @@ import type {
 
 export interface MediaType {
   name: string;
-  code: string;
+  uri: string;
 }
 
 export interface EnhetsregisteretOrganization {
