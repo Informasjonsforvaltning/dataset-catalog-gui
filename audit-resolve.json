@@ -1,0 +1,11 @@
+{
+  "decisions": {
+    "1769|rdflib>xmldom": {
+      "decision": "ignore",
+      "madeAt": 1629700011889,
+      "expiresAt": 1632291968313
+    }
+  },
+  "rules": {},
+  "version": 1
+}
