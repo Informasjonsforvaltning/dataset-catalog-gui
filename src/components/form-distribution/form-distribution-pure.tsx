@@ -146,35 +146,30 @@ const Formats = ({
         menuStyle={{ zIndex: 1000 }}
       />
       <div className='d-flex flex-wrap my-2'>
-        {inputValue
-          .filter((value: any) =>
-            mediaTypes.find(({ uri }: any) => uri === value)
-          )
-          .filter(Boolean)
-          .map((value: any, index: number) => (
-            <div key={`filter-${index}-${value}`}>
-              <div
-                role='button'
-                tabIndex={0}
-                className='mr-2 mb-1 fdk-badge badge badge-secondary fdk-text-size-15'
-                onClick={e => {
-                  e.preventDefault();
-                  delete inputValue[index];
-                  onChange(inputValue.filter(Boolean));
-                }}
-                onKeyPress={e => {
-                  e.preventDefault();
-                  delete inputValue[index];
-                  onChange(inputValue.filter(Boolean));
-                }}
-              >
-                <span className='fdk-filter-pill'>
-                  {mediaTypes.find(({ uri }: any) => uri === value)?.name ??
-                    value}
-                </span>
-              </div>
+        {inputValue.filter(Boolean).map((value: any, index: number) => (
+          <div key={`filter-${index}-${value}`}>
+            <div
+              role='button'
+              tabIndex={0}
+              className='mr-2 mb-1 fdk-badge badge badge-secondary fdk-text-size-15'
+              onClick={e => {
+                e.preventDefault();
+                delete inputValue[index];
+                onChange(inputValue.filter(Boolean));
+              }}
+              onKeyPress={e => {
+                e.preventDefault();
+                delete inputValue[index];
+                onChange(inputValue.filter(Boolean));
+              }}
+            >
+              <span className='fdk-filter-pill'>
+                {mediaTypes.find(({ uri }: any) => uri === value)?.name ??
+                  value}
+              </span>
             </div>
-          ))}
+          </div>
+        ))}
       </div>
     </>
   );
