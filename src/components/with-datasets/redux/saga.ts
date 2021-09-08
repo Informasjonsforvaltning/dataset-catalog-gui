@@ -49,7 +49,7 @@ function* listDatasetsRequested({
         )
       );
     }
-  } catch (error) {
+  } catch (error: any) {
     yield put(actions.listDatasetsFailed(error));
   }
 }
@@ -123,7 +123,7 @@ function* searchDatasetsRequested({
         )
       );
     }
-  } catch (error) {
+  } catch (error: any) {
     yield put(actions.searchDatasetsFailed(error));
   }
 }

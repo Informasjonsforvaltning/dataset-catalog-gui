@@ -46,7 +46,7 @@ function* getDatasetRequested({
         )
       );
     }
-  } catch (error) {
+  } catch (error: any) {
     yield put(actions.createDatasetFailed(error));
   }
 }
@@ -82,7 +82,7 @@ function* createDatasetRequested({
         )
       );
     }
-  } catch (error) {
+  } catch (error: any) {
     yield put(actions.createDatasetFailed(error));
   }
 }
@@ -119,7 +119,7 @@ function* deleteDatasetRequested({
         )
       );
     }
-  } catch (error) {
+  } catch (error: any) {
     yield put(actions.deleteDatasetFailed(error));
   }
 }

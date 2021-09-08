@@ -42,7 +42,7 @@ function* getDatasetCatalogRequested({
         )
       );
     }
-  } catch (error) {
+  } catch (error: any) {
     yield put(actions.getDatasetCatalogFailed(error));
   }
 }

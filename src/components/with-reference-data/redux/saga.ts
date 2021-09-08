@@ -38,7 +38,7 @@ function* getReferenceDataRequested({
     } else {
       yield put(actions.getReferenceDataFailed(''));
     }
-  } catch (e) {
+  } catch (e: any) {
     yield put(actions.getReferenceDataFailed(e.message));
   }
 }

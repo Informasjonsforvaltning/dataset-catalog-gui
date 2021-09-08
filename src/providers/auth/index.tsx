@@ -15,7 +15,7 @@ const AuthProvider: FC<PropsWithChildren<any>> = ({ children }) => {
 
       setIsInitialised(true);
       setIsAuthenticated(authenticated);
-    } catch (e) {
+    } catch (e: any) {
       // TODO: handle service errors and log them to Sentry
     }
   };

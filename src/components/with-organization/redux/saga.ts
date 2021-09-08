@@ -25,7 +25,7 @@ function* getOrganizationRequested({
     } else {
       yield put(actions.getOrganizationFailed(''));
     }
-  } catch (e) {
+  } catch (e: any) {
     yield put(actions.getOrganizationFailed(e.message));
   }
 }

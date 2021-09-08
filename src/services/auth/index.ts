@@ -29,7 +29,7 @@ class AuthService {
       await this.cleanUp();
 
       this.user = await this.manager.signinSilent();
-    } catch (e) {
+    } catch (e: any) {
       if (e.error === OidcError.LOGIN_REQUIRED) {
         await this.signIn();
       }
@@ -42,7 +42,7 @@ class AuthService {
   public async signIn(): Promise<void> {
     try {
       await this.manager.signinRedirect({ data: { path: location.href } });
-    } catch (e) {
+    } catch (e: any) {
       // TODO: handle service errors and log them to Sentry
     }
   }
@@ -50,7 +50,7 @@ class AuthService {
   public async signOut(): Promise<void> {
     try {
       await this.manager.signoutRedirect();
-    } catch (e) {
+    } catch (e: any) {
       // TODO: handle service errors and log them to Sentry
     }
   }
@@ -73,7 +73,7 @@ class AuthService {
         const { token_type, access_token } = this.user;
         return `${token_type} ${access_token}`;
       }
-    } catch (e) {
+    } catch (e: any) {
       // TODO: handle service errors and log them to Sentry
     }
 

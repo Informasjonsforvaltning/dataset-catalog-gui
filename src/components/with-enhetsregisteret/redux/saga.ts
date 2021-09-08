@@ -33,7 +33,7 @@ function* listOrganizationsRequested({
         )
       );
     }
-  } catch (error) {
+  } catch (error: any) {
     yield put(actions.listOrganizationsFailed(error));
   }
 }
@@ -82,7 +82,7 @@ function* searchOrganizationsRequested({
         )
       );
     }
-  } catch (error) {
+  } catch (error: any) {
     yield put(actions.searchOrganizationsFailed(error));
   }
 }

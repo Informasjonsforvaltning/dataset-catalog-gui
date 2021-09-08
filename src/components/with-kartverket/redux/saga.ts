@@ -30,7 +30,7 @@ function* searchAdministrativeUnitsRequested({
         )
       );
     }
-  } catch (error) {
+  } catch (error: any) {
     yield put(actions.searchAdministrativeUnitsFailed(error));
   }
 }

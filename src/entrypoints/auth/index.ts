@@ -25,7 +25,7 @@ async function run(): Promise<void> {
     if (!isInIframe && user?.state?.path) {
       path = user.state.path.replace(location.origin, '');
     }
-  } catch (e) {
+  } catch (e: any) {
     // TODO: handle errors and log them to Sentry
   } finally {
     if (!isInIframe) {

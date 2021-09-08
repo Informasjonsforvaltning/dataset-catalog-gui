@@ -45,10 +45,12 @@ const FormQualifiedAttributionsPure: FC<Props> = ({
   }, []);
 
   useEffect(() => {
+    const organizationsMap: any = fromJS(organizations);
+    const previousOrganizationsMap: any = fromJS(previousOrganizations.current);
     if (
       datasetItem?.qualifiedAttributions?.length > 0 &&
       organizations.length > 0 &&
-      !fromJS(organizations).equals(fromJS(previousOrganizations.current))
+      !organizationsMap.equals(previousOrganizationsMap)
     ) {
       setQualifiedAttributions(
         datasetItem.qualifiedAttributions.map((id: string) => {

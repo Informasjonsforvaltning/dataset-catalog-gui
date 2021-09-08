@@ -337,7 +337,7 @@ const renderDistributions = ({
             term='Distribution_documentation'
           />
           <FieldArray
-            name={`${distribution}.page`}
+            name={`${distribution}.page` as string}
             component={renderDistributionLandingpage}
             isReadOnly={isReadOnly}
             translationsService={translationsService}
