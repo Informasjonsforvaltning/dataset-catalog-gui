@@ -15,7 +15,6 @@ import ListItem from './list-item/list-item.component';
 import './list-items.scss';
 
 interface ExternalProps {
-  catalogId: string;
   prefixPath?: string;
   items?: any[];
   itemTitleField?: string[];

@@ -3,7 +3,6 @@ import { compose } from 'redux';
 import type { WrappedFieldProps } from 'redux-form';
 
 interface ExternalProps {
-  label: string;
   themesItems: any[];
 }
 

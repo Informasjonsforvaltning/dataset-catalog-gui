@@ -11,11 +11,7 @@ interface Props {
 }
 
 export const DatasetItemsListPure: FC<Props> = ({ catalogId, datasets }) => (
-  <ListItems
-    catalogId={catalogId}
-    items={datasets}
-    prefixPath={`/catalogs/${catalogId}/datasets`}
-  />
+  <ListItems items={datasets} prefixPath={`/catalogs/${catalogId}/datasets`} />
 );
 
 export default memo(DatasetItemsListPure);

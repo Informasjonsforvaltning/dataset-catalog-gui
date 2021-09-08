@@ -98,7 +98,6 @@ interface Props extends ExtenralProps, TranslationsProps, DatasetsProps {
     error: any;
     justPublishedOrUnPublished: boolean;
   };
-  history: any[];
   languages: any[];
   setInputLanguages: (any: any) => void;
   toggleInputLanguage: () => void;

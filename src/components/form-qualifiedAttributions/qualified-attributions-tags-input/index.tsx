@@ -15,7 +15,6 @@ interface QualifiedAttribution {
 interface Props extends EnhetsregisteretProps, WrappedFieldProps {
   qualifiedAttributions: QualifiedAttribution[];
   setQualifiedAttributions: (ids: QualifiedAttribution[]) => void;
-  searchOrganizations: any;
 }
 
 const QualifiedAttributionsTagsInput: FC<Props> = ({

@@ -2,7 +2,6 @@
 
 exports[`should render DatasetItemsList correctly with datasetItems 1`] = `
 <Memo()
-  catalogId="123"
   items={
     Array [
       Object {
@@ -1994,14 +1993,12 @@ Her er dagens ekstra tekst",
 
 exports[`should render DatasetItemsList correctly with missing datasetItems 1`] = `
 <Memo()
-  catalogId="123"
   prefixPath="/catalogs/123/datasets"
 />
 `;
 
 exports[`should render DatasetItemsList correctly with missing items 1`] = `
 <Memo()
-  catalogId="123"
   items={null}
   prefixPath="/catalogs/123/datasets"
 />

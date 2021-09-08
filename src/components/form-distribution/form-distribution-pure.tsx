@@ -22,7 +22,6 @@ import LinkReadonlyField from '../fields/field-link-readonly/field-link-readonly
 import InputFieldReadonly from '../fields/field-input-readonly/field-input-readonly.component';
 
 interface ExternalProps {
-  initialValues: any;
   dispatch: (arg: any) => void;
   catalogId: string;
   datasetId: string;
