@@ -1,5 +1,10 @@
+@import '../../../node_modules/designsystemet/fdk-designsystem-bootstrap4/scss/colors.scss';
 
 .fdk-autocomplete-menu {
   border: 1px solid;
-  padding: .5em;
+  padding: 0.5em;
+}
+
+.fdk-autocomplete-menu .fdk-bg-color-neutral-lightest {
+  background: $color-neutral-lightest;
 }
