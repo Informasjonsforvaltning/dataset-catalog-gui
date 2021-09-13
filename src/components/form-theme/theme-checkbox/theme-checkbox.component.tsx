@@ -24,15 +24,15 @@ const CheckboxFieldTheme: FC<Props> = ({ input, themesItems }) => {
       // add object
       const updates = input?.value ?? [];
       const selectedThemeItem = themesItems.find(
-        ({ id }) => id === selectedItemURI
+        ({ uri }) => uri === selectedItemURI
       );
       const addItem = {
-        value: selectedThemeItem.id,
-        label: selectedThemeItem.title.nb,
+        value: selectedThemeItem.uri,
+        label: selectedThemeItem.label.nb ?? selectedThemeItem.label.en,
         title: {
-          nb: selectedThemeItem.title.nb
+          nb: selectedThemeItem.label.nb ?? selectedThemeItem.label.en
         },
-        uri: selectedThemeItem.id
+        uri: selectedThemeItem.uri
       };
       updates.push(addItem);
       input.onChange(updates);
@@ -45,19 +45,19 @@ const CheckboxFieldTheme: FC<Props> = ({ input, themesItems }) => {
         <label
           key={index}
           className='form-check fdk-form-checkbox'
-          htmlFor={theme.id}
+          htmlFor={theme.uri}
         >
           <input
             type='checkbox'
             name='themes'
             style={{ height: '18px', width: '18px' }}
-            id={theme.id}
-            value={theme.id}
-            checked={themeCodes.includes(theme.id)}
+            id={theme.uri}
+            value={theme.uri}
+            checked={themeCodes.includes(theme.uri)}
             onChange={handleChange}
           />
           <span className='form-check-label fdk-form-check-label mr-3' />
-          <span>{theme.title.nb}</span>
+          <span>{theme.label?.nb ?? theme.label?.en}</span>
         </label>
       ))}
     </div>

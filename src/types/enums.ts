@@ -30,13 +30,13 @@ export enum AdministrativeUnitType {
 }
 
 export enum ReferenceDataCode {
-  LOS = 'los',
-  THEMES = 'themes',
+  LOS = 'los/themes-and-words',
+  THEMES = 'eu/data-themes',
   API_SERVICE_TYPE = 'codes/apiservicetype',
   API_STATUS = 'codes/apistatus',
   FREQUENCY = 'codes/frequency',
   OPEN_LICENCES = 'codes/openlicenses',
   PROVENANCE = 'codes/provenancestatement',
   REFERENCE_TYPES = 'codes/referencetypes',
-  MEDIA_TYPES = 'codes/mediatypes'
+  MEDIA_TYPES = 'iana/media-types'
 }

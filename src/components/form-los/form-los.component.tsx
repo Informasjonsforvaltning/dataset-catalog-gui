@@ -109,7 +109,7 @@ const FormLOS: FC<Props> = ({
                 return (
                   <div key={item.uri} className={itemClass}>
                     {item.name.nb} [
-                    <Translation id={item.isTema ? 'category' : 'topic'} />]
+                    <Translation id={item.isTheme ? 'category' : 'topic'} />]
                   </div>
                 );
               }}
@@ -154,7 +154,7 @@ const FormLOS: FC<Props> = ({
                 losItems={losItemsToShow}
                 defaultOpenTree={typeof searchedItem !== 'undefined'}
                 defaultShowTopic={
-                  searchedItem && !_.get(searchedItem, 'isTema')
+                  searchedItem && !_.get(searchedItem, 'isTheme')
                     ? searchedItem
                     : null
                 }

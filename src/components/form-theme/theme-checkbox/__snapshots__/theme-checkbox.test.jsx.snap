@@ -4,12 +4,10 @@ exports[`should render CheckboxFieldTheme correctly 1`] = `
 <div>
   <label
     className="form-check fdk-form-checkbox"
-    htmlFor="http://publications.europa.eu/resource/authority/data-theme/AGRI"
     key="0"
   >
     <input
       checked={false}
-      id="http://publications.europa.eu/resource/authority/data-theme/AGRI"
       name="themes"
       onChange={[Function]}
       style={
@@ -19,23 +17,18 @@ exports[`should render CheckboxFieldTheme correctly 1`] = `
         }
       }
       type="checkbox"
-      value="http://publications.europa.eu/resource/authority/data-theme/AGRI"
     />
     <span
       className="form-check-label fdk-form-check-label mr-3"
     />
-    <span>
-      Jordbruk, fiskeri, skogbruk og mat
-    </span>
+    <span />
   </label>
   <label
     className="form-check fdk-form-checkbox"
-    htmlFor="http://publications.europa.eu/resource/authority/data-theme/ECON"
     key="1"
   >
     <input
       checked={false}
-      id="http://publications.europa.eu/resource/authority/data-theme/ECON"
       name="themes"
       onChange={[Function]}
       style={
@@ -45,23 +38,18 @@ exports[`should render CheckboxFieldTheme correctly 1`] = `
         }
       }
       type="checkbox"
-      value="http://publications.europa.eu/resource/authority/data-theme/ECON"
     />
     <span
       className="form-check-label fdk-form-check-label mr-3"
     />
-    <span>
-      Økonomi og finans
-    </span>
+    <span />
   </label>
   <label
     className="form-check fdk-form-checkbox"
-    htmlFor="http://publications.europa.eu/resource/authority/data-theme/EDUC"
     key="2"
   >
     <input
       checked={false}
-      id="http://publications.europa.eu/resource/authority/data-theme/EDUC"
       name="themes"
       onChange={[Function]}
       style={
@@ -71,23 +59,18 @@ exports[`should render CheckboxFieldTheme correctly 1`] = `
         }
       }
       type="checkbox"
-      value="http://publications.europa.eu/resource/authority/data-theme/EDUC"
     />
     <span
       className="form-check-label fdk-form-check-label mr-3"
     />
-    <span>
-      Utdanning, kultur og sport
-    </span>
+    <span />
   </label>
   <label
     className="form-check fdk-form-checkbox"
-    htmlFor="http://publications.europa.eu/resource/authority/data-theme/ENER"
     key="3"
   >
     <input
       checked={false}
-      id="http://publications.europa.eu/resource/authority/data-theme/ENER"
       name="themes"
       onChange={[Function]}
       style={
@@ -97,23 +80,18 @@ exports[`should render CheckboxFieldTheme correctly 1`] = `
         }
       }
       type="checkbox"
-      value="http://publications.europa.eu/resource/authority/data-theme/ENER"
     />
     <span
       className="form-check-label fdk-form-check-label mr-3"
     />
-    <span>
-      Energi
-    </span>
+    <span />
   </label>
   <label
     className="form-check fdk-form-checkbox"
-    htmlFor="http://publications.europa.eu/resource/authority/data-theme/ENVI"
     key="4"
   >
     <input
       checked={false}
-      id="http://publications.europa.eu/resource/authority/data-theme/ENVI"
       name="themes"
       onChange={[Function]}
       style={
@@ -123,23 +101,18 @@ exports[`should render CheckboxFieldTheme correctly 1`] = `
         }
       }
       type="checkbox"
-      value="http://publications.europa.eu/resource/authority/data-theme/ENVI"
     />
     <span
       className="form-check-label fdk-form-check-label mr-3"
     />
-    <span>
-      Miljø
-    </span>
+    <span />
   </label>
   <label
     className="form-check fdk-form-checkbox"
-    htmlFor="http://publications.europa.eu/resource/authority/data-theme/GOVE"
     key="5"
   >
     <input
       checked={false}
-      id="http://publications.europa.eu/resource/authority/data-theme/GOVE"
       name="themes"
       onChange={[Function]}
       style={
@@ -149,23 +122,18 @@ exports[`should render CheckboxFieldTheme correctly 1`] = `
         }
       }
       type="checkbox"
-      value="http://publications.europa.eu/resource/authority/data-theme/GOVE"
     />
     <span
       className="form-check-label fdk-form-check-label mr-3"
     />
-    <span>
-      Forvaltning og offentlig sektor
-    </span>
+    <span />
   </label>
   <label
     className="form-check fdk-form-checkbox"
-    htmlFor="http://publications.europa.eu/resource/authority/data-theme/HEAL"
     key="6"
   >
     <input
       checked={false}
-      id="http://publications.europa.eu/resource/authority/data-theme/HEAL"
       name="themes"
       onChange={[Function]}
       style={
@@ -175,23 +143,18 @@ exports[`should render CheckboxFieldTheme correctly 1`] = `
         }
       }
       type="checkbox"
-      value="http://publications.europa.eu/resource/authority/data-theme/HEAL"
     />
     <span
       className="form-check-label fdk-form-check-label mr-3"
     />
-    <span>
-      Helse
-    </span>
+    <span />
   </label>
   <label
     className="form-check fdk-form-checkbox"
-    htmlFor="http://publications.europa.eu/resource/authority/data-theme/INTR"
     key="7"
   >
     <input
       checked={false}
-      id="http://publications.europa.eu/resource/authority/data-theme/INTR"
       name="themes"
       onChange={[Function]}
       style={
@@ -201,23 +164,18 @@ exports[`should render CheckboxFieldTheme correctly 1`] = `
         }
       }
       type="checkbox"
-      value="http://publications.europa.eu/resource/authority/data-theme/INTR"
     />
     <span
       className="form-check-label fdk-form-check-label mr-3"
     />
-    <span>
-      Internasjonale temaer
-    </span>
+    <span />
   </label>
   <label
     className="form-check fdk-form-checkbox"
-    htmlFor="http://publications.europa.eu/resource/authority/data-theme/JUST"
     key="8"
   >
     <input
       checked={false}
-      id="http://publications.europa.eu/resource/authority/data-theme/JUST"
       name="themes"
       onChange={[Function]}
       style={
@@ -227,23 +185,18 @@ exports[`should render CheckboxFieldTheme correctly 1`] = `
         }
       }
       type="checkbox"
-      value="http://publications.europa.eu/resource/authority/data-theme/JUST"
     />
     <span
       className="form-check-label fdk-form-check-label mr-3"
     />
-    <span>
-      Justis, rettssystem og allmenn sikkerhet
-    </span>
+    <span />
   </label>
   <label
     className="form-check fdk-form-checkbox"
-    htmlFor="http://publications.europa.eu/resource/authority/data-theme/REGI"
     key="9"
   >
     <input
       checked={false}
-      id="http://publications.europa.eu/resource/authority/data-theme/REGI"
       name="themes"
       onChange={[Function]}
       style={
@@ -253,23 +206,18 @@ exports[`should render CheckboxFieldTheme correctly 1`] = `
         }
       }
       type="checkbox"
-      value="http://publications.europa.eu/resource/authority/data-theme/REGI"
     />
     <span
       className="form-check-label fdk-form-check-label mr-3"
     />
-    <span>
-      Regioner og byer
-    </span>
+    <span />
   </label>
   <label
     className="form-check fdk-form-checkbox"
-    htmlFor="http://publications.europa.eu/resource/authority/data-theme/SOCI"
     key="10"
   >
     <input
       checked={false}
-      id="http://publications.europa.eu/resource/authority/data-theme/SOCI"
       name="themes"
       onChange={[Function]}
       style={
@@ -279,23 +227,18 @@ exports[`should render CheckboxFieldTheme correctly 1`] = `
         }
       }
       type="checkbox"
-      value="http://publications.europa.eu/resource/authority/data-theme/SOCI"
     />
     <span
       className="form-check-label fdk-form-check-label mr-3"
     />
-    <span>
-      Befolkning og samfunn
-    </span>
+    <span />
   </label>
   <label
     className="form-check fdk-form-checkbox"
-    htmlFor="http://publications.europa.eu/resource/authority/data-theme/TECH"
     key="11"
   >
     <input
       checked={false}
-      id="http://publications.europa.eu/resource/authority/data-theme/TECH"
       name="themes"
       onChange={[Function]}
       style={
@@ -305,23 +248,18 @@ exports[`should render CheckboxFieldTheme correctly 1`] = `
         }
       }
       type="checkbox"
-      value="http://publications.europa.eu/resource/authority/data-theme/TECH"
     />
     <span
       className="form-check-label fdk-form-check-label mr-3"
     />
-    <span>
-      Vitenskap og teknologi
-    </span>
+    <span />
   </label>
   <label
     className="form-check fdk-form-checkbox"
-    htmlFor="http://publications.europa.eu/resource/authority/data-theme/TRAN"
     key="12"
   >
     <input
       checked={false}
-      id="http://publications.europa.eu/resource/authority/data-theme/TRAN"
       name="themes"
       onChange={[Function]}
       style={
@@ -331,14 +269,11 @@ exports[`should render CheckboxFieldTheme correctly 1`] = `
         }
       }
       type="checkbox"
-      value="http://publications.europa.eu/resource/authority/data-theme/TRAN"
     />
     <span
       className="form-check-label fdk-form-check-label mr-3"
     />
-    <span>
-      Transport
-    </span>
+    <span />
   </label>
 </div>
 `;

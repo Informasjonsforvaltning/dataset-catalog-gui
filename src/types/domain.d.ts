@@ -233,4 +233,4 @@ export interface Subject {
   datasets: Dataset[];
 }
 
-export type ReferenceData = { [key in ReferenceDataCode]?: any[] };
+export type ReferenceData = { [key in ReferenceDataCode]?: any };

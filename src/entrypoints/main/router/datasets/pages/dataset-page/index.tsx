@@ -45,19 +45,25 @@ const DatasetPage: FC<Props> = ({
     deleteDatasetRequested: deleteDataset
   },
   organizationActions: { getOrganizationRequested: getOrganization },
-  referenceDataActions: { getReferenceDataRequested: getReferenceData },
+  referenceDataActions: {
+    getReferenceDataRequested: getReferenceData,
+    getNewReferenceDataRequested: getNewReferenceData
+  },
   authService
 }) => {
   const { catalogId, datasetId } = useParams<RouteParams>();
   const { replace } = useHistory();
 
   const referenceDataCodes = [
-    ReferenceDataCode.LOS,
-    ReferenceDataCode.THEMES,
     ReferenceDataCode.FREQUENCY,
     ReferenceDataCode.OPEN_LICENCES,
     ReferenceDataCode.PROVENANCE,
-    ReferenceDataCode.REFERENCE_TYPES,
+    ReferenceDataCode.REFERENCE_TYPES
+  ];
+
+  const newReferenceDataCodes = [
+    ReferenceDataCode.LOS,
+    ReferenceDataCode.THEMES,
     ReferenceDataCode.MEDIA_TYPES
   ];
 
@@ -75,6 +81,18 @@ const DatasetPage: FC<Props> = ({
     ) {
       getReferenceData(
         referenceDataCodes.filter(
+          code => !Object.keys(referenceData).includes(code)
+        )
+      );
+    }
+
+    if (
+      !newReferenceDataCodes.every(code =>
+        Object.keys(referenceData).includes(code)
+      )
+    ) {
+      getNewReferenceData(
+        newReferenceDataCodes.filter(
           code => !Object.keys(referenceData).includes(code)
         )
       );
@@ -123,13 +141,13 @@ const DatasetPage: FC<Props> = ({
           datasetItem={dataset}
           isReadOnly={isReadOnly}
           allowDelegatedRegistration={allowDelegatedRegistration}
-          losItems={referenceData[ReferenceDataCode.LOS]}
-          themesItems={referenceData[ReferenceDataCode.THEMES]}
+          losItems={referenceData[ReferenceDataCode.LOS]?.losNodes}
+          themesItems={referenceData[ReferenceDataCode.THEMES]?.dataThemes}
           frequencyItems={referenceData[ReferenceDataCode.FREQUENCY]}
           openLicenseItems={referenceData[ReferenceDataCode.OPEN_LICENCES]}
           provenanceItems={referenceData[ReferenceDataCode.PROVENANCE]}
           referenceTypesItems={referenceData[ReferenceDataCode.REFERENCE_TYPES]}
-          mediaTypes={referenceData[ReferenceDataCode.MEDIA_TYPES]}
+          mediaTypes={referenceData[ReferenceDataCode.MEDIA_TYPES]?.mediaTypes}
           handleDeleteDataset={handleDeleteDataset}
         />
       </SC.Page>

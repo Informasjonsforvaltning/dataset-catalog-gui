@@ -3,6 +3,7 @@ import { fromJS } from 'immutable';
 import * as actions from './actions';
 import {
   GET_REFERENCE_DATA_REQUESTED,
+  GET_NEW_REFERENCE_DATA_REQUESTED,
   GET_REFERENCE_DATA_SUCCEEDED,
   GET_REFERENCE_DATA_FAILED
 } from './action-types';
@@ -19,6 +20,11 @@ export default function reducer(
 ) {
   switch (action.type) {
     case GET_REFERENCE_DATA_REQUESTED:
+      return state.set(
+        'referenceData',
+        state.get('referenceData').deleteAll(action.payload.codes)
+      );
+    case GET_NEW_REFERENCE_DATA_REQUESTED:
       return state.set(
         'referenceData',
         state.get('referenceData').deleteAll(action.payload.codes)

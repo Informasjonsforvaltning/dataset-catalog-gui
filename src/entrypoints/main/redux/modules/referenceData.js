@@ -4,10 +4,10 @@ export const getAllLosParentNodes = losItems =>
   _.filter(losItems, { parents: null });
 
 export const getAllLosChildrenNodes = (losItems, children) =>
-  _.filter(losItems, item => item.isTema && _.includes(children, item.uri));
+  _.filter(losItems, item => item.isTheme && _.includes(children, item.uri));
 
 export const getTopicsLosChildren = (losItems, children) =>
-  _.filter(losItems, item => !item.isTema && _.includes(children, item.uri));
+  _.filter(losItems, item => !item.isTheme && _.includes(children, item.uri));
 
 export const getLosReferences = (losItems, references, key) => {
   let items = [];
