@@ -2,10 +2,10 @@ export default {
   isFetchingThemes: false,
   themesItems: [
     {
-      id: 'http://publications.europa.eu/resource/authority/data-theme/AGRI',
+      uri: 'http://publications.europa.eu/resource/authority/data-theme/AGRI',
       code: 'AGRI',
       startUse: '2015-10-01',
-      title: {
+      label: {
         cs: 'Zemědělství, rybolov, lesnictví a výživa',
         fr: 'Agriculture, pêche, sylviculture et alimentation',
         lt: 'Žemės ūkis, žuvininkystė, miškininkystė ir maistas',
@@ -33,19 +33,18 @@ export default {
         de: 'Landwirtschaft, Fischerei, Forstwirtschaft und Nahrungsmittel'
       },
       conceptSchema: {
-        id: 'http://publications.europa.eu/resource/authority/data-theme',
-        title: {
+        uri: 'http://publications.europa.eu/resource/authority/data-theme',
+        label: {
           en: 'Dataset types Named Authority List'
         },
-        versioninfo: '20160921-0',
-        versionnumber: '20160921-0'
+        versionNumber: '20160921-0'
       }
     },
     {
-      id: 'http://publications.europa.eu/resource/authority/data-theme/ECON',
+      uri: 'http://publications.europa.eu/resource/authority/data-theme/ECON',
       code: 'ECON',
       startUse: '2015-10-01',
-      title: {
+      label: {
         ro: 'Economie şi finanţe',
         sv: 'Ekonomi och finans',
         cs: 'Hospodářství a finance',
@@ -73,19 +72,18 @@ export default {
         hu: 'Gazdaság és pénzügy'
       },
       conceptSchema: {
-        id: 'http://publications.europa.eu/resource/authority/data-theme',
-        title: {
+        uri: 'http://publications.europa.eu/resource/authority/data-theme',
+        label: {
           en: 'Dataset types Named Authority List'
         },
-        versioninfo: '20160921-0',
-        versionnumber: '20160921-0'
+        versionNumber: '20160921-0'
       }
     },
     {
-      id: 'http://publications.europa.eu/resource/authority/data-theme/EDUC',
+      uri: 'http://publications.europa.eu/resource/authority/data-theme/EDUC',
       code: 'EDUC',
       startUse: '2015-10-01',
-      title: {
+      label: {
         sv: 'Utbildning, kultur och sport',
         sk: 'Vzdelávanie, kultúra a šport',
         pt: 'Educação, cultura e desporto',
@@ -113,19 +111,18 @@ export default {
         et: 'Haridus, kultuur ja sport'
       },
       conceptSchema: {
-        id: 'http://publications.europa.eu/resource/authority/data-theme',
-        title: {
+        uri: 'http://publications.europa.eu/resource/authority/data-theme',
+        label: {
           en: 'Dataset types Named Authority List'
         },
-        versioninfo: '20160921-0',
-        versionnumber: '20160921-0'
+        versionNumber: '20160921-0'
       }
     },
     {
-      id: 'http://publications.europa.eu/resource/authority/data-theme/ENER',
+      uri: 'http://publications.europa.eu/resource/authority/data-theme/ENER',
       code: 'ENER',
       startUse: '2015-10-01',
-      title: {
+      label: {
         ga: 'Fuinneamh',
         en: 'Energy',
         ro: 'Energie',
@@ -153,19 +150,18 @@ export default {
         bg: 'Енергетика'
       },
       conceptSchema: {
-        id: 'http://publications.europa.eu/resource/authority/data-theme',
-        title: {
+        uri: 'http://publications.europa.eu/resource/authority/data-theme',
+        label: {
           en: 'Dataset types Named Authority List'
         },
-        versioninfo: '20160921-0',
-        versionnumber: '20160921-0'
+        versionNumber: '20160921-0'
       }
     },
     {
-      id: 'http://publications.europa.eu/resource/authority/data-theme/ENVI',
+      uri: 'http://publications.europa.eu/resource/authority/data-theme/ENVI',
       code: 'ENVI',
       startUse: '2015-10-01',
-      title: {
+      label: {
         nl: 'Milieu',
         lv: 'Vide',
         mt: 'Ambjent',
@@ -193,19 +189,18 @@ export default {
         sk: 'Životné prostredie'
       },
       conceptSchema: {
-        id: 'http://publications.europa.eu/resource/authority/data-theme',
-        title: {
+        uri: 'http://publications.europa.eu/resource/authority/data-theme',
+        label: {
           en: 'Dataset types Named Authority List'
         },
-        versioninfo: '20160921-0',
-        versionnumber: '20160921-0'
+        versionNumber: '20160921-0'
       }
     },
     {
-      id: 'http://publications.europa.eu/resource/authority/data-theme/GOVE',
+      uri: 'http://publications.europa.eu/resource/authority/data-theme/GOVE',
       code: 'GOVE',
       startUse: '2015-10-01',
-      title: {
+      label: {
         it: 'Governo e settore pubblico',
         nb: 'Forvaltning og offentlig sektor',
         en: 'Government and public sector',
@@ -233,19 +228,18 @@ export default {
         nl: 'Overheid en publieke sector'
       },
       conceptSchema: {
-        id: 'http://publications.europa.eu/resource/authority/data-theme',
-        title: {
+        uri: 'http://publications.europa.eu/resource/authority/data-theme',
+        label: {
           en: 'Dataset types Named Authority List'
         },
-        versioninfo: '20160921-0',
-        versionnumber: '20160921-0'
+        versionNumber: '20160921-0'
       }
     },
     {
-      id: 'http://publications.europa.eu/resource/authority/data-theme/HEAL',
+      uri: 'http://publications.europa.eu/resource/authority/data-theme/HEAL',
       code: 'HEAL',
       startUse: '2015-10-01',
-      title: {
+      label: {
         es: 'Salud',
         cs: 'Zdraví',
         fr: 'Santé',
@@ -273,19 +267,18 @@ export default {
         ro: 'Sănătate'
       },
       conceptSchema: {
-        id: 'http://publications.europa.eu/resource/authority/data-theme',
-        title: {
+        uri: 'http://publications.europa.eu/resource/authority/data-theme',
+        label: {
           en: 'Dataset types Named Authority List'
         },
-        versioninfo: '20160921-0',
-        versionnumber: '20160921-0'
+        versionNumber: '20160921-0'
       }
     },
     {
-      id: 'http://publications.europa.eu/resource/authority/data-theme/INTR',
+      uri: 'http://publications.europa.eu/resource/authority/data-theme/INTR',
       code: 'INTR',
       startUse: '2015-10-01',
-      title: {
+      label: {
         sv: 'Internationella frågor',
         es: 'Asuntos internacionales',
         sk: 'Medzinárodné otázky',
@@ -313,19 +306,18 @@ export default {
         bg: 'Международни въпроси'
       },
       conceptSchema: {
-        id: 'http://publications.europa.eu/resource/authority/data-theme',
-        title: {
+        uri: 'http://publications.europa.eu/resource/authority/data-theme',
+        label: {
           en: 'Dataset types Named Authority List'
         },
-        versioninfo: '20160921-0',
-        versionnumber: '20160921-0'
+        versionNumber: '20160921-0'
       }
     },
     {
-      id: 'http://publications.europa.eu/resource/authority/data-theme/JUST',
+      uri: 'http://publications.europa.eu/resource/authority/data-theme/JUST',
       code: 'JUST',
       startUse: '2015-10-01',
-      title: {
+      label: {
         lt: 'Teisingumas, teisės sistema ir visuomenės sauga',
         hu: 'Igazságügy, jogrendszer és közbiztonság',
         ga: 'Ceartas, córas dlí agus sábháilteacht an phobail',
@@ -353,19 +345,18 @@ export default {
         et: 'Õigusemõistmine, õigussüsteem ja avalik turvalisus'
       },
       conceptSchema: {
-        id: 'http://publications.europa.eu/resource/authority/data-theme',
-        title: {
+        uri: 'http://publications.europa.eu/resource/authority/data-theme',
+        label: {
           en: 'Dataset types Named Authority List'
         },
-        versioninfo: '20160921-0',
-        versionnumber: '20160921-0'
+        versionNumber: '20160921-0'
       }
     },
     {
-      id: 'http://publications.europa.eu/resource/authority/data-theme/REGI',
+      uri: 'http://publications.europa.eu/resource/authority/data-theme/REGI',
       code: 'REGI',
       startUse: '2015-10-01',
-      title: {
+      label: {
         hr: 'Regije i gradovi',
         en: 'Regions and cities',
         nb: 'Regioner og byer',
@@ -393,19 +384,18 @@ export default {
         mt: 'Reġjuni u bliet'
       },
       conceptSchema: {
-        id: 'http://publications.europa.eu/resource/authority/data-theme',
-        title: {
+        uri: 'http://publications.europa.eu/resource/authority/data-theme',
+        label: {
           en: 'Dataset types Named Authority List'
         },
-        versioninfo: '20160921-0',
-        versionnumber: '20160921-0'
+        versionNumber: '20160921-0'
       }
     },
     {
-      id: 'http://publications.europa.eu/resource/authority/data-theme/SOCI',
+      uri: 'http://publications.europa.eu/resource/authority/data-theme/SOCI',
       code: 'SOCI',
       startUse: '2015-10-01',
-      title: {
+      label: {
         bg: 'Население и общество',
         sk: 'Obyvateľstvo a spoločnosť',
         de: 'Bevölkerung und Gesellschaft',
@@ -433,19 +423,18 @@ export default {
         ga: 'Daonra agus sochaí'
       },
       conceptSchema: {
-        id: 'http://publications.europa.eu/resource/authority/data-theme',
-        title: {
+        uri: 'http://publications.europa.eu/resource/authority/data-theme',
+        label: {
           en: 'Dataset types Named Authority List'
         },
-        versioninfo: '20160921-0',
-        versionnumber: '20160921-0'
+        versionNumber: '20160921-0'
       }
     },
     {
-      id: 'http://publications.europa.eu/resource/authority/data-theme/TECH',
+      uri: 'http://publications.europa.eu/resource/authority/data-theme/TECH',
       code: 'TECH',
       startUse: '2015-10-01',
-      title: {
+      label: {
         pt: 'Ciência e tecnologia',
         sk: 'Veda a technika',
         da: 'Videnskab og teknologi',
@@ -473,19 +462,18 @@ export default {
         hu: 'Tudomány és technológia'
       },
       conceptSchema: {
-        id: 'http://publications.europa.eu/resource/authority/data-theme',
-        title: {
+        uri: 'http://publications.europa.eu/resource/authority/data-theme',
+        label: {
           en: 'Dataset types Named Authority List'
         },
-        versioninfo: '20160921-0',
-        versionnumber: '20160921-0'
+        versionNumber: '20160921-0'
       }
     },
     {
-      id: 'http://publications.europa.eu/resource/authority/data-theme/TRAN',
+      uri: 'http://publications.europa.eu/resource/authority/data-theme/TRAN',
       code: 'TRAN',
       startUse: '2015-10-01',
-      title: {
+      label: {
         hu: 'Közlekedés',
         pt: 'Transportes',
         sk: 'Doprava',
@@ -513,12 +501,11 @@ export default {
         lt: 'Transportas'
       },
       conceptSchema: {
-        id: 'http://publications.europa.eu/resource/authority/data-theme',
-        title: {
+        uri: 'http://publications.europa.eu/resource/authority/data-theme',
+        label: {
           en: 'Dataset types Named Authority List'
         },
-        versioninfo: '20160921-0',
-        versionnumber: '20160921-0'
+        versionNumber: '20160921-0'
       }
     }
   ]
