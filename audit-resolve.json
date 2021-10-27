@@ -4,6 +4,176 @@
       "decision": "ignore",
       "madeAt": 1629700011889,
       "expiresAt": 1632673254821
+    },
+    "1002401|@commitlint/cli>yargs>cliui>strip-ansi>ansi-regex": {
+      "decision": "ignore",
+      "madeAt": 1635415436938,
+      "expiresAt": 1638007427917
+    },
+    "1002401|@commitlint/cli>yargs>cliui>wrap-ansi>strip-ansi>ansi-regex": {
+      "decision": "ignore",
+      "madeAt": 1635415436938,
+      "expiresAt": 1638007427917
+    },
+    "1002401|showdown>yargs>string-width>strip-ansi>ansi-regex": {
+      "decision": "ignore",
+      "madeAt": 1635323251095,
+      "expiresAt": 1637915209466
+    },
+    "1002401|showdown>yargs>cliui>string-width>strip-ansi>ansi-regex": {
+      "decision": "ignore",
+      "madeAt": 1635323251095,
+      "expiresAt": 1637915209466
+    },
+    "1002401|showdown>yargs>cliui>wrap-ansi>string-width>strip-ansi>ansi-regex": {
+      "decision": "ignore",
+      "madeAt": 1635323251095,
+      "expiresAt": 1637915209466
+    },
+    "1002401|commitizen>inquirer>string-width>strip-ansi>ansi-regex": {
+      "decision": "ignore",
+      "madeAt": 1635323251095,
+      "expiresAt": 1637915209466
+    },
+    "1002401|cz-conventional-changelog>commitizen>inquirer>string-width>strip-ansi>ansi-regex": {
+      "decision": "ignore",
+      "madeAt": 1635323251095,
+      "expiresAt": 1637915209466
+    },
+    "1002401|commitizen>inquirer>strip-ansi>ansi-regex": {
+      "decision": "ignore",
+      "madeAt": 1635323251095,
+      "expiresAt": 1637915209466
+    },
+    "1002401|cz-conventional-changelog>commitizen>inquirer>strip-ansi>ansi-regex": {
+      "decision": "ignore",
+      "madeAt": 1635323251095,
+      "expiresAt": 1637915209466
+    },
+    "1002401|node-sass>sass-graph>yargs>cliui>strip-ansi>ansi-regex": {
+      "decision": "ignore",
+      "madeAt": 1635323251095,
+      "expiresAt": 1637915209466
+    },
+    "1002401|node-sass>sass-graph>yargs>cliui>string-width>strip-ansi>ansi-regex": {
+      "decision": "ignore",
+      "madeAt": 1635323251095,
+      "expiresAt": 1637915209466
+    },
+    "1002401|node-sass>sass-graph>yargs>cliui>wrap-ansi>strip-ansi>ansi-regex": {
+      "decision": "ignore",
+      "madeAt": 1635323251095,
+      "expiresAt": 1637915209466
+    },
+    "1002401|node-sass>sass-graph>yargs>cliui>wrap-ansi>string-width>strip-ansi>ansi-regex": {
+      "decision": "ignore",
+      "madeAt": 1635323251095,
+      "expiresAt": 1637915209466
+    },
+    "1002401|node-sass>sass-graph>yargs>string-width>strip-ansi>ansi-regex": {
+      "decision": "ignore",
+      "madeAt": 1635323251095,
+      "expiresAt": 1637915209466
+    },
+    "1002423|react-svg-loader>react-svg-core>svgo>css-select>nth-check": {
+      "decision": "ignore",
+      "madeAt": 1635323256595,
+      "expiresAt": 1637915209466
+    },
+    "1002477|@fellesdatakatalog/internal-footer>@fellesdatakatalog/skatteetaten-frontend-components>axios": {
+      "decision": "ignore",
+      "madeAt": 1635323260413,
+      "expiresAt": 1637915209466
+    },
+    "1002521|@commitlint/cli>@commitlint/lint>@commitlint/parse>conventional-commits-parser>trim-off-newlines": {
+      "decision": "ignore",
+      "madeAt": 1635323265354,
+      "expiresAt": 1637915209466
+    },
+    "1002522|@pmmmwh/react-refresh-webpack-plugin>ansi-html": {
+      "decision": "ignore",
+      "madeAt": 1635323272444,
+      "expiresAt": 1637915209466
+    },
+    "1002531|rdflib>xmldom": {
+      "decision": "ignore",
+      "madeAt": 1635323276159,
+      "expiresAt": 1637915209466
+    },
+    "1002901|@fellesdatakatalog/internal-footer>@fellesdatakatalog/skatteetaten-frontend-components>react-i18next>html-parse-stringify2": {
+      "decision": "ignore",
+      "madeAt": 1635323279146,
+      "expiresAt": 1637915209466
+    },
+    "1002401|@commitlint/cli>yargs>string-width>strip-ansi>ansi-regex": {
+      "decision": "ignore",
+      "madeAt": 1635415436938,
+      "expiresAt": 1638007427917
+    },
+    "1002401|@commitlint/cli>yargs>cliui>string-width>strip-ansi>ansi-regex": {
+      "decision": "ignore",
+      "madeAt": 1635415436938,
+      "expiresAt": 1638007427917
+    },
+    "1002401|@commitlint/cli>yargs>cliui>wrap-ansi>string-width>strip-ansi>ansi-regex": {
+      "decision": "ignore",
+      "madeAt": 1635415436938,
+      "expiresAt": 1638007427917
+    },
+    "1002401|jest>@jest/core>jest-runtime>yargs>cliui>string-width>strip-ansi>ansi-regex": {
+      "decision": "ignore",
+      "madeAt": 1635415436938,
+      "expiresAt": 1638007427917
+    },
+    "1002401|jest>@jest/core>jest-runner>jest-runtime>yargs>cliui>string-width>strip-ansi>ansi-regex": {
+      "decision": "ignore",
+      "madeAt": 1635415436938,
+      "expiresAt": 1638007427917
+    },
+    "1002401|jest>@jest/core>jest-config>@jest/test-sequencer>jest-runtime>yargs>cliui>string-width>strip-ansi>ansi-regex": {
+      "decision": "ignore",
+      "madeAt": 1635415436938,
+      "expiresAt": 1638007427917
+    },
+    "1002401|jest>jest-cli>@jest/core>jest-config>@jest/test-sequencer>jest-runtime>yargs>cliui>string-width>strip-ansi>ansi-regex": {
+      "decision": "ignore",
+      "madeAt": 1635415436938,
+      "expiresAt": 1638007427917
+    },
+    "1002401|jest>jest-cli>@jest/core>jest-config>@jest/test-sequencer>jest-runtime>yargs>cliui>wrap-ansi>string-width>strip-ansi>ansi-regex": {
+      "decision": "ignore",
+      "madeAt": 1635415436938,
+      "expiresAt": 1638007427917
+    },
+    "1002401|@testing-library/react>@testing-library/dom>pretty-format>ansi-regex": {
+      "decision": "ignore",
+      "madeAt": 1635415436938,
+      "expiresAt": 1638007427917
+    },
+    "1002401|eslint>strip-ansi>ansi-regex": {
+      "decision": "ignore",
+      "madeAt": 1635415436938,
+      "expiresAt": 1638007427917
+    },
+    "1002401|eslint>table>strip-ansi>ansi-regex": {
+      "decision": "ignore",
+      "madeAt": 1635415436938,
+      "expiresAt": 1638007427917
+    },
+    "1002401|node-sass>npmlog>gauge>wide-align>string-width>strip-ansi>ansi-regex": {
+      "decision": "ignore",
+      "madeAt": 1635415441519,
+      "expiresAt": 1638007427917
+    },
+    "1002401|node-sass>node-gyp>npmlog>gauge>wide-align>string-width>strip-ansi>ansi-regex": {
+      "decision": "ignore",
+      "madeAt": 1635415441519,
+      "expiresAt": 1638007427917
+    },
+    "1002423|enzyme>cheerio>cheerio-select>css-select>nth-check": {
+      "decision": "ignore",
+      "madeAt": 1635415451578,
+      "expiresAt": 1638007427917
     }
   },
   "rules": {},
