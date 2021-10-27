@@ -74,7 +74,7 @@ const OverviewPage: FC<Props> = ({
                   <SC.Banner variant={Variant.WARNING}>
                     Alle virksomheter må godta bruksvilkår før de kan registrere
                     data i Felles datakatalog. Les mer om bruksvilkårene og
-                    aksepter her: {' '}
+                    aksepter her:{' '}
                     <Link href={`/terms-and-conditions/${id}`} external>
                       Bruksvilkår
                     </Link>

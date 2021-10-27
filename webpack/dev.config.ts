@@ -7,11 +7,16 @@ import {
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import ReactRefreshWebpackPlugin from '@pmmmwh/react-refresh-webpack-plugin';
 import ForkTsCheckerWebpackPlugin from 'fork-ts-checker-webpack-plugin';
-import type { Configuration } from 'webpack';
+import type { Configuration as WebpackConfiguration } from 'webpack';
+import type { Configuration as WebpackDevServerConfiguration } from 'webpack-dev-server';
 
 import baseConfig from './base.config';
 
-const configuration: Configuration = mergeWithCustomize({
+interface Configuration extends WebpackConfiguration {
+  devServer?: WebpackDevServerConfiguration;
+}
+
+const configuration: Configuration = mergeWithCustomize<Configuration>({
   customizeArray: customizeArray({
     'module.rules': CustomizeRule.Replace
   })
@@ -22,7 +27,8 @@ const configuration: Configuration = mergeWithCustomize({
     host: '0.0.0.0',
     port: 4301,
     hot: true,
-    before: app => app.get('/config.js', (_, res) => res.status(204).send()),
+    onBeforeSetupMiddleware: devServer =>
+      devServer.app.get('/config.js', (_, res) => res.status(204).send()),
     historyApiFallback: {
       rewrites: [
         { from: /^\/auth/, to: '/auth.html' },
