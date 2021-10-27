@@ -1,4 +1,5 @@
 module.exports = {
+  testEnvironment: 'jsdom',
   preset: 'ts-jest/presets/js-with-ts',
   globals: {
     'ts-jest': {
@@ -8,7 +9,7 @@ module.exports = {
   setupFilesAfterEnv: ['<rootDir>/test/config/setup.ts'],
   snapshotSerializers: ['enzyme-to-json/serializer'],
   transform: {
-    '^.+\\.svg$': 'jest-svg-transformer'
+    '^.+\\.svg$': 'jest-transformer-svg'
   },
   moduleNameMapper: {
     '\\.(ttf|woff|woff2|css|less|scss)$': 'identity-obj-proxy'
