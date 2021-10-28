@@ -50,7 +50,8 @@
     "clean:coverage": "rm -rf coverage",
     "bundle:analyse": "run-s build:webpack:stats",
     "commit": "git-cz",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "generate:types": "graphql-codegen --config codegen.yml"
   },
   "config": {
     "commitizen": {
@@ -58,6 +59,8 @@
     }
   },
   "dependencies": {
+    "@apollo/client": "^3.4.16",
+    "@babel/runtime": "^7.15.4",
     "@fellesdatakatalog/breadcrumbs": "^0.2.1",
     "@fellesdatakatalog/internal-footer": "^0.3.8",
     "@fellesdatakatalog/internal-header": "^0.4.9",
@@ -74,6 +77,7 @@
     "date-fns": "^2.25.0",
     "designsystemet": "git+https://git@github.com/Informasjonsforvaltning/designsystemet.git#1.4.25",
     "font-awesome": "^4.7.0",
+    "graphql": "^15.7.1",
     "immutable": "^4.0.0-rc.14",
     "is-url": "^1.2.2",
     "lodash": "^4.17.21",
@@ -119,6 +123,11 @@
     "@babel/preset-react": "^7.14.5",
     "@commitlint/cli": "^12.1.4",
     "@commitlint/config-conventional": "^12.1.4",
+    "@graphql-codegen/cli": "^2.2.1",
+    "@graphql-codegen/fragment-matcher": "^3.1.0",
+    "@graphql-codegen/typescript": "^2.2.4",
+    "@graphql-codegen/typescript-operations": "^2.1.8",
+    "@graphql-codegen/typescript-react-apollo": "^3.1.6",
     "@pmmmwh/react-refresh-webpack-plugin": "^0.5.1",
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^11.2.7",
