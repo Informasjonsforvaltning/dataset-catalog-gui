@@ -4,6 +4,12 @@ import { CardGroup } from 'reactstrap';
 import Link from '@fellesdatakatalog/link';
 import Breadcrumbs, { Breadcrumb } from '@fellesdatakatalog/breadcrumbs';
 
+import {
+  Enum_Servicemessage_Channel,
+  ServiceMessage,
+  useGetServiceMessagesQuery
+} from '../../../../../../services/api/strapi/generated/graphql';
+
 import { withAuth, Props as AuthProps } from '../../../../../../providers/auth';
 
 import withCatalogs, {
@@ -13,6 +19,7 @@ import withCatalogs, {
 import Translation from '../../../../../../components/translation';
 import Catalog from '../../../../../../components/catalog';
 import { Variant } from '../../../../../../components/banner';
+import ServiceMessages from '../../../../../../components/service-messages';
 
 import SC from './styled';
 
@@ -24,6 +31,14 @@ const OverviewPage: FC<Props> = ({
   catalogsActions: { listCatalogsRequested: listCatalogs },
   authService
 }) => {
+  const { data } = useGetServiceMessagesQuery({
+    variables: {
+      channel: Enum_Servicemessage_Channel.Registreringsportal,
+      today: new Date(new Date().toUTCString())
+    }
+  });
+  const serviceMessages = data?.serviceMessages as ServiceMessage[];
+
   const [isMounted, setIsMounted] = useState(false);
 
   useEffect(() => {
@@ -43,6 +58,9 @@ const OverviewPage: FC<Props> = ({
 
   return (
     <>
+      {serviceMessages?.length > 0 && (
+        <ServiceMessages serviceMessages={serviceMessages} />
+      )}
       <Breadcrumbs as={SC.Breadcrumbs}>
         <Breadcrumb active>
           <Translation id='Alle kataloger' />

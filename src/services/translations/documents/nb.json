@@ -547,5 +547,8 @@
     },
     "napPublish": "Datasettbeskrivelsen vil være tilgjengelig i Felles datakatalog og Transportportal.no når den er publisert.",
     "napUnPublish": "Datasettbeskrivelsen vil være tilgjengelig i Felles datakatalog når den er publisert."
+  },
+  "serviceMessagesPage": {
+    "goToDetailsPage": "Se detaljert driftsmelding for mer informasjon."
   }
 }

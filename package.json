@@ -61,6 +61,7 @@
   "dependencies": {
     "@apollo/client": "^3.4.16",
     "@babel/runtime": "^7.15.4",
+    "@fellesdatakatalog/alert": "^0.1.7",
     "@fellesdatakatalog/breadcrumbs": "^0.2.1",
     "@fellesdatakatalog/internal-footer": "^0.3.8",
     "@fellesdatakatalog/internal-header": "^0.4.9",
