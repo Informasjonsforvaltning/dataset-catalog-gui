@@ -68,9 +68,6 @@ function* getNewReferenceDataRequested({
       {} as ReferenceData
     );
 
-    // eslint-disable-next-line no-console
-    console.log({ new_reference_data: referenceData });
-
     if (Object.values(referenceData).length > 0) {
       yield put(actions.getReferenceDataSucceeded(referenceData));
     } else {
