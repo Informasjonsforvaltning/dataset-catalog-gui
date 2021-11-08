@@ -24,6 +24,7 @@ export default validateEnv(
       'https://registrering-protokoll.staging.fellesdatakatalog.digdir.no',
     FDK_COMMUNITY_BASE_URI:
       'https://community.staging.fellesdatakatalog.digdir.no/',
-    FDK_CMS_BASE_URI: 'https://cms.fellesdatakatalog.digdir.no'
+    FDK_CMS_BASE_URI: 'https://cms.fellesdatakatalog.digdir.no',
+    USE_DEMO_LOGO: false
   }
 );

@@ -40,6 +40,7 @@ const Header: FC<Props> = ({ authService, translationsService }) => {
       themeProfile={themeProfile}
       username={authService.getUserProfile()?.name}
       onLogout={signOut}
+      useDemoLogo={env.USE_DEMO_LOGO}
       skeHomeText={
         isSkatteetatenThemeProfile
           ? translationsService.translate('dataCatalogs')
