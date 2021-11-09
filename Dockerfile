@@ -1,4 +1,4 @@
-FROM node:14 AS build
+FROM node:14.17.5 AS build
 WORKDIR /app
 COPY package.json package-lock.json ./
 COPY audit-resolve.json ./
