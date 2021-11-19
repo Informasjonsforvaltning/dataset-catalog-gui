@@ -209,6 +209,116 @@
       "decision": "ignore",
       "madeAt": 1635417237242,
       "expiresAt": 1638009215307
+    },
+    "1004946|@commitlint/cli>yargs>cliui>strip-ansi>ansi-regex": {
+      "decision": "ignore",
+      "madeAt": 1637324659960,
+      "expiresAt": 1639916652664
+    },
+    "1004946|@commitlint/cli>yargs>cliui>wrap-ansi>strip-ansi>ansi-regex": {
+      "decision": "ignore",
+      "madeAt": 1637324659960,
+      "expiresAt": 1639916652664
+    },
+    "1004946|showdown>yargs>string-width>strip-ansi>ansi-regex": {
+      "decision": "ignore",
+      "madeAt": 1637324661232,
+      "expiresAt": 1639916652664
+    },
+    "1004946|showdown>yargs>cliui>string-width>strip-ansi>ansi-regex": {
+      "decision": "ignore",
+      "madeAt": 1637324661232,
+      "expiresAt": 1639916652664
+    },
+    "1004946|showdown>yargs>cliui>wrap-ansi>string-width>strip-ansi>ansi-regex": {
+      "decision": "ignore",
+      "madeAt": 1637324661232,
+      "expiresAt": 1639916652664
+    },
+    "1004946|@graphql-codegen/cli>listr-update-renderer>log-update>wrap-ansi>strip-ansi>ansi-regex": {
+      "decision": "ignore",
+      "madeAt": 1637324661232,
+      "expiresAt": 1639916652664
+    },
+    "1004946|@graphql-codegen/cli>listr-update-renderer>log-update>wrap-ansi>string-width>strip-ansi>ansi-regex": {
+      "decision": "ignore",
+      "madeAt": 1637324661232,
+      "expiresAt": 1639916652664
+    },
+    "1004946|@graphql-codegen/cli>listr>listr-update-renderer>log-update>wrap-ansi>string-width>strip-ansi>ansi-regex": {
+      "decision": "ignore",
+      "madeAt": 1637324661232,
+      "expiresAt": 1639916652664
+    },
+    "1004946|commitizen>inquirer>string-width>strip-ansi>ansi-regex": {
+      "decision": "ignore",
+      "madeAt": 1637324661232,
+      "expiresAt": 1639916652664
+    },
+    "1004946|cz-conventional-changelog>commitizen>inquirer>string-width>strip-ansi>ansi-regex": {
+      "decision": "ignore",
+      "madeAt": 1637324661232,
+      "expiresAt": 1639916652664
+    },
+    "1004946|commitizen>inquirer>strip-ansi>ansi-regex": {
+      "decision": "ignore",
+      "madeAt": 1637324661232,
+      "expiresAt": 1639916652664
+    },
+    "1004946|cz-conventional-changelog>commitizen>inquirer>strip-ansi>ansi-regex": {
+      "decision": "ignore",
+      "madeAt": 1637324661232,
+      "expiresAt": 1639916652664
+    },
+    "1004946|node-sass>sass-graph>yargs>cliui>strip-ansi>ansi-regex": {
+      "decision": "ignore",
+      "madeAt": 1637324661232,
+      "expiresAt": 1639916652664
+    },
+    "1004946|node-sass>sass-graph>yargs>cliui>string-width>strip-ansi>ansi-regex": {
+      "decision": "ignore",
+      "madeAt": 1637324661232,
+      "expiresAt": 1639916652664
+    },
+    "1004946|node-sass>sass-graph>yargs>cliui>wrap-ansi>strip-ansi>ansi-regex": {
+      "decision": "ignore",
+      "madeAt": 1637324661232,
+      "expiresAt": 1639916652664
+    },
+    "1004946|node-sass>sass-graph>yargs>cliui>wrap-ansi>string-width>strip-ansi>ansi-regex": {
+      "decision": "ignore",
+      "madeAt": 1637324661232,
+      "expiresAt": 1639916652664
+    },
+    "1004946|node-sass>sass-graph>yargs>string-width>strip-ansi>ansi-regex": {
+      "decision": "ignore",
+      "madeAt": 1637324661232,
+      "expiresAt": 1639916652664
+    },
+    "1004967|react-svg-loader>react-svg-core>svgo>css-select>nth-check": {
+      "decision": "ignore",
+      "madeAt": 1637324662489,
+      "expiresAt": 1639916652664
+    },
+    "1005018|@fellesdatakatalog/internal-footer>@fellesdatakatalog/skatteetaten-frontend-components>axios": {
+      "decision": "ignore",
+      "madeAt": 1637324664473,
+      "expiresAt": 1639916652664
+    },
+    "1005058|@commitlint/cli>@commitlint/lint>@commitlint/parse>conventional-commits-parser>trim-off-newlines": {
+      "decision": "ignore",
+      "madeAt": 1637324665874,
+      "expiresAt": 1639916652664
+    },
+    "1005067|rdflib>xmldom": {
+      "decision": "ignore",
+      "madeAt": 1637324667092,
+      "expiresAt": 1639916652664
+    },
+    "1005417|@fellesdatakatalog/internal-footer>@fellesdatakatalog/skatteetaten-frontend-components>react-i18next>html-parse-stringify2": {
+      "decision": "ignore",
+      "madeAt": 1637324668428,
+      "expiresAt": 1639916652664
     }
   },
   "rules": {},
