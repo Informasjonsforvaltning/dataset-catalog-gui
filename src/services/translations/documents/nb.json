@@ -184,9 +184,9 @@
     },
     "accessRights": {
       "heading": "Tilgangsnivå",
-      "publicLabel": "Offentlig",
-      "restrictedLabel": "Begrenset offentlighet",
-      "nonPublicLabel": "Unntatt offentlighet",
+      "publicLabel": "Allmenn tilgang",
+      "restrictedLabel": "Betinget tilgang",
+      "nonPublicLabel": "Ikke-allmenn tilgang",
       "legalBasisForRestriction": {
         "heading": "Skjermingshjemmel",
         "titleLabel": "Tittel",
@@ -436,9 +436,9 @@
     },
     "formValues": {
       "accessRights": {
-        "restricted": "Begrenset",
-        "publicString": "Offentlig",
-        "nonPublic": "Unntatt offentlighet"
+        "restricted": "Betinget tilgang",
+        "publicString": "Allmenn tilgang",
+        "nonPublic": "Ikke-allmenn tilgang"
       },
       "references": "relasjoner",
       "distributions": "distribusjoner",

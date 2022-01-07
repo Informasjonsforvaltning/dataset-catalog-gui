@@ -113,12 +113,11 @@ Se spesifikasjonen <a href='https://data.norge.no/specification/dcat-ap-no/#Data
   Dataset_accessRights: {
     abstract:
       'Skal gjenspeile det mest begrensede feltet/opplysningen i datasettet.',
-    description: `“Offentlig” betyr at datasettet ikke inneholder begrensede opplysninger og kan legges ut som åpne data, selv om det ikke er laget en løsning for tilgang. Se Difis veileder for åpne data.
+    description: `"allmenn tilgang": Tilgang som hvem som helst kan få. Tillatte hindringer inkluderer brukerregistrering og forespørsel om API-nøkler, så lenge alle kan få slik registrering og/eller API-nøkler.
 
+"betinget tilgang": Tilgang som kun kan fås under visse betingelser bestemt av eieren eller tilbyderen. Eksempler på betingelser kan være betaling eller å inngå fortrolighetsavtale. Kategorien inkluderer også tilgang som ennå ikke er kategorisert som allmenn tilgang eller ikke-allmenn tilgang.
 
-“Begrenset offentlighet” betyr at tilgangen til opplysningene avhenger av hvilket formål opplysningene er innsamlet til, og hvilken lovhjemmel den som skal bruke dataene har. Begrensningen kan skyldes innhold som personopplysninger. Når noen ønsker å benytte datasettet må man foreta en konkret vurdering av tilgangen.
-
-“Unntatt offentlighet” betyr at saksbehandler, med referanse til lov eller forskrift, har valgt at datasettet kan unndras fra offentlighet. Typiske eksempler er interne dokumenter, styringsdialog, ansettelser, gradert informasjon, forretningshemmeligheter eller data som andre eier.
+"ikke-allmenn tilgang": Tilgang som ikke hvem som helst kan få som følge av lovregulerte begrensninger knyttet til sikkerhet, personvern eller lignende. Kategorien inkluderer tilgang til ressurser som inneholder sensitive data eller personopplysninger.
 
 Se spesifikasjonen <a href='https://data.norge.no/specification/dcat-ap-no/#Datasett-tilgangsniv%C3%A5' target='_blank'><span>Datasett: tilgangsnivå</span><i class="fa fa-external-link fdk-fa-right"></i></a>`
   },
