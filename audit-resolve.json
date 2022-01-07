@@ -212,11 +212,11 @@
     },
     "1004946|@commitlint/cli>yargs>cliui>strip-ansi>ansi-regex": {
       "decision": "fix",
-      "madeAt": 1640084940750
+      "madeAt": 1641559124263
     },
     "1004946|@commitlint/cli>yargs>cliui>wrap-ansi>strip-ansi>ansi-regex": {
       "decision": "fix",
-      "madeAt": 1640084940750
+      "madeAt": 1641559124263
     },
     "1004946|showdown>yargs>string-width>strip-ansi>ansi-regex": {
       "decision": "ignore",
@@ -320,11 +320,21 @@
     },
     "1006724|node-sass>request>http-signature>jsprim>json-schema": {
       "decision": "fix",
-      "madeAt": 1640084943462
+      "madeAt": 1641559151199
     },
     "1006724|node-sass>node-gyp>request>http-signature>jsprim>json-schema": {
       "decision": "fix",
-      "madeAt": 1640084943462
+      "madeAt": 1641559151199
+    },
+    "1006820|rdflib>xmldom": {
+      "decision": "ignore",
+      "madeAt": 1641559160137,
+      "expiresAt": 1644151114397
+    },
+    "1006846|resolve-url-loader>postcss": {
+      "decision": "ignore",
+      "madeAt": 1641559165462,
+      "expiresAt": 1644151114397
     }
   },
   "rules": {},
