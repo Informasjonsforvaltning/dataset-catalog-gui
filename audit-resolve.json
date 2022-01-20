@@ -220,18 +220,18 @@
     },
     "1004946|showdown>yargs>string-width>strip-ansi>ansi-regex": {
       "decision": "ignore",
-      "madeAt": 1640084956337,
-      "expiresAt": 1642676932937
+      "madeAt": 1642678477488,
+      "expiresAt": 1645270471367
     },
     "1004946|showdown>yargs>cliui>string-width>strip-ansi>ansi-regex": {
       "decision": "ignore",
-      "madeAt": 1640084956337,
-      "expiresAt": 1642676932937
+      "madeAt": 1642678477488,
+      "expiresAt": 1645270471367
     },
     "1004946|showdown>yargs>cliui>wrap-ansi>string-width>strip-ansi>ansi-regex": {
       "decision": "ignore",
-      "madeAt": 1640084956337,
-      "expiresAt": 1642676932937
+      "madeAt": 1642678477488,
+      "expiresAt": 1645270471367
     },
     "1004946|@graphql-codegen/cli>listr-update-renderer>log-update>wrap-ansi>strip-ansi>ansi-regex": {
       "decision": "ignore",
@@ -300,8 +300,8 @@
     },
     "1005018|@fellesdatakatalog/internal-footer>@fellesdatakatalog/skatteetaten-frontend-components>axios": {
       "decision": "ignore",
-      "madeAt": 1640084963818,
-      "expiresAt": 1642676932937
+      "madeAt": 1642678480106,
+      "expiresAt": 1645270471367
     },
     "1005058|@commitlint/cli>@commitlint/lint>@commitlint/parse>conventional-commits-parser>trim-off-newlines": {
       "decision": "ignore",
@@ -315,8 +315,8 @@
     },
     "1005417|@fellesdatakatalog/internal-footer>@fellesdatakatalog/skatteetaten-frontend-components>react-i18next>html-parse-stringify2": {
       "decision": "ignore",
-      "madeAt": 1640084980263,
-      "expiresAt": 1642676932937
+      "madeAt": 1642678482899,
+      "expiresAt": 1645270471367
     },
     "1006724|node-sass>request>http-signature>jsprim>json-schema": {
       "decision": "fix",
@@ -335,6 +335,16 @@
       "decision": "ignore",
       "madeAt": 1641559165462,
       "expiresAt": 1644151114397
+    },
+    "1006865|@fellesdatakatalog/internal-footer>@fellesdatakatalog/skatteetaten-frontend-components>axios>follow-redirects": {
+      "decision": "ignore",
+      "madeAt": 1642675354641,
+      "expiresAt": 1645267345019
+    },
+    "1006865|axios>follow-redirects": {
+      "decision": "ignore",
+      "madeAt": 1642675354641,
+      "expiresAt": 1645267345019
     }
   },
   "rules": {},
