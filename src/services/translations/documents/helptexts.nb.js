@@ -361,9 +361,10 @@ Lenke til IANAs liste over offisielle medietyper: <a style="font-weight: bold;" 
     description: `Dato/tid når distribusjonen (f.eks. api) først ble publisert i tilknytning til et datasett. Når innholdet i datasettene ble gjort tilgjengelige. `
   },
   Distribution_modified: {
-    abstract:
-      'Dersom distribusjonen har åpne, offentlige data skal lisens oppgis.',
-    description: ''
+    abstract: 'Lisens er påkrevd for alle åpne offentlige data.',
+    description: `CC0 og CC 4.0 BY anbefales for distribusjoner (og datatjenester) med forventet internasjonal bruk. Se <a href='https://data.norge.no/guide/veileder-beskrivelse-av-datasett/#distribusjon-lisens' target='_blank'><span>veiledning Distribusjon-lisens</span><i class="fa fa-external-link fdk-fa-right"></i></a> for mer informasjon.
+
+Datasett med tilgangsnivå "allmenn tilgang" og minst en distribusjon med åpen standardisens blir automatisk klassifisert som åpne data på data.norge.no.`
   },
   Distribution_accessService: {
     abstract: 'Søk etter og velg datatjenester fra katalogen.',
