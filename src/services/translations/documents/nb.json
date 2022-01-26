@@ -446,7 +446,7 @@
     }
   },
   "catalogs": {
-    "title": "Dine kataloger",
+    "title": "Alle datasettkataloger",
     "missingTitle": "Mangler tittel",
     "missingCatalogs": {
       "title": "Hei",

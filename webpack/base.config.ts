@@ -10,8 +10,8 @@ const configuration: Configuration = {
     auth: './src/entrypoints/auth/index.ts'
   },
   output: {
-    path: resolve(__dirname, '../dist'),
-    publicPath: '/',
+    path: resolve(__dirname, '..', 'dist'),
+    publicPath: '/catalogs/',
     clean: true
   },
   resolve: {
@@ -26,13 +26,13 @@ const configuration: Configuration = {
           {
             loader: 'babel-loader',
             options: {
-              configFile: resolve(__dirname, '../babel.config.js')
+              configFile: resolve(__dirname, '..', 'babel.config.js')
             }
           },
           {
             loader: 'ts-loader',
             options: {
-              configFile: resolve(__dirname, '../tsconfig.json')
+              configFile: resolve(__dirname, '..', 'tsconfig.json')
             }
           }
         ],
@@ -90,14 +90,14 @@ const configuration: Configuration = {
       template: './src/entrypoints/main/index.html',
       filename: 'index.html',
       favicon: './src/images/favicon.ico',
-      base: '/',
+      base: '/catalogs/',
       chunks: ['main']
     }),
     new HtmlWebpackPlugin({
       template: './src/entrypoints/auth/index.html',
       filename: 'auth.html',
       favicon: './src/images/favicon.ico',
-      base: '/',
+      base: '/catalogs/',
       chunks: ['auth']
     }),
     new MiniCssExtractPlugin({

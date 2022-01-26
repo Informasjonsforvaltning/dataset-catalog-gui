@@ -211,92 +211,89 @@
       "expiresAt": 1638009215307
     },
     "1004946|@commitlint/cli>yargs>cliui>strip-ansi>ansi-regex": {
-      "decision": "fix",
-      "madeAt": 1641559124263
+      "decision": "ignore",
+      "madeAt": 1643197189774,
+      "expiresAt": 1645789183046
     },
     "1004946|@commitlint/cli>yargs>cliui>wrap-ansi>strip-ansi>ansi-regex": {
-      "decision": "fix",
-      "madeAt": 1641559124263
+      "decision": "ignore",
+      "madeAt": 1643197189774,
+      "expiresAt": 1645789183046
     },
     "1004946|showdown>yargs>string-width>strip-ansi>ansi-regex": {
       "decision": "ignore",
-      "madeAt": 1642678477488,
-      "expiresAt": 1645270471367
+      "madeAt": 1643197192721,
+      "expiresAt": 1645789183046
     },
     "1004946|showdown>yargs>cliui>string-width>strip-ansi>ansi-regex": {
       "decision": "ignore",
-      "madeAt": 1642678477488,
-      "expiresAt": 1645270471367
+      "madeAt": 1643197192721,
+      "expiresAt": 1645789183046
     },
     "1004946|showdown>yargs>cliui>wrap-ansi>string-width>strip-ansi>ansi-regex": {
       "decision": "ignore",
-      "madeAt": 1642678477488,
-      "expiresAt": 1645270471367
+      "madeAt": 1643197192721,
+      "expiresAt": 1645789183046
     },
     "1004946|@graphql-codegen/cli>listr-update-renderer>log-update>wrap-ansi>strip-ansi>ansi-regex": {
       "decision": "ignore",
-      "madeAt": 1640084956337,
-      "expiresAt": 1642676932937
+      "madeAt": 1643197192721,
+      "expiresAt": 1645789183046
     },
     "1004946|@graphql-codegen/cli>listr-update-renderer>log-update>wrap-ansi>string-width>strip-ansi>ansi-regex": {
       "decision": "ignore",
-      "madeAt": 1640084956337,
-      "expiresAt": 1642676932937
+      "madeAt": 1643197192721,
+      "expiresAt": 1645789183046
     },
     "1004946|@graphql-codegen/cli>listr>listr-update-renderer>log-update>wrap-ansi>string-width>strip-ansi>ansi-regex": {
       "decision": "ignore",
-      "madeAt": 1640084956337,
-      "expiresAt": 1642676932937
+      "madeAt": 1643197192721,
+      "expiresAt": 1645789183046
     },
     "1004946|commitizen>inquirer>string-width>strip-ansi>ansi-regex": {
       "decision": "ignore",
-      "madeAt": 1640084956337,
-      "expiresAt": 1642676932937
+      "madeAt": 1643197192722,
+      "expiresAt": 1645789183046
     },
     "1004946|cz-conventional-changelog>commitizen>inquirer>string-width>strip-ansi>ansi-regex": {
       "decision": "ignore",
-      "madeAt": 1640084956337,
-      "expiresAt": 1642676932937
+      "madeAt": 1643197192722,
+      "expiresAt": 1645789183046
     },
     "1004946|commitizen>inquirer>strip-ansi>ansi-regex": {
       "decision": "ignore",
-      "madeAt": 1640084956337,
-      "expiresAt": 1642676932937
+      "madeAt": 1643197192722,
+      "expiresAt": 1645789183046
     },
     "1004946|cz-conventional-changelog>commitizen>inquirer>strip-ansi>ansi-regex": {
       "decision": "ignore",
-      "madeAt": 1640084956337,
-      "expiresAt": 1642676932937
+      "madeAt": 1643197192722,
+      "expiresAt": 1645789183046
     },
     "1004946|node-sass>sass-graph>yargs>cliui>strip-ansi>ansi-regex": {
-      "decision": "ignore",
-      "madeAt": 1640084956337,
-      "expiresAt": 1642676932937
+      "decision": "fix",
+      "madeAt": 1643196745024
     },
     "1004946|node-sass>sass-graph>yargs>cliui>string-width>strip-ansi>ansi-regex": {
-      "decision": "ignore",
-      "madeAt": 1640084956337,
-      "expiresAt": 1642676932937
+      "decision": "fix",
+      "madeAt": 1643196745024
     },
     "1004946|node-sass>sass-graph>yargs>cliui>wrap-ansi>strip-ansi>ansi-regex": {
-      "decision": "ignore",
-      "madeAt": 1640084956337,
-      "expiresAt": 1642676932937
+      "decision": "fix",
+      "madeAt": 1643196745024
     },
     "1004946|node-sass>sass-graph>yargs>cliui>wrap-ansi>string-width>strip-ansi>ansi-regex": {
-      "decision": "ignore",
-      "madeAt": 1640084956337,
-      "expiresAt": 1642676932937
+      "decision": "fix",
+      "madeAt": 1643196745024
     },
     "1004946|node-sass>sass-graph>yargs>string-width>strip-ansi>ansi-regex": {
-      "decision": "ignore",
-      "madeAt": 1640084956337,
-      "expiresAt": 1642676932937
+      "decision": "fix",
+      "madeAt": 1643196745025
     },
     "1004967|react-svg-loader>react-svg-core>svgo>css-select>nth-check": {
       "decision": "ignore",
-      "madeAt": 1640084960007,
-      "expiresAt": 1642676932937
+      "madeAt": 1643197195271,
+      "expiresAt": 1645789183046
     },
     "1005018|@fellesdatakatalog/internal-footer>@fellesdatakatalog/skatteetaten-frontend-components>axios": {
       "decision": "ignore",

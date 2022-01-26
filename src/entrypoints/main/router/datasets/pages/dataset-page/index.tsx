@@ -5,6 +5,8 @@ import Skeleton from 'react-loading-skeleton';
 import Link from '@fellesdatakatalog/link';
 import Breadcrumbs, { Breadcrumb } from '@fellesdatakatalog/breadcrumbs';
 
+import env from '../../../../../../env';
+
 import { withAuth, Props as AuthProps } from '../../../../../../providers/auth';
 
 import withDataset, {
@@ -23,6 +25,8 @@ import DatasetRegistrationForm from '../../../../../../components/dataset-regist
 import SC from './styled';
 
 import { ReferenceDataCode } from '../../../../../../types/enums';
+
+const { FDK_REGISTRATION_BASE_URI } = env;
 
 interface RouteParams {
   catalogId: string;
@@ -115,8 +119,13 @@ const DatasetPage: FC<Props> = ({
     <>
       <Breadcrumbs as={SC.Breadcrumbs}>
         <Breadcrumb>
+          <a href={FDK_REGISTRATION_BASE_URI}>
+            <Translation id='breadcrumbs.home' />
+          </a>
+        </Breadcrumb>
+        <Breadcrumb>
           <Link to='/catalogs' as={RouteLink}>
-            <Translation id='Alle kataloger' />
+            <Translation id='catalogs.title' />
           </Link>
         </Breadcrumb>
         <Breadcrumb>

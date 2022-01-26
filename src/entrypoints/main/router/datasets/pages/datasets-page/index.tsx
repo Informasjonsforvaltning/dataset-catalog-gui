@@ -12,6 +12,8 @@ import Breadcrumbs, { Breadcrumb } from '@fellesdatakatalog/breadcrumbs';
 import AddIcon from '@material-ui/icons/Add';
 import SearchIcon from '@material-ui/icons/Search';
 
+import env from '../../../../../../env';
+
 import { withAuth, Props as AuthProps } from '../../../../../../providers/auth';
 
 import withCatalog, {
@@ -32,6 +34,8 @@ import AlertMessage from '../../../../../../components/alert-message/alert-messa
 import SC from './styled';
 
 import { SearchType } from '../../../../../../types/enums';
+
+const { FDK_REGISTRATION_BASE_URI } = env;
 
 interface RouteParams {
   catalogId: string;
@@ -88,8 +92,13 @@ const DatasetsPage: FC<Props> = ({
     <>
       <Breadcrumbs as={SC.Breadcrumbs}>
         <Breadcrumb>
+          <a href={FDK_REGISTRATION_BASE_URI}>
+            <Translation id='breadcrumbs.home' />
+          </a>
+        </Breadcrumb>
+        <Breadcrumb>
           <Link to='/catalogs' as={RouteLink}>
-            <Translation id='Alle kataloger' />
+            <Translation id='catalogs.title' />
           </Link>
         </Breadcrumb>
         <Breadcrumb active>

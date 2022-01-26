@@ -10,6 +10,8 @@ import {
   useGetServiceMessagesQuery
 } from '../../../../../../services/api/strapi/generated/graphql';
 
+import env from '../../../../../../env';
+
 import { withAuth, Props as AuthProps } from '../../../../../../providers/auth';
 
 import withCatalogs, {
@@ -22,6 +24,8 @@ import { Variant } from '../../../../../../components/banner';
 import ServiceMessages from '../../../../../../components/service-messages';
 
 import SC from './styled';
+
+const { FDK_REGISTRATION_BASE_URI } = env;
 
 interface Props extends AuthProps, CatalogsProps {}
 
@@ -62,8 +66,13 @@ const OverviewPage: FC<Props> = ({
         <ServiceMessages serviceMessages={serviceMessages} />
       )}
       <Breadcrumbs as={SC.Breadcrumbs}>
+        <Breadcrumb>
+          <a href={FDK_REGISTRATION_BASE_URI}>
+            <Translation id='breadcrumbs.home' />
+          </a>
+        </Breadcrumb>
         <Breadcrumb active>
-          <Translation id='Alle kataloger' />
+          <Translation id='catalogs.title' />
         </Breadcrumb>
       </Breadcrumbs>
       <SC.Page>
@@ -103,33 +112,6 @@ const OverviewPage: FC<Props> = ({
                   key={`datasets-${id}`}
                   catalogId={id}
                   type='datasets'
-                  disabled={
-                    !authService.hasSystemAdminPermission() &&
-                    !hasAcceptedTerms(id)
-                  }
-                />
-                <Catalog
-                  key={`dataservices-${id}`}
-                  catalogId={id}
-                  type='dataservices'
-                  disabled={
-                    !authService.hasSystemAdminPermission() &&
-                    !hasAcceptedTerms(id)
-                  }
-                />
-                <Catalog
-                  key={`concepts-${id}`}
-                  catalogId={id}
-                  type='concepts'
-                  disabled={
-                    !authService.hasSystemAdminPermission() &&
-                    !hasAcceptedTerms(id)
-                  }
-                />
-                <Catalog
-                  key={`protocol-${id}`}
-                  catalogId={id}
-                  type='protocol'
                   disabled={
                     !authService.hasSystemAdminPermission() &&
                     !hasAcceptedTerms(id)
