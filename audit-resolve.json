@@ -325,13 +325,12 @@
     },
     "1006820|rdflib>xmldom": {
       "decision": "ignore",
-      "madeAt": 1641559160137,
-      "expiresAt": 1644151114397
+      "madeAt": 1644305599336,
+      "expiresAt": 1644910351110
     },
     "1006846|resolve-url-loader>postcss": {
-      "decision": "ignore",
-      "madeAt": 1641559165462,
-      "expiresAt": 1644151114397
+      "decision": "fix",
+      "madeAt": 1644305584392
     },
     "1006865|@fellesdatakatalog/internal-footer>@fellesdatakatalog/skatteetaten-frontend-components>axios>follow-redirects": {
       "decision": "ignore",
