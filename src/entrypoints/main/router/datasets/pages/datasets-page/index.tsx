@@ -1,13 +1,11 @@
 import React, { memo, FC, useState, useEffect } from 'react';
 import { compose } from 'redux';
 import {
-  Link as RouteLink,
   useParams,
   useLocation,
   useHistory,
   useRouteMatch
 } from 'react-router-dom';
-import Link from '@fellesdatakatalog/link';
 import Breadcrumbs, { Breadcrumb } from '@fellesdatakatalog/breadcrumbs';
 import AddIcon from '@material-ui/icons/Add';
 import SearchIcon from '@material-ui/icons/Search';
@@ -95,11 +93,6 @@ const DatasetsPage: FC<Props> = ({
           <a href={FDK_REGISTRATION_BASE_URI}>
             <Translation id='breadcrumbs.home' />
           </a>
-        </Breadcrumb>
-        <Breadcrumb>
-          <Link to='/catalogs' as={RouteLink}>
-            <Translation id='catalogs.title' />
-          </Link>
         </Breadcrumb>
         <Breadcrumb active>
           <Translation id='Datasettkatalog' />

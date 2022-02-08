@@ -124,11 +124,6 @@ const DatasetPage: FC<Props> = ({
           </a>
         </Breadcrumb>
         <Breadcrumb>
-          <Link to='/catalogs' as={RouteLink}>
-            <Translation id='catalogs.title' />
-          </Link>
-        </Breadcrumb>
-        <Breadcrumb>
           <Link to={`/catalogs/${catalogId}/datasets`} as={RouteLink}>
             <Translation id='Datasettkatalog' />
           </Link>
