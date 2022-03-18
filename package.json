@@ -86,7 +86,7 @@
     "oidc-client": "^1.11.5",
     "path-browserify": "^1.0.1",
     "process": "^0.11.10",
-    "qs": "^6.10.1",
+    "qs": "^6.10.3",
     "rdflib": "^2.2.9",
     "react": "^17.0.2",
     "react-autocomplete": "^1.8.1",
