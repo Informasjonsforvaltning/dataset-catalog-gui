@@ -60,6 +60,21 @@ const renderSamples = ({
         <div className='form-group mb-0'>
           <Helptext
             title={translationsService.translate(
+              'schema.sample.helptext.downloadURL'
+            )}
+          />
+          <Field
+            name={`${sample}.downloadURL.0`}
+            type='text'
+            component={isReadOnly ? LinkReadonlyField : InputField}
+            label={translationsService.translate(
+              'schema.sample.downloadURLLabel'
+            )}
+          />
+        </div>
+        <div className='form-group mb-0'>
+          <Helptext
+            title={translationsService.translate(
               'schema.sample.helptext.accessURL'
             )}
           />

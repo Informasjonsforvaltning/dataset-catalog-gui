@@ -16,6 +16,7 @@ const validate = values => {
     const sampleErrors = sample.map(sampleItem => {
       let sampleItemErrors = {};
 
+      const downloadURL = _get(sampleItem, 'downloadURL', null);
       const accessURL = _get(sampleItem, 'accessURL', null);
       const license = (sampleItem.license && sampleItem.license.uri) || null;
       const description = _get(
@@ -32,8 +33,14 @@ const validate = values => {
       const conformsTo = (sampleItem && sampleItem.conformsTo) || null;
 
       sampleItemErrors = validateURL(
+        'downloadURL',
+        downloadURL?.[0],
+        sampleItemErrors,
+        true
+      );
+      sampleItemErrors = validateURL(
         'accessURL',
-        accessURL[0],
+        accessURL?.[0],
         sampleItemErrors,
         true
       );

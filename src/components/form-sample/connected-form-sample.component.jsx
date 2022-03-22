@@ -9,6 +9,7 @@ export const sampleTypes = values => {
     samples = values.map(item => ({
       id: item.id ? item.id : '',
       description: item.description ? item.description : textType,
+      downloadURL: item.downloadURL ? item.downloadURL : [],
       accessURL: item.accessURL ? item.accessURL : [],
       license: item.license ? item.license : licenseType,
       conformsTo: item.conformsTo ? item.conformsTo : [],

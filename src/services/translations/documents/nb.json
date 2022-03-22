@@ -340,12 +340,14 @@
     },
     "sample": {
       "helptext": {
+        "downloadURL": "Nedlastingslenke",
         "accessURL": "Tilgangslenke",
         "format": "Format",
         "description": "Beskrivelse"
       },
       "deleteSampleLabel": "Slett eksempeldata",
       "addSampleLabel": "Legg til eksempeldata",
+      "downloadURLLabel": "Nedlastingslenke",
       "accessURLLabel": "Tilgangslenke",
       "formatLabel": "Format",
       "descriptionLabel": "Beskrivelse"

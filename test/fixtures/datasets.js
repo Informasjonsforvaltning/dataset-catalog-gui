@@ -158,6 +158,7 @@ export default {
               description: {
                 nb: 'Beskrivelse av distribusjon'
               },
+              downloadURL: ['http://download.no'],
               accessURL: ['http://google.no'],
               license: {
                 uri: 'http://creativecommons.org/publicdomain/zero/1.0/',

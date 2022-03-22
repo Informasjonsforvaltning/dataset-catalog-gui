@@ -4,6 +4,7 @@ export default [
     description: {
       nb: ''
     },
+    downloadURL: [],
     accessURL: [],
     license: {
       uri: '',
