@@ -1,7 +1,9 @@
-import React, { memo, FC } from 'react';
+import React, { memo, FC, useState } from 'react';
 import { compose } from 'redux';
 import { Field, FieldArray } from 'redux-form';
+import cx from 'classnames';
 
+import Autocomplete from 'react-autocomplete';
 import {
   withTranslations,
   Props as TranslationsProps
@@ -11,7 +13,6 @@ import Translation from '../translation';
 import Helptext from '../helptext/helptext.component';
 import InputField from '../fields/field-input/field-input.component';
 import MultilingualField from '../multilingual-field/multilingual-field.component';
-import InputTagsField from '../fields/field-input-tags/field-input-tags.component';
 import TextAreaField from '../fields/field-textarea/field-textarea.component';
 import { licenseType, textType } from '../../schemaTypes';
 import { datasetFormPatchThunk } from '../dataset-registration-form/formsLib/asyncValidateDatasetInvokePatch';
@@ -23,13 +24,144 @@ interface ExternalProps {
   catalogId: string;
   datasetId: string;
   languages: any[];
+  mediaTypes: any[];
   isReadOnly: boolean;
 }
 
 interface Props extends ExternalProps, TranslationsProps {}
 
-const renderFormatReadOnly = ({ input }: any) => (
-  <div>{input.value.join(', ')}</div>
+const Formats = ({
+  input: { value: inputValue, onChange },
+  mediaTypes = [],
+  translationsService
+}: any) => {
+  const [filterText, setFilterText] = useState('');
+  return (
+    <>
+      <Autocomplete
+        wrapperProps={{ style: { width: '100%' } }}
+        getItemValue={({ uri }) => uri}
+        items={
+          mediaTypes.filter(({ uri, name }: any) => {
+            const match = inputValue?.find(
+              (mediaType: any) => uri === mediaType
+            );
+            return !match && name.toLowerCase().includes(filterText);
+          }) || []
+        }
+        renderInput={props => (
+          <div className='input-group'>
+            <input
+              type='text'
+              className='form-control'
+              {...props}
+              placeholder={translationsService.translate(
+                'schema.distribution.formatPlaceholder'
+              )}
+            />
+            <span className='input-group-btn input-group-append'>
+              <button
+                type='button'
+                className='btn btn-default input-group-text'
+                onClick={() => setFilterText('')}
+              >
+                <i className='fa fa-times-circle' />
+              </button>
+            </span>
+          </div>
+        )}
+        renderItem={({ uri, name }, isHighlighted) => {
+          const itemClass = cx('px-2', {
+            'fdk-bg-color-neutral-lightest': isHighlighted
+          });
+          return (
+            <div key={uri} className={itemClass}>
+              {name}
+            </div>
+          );
+        }}
+        renderMenu={(items, value, style) => (
+          <div
+            key={value}
+            className='fdk-autocomplete-menu'
+            style={{ ...style }}
+          >
+            {items.slice(0, 50)}
+          </div>
+        )}
+        value={filterText}
+        onChange={e => {
+          e.preventDefault();
+          setFilterText(e.target.value);
+        }}
+        onSelect={val => {
+          setFilterText('');
+          onChange([
+            ...inputValue
+              .filter((value: any) =>
+                mediaTypes.find(({ uri }: any) => uri === value)
+              )
+              .filter(Boolean),
+            val,
+            ...inputValue
+              .filter(
+                (value: any) =>
+                  !mediaTypes.find(({ uri }: any) => uri === value)
+              )
+              .filter(Boolean)
+          ]);
+        }}
+        menuStyle={{ zIndex: 1000 }}
+      />
+      <div className='d-flex flex-wrap my-2'>
+        {inputValue.filter(Boolean).map((value: any, index: number) => (
+          <div key={`filter-${index}-${value}`}>
+            <div
+              role='button'
+              tabIndex={0}
+              className='mr-2 mb-1 fdk-badge badge badge-secondary fdk-text-size-15'
+              onClick={e => {
+                e.preventDefault();
+                delete inputValue[index];
+                onChange(inputValue.filter(Boolean));
+              }}
+              onKeyPress={e => {
+                e.preventDefault();
+                delete inputValue[index];
+                onChange(inputValue.filter(Boolean));
+              }}
+            >
+              <span className='fdk-filter-pill'>
+                {mediaTypes.find(({ uri }: any) => uri === value)?.name ??
+                  value}
+              </span>
+            </div>
+          </div>
+        ))}
+      </div>
+    </>
+  );
+};
+
+const renderFormat = ({ input, mediaTypes, translationsService }: any) => (
+  <FieldArray
+    name={input.name}
+    component={Formats}
+    input={input}
+    mediaTypes={mediaTypes}
+    translationsService={translationsService}
+  />
+);
+
+const renderFomatsReadOnly = ({ input: { value }, mediaTypes = [] }: any) => (
+  <div className='pl-3'>
+    {value
+      .map(
+        (item: any) =>
+          mediaTypes.find(({ uri }: any) => uri === item)?.name ?? item
+      )
+      .join(', ')}
+  </div>
 );
 
 const renderSamples = ({
@@ -37,6 +169,7 @@ const renderSamples = ({
   onDeleteFieldAtIndex,
   languages,
   isReadOnly,
+  mediaTypes,
   translationsService
 }: any) => (
   <div>
@@ -97,8 +230,10 @@ const renderSamples = ({
           <Field
             name={`${sample}.format`}
             type='text'
-            component={isReadOnly ? renderFormatReadOnly : InputTagsField}
+            component={isReadOnly ? renderFomatsReadOnly : renderFormat}
             label={translationsService.translate('schema.sample.formatLabel')}
+            mediaTypes={mediaTypes}
+            translationsService={translationsService}
           />
         </div>
         <div className='form-group mb-0'>
@@ -148,6 +283,7 @@ const FormSample: FC<Props> = ({
   datasetId,
   languages,
   isReadOnly,
+  mediaTypes,
   translationsService
 }) => {
   const deleteFieldAtIndex = (fields: any, index: number) => {
@@ -167,6 +303,7 @@ const FormSample: FC<Props> = ({
         onDeleteFieldAtIndex={deleteFieldAtIndex}
         languages={languages}
         isReadOnly={isReadOnly}
+        mediaTypes={mediaTypes}
         translationsService={translationsService}
       />
     </form>

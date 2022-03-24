@@ -529,6 +529,7 @@ const DatasetRegistrationPage: FC<Props> = ({
                 catalogId={catalogId}
                 datasetId={datasetId}
                 languages={languages}
+                mediaTypes={mediaTypes}
                 isReadOnly={isReadOnly}
               />
             </FormTemplate>
