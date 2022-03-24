@@ -17,6 +17,7 @@ const validate = values => {
     const distributionErrors = distribution.map(distributionItem => {
       let itemErrors = {};
 
+      const downloadURL = distributionItem.downloadURL[0] ?? '';
       const accessURL = distributionItem.accessURL[0] ?? '';
       const license = _.get(distributionItem, ['license', 'uri'], null);
       const description = _.get(
@@ -32,6 +33,7 @@ const validate = values => {
           : null;
       const { conformsTo } = distributionItem || null;
 
+      itemErrors = validateURL('downloadURL', downloadURL, itemErrors, true);
       itemErrors = validateURL('accessURL', accessURL, itemErrors, true);
       itemErrors = validateMinTwoChars('license', license, itemErrors, 'uri');
       itemErrors = validateMinTwoChars('description', description, itemErrors);
