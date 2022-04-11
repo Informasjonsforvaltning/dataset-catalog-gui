@@ -411,6 +411,91 @@
       "decision": "ignore",
       "madeAt": 1647602238946,
       "expiresAt": 1650194220994
+    },
+    "1067301|showdown>yargs>string-width>strip-ansi>ansi-regex": {
+      "decision": "ignore",
+      "madeAt": 1649664272919,
+      "expiresAt": 1652256258989
+    },
+    "1067301|showdown>yargs>cliui>string-width>strip-ansi>ansi-regex": {
+      "decision": "ignore",
+      "madeAt": 1649664272919,
+      "expiresAt": 1652256258989
+    },
+    "1067301|showdown>yargs>cliui>wrap-ansi>string-width>strip-ansi>ansi-regex": {
+      "decision": "ignore",
+      "madeAt": 1649664272919,
+      "expiresAt": 1652256258989
+    },
+    "1067302|@commitlint/cli>yargs>cliui>strip-ansi>ansi-regex": {
+      "decision": "ignore",
+      "madeAt": 1649664278267,
+      "expiresAt": 1652256258989
+    },
+    "1067302|@commitlint/cli>yargs>cliui>wrap-ansi>strip-ansi>ansi-regex": {
+      "decision": "ignore",
+      "madeAt": 1649664278267,
+      "expiresAt": 1652256258989
+    },
+    "1067300|@graphql-codegen/cli>listr-update-renderer>log-update>wrap-ansi>strip-ansi>ansi-regex": {
+      "decision": "ignore",
+      "madeAt": 1649664281681,
+      "expiresAt": 1652256258989
+    },
+    "1067300|@graphql-codegen/cli>listr-update-renderer>log-update>wrap-ansi>string-width>strip-ansi>ansi-regex": {
+      "decision": "ignore",
+      "madeAt": 1649664281681,
+      "expiresAt": 1652256258989
+    },
+    "1067300|@graphql-codegen/cli>listr>listr-update-renderer>log-update>wrap-ansi>string-width>strip-ansi>ansi-regex": {
+      "decision": "ignore",
+      "madeAt": 1649664281681,
+      "expiresAt": 1652256258989
+    },
+    "1067300|commitizen>inquirer>string-width>strip-ansi>ansi-regex": {
+      "decision": "ignore",
+      "madeAt": 1649664281681,
+      "expiresAt": 1652256258989
+    },
+    "1067300|cz-conventional-changelog>commitizen>inquirer>string-width>strip-ansi>ansi-regex": {
+      "decision": "ignore",
+      "madeAt": 1649664281681,
+      "expiresAt": 1652256258989
+    },
+    "1067301|commitizen>inquirer>strip-ansi>ansi-regex": {
+      "decision": "ignore",
+      "madeAt": 1649664281681,
+      "expiresAt": 1652256258989
+    },
+    "1067301|cz-conventional-changelog>commitizen>inquirer>strip-ansi>ansi-regex": {
+      "decision": "ignore",
+      "madeAt": 1649664281681,
+      "expiresAt": 1652256258989
+    },
+    "1067342|commitizen>minimist": {
+      "decision": "ignore",
+      "madeAt": 1649664290754,
+      "expiresAt": 1652256258989
+    },
+    "1067342|cz-conventional-changelog>commitizen>minimist": {
+      "decision": "ignore",
+      "madeAt": 1649664290754,
+      "expiresAt": 1652256258989
+    },
+    "1067480|rdflib>xmldom": {
+      "decision": "ignore",
+      "madeAt": 1649664295841,
+      "expiresAt": 1652256258989
+    },
+    "1067654|react-svg-loader>react-svg-core>svgo>css-select>nth-check": {
+      "decision": "ignore",
+      "madeAt": 1649664298044,
+      "expiresAt": 1652256258989
+    },
+    "1069972|@fellesdatakatalog/internal-footer>@skatteetaten/frontend-components>moment": {
+      "decision": "ignore",
+      "madeAt": 1649664304742,
+      "expiresAt": 1652256258989
     }
   },
   "rules": {},
