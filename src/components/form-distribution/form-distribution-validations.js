@@ -17,8 +17,8 @@ const validate = values => {
     const distributionErrors = distribution.map(distributionItem => {
       let itemErrors = {};
 
-      const downloadURL = distributionItem.downloadURL[0] ?? '';
-      const accessURL = distributionItem.accessURL[0] ?? '';
+      const downloadURL = distributionItem.downloadURL?.[0] ?? '';
+      const accessURL = distributionItem.accessURL?.[0] ?? '';
       const license = _.get(distributionItem, ['license', 'uri'], null);
       const description = _.get(
         distributionItem,
