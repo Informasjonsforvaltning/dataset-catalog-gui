@@ -571,6 +571,11 @@
       "decision": "ignore",
       "madeAt": 1649664906925,
       "expiresAt": 1652256891425
+    },
+    "1070207|rdflib>async": {
+      "decision": "ignore",
+      "madeAt": 1650545429306,
+      "expiresAt": 1653137414220
     }
   },
   "rules": {},
