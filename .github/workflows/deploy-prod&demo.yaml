@@ -15,8 +15,8 @@ jobs:
       caller_sha: ${{ github.sha }}
       repo: ${{ github.repository }}
       actor: ${{ github.actor }}
-      environment: 'prod'
-      cluster: 'digdir-fdk-prod'
+      environment: prod
+      cluster: digdir-fdk-prod
     secrets:
       GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       GCP_SA_DIGDIR_FDK_GCR_KEY: ${{ secrets.GCP_SA_DIGDIR_FDK_GCR_KEY }}
