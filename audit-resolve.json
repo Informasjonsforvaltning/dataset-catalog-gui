@@ -576,6 +576,26 @@
       "decision": "ignore",
       "madeAt": 1650545429306,
       "expiresAt": 1653137414220
+    },
+    "1070251|showdown>yargs>string-width>strip-ansi>ansi-regex": {
+      "decision": "ignore",
+      "madeAt": 1651236339633,
+      "expiresAt": 1653828332957
+    },
+    "1070251|showdown>yargs>cliui>string-width>strip-ansi>ansi-regex": {
+      "decision": "ignore",
+      "madeAt": 1651236339633,
+      "expiresAt": 1653828332957
+    },
+    "1070251|showdown>yargs>cliui>wrap-ansi>string-width>strip-ansi>ansi-regex": {
+      "decision": "ignore",
+      "madeAt": 1651236339633,
+      "expiresAt": 1653828332957
+    },
+    "1070245|@fellesdatakatalog/internal-footer>@skatteetaten/frontend-components>moment": {
+      "decision": "ignore",
+      "madeAt": 1651236342115,
+      "expiresAt": 1653828332957
     }
   },
   "rules": {},
