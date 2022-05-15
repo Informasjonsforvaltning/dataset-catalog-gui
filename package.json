@@ -96,7 +96,7 @@
     "react-dom": "^17.0.2",
     "react-idle-timer": "^4.6.4",
     "react-loading-skeleton": "^2.2.0",
-    "react-localization": "^1.0.17",
+    "react-localization": "^1.0.19",
     "react-moment": "^1.1.1",
     "react-redux": "^7.2.6",
     "react-resolver": "^3.1.2",
