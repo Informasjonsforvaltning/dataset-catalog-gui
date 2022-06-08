@@ -549,18 +549,18 @@
     },
     "1067342|commitizen>minimist": {
       "decision": "ignore",
-      "madeAt": 1649664901672,
-      "expiresAt": 1652256891425
+      "madeAt": 1654692881246,
+      "expiresAt": 1657284869087
     },
     "1067342|cz-conventional-changelog>commitizen>minimist": {
       "decision": "ignore",
-      "madeAt": 1649664901672,
-      "expiresAt": 1652256891425
+      "madeAt": 1654692881246,
+      "expiresAt": 1657284869087
     },
     "1067480|rdflib>xmldom": {
       "decision": "ignore",
-      "madeAt": 1649664903192,
-      "expiresAt": 1652256891425
+      "madeAt": 1654692883289,
+      "expiresAt": 1657284869087
     },
     "1067654|react-svg-loader>react-svg-core>svgo>css-select>nth-check": {
       "decision": "ignore",
@@ -596,6 +596,71 @@
       "decision": "ignore",
       "madeAt": 1651236342115,
       "expiresAt": 1653828332957
+    },
+    "1070274|showdown>yargs>string-width>strip-ansi>ansi-regex": {
+      "decision": "ignore",
+      "madeAt": 1654692876635,
+      "expiresAt": 1657284869087
+    },
+    "1070274|showdown>yargs>cliui>string-width>strip-ansi>ansi-regex": {
+      "decision": "ignore",
+      "madeAt": 1654692876635,
+      "expiresAt": 1657284869087
+    },
+    "1070274|showdown>yargs>cliui>wrap-ansi>string-width>strip-ansi>ansi-regex": {
+      "decision": "ignore",
+      "madeAt": 1654692876635,
+      "expiresAt": 1657284869087
+    },
+    "1070275|@commitlint/cli>yargs>cliui>strip-ansi>ansi-regex": {
+      "decision": "ignore",
+      "madeAt": 1654692878895,
+      "expiresAt": 1657284869087
+    },
+    "1070275|@commitlint/cli>yargs>cliui>wrap-ansi>strip-ansi>ansi-regex": {
+      "decision": "ignore",
+      "madeAt": 1654692878896,
+      "expiresAt": 1657284869087
+    },
+    "1070273|@graphql-codegen/cli>listr-update-renderer>log-update>wrap-ansi>strip-ansi>ansi-regex": {
+      "decision": "ignore",
+      "madeAt": 1654692885544,
+      "expiresAt": 1657284869087
+    },
+    "1070273|@graphql-codegen/cli>listr-update-renderer>log-update>wrap-ansi>string-width>strip-ansi>ansi-regex": {
+      "decision": "ignore",
+      "madeAt": 1654692885544,
+      "expiresAt": 1657284869087
+    },
+    "1070273|@graphql-codegen/cli>listr>listr-update-renderer>log-update>wrap-ansi>string-width>strip-ansi>ansi-regex": {
+      "decision": "ignore",
+      "madeAt": 1654692885544,
+      "expiresAt": 1657284869087
+    },
+    "1070273|commitizen>inquirer>string-width>strip-ansi>ansi-regex": {
+      "decision": "ignore",
+      "madeAt": 1654692885544,
+      "expiresAt": 1657284869087
+    },
+    "1070273|cz-conventional-changelog>commitizen>inquirer>string-width>strip-ansi>ansi-regex": {
+      "decision": "ignore",
+      "madeAt": 1654692885544,
+      "expiresAt": 1657284869087
+    },
+    "1070274|commitizen>inquirer>strip-ansi>ansi-regex": {
+      "decision": "ignore",
+      "madeAt": 1654692885544,
+      "expiresAt": 1657284869087
+    },
+    "1070274|cz-conventional-changelog>commitizen>inquirer>strip-ansi>ansi-regex": {
+      "decision": "ignore",
+      "madeAt": 1654692885544,
+      "expiresAt": 1657284869087
+    },
+    "1070415|react-svg-loader>react-svg-core>svgo>css-select>nth-check": {
+      "decision": "ignore",
+      "madeAt": 1654692887681,
+      "expiresAt": 1657284869087
     }
   },
   "rules": {},
