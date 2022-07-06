@@ -49,10 +49,7 @@ const DatasetPage: FC<Props> = ({
     deleteDatasetRequested: deleteDataset
   },
   organizationActions: { getOrganizationRequested: getOrganization },
-  referenceDataActions: {
-    getReferenceDataRequested: getReferenceData,
-    getNewReferenceDataRequested: getNewReferenceData
-  },
+  referenceDataActions: { getReferenceDataRequested: getReferenceData },
   authService
 }) => {
   const { catalogId, datasetId } = useParams<RouteParams>();
@@ -62,10 +59,7 @@ const DatasetPage: FC<Props> = ({
     ReferenceDataCode.FREQUENCY,
     ReferenceDataCode.OPEN_LICENCES,
     ReferenceDataCode.PROVENANCE,
-    ReferenceDataCode.REFERENCE_TYPES
-  ];
-
-  const newReferenceDataCodes = [
+    ReferenceDataCode.REFERENCE_TYPES,
     ReferenceDataCode.LOS,
     ReferenceDataCode.THEMES,
     ReferenceDataCode.MEDIA_TYPES
@@ -85,18 +79,6 @@ const DatasetPage: FC<Props> = ({
     ) {
       getReferenceData(
         referenceDataCodes.filter(
-          code => !Object.keys(referenceData).includes(code)
-        )
-      );
-    }
-
-    if (
-      !newReferenceDataCodes.every(code =>
-        Object.keys(referenceData).includes(code)
-      )
-    ) {
-      getNewReferenceData(
-        newReferenceDataCodes.filter(
           code => !Object.keys(referenceData).includes(code)
         )
       );
@@ -147,10 +129,18 @@ const DatasetPage: FC<Props> = ({
           allowDelegatedRegistration={allowDelegatedRegistration}
           losItems={referenceData[ReferenceDataCode.LOS]?.losNodes}
           themesItems={referenceData[ReferenceDataCode.THEMES]?.dataThemes}
-          frequencyItems={referenceData[ReferenceDataCode.FREQUENCY]}
-          openLicenseItems={referenceData[ReferenceDataCode.OPEN_LICENCES]}
-          provenanceItems={referenceData[ReferenceDataCode.PROVENANCE]}
-          referenceTypesItems={referenceData[ReferenceDataCode.REFERENCE_TYPES]}
+          frequencyItems={
+            referenceData[ReferenceDataCode.FREQUENCY]?.frequencies
+          }
+          openLicenseItems={
+            referenceData[ReferenceDataCode.OPEN_LICENCES]?.openLicenses
+          }
+          provenanceItems={
+            referenceData[ReferenceDataCode.PROVENANCE]?.provenanceStatements
+          }
+          referenceTypesItems={
+            referenceData[ReferenceDataCode.REFERENCE_TYPES]?.referenceTypes
+          }
           mediaTypes={referenceData[ReferenceDataCode.MEDIA_TYPES]?.mediaTypes}
           handleDeleteDataset={handleDeleteDataset}
         />

@@ -307,6 +307,7 @@ const renderDistributions = ({
           />
           <Field
             name={`${distribution}.license`}
+            labelKey='label'
             component={isReadOnly ? renderLicence : SelectField}
             items={openLicenseItems}
           />

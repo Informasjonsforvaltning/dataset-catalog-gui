@@ -79,6 +79,7 @@ const renderReferenceFields = ({
           <Field
             name={`${item}.referenceType`}
             component={SelectField}
+            labelKey='label'
             items={referenceTypesItems}
             placeholder='Velg type'
           />

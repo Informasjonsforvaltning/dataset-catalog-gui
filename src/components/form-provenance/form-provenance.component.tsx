@@ -29,7 +29,7 @@ const FormProvenance: FC<Props> = ({
   isReadOnly,
   translationsService
 }) => {
-  const requenzyReadOnly = ({ input }: any) => (
+  const frequencyReadOnly = ({ input }: any) => (
     <div className='pl-3'>
       <Translation object={input.value.prefLabel} />
     </div>
@@ -39,11 +39,14 @@ const FormProvenance: FC<Props> = ({
     <div className='pl-3'>{input.value}</div>
   );
 
-  const renderProvenanceReadOnly = ({ input }: any) => (
-    <div className='pl-3'>
-      <Translation object={input.value.prefLabel} />
-    </div>
-  );
+  const renderProvenanceReadOnly = ({ input }: any) =>
+    provenanceItems
+      ?.filter((item: any) => input?.value?.uri?.includes(`${item.uri}`))
+      .map((item: any) => (
+        <div className='pl-3'>
+          <Translation object={item.label} />
+        </div>
+      ));
 
   const handleProvenanceChange = (
     input: any,
@@ -78,9 +81,9 @@ const FormProvenance: FC<Props> = ({
             htmlFor={item.code}
           />
           <span>
-            {item.prefLabel[translationsService.getLanguage()] ||
-              item.prefLabel.no ||
-              item.prefLabel.nb}
+            {item.label[translationsService.getLanguage()] ||
+              item.label.no ||
+              item.label.nb}
           </span>
         </div>
       ));
@@ -108,7 +111,8 @@ const FormProvenance: FC<Props> = ({
         />
         <Field
           name='accrualPeriodicity'
-          component={isReadOnly ? requenzyReadOnly : SelectField}
+          component={isReadOnly ? frequencyReadOnly : SelectField}
+          labelKey='label'
           items={frequencyItems}
         />
       </div>
