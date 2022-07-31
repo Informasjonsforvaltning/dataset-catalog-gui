@@ -113,7 +113,7 @@
     "redux-thunk": "^2.4.1",
     "regenerator-runtime": "^0.13.9",
     "sanitize-html": "^2.5.2",
-    "showdown": "^1.9.1",
+    "showdown": "^2.1.0",
     "styled-components": "^5.3.3",
     "util": "^0.12.4",
     "yup": "^0.32.11"
