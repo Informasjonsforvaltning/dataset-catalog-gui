@@ -1,7 +1,11 @@
 import React, { memo, FC } from 'react';
 import { compose } from 'redux';
-import OptionTypeBase from 'react-select';
-import Select, { components, createFilter, ActionMeta } from 'react-select';
+import Select, {
+  components,
+  createFilter,
+  ActionMeta,
+  OptionContext
+} from 'react-select';
 import type { WrappedFieldProps } from 'redux-form';
 
 import {
@@ -55,7 +59,7 @@ const SelectField: FC<Props> = ({
     return getLabel(value) ? value : null;
   };
 
-  const saveOption = (option: any, change: ActionMeta<OptionTypeBase>) => {
+  const saveOption = (option: any, change: ActionMeta<OptionContext>) => {
     switch (change.action) {
       case 'select-option':
         onChange({ prefLabel: option[labelKey], ...option });
