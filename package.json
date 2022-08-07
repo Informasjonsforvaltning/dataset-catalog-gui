@@ -153,7 +153,7 @@
     "@types/webpack": "^5.28.0",
     "@types/webpack-dev-server": "^4.7.2",
     "@types/webpack-merge": "^5.0.0",
-    "@types/yup": "^0.29.13",
+    "@types/yup": "^0.29.14",
     "@typescript-eslint/eslint-plugin": "^4.31.0",
     "@typescript-eslint/parser": "^4.31.0",
     "babel-loader": "^8.2.3",
