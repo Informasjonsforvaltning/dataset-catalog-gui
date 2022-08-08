@@ -4,17 +4,19 @@ import {
   BrowserRouter,
   Router as BaseRouter,
   Route,
-  Redirect,
-  Switch
+  Switch,
+  Redirect
 } from 'react-router-dom';
 import type { History } from 'history';
 
 import Header from '../../../components/header';
 import Root from '../../../components/root';
 import Footer from '../../../components/footer';
+import env from '../../../env';
+
+const { FDK_REGISTRATION_BASE_URI } = env;
 
 const routes = {
-  catalogs: lazy(() => import('./catalogs')),
   datasets: lazy(() => import('./datasets'))
 };
 
@@ -30,6 +32,11 @@ const Router: FC<Props> = ({ history }) => {
       <BrowserRouter>{children}</BrowserRouter>
     );
 
+  const redirectToRoot = () => {
+    window.location.href = FDK_REGISTRATION_BASE_URI;
+    return null;
+  };
+
   return (
     <AppRouter>
       <Header />
@@ -37,11 +44,14 @@ const Router: FC<Props> = ({ history }) => {
         <Suspense fallback={null}>
           <Switch>
             <Route
+              exact
               path='/catalogs/:catalogId/datasets'
               component={routes.datasets}
             />
-            <Route path='/catalogs' component={routes.catalogs} />
-            <Redirect to='/catalogs' />
+            <Route exact path='/catalogs' component={redirectToRoot} />
+            <Route path='*'>
+              <Redirect to='/catalogs' />
+            </Route>
           </Switch>
         </Suspense>
       </Root>
