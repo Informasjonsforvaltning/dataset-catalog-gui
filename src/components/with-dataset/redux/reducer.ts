@@ -5,6 +5,7 @@ import {
   GET_DATASET_REQUESTED,
   GET_DATASET_SUCCEEDED,
   GET_DATASET_FAILED,
+  PATCH_DATASET_SUCCEEDED,
   CREATE_DATASET_REQUESTED,
   CREATE_DATASET_SUCCEEDED,
   CREATE_DATASET_FAILED,
@@ -39,6 +40,8 @@ export default function reducer(
         .set('isLoadingDataset', false);
     case GET_DATASET_FAILED:
       return state.set('isLoadingDataset', false);
+    case PATCH_DATASET_SUCCEEDED:
+      return state.set('dataset', fromJS(action.payload.dataset));
     case CREATE_DATASET_REQUESTED:
       return state
         .set('createdDataset', undefined)

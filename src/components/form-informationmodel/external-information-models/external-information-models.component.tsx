@@ -23,6 +23,7 @@ interface ExternalProps {
   dispatch: (arg: any) => void;
   catalogId: string;
   datasetId: string;
+  datasetItem: any;
 }
 
 interface Props extends ExternalProps, WrappedFieldArrayProps {}
@@ -36,11 +37,17 @@ const ExternalInformationModels: FC<Props> = ({
   isReadOnly,
   dispatch,
   catalogId,
-  datasetId
+  datasetId,
+  datasetItem
 }) => {
   const patchInformationModels = (models: any) => {
     const patch = { [fields.name]: models };
-    const thunk = datasetFormPatchThunk({ catalogId, datasetId, patch });
+    const thunk = datasetFormPatchThunk({
+      catalogId,
+      datasetId,
+      datasetItem,
+      patch
+    });
     dispatch(thunk);
   };
 

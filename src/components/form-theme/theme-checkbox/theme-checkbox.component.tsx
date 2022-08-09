@@ -23,18 +23,7 @@ const CheckboxFieldTheme: FC<Props> = ({ input, themesItems }) => {
     } else {
       // add object
       const updates = input?.value ?? [];
-      const selectedThemeItem = themesItems.find(
-        ({ uri }) => uri === selectedItemURI
-      );
-      const addItem = {
-        value: selectedThemeItem.uri,
-        label: selectedThemeItem.label.nb ?? selectedThemeItem.label.en,
-        title: {
-          nb: selectedThemeItem.label.nb ?? selectedThemeItem.label.en
-        },
-        uri: selectedThemeItem.uri
-      };
-      updates.push(addItem);
+      updates.push({ uri: selectedItemURI });
       input.onChange(updates);
     }
   };

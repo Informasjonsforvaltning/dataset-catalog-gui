@@ -168,7 +168,12 @@ const FormAccessRights: FC<FormAccessRightsProps> = ({
     // use splice instead of skip, for changing the bound value
     values.splice(index, 1);
     const patch = { [fields.name]: values };
-    const thunk = datasetFormPatchThunk({ catalogId, datasetId, patch });
+    const thunk = datasetFormPatchThunk({
+      catalogId,
+      datasetId,
+      datasetItem,
+      patch
+    });
     dispatch(thunk);
   };
   return (

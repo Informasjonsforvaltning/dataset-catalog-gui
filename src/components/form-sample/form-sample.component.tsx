@@ -23,6 +23,7 @@ interface ExternalProps {
   dispatch: (arg: any) => void;
   catalogId: string;
   datasetId: string;
+  datasetItem: any;
   languages: any[];
   mediaTypes: any[];
   isReadOnly: boolean;
@@ -281,6 +282,7 @@ const FormSample: FC<Props> = ({
   dispatch,
   catalogId,
   datasetId,
+  datasetItem,
   languages,
   isReadOnly,
   mediaTypes,
@@ -291,7 +293,12 @@ const FormSample: FC<Props> = ({
     // use splice instead of skip, for changing the bound value
     values.splice(index, 1);
     const patch = { [fields.name]: values };
-    const thunk = datasetFormPatchThunk({ catalogId, datasetId, patch });
+    const thunk = datasetFormPatchThunk({
+      catalogId,
+      datasetId,
+      datasetItem,
+      patch
+    });
     dispatch(thunk);
   };
 

@@ -17,6 +17,7 @@ interface ExternalProps {
   dispatch: (arg: any) => void;
   catalogId: string;
   datasetId: string;
+  datasetItem: any;
 }
 
 interface Props extends ExternalProps, TranslationsProps {}
@@ -27,6 +28,7 @@ const FormInformationModel: FC<Props> = ({
   dispatch,
   catalogId,
   datasetId,
+  datasetItem,
   translationsService
 }) => (
   <form>
@@ -46,6 +48,7 @@ const FormInformationModel: FC<Props> = ({
             dispatch={dispatch}
             catalogId={catalogId}
             datasetId={datasetId}
+            datasetItem={datasetItem}
           />
           <Helptext
             title={translationsService.translate(
@@ -70,6 +73,7 @@ const FormInformationModel: FC<Props> = ({
             dispatch={dispatch}
             catalogId={catalogId}
             datasetId={datasetId}
+            datasetItem={datasetItem}
           />
         </div>
       </div>

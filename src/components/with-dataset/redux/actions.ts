@@ -2,6 +2,7 @@ import {
   GET_DATASET_REQUESTED,
   GET_DATASET_SUCCEEDED,
   GET_DATASET_FAILED,
+  PATCH_DATASET_SUCCEEDED,
   CREATE_DATASET_REQUESTED,
   CREATE_DATASET_SUCCEEDED,
   CREATE_DATASET_FAILED,
@@ -36,6 +37,15 @@ export function getDatasetFailed(message: string) {
     type: GET_DATASET_FAILED,
     payload: {
       message
+    }
+  };
+}
+
+export function patchDatasetSucceeded(dataset: Dataset) {
+  return {
+    type: PATCH_DATASET_SUCCEEDED,
+    payload: {
+      dataset
     }
   };
 }

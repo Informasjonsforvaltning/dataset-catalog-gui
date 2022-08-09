@@ -20,6 +20,7 @@ interface ExternalProps {
   dispatch: (arg: any) => void;
   catalogId: string;
   datasetId: string;
+  datasetItem: any;
   isReadOnly: boolean;
 }
 
@@ -134,6 +135,7 @@ const FormSpatial: FC<Props> = ({
   dispatch,
   catalogId,
   datasetId,
+  datasetItem,
   isReadOnly,
   translationsService
 }) => {
@@ -142,7 +144,12 @@ const FormSpatial: FC<Props> = ({
     // use splice instead of skip, for changing the bound value
     values.splice(index, 1);
     const patch = { [fields.name]: values };
-    const thunk = datasetFormPatchThunk({ catalogId, datasetId, patch });
+    const thunk = datasetFormPatchThunk({
+      catalogId,
+      datasetId,
+      datasetItem,
+      patch
+    });
     dispatch(thunk);
   };
 
@@ -152,6 +159,7 @@ const FormSpatial: FC<Props> = ({
         datasetFormPatchThunk({
           catalogId,
           datasetId,
+          datasetItem,
           patch: { [name]: administrativeUnits }
         })
       );
