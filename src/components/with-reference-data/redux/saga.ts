@@ -21,7 +21,7 @@ function* getReferenceDataRequested({
           ...previous,
           [current]: call(
             axios.get,
-            `${FDK_BASE_URI}/new-reference-data/${current}`
+            `${FDK_BASE_URI}/reference-data/${current}`
           )
         }),
         {}
