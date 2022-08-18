@@ -71,8 +71,7 @@ import {
 import { distributionTypes } from '../form-distribution/distribution-types';
 
 // check the validation state of all rendered forms
-const isAllowedToPublish = (form: any) =>
-  !_.some(_.mapValues(form, subform => subform.syncErrors));
+const isAllowedToPublish = () => true;
 
 interface ExtenralProps {
   catalogId: string;
@@ -547,7 +546,7 @@ const DatasetRegistrationPage: FC<Props> = ({
                   datasetFormStatus.justPublishedOrUnPublished
                 }
                 onDelete={handleDeleteDataset}
-                allowPublish={isAllowedToPublish(form)}
+                allowPublish={isAllowedToPublish()}
               />
             )}
           </div>
