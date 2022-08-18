@@ -36,7 +36,7 @@ export const datasetFormPatchThunk =
   };
 
 export const asyncValidateDatasetInvokePatch = (values, dispatch, props) => {
-  const { catalogId, datasetId, datasetItem } = props;
+  const { catalogId, datasetId, datasetItem = {} } = props;
 
   return dispatch(
     datasetFormPatchThunk({ catalogId, datasetId, datasetItem, patch: values })
