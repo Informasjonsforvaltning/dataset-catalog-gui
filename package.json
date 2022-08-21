@@ -130,7 +130,7 @@
     "@graphql-codegen/typescript": "^2.7.2",
     "@graphql-codegen/typescript-operations": "^2.1.8",
     "@graphql-codegen/typescript-react-apollo": "^3.2.16",
-    "@pmmmwh/react-refresh-webpack-plugin": "^0.5.1",
+    "@pmmmwh/react-refresh-webpack-plugin": "^0.5.7",
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^12.1.5",
     "@types/classnames": "^2.3.1",
