@@ -10,6 +10,7 @@ const RouterConfig: FC = () => (
   <BrowserRouter>
     <Routes>
       <Route path="/" element={<App />}>
+        <Route path="*" element={<h1>Not Found!</h1>}></Route>
       </Route>
     </Routes>
   </BrowserRouter>
