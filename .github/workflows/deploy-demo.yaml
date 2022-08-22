@@ -1,4 +1,4 @@
-name: Deploy to staging
+name: Deploy to demo
 
 on:
   pull_request:
@@ -7,16 +7,16 @@ on:
       - main
 
 jobs:
-  build-and-deploy-staging:
+  build-and-deploy-demo:
     name: Call reusable workflow when pull request is created
     if: github.event.pull_request.draft == false
     uses: Informasjonsforvaltning/workflows/.github/workflows/build-deploy.yaml@main
     with:
-      app_name: dataset-catalog-gui
+      app_name: new-dataset-catalog-gui
       caller_sha: ${{ github.sha }}
       repo: ${{ github.repository }}
       actor: ${{ github.actor }}
-      environment: staging
+      environment: demo
       cluster: digdir-fdk-dev
     secrets:
       GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
