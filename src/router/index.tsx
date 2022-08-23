@@ -9,9 +9,7 @@ import App from "../components/app/App";
 const RouterConfig: FC = () => (
   <BrowserRouter>
     <Routes>
-      <Route path="/" element={<App />}>
-        <Route path="*" element={<h1>Not Found!</h1>}></Route>
-      </Route>
+      <Route path="/" element={<App />} />
     </Routes>
   </BrowserRouter>
 );

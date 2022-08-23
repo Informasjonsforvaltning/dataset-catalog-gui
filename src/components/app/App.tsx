@@ -1,11 +1,6 @@
-import React from 'react';
+import React,{ FC }  from 'react';
+import Main from '../pages/main';
 
-function App() {
-  return (
-    <div className="App">
-      <p>Hello World</p>
-    </div>
-  );
-}
+const App: FC = () => <Main />
 
 export default App;
