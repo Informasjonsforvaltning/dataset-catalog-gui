@@ -23,6 +23,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build"
   },
+  "homepage": "/dataset-catalog",
   "eslintConfig": {
     "extends": [
       "react-app",
