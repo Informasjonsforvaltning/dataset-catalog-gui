@@ -1,0 +1,7 @@
+version: "3"
+
+services:
+  dataset-catalog-gui:
+    build: .
+    ports:
+      - 4301:8080
