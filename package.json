@@ -50,5 +50,8 @@
   "resolutions": {
     "nth-check": "^2.0.1",
     "moment": "^2.29.4"
+  },
+  "optionalDependencies": {
+    "fsevents": "^2.3.2"
   }
 }
