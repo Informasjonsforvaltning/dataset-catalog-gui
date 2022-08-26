@@ -6,8 +6,10 @@ const defaultContext = {
 
 // Context
 const Context = React.createContext(defaultContext);
+Context.displayName = "AppContext";
 // Context updater
 const ContextUpdate = React.createContext(() => {});
+Context.displayName = "AppContextUpdate";
 
 // custom hooks
 const useAppContext = () => useContext(Context);
