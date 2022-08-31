@@ -2,8 +2,8 @@
 .vscode
 .vs
 .idea
-.env
 .envrc
+.env
 
 npm-debug.log
 

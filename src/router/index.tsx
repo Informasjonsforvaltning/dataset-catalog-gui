@@ -1,13 +1,13 @@
-import React, { FC } from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import App from "../components/app";
+import React, { FC } from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Main from '../components/pages/main';
 
-const RouterConfig: FC = () => (
+const Router: FC = () => (
   <BrowserRouter>
     <Routes>
-      <Route path={"/dataset-catalogs"} element={<App />} />
+      <Route path={'/dataset-catalogs'} element={<Main />} />
     </Routes>
   </BrowserRouter>
 );
 
-export default RouterConfig;
+export default Router;

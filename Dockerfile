@@ -3,12 +3,13 @@ WORKDIR /app
 COPY package.json package-lock.json ./
 RUN npm set progress=false && \
   npm config set depth 0 && \
-  npm ci
+  npm ci --legacy-peer-deps
 
-COPY tsconfig.json ./
+COPY tsconfig.json tsconfig.webpack.json babel.config.js ./
+COPY webpack ./webpack
 COPY public ./public
 COPY src ./src
-RUN npm run build
+RUN npm run build:prod
 
 FROM nginx:stable-alpine
 RUN mkdir /app
@@ -23,7 +24,7 @@ USER app:app
 WORKDIR /app
 COPY --chown=app:app nginx/nginx.conf /etc/nginx/nginx.conf
 COPY --chown=app:app nginx/app.conf /etc/nginx/conf.d/default.conf
-COPY --chown=app:app --from=build /app/build ./
+COPY --chown=app:app --from=build /app/dist ./
 
 EXPOSE 8080
 CMD ["nginx", "-g", "daemon off;"]

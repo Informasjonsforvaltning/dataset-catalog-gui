@@ -1,4 +1,4 @@
-import React, { FC, PropsWithChildren, useContext, useState } from "react";
+import React, { FC, PropsWithChildren, useContext, useState } from 'react';
 
 const defaultContext = {
   dark: false,
@@ -6,10 +6,11 @@ const defaultContext = {
 
 // Context
 const Context = React.createContext(defaultContext);
-Context.displayName = "AppContext";
+Context.displayName = 'AppContext';
 // Context updater
+// eslint-disable-next-line @typescript-eslint/no-empty-function
 const ContextUpdate = React.createContext(() => {});
-Context.displayName = "AppContextUpdate";
+Context.displayName = 'AppContextUpdate';
 
 // custom hooks
 const useAppContext = () => useContext(Context);
@@ -28,9 +29,7 @@ const AppContext: FC<PropsWithChildren> = ({ children }) => {
 
   return (
     <Context.Provider value={{ dark: state }}>
-      <ContextUpdate.Provider value={toggleTheme}>
-        {children}
-      </ContextUpdate.Provider>
+      <ContextUpdate.Provider value={toggleTheme}>{children}</ContextUpdate.Provider>
     </Context.Provider>
   );
 };

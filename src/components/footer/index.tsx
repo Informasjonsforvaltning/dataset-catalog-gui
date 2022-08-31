@@ -1,7 +1,13 @@
-import React, { FC } from "react";
+import React, { memo, FC } from 'react';
+import { compose } from 'redux';
+import FooterBase from '@fellesdatakatalog/internal-footer';
 
-const Footer: FC = () => (
-  <></>
-);
+import { getThemeProfile } from '../../utils/helpers/theme-checker';
 
-export default Footer;
+const Footer = () => {
+  const themeProfile = getThemeProfile();
+
+  return <FooterBase themeProfile={themeProfile} />;
+};
+
+export default compose<FC>(memo)(Footer);

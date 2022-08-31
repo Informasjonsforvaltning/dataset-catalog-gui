@@ -2,58 +2,70 @@
   "name": "dataset-catalog-gui",
   "version": "0.1.0",
   "private": true,
+  "homepage": "/dataset-catalogs",
+  "engines": {
+    "node": ">= 16.17.0"
+  },
   "dependencies": {
-    "@emotion/react": "^11.10.0",
-    "@emotion/styled": "^11.10.0",
-    "@mui/material": "^5.10.2",
+    "@emotion/react": "^11.10.4",
+    "@emotion/styled": "^11.10.4",
+    "@fellesdatakatalog/internal-footer": "^0.3.12",
+    "@fellesdatakatalog/internal-header": "^0.5.5",
+    "@fellesdatakatalog/link": "^0.2.10",
+    "@fellesdatakatalog/theme": "^0.5.1",
+    "@mui/material": "^5.10.3",
     "@types/node": "^17.0.45",
     "@types/react": "^18.0.17",
     "@types/react-dom": "^18.0.6",
-    "@uifabric/styling": "^7.21.2",
+    "file-loader": "^6.2.0",
+    "keycloak-js": "^19.0.1",
+    "process": "^0.11.10",
     "react": "^18.2.0",
+    "react-cookie": "^4.1.1",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.3.0",
-    "react-scripts": "5.0.1",
-    "styled-components": "^5.3.5",
-    "typescript": "^4.7.4",
-    "web-vitals": "^2.1.4"
+    "sass-loader": "^13.0.2"
   },
   "devDependencies": {
-    "@testing-library/jest-dom": "^5.16.5",
-    "@testing-library/react": "^13.3.0",
-    "@testing-library/user-event": "^14.4.3",
-    "@types/jest": "^27.5.2"
+    "@babel/core": "^7.18.13",
+    "@pmmmwh/react-refresh-webpack-plugin": "^0.5.7",
+    "@types/styled-components": "^5.1.26",
+    "babel-loader": "^8.2.5",
+    "copy-webpack-plugin": "^11.0.0",
+    "cross-env": "^7.0.3",
+    "fork-ts-checker-webpack-plugin": "^7.2.13",
+    "html-webpack-plugin": "^5.5.0",
+    "mini-css-extract-plugin": "^2.6.1",
+    "path-browserify": "^1.0.1",
+    "react-refresh": "^0.14.0",
+    "redux": "^4.2.0",
+    "source-map-loader": "^4.0.0",
+    "styled-components": "^5.3.5",
+    "ts-loader": "^9.3.1",
+    "ts-node": "^10.9.1",
+    "typescript": "^4.8.2",
+    "webpack": "^5.74.0",
+    "webpack-bundle-analyzer": "^4.6.1",
+    "webpack-cli": "^4.10.0",
+    "webpack-dev-server": "^4.10.1",
+    "webpack-merge": "^5.8.0"
   },
   "scripts": {
     "preinstall": "npx force-resolutions",
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test --watchAll=false --coverage"
-  },
-  "homepage": "/dataset-catalogs",
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
+    "start": "npm run start:dev",
+    "start:dev": "cross-env TS_NODE_PROJECT=tsconfig.webpack.json webpack serve --open-target /dataset-catalogs --config webpack/dev.config.ts",
+    "start:webpack": "cross-env TS_NODE_PROJECT=tsconfig.webpack.json webpack serve --config webpack/dev.config.ts",
+    "build": "npm run build:prod",
+    "build:dev": "npm run build:webpack:dev",
+    "build:prod": "npm run build:webpack:prod",
+    "type:check": "tsc",
+    "build:webpack:dev": "cross-env TS_NODE_PROJECT=tsconfig.webpack.json webpack --config webpack/dev.config.ts",
+    "build:webpack:prod": "cross-env TS_NODE_PROJECT=tsconfig.webpack.json webpack --config webpack/prod.config.ts",
+    "build:webpack:stats": "cross-env TS_NODE_PROJECT=tsconfig.webpack.json webpack --config webpack/stats.config.ts",
+    "bundle:analyse": "npm run build:webpack:stats"
   },
   "resolutions": {
     "nth-check": "^2.0.1",
     "moment": "^2.29.4"
-  },
-  "optionalDependencies": {
-    "fsevents": "^2.3.2"
   }
 }
