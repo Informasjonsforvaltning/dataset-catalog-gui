@@ -12,9 +12,7 @@ exports[`should render FormTemplate correctly 1`] = `
     <div
       className="d-flex align-items-center"
     >
-      <i
-        className="fa fa-2x mr-2 fa-angle-down"
-      />
+      <ChevronDownIcon />
       <h2
         className="mb-0 text-ellipsis"
       />

@@ -21,6 +21,12 @@ import MultilingualField from '../multilingual-field/multilingual-field.componen
 import LinkReadonlyField from '../fields/field-link-readonly/field-link-readonly.component';
 import InputFieldReadonly from '../fields/field-input-readonly/field-input-readonly.component';
 
+import {
+  CircleMinusInlineIcon,
+  CirclePlusInlineIcon,
+  CrossIcon
+} from '../../fdk-icons/icons';
+
 interface ExternalProps {
   dispatch: (arg: any) => void;
   catalogId: string;
@@ -97,7 +103,7 @@ const Formats = ({
                 className='btn btn-default input-group-text'
                 onClick={() => setFilterText('')}
               >
-                <i className='fa fa-times-circle' />
+                <CrossIcon />
               </button>
             </span>
           </div>
@@ -210,6 +216,8 @@ const renderDistributions = ({
       <div key={index}>
         <div className='d-flex'>
           <h4>Distribusjon #{index + 1}</h4>
+        </div>
+        <div>
           {!isReadOnly && (
             <button
               className='fdk-btn-no-border'
@@ -217,7 +225,7 @@ const renderDistributions = ({
               title='Remove distribution'
               onClick={() => onDeleteFieldAtIndex(fields, index)}
             >
-              <i className='fa fa-trash mr-2' />
+              <CircleMinusInlineIcon />
               <Translation id='schema.distribution.deleteDistributionLabel' />
             </button>
           )}
@@ -391,7 +399,7 @@ const renderDistributions = ({
           })
         }
       >
-        <i className='fa fa-plus mr-2' />
+        <CirclePlusInlineIcon />
         <Translation id='schema.distribution.addDistributionLabel' />
       </button>
     )}

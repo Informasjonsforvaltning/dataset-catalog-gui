@@ -15,6 +15,8 @@ import { datasetFormPatchThunk } from '../dataset-registration-form/formsLib/asy
 
 import SpatialTagsInputField from './spatial-tags-input-field';
 
+import { CircleMinusIcon, CirclePlusInlineIcon } from '../../fdk-icons/icons';
+
 interface ExternalProps {
   initialValues: any;
   dispatch: (arg: any) => void;
@@ -59,7 +61,7 @@ const renderTemporalFields = ({
         title='Remove temporal'
         onClick={() => onDeleteFieldAtIndex(fields, index)}
       >
-        <i className='fa fa-trash mr-2' />
+        <CircleMinusIcon />
       </button>
     </div>
   </div>
@@ -85,7 +87,7 @@ const renderTemporal = ({
       type='button'
       onClick={() => fields.push({})}
     >
-      <i className='fa fa-plus mr-2' />
+      <CirclePlusInlineIcon />
       <Translation id='schema.common.addTime' />
     </button>
   </div>

@@ -31,6 +31,8 @@ import { losValues } from '../dataset-registration-form/dataset-registration-pag
 
 import './form-los.scss';
 
+import { CrossIcon } from '../../fdk-icons/icons';
+
 interface ExternalProps {
   losItems: any[];
   datasetItem: any;
@@ -97,7 +99,7 @@ const FormLOS: FC<Props> = ({
                         )
                       }
                     >
-                      <i className='fa fa-times-circle' />
+                      <CrossIcon />
                     </button>
                   </span>
                 </div>

@@ -7,9 +7,7 @@ exports[`should render ExternalInformationModels correctly 1`] = `
     onClick={[Function]}
     type="button"
   >
-    <i
-      className="fa fa-plus mr-2"
-    />
+    <CirclePlusInlineIcon />
   </button>
 </div>
 `;

@@ -1,7 +1,6 @@
 /* eslint-disable react/no-danger */
 import React, { memo, FC, useState } from 'react';
 import { compose } from 'redux';
-import cx from 'classnames';
 import { Collapse } from 'reactstrap';
 
 import { convertToSanitizedHtml } from '../../lib/markdown-converter';
@@ -14,6 +13,11 @@ import {
 import Translation from '../translation';
 
 import './helptext.scss';
+
+import {
+  ChevronDoubleDownInlineIcon,
+  ChevronDoubleUpInlineIcon
+} from '../../fdk-icons/icons';
 
 interface ExternalProps {
   title: string;
@@ -32,11 +36,6 @@ const HelpText: FC<Props> = ({
   translationsService
 }) => {
   const [showAll, toggleShowAll] = useState(false);
-
-  const collapseClass = cx('fa', 'fdk-fa-left', {
-    'fa-angle-double-down': !showAll,
-    'fa-angle-double-up': showAll
-  });
 
   const abstract = term
     ? translationsService.translate(`helptexts.${term}.abstract`)
@@ -74,7 +73,11 @@ const HelpText: FC<Props> = ({
             className='fdk-btn-no-border text-left p-0 ml-1 fdk-reg-helptext-more align-self-start'
             onClick={() => toggleShowAll(!showAll)}
           >
-            <i className={collapseClass} />
+            {showAll ? (
+              <ChevronDoubleUpInlineIcon />
+            ) : (
+              <ChevronDoubleDownInlineIcon />
+            )}
             <Translation id={showAll ? 'helptext.less' : 'helptext.more'} />
           </button>
         )}

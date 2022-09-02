@@ -559,8 +559,8 @@
     },
     "1067480|rdflib>xmldom": {
       "decision": "ignore",
-      "madeAt": 1659532016613,
-      "expiresAt": 1662124002517
+      "madeAt": 1662125502439,
+      "expiresAt": 1662730282043
     },
     "1067654|react-svg-loader>react-svg-core>svgo>css-select>nth-check": {
       "decision": "ignore",
@@ -659,8 +659,8 @@
     },
     "1070415|react-svg-loader>react-svg-core>svgo>css-select>nth-check": {
       "decision": "ignore",
-      "madeAt": 1662032656542,
-      "expiresAt": 1662637410440
+      "madeAt": 1662723129990,
+      "expiresAt": 1665315104266
     },
     "1081347|showdown>yargs>string-width>strip-ansi>ansi-regex": {
       "decision": "ignore",
@@ -734,8 +734,13 @@
     },
     "1083176|node-sass>sass-graph>scss-tokenizer": {
       "decision": "ignore",
-      "madeAt": 1662032666261,
-      "expiresAt": 1662637410440
+      "madeAt": 1662723121578,
+      "expiresAt": 1665315104266
+    },
+    "1084324|@fellesdatakatalog/internal-footer>@skatteetaten/frontend-components>moment": {
+      "decision": "ignore",
+      "madeAt": 1662723126715,
+      "expiresAt": 1665315104266
     }
   },
   "rules": {},

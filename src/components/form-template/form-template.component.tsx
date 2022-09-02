@@ -7,6 +7,12 @@ import Translation from '../translation';
 
 import './form-template.scss';
 
+import {
+  ChevronUpIcon,
+  ChevronDownIcon,
+  TriangleExclamationIcon
+} from '../../fdk-icons/icons';
+
 interface ExternalProps {
   title: string;
   backgroundBlue?: boolean;
@@ -45,11 +51,6 @@ const FormTemplate: FC<PropsWithChildren<Props>> = ({
     'p-0': !backgroundBlue
   });
 
-  const collapseIconClass = cx('fa', 'fa-2x', 'mr-2', {
-    'fa-angle-down': !collapse,
-    'fa-angle-up': collapse
-  });
-
   const collapseContentClass = cx('mt-3', {
     'fdk-collapseContent': backgroundBlue
   });
@@ -62,7 +63,7 @@ const FormTemplate: FC<PropsWithChildren<Props>> = ({
         onClick={() => toggleCollapse(!collapse)}
       >
         <div className='d-flex align-items-center'>
-          <i className={collapseIconClass} />
+          {collapse ? <ChevronUpIcon /> : <ChevronDownIcon />}
           <h2 className='mb-0 text-ellipsis'>{title}</h2>
           {required && (
             <span className='fdk-badge badge-pill fdk-obligatorisk fdk-bg-color-button-primary-2 fdk-color-button-text-primary ml-2 fdk-text-size-small'>
@@ -76,7 +77,7 @@ const FormTemplate: FC<PropsWithChildren<Props>> = ({
           )}
           {syncErrors && (
             <div className='d-flex justify-content-end fdk-syncError-icon'>
-              <i className='fa fa-exclamation-triangle fdk-color-danger ml-2' />
+              <TriangleExclamationIcon />
             </div>
           )}
         </div>

@@ -17,6 +17,11 @@ import InputFieldReadonly from '../fields/field-input-readonly/field-input-reado
 
 import { datasetFormPatchThunk } from '../dataset-registration-form/formsLib/asyncValidateDatasetInvokePatch';
 
+import {
+  CircleMinusInlineIcon,
+  CirclePlusInlineIcon
+} from '../../fdk-icons/icons';
+
 interface ExternalProps {
   dispatch: (arg: any) => void;
   catalogId: string;
@@ -113,7 +118,7 @@ const renderReferenceFields = ({
             title='Remove reference'
             onClick={() => onDeleteFieldAtIndex(fields, index)}
           >
-            <i className='fa fa-trash mr-2' />
+            <CircleMinusInlineIcon />
           </button>
         </div>
       </div>
@@ -150,7 +155,7 @@ const renderReference = ({
         type='button'
         onClick={() => fields.push({})}
       >
-        <i className='fa fa-plus mr-2' />
+        <CirclePlusInlineIcon />
         <Translation id='schema.reference.addReferenceLabel' />
       </button>
     )}
@@ -207,7 +212,7 @@ const renderRelationFields = ({
             title='Remove reference'
             onClick={onDeleteFieldAtIndex}
           >
-            <i className='fa fa-trash mr-2' />
+            <CircleMinusInlineIcon />
             <Translation id='schema.reference.removeRelationLabel' />
           </button>
         </div>
@@ -237,7 +242,7 @@ const renderRelations = ({
         type='button'
         onClick={() => fields.push({})}
       >
-        <i className='fa fa-plus mr-2' />
+        <CirclePlusInlineIcon />
         <Translation id='schema.reference.addRelationLabel' />
       </button>
     )}

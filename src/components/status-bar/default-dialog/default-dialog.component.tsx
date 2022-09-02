@@ -19,6 +19,11 @@ import Translation from '../../translation';
 
 import ButtonRegistrationStatus from './button-registration-status/button-registration-status.component';
 
+import {
+  CheckSquareLightInlineIcon,
+  PencilLightInlineIcon
+} from '../../../fdk-icons/icons';
+
 interface ExternalProps {
   onShowValidationError: () => void;
   onShowConfirmDelete: () => void;
@@ -106,7 +111,7 @@ const DefaultDialog: FC<Props> = ({
               style={{ border: 0, borderRadius: 0 }}
               onClick={onShowConfirmDraft}
             >
-              <i className='fa fa-pencil mr-2 text-white' />
+              <PencilLightInlineIcon />
               <Translation id='formStatus.draft' />
             </Button>
             <Button
@@ -120,7 +125,7 @@ const DefaultDialog: FC<Props> = ({
                   : () => onChange('APPROVE')
               }
             >
-              <i className='fa fa-check-square-o mr-2 text-white' />
+              <CheckSquareLightInlineIcon />
               <Translation
                 id={
                   isApproved(registrationStatus)

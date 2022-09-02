@@ -20,6 +20,8 @@ import './styles.scss';
 import type { AdministrativeUnit } from '../../../types';
 import { AdministrativeUnitType } from '../../../types/enums';
 
+import { CrossLightIcon } from '../../../fdk-icons/icons';
+
 interface ExternalProps extends WrappedFieldProps {
   isReadOnly?: boolean;
   onUpdateAdministrativeUnits: (
@@ -149,7 +151,7 @@ const SpatialTagsInputField: FC<Props> = ({
             {prefLabel?.length > 0 ? <Translation object={prefLabel} /> : uri}
           </span>
           <i
-            className='fa fa-times mr-2 remove-fdk-spatial'
+            className='fa mr-2 remove-fdk-spatial'
             aria-label={
               Object.keys(prefLabel ?? {}).length > 0
                 ? translationsService.translate(prefLabel)
@@ -159,7 +161,9 @@ const SpatialTagsInputField: FC<Props> = ({
             tabIndex={0}
             onClick={removePlace(index)}
             onKeyPress={removePlace(index)}
-          />
+          >
+            <CrossLightIcon />
+          </i>
         </div>
       ))}
     </div>

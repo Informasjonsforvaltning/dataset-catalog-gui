@@ -19,6 +19,12 @@ import { datasetFormPatchThunk } from '../dataset-registration-form/formsLib/asy
 import LinkReadonlyField from '../fields/field-link-readonly/field-link-readonly.component';
 import InputFieldReadonly from '../fields/field-input-readonly/field-input-readonly.component';
 
+import {
+  CircleMinusInlineIcon,
+  CirclePlusInlineIcon,
+  CrossIcon
+} from '../../fdk-icons/icons';
+
 interface ExternalProps {
   dispatch: (arg: any) => void;
   catalogId: string;
@@ -66,7 +72,7 @@ const Formats = ({
                 className='btn btn-default input-group-text'
                 onClick={() => setFilterText('')}
               >
-                <i className='fa fa-times-circle' />
+                <CrossIcon />
               </button>
             </span>
           </div>
@@ -186,7 +192,7 @@ const renderSamples = ({
               )}
               onClick={() => onDeleteFieldAtIndex(fields, index)}
             >
-              <i className='fa fa-trash mr-2' />
+              <CircleMinusInlineIcon />
               <Translation id='schema.sample.deleteSampleLabel' />
             </button>
           </div>
@@ -271,7 +277,7 @@ const renderSamples = ({
           })
         }
       >
-        <i className='fa fa-plus mr-2' />
+        <CirclePlusInlineIcon />
         <Translation id='schema.sample.addSampleLabel' />
       </button>
     )}

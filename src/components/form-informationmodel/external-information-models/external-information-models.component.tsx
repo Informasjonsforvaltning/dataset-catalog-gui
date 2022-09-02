@@ -12,6 +12,11 @@ import { datasetFormPatchThunk } from '../../dataset-registration-form/formsLib/
 
 import '../form-informationmodel.component.scss';
 
+import {
+  CircleMinusInlineIcon,
+  CirclePlusInlineIcon
+} from '../../../fdk-icons/icons';
+
 const { FDK_BASE_URI } = env;
 
 interface ExternalProps {
@@ -95,7 +100,7 @@ const ExternalInformationModels: FC<Props> = ({
                   title='Remove reference'
                   onClick={() => removeModelAtIndex(index)}
                 >
-                  <i className='fa fa-trash mr-2' />
+                  <CircleMinusInlineIcon />
                 </button>
               </div>
             )}
@@ -107,7 +112,7 @@ const ExternalInformationModels: FC<Props> = ({
           type='button'
           onClick={() => fields.push({})}
         >
-          <i className='fa fa-plus mr-2' />
+          <CirclePlusInlineIcon />
           {addLabel}
         </button>
       )}

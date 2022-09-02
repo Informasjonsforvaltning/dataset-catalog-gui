@@ -14,6 +14,8 @@ import { insertTestId } from '../../../../test/utils/testUtils';
 
 import '../form-informationmodel.component.scss';
 
+import { CrossIcon } from '../../../fdk-icons/icons';
+
 const { FDK_BASE_URI } = env;
 
 export const TestIds = {
@@ -86,7 +88,7 @@ const FdkInformationModels: FC<Props> = ({
             </span>
             {!isReadOnly && (
               <i
-                className='fa fa-times mr-2 remove-fdk-info-model text-white'
+                className='fa mr-2 remove-fdk-info-model text-white'
                 role='button'
                 tabIndex={0}
                 onClick={() => removeModelAtIndex(index)}
@@ -94,7 +96,9 @@ const FdkInformationModels: FC<Props> = ({
                   removeModelAtIndex(index);
                   e.preventDefault();
                 }}
-              />
+              >
+                <CrossIcon />
+              </i>
             )}
           </div>
         ))}

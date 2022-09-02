@@ -21,6 +21,8 @@ import { legalBasisType } from '../../schemaTypes';
 import { datasetFormPatchThunk } from '../dataset-registration-form/formsLib/asyncValidateDatasetInvokePatch';
 import AlertMessage from '../alert-message/alert-message.component';
 
+import { CircleMinusIcon, CirclePlusInlineIcon } from '../../fdk-icons/icons';
+
 /*
  Resets fields when radio button "Offentlig" is chosen.
  */
@@ -87,7 +89,7 @@ export const renderLegalBasisFields = ({
           title='Remove legal basis'
           onClick={() => onDeleteFieldAtIndex(fields, index)}
         >
-          <i className='fa fa-trash mr-2' />
+          <CircleMinusIcon />
         </button>
       </div>
     )}
@@ -130,7 +132,7 @@ export const renderLegalBasis = ({
         type='button'
         onClick={() => fields.push({})}
       >
-        <i className='fa fa-plus mr-2' />
+        <CirclePlusInlineIcon />
         <Translation id='schema.common.add' />
       </button>
     )}

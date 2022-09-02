@@ -63,6 +63,7 @@
     "@babel/runtime": "^7.15.4",
     "@fellesdatakatalog/alert": "^0.1.10",
     "@fellesdatakatalog/breadcrumbs": "^0.2.4",
+    "@fellesdatakatalog/icons": "^0.2.0",
     "@fellesdatakatalog/internal-footer": "^0.3.12",
     "@fellesdatakatalog/internal-header": "^0.5.5",
     "@fellesdatakatalog/link": "^0.2.10",
