@@ -12,7 +12,8 @@ import SearchIcon from '@material-ui/icons/Search';
 
 import env from '../../../../../../env';
 
-import { withAuth, Props as AuthProps } from '../../../../../../providers/auth';
+import { withAuth } from '../../../../../../providers/auth';
+import { authService } from '../../../../../../services/auth/auth-service';
 
 import withCatalog, {
   Props as CatalogProps
@@ -43,7 +44,7 @@ interface LocationState {
   confirmDelete?: boolean;
 }
 
-interface Props extends AuthProps, CatalogProps, DatasetsProps, DatasetProps {}
+interface Props extends CatalogProps, DatasetsProps, DatasetProps {}
 
 const DatasetsPage: FC<Props> = ({
   datasetCatalog,
@@ -55,8 +56,7 @@ const DatasetsPage: FC<Props> = ({
     listDatasetsRequested: listDatasets,
     searchDatasetsRequested: searchDatasets
   },
-  datasetActions: { createDatasetRequested: createDataset },
-  authService
+  datasetActions: { createDatasetRequested: createDataset }
 }) => {
   const { catalogId } = useParams<RouteParams>();
   const { state } = useLocation<LocationState>();

@@ -12,7 +12,8 @@ import {
 
 import env from '../../../../../../env';
 
-import { withAuth, Props as AuthProps } from '../../../../../../providers/auth';
+import { withAuth } from '../../../../../../providers/auth';
+import { authService } from '../../../../../../services/auth/auth-service';
 
 import withCatalogs, {
   Props as CatalogsProps
@@ -27,13 +28,12 @@ import SC from './styled';
 
 const { FDK_REGISTRATION_BASE_URI } = env;
 
-interface Props extends AuthProps, CatalogsProps {}
+interface Props extends CatalogsProps {}
 
 const OverviewPage: FC<Props> = ({
   catalogs,
   isLoadingCatalogs,
-  catalogsActions: { listCatalogsRequested: listCatalogs },
-  authService
+  catalogsActions: { listCatalogsRequested: listCatalogs }
 }) => {
   const { data } = useGetServiceMessagesQuery({
     variables: {

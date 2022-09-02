@@ -7,7 +7,8 @@ import Breadcrumbs, { Breadcrumb } from '@fellesdatakatalog/breadcrumbs';
 
 import env from '../../../../../../env';
 
-import { withAuth, Props as AuthProps } from '../../../../../../providers/auth';
+import { withAuth } from '../../../../../../providers/auth';
+import { authService } from '../../../../../../services/auth/auth-service';
 
 import withDataset, {
   Props as DatasetProps
@@ -33,11 +34,7 @@ interface RouteParams {
   datasetId: string;
 }
 
-interface Props
-  extends AuthProps,
-    DatasetProps,
-    OrganizationProps,
-    ReferenceDataProps {}
+interface Props extends DatasetProps, OrganizationProps, ReferenceDataProps {}
 
 const DatasetPage: FC<Props> = ({
   dataset,
@@ -49,8 +46,7 @@ const DatasetPage: FC<Props> = ({
     deleteDatasetRequested: deleteDataset
   },
   organizationActions: { getOrganizationRequested: getOrganization },
-  referenceDataActions: { getReferenceDataRequested: getReferenceData },
-  authService
+  referenceDataActions: { getReferenceDataRequested: getReferenceData }
 }) => {
   const { catalogId, datasetId } = useParams<RouteParams>();
   const { replace } = useHistory();

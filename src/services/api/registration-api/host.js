@@ -2,7 +2,7 @@ import axios from 'axios';
 
 import env from '../../../env';
 
-import AuthService from '../../auth';
+import AuthService from '../../auth/auth-service';
 
 const { FDK_REGISTRATION_BASE_URI } = env;
 

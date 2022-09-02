@@ -5,13 +5,12 @@ import { ThemeProfile } from '@fellesdatakatalog/theme';
 
 import env from '../../env';
 
-import { withAuth, Props as AuthProps } from '../../providers/auth';
+import { withAuth } from '../../providers/auth';
+import { authService } from '../../services/auth/auth-service';
 
 const { SKE_THEME_PROFILE } = env;
 
-interface Props extends AuthProps {}
-
-const Footer: FC<Props> = ({ authService }) => {
+const Footer = () => {
   const isSkatteetatenThemeProfile =
     authService
       .getResourceRoles()

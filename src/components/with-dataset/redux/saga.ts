@@ -3,7 +3,7 @@ import { all, call, put, takeLatest } from 'redux-saga/effects';
 
 import env from '../../../env';
 
-import AuthService from '../../../services/auth';
+import AuthService from '../../../services/auth/auth-service';
 
 import {
   GET_DATASET_REQUESTED,

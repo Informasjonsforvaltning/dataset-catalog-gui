@@ -6,8 +6,7 @@ import CopyWebpackPlugin from 'copy-webpack-plugin';
 
 const configuration: Configuration = {
   entry: {
-    main: './src/entrypoints/main/index.tsx',
-    auth: './src/entrypoints/auth/index.ts'
+    main: './src/entrypoints/main/index.tsx'
   },
   output: {
     path: resolve(__dirname, '..', 'dist'),
@@ -93,18 +92,14 @@ const configuration: Configuration = {
       base: '/catalogs/',
       chunks: ['main']
     }),
-    new HtmlWebpackPlugin({
-      template: './src/entrypoints/auth/index.html',
-      filename: 'auth.html',
-      favicon: './src/images/favicon.ico',
-      base: '/catalogs/',
-      chunks: ['auth']
-    }),
     new MiniCssExtractPlugin({
       filename: '[name].styles.css'
     }),
     new CopyWebpackPlugin({
-      patterns: [{ from: './src/img/*', to: './img' }]
+      patterns: [
+        { from: './src/img/*', to: './img' },
+        { from: './src/lib/auth/silent-check-sso.html', to: './' }
+      ]
     }),
     new ProvidePlugin({
       process: 'process'

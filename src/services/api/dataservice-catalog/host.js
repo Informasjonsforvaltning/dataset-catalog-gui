@@ -2,7 +2,7 @@ import axios from 'axios';
 
 import env from '../../../env';
 
-import AuthService from '../../auth';
+import AuthService from '../../auth/auth-service';
 
 const { DATASERVICE_CATALOG_BASE_URI } = env;
 

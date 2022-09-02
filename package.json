@@ -82,6 +82,7 @@
     "graphql": "^15.7.1",
     "immutable": "^4.0.0-rc.14",
     "is-url": "^1.2.2",
+    "keycloak-js": "^19.0.1",
     "lodash": "^4.17.21",
     "moment": "^2.29.4",
     "oidc-client": "^1.11.5",

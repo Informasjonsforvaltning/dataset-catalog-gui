@@ -6,7 +6,9 @@ import { ThemeProfile } from '@fellesdatakatalog/theme';
 
 import env from '../../env';
 
-import { withAuth, Props as AuthProps } from '../../providers/auth';
+import { withAuth } from '../../providers/auth';
+import { authService } from '../../services/auth/auth-service';
+
 import {
   withTranslations,
   Props as TranslationsProps
@@ -19,10 +21,10 @@ const {
   FDK_COMMUNITY_BASE_URI
 } = env;
 
-interface Props extends AuthProps, TranslationsProps {}
+interface Props extends TranslationsProps {}
 
-const Header: FC<Props> = ({ authService, translationsService }) => {
-  const signOut = () => authService.signOut();
+const Header: FC<Props> = ({ translationsService }) => {
+  const signOut = () => authService.logout();
 
   const isSkatteetatenThemeProfile =
     authService
@@ -38,7 +40,7 @@ const Header: FC<Props> = ({ authService, translationsService }) => {
   return (
     <HeaderBase
       themeProfile={themeProfile}
-      username={authService.getUserProfile()?.name}
+      username={authService.getUser()?.name}
       onLogout={signOut}
       useDemoLogo={env.USE_DEMO_LOGO}
       skeHomeText={

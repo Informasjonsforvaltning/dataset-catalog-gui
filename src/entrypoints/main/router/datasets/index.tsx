@@ -9,7 +9,8 @@ import {
 } from 'react-router-dom';
 import IdleTimer from 'react-idle-timer';
 
-import { withAuth, Props as AuthProps } from '../../../../providers/auth';
+import { withAuth } from '../../../../providers/auth';
+import { authService } from '../../../../services/auth/auth-service';
 
 import ProtectedRoute from '../../../../components/protected-route';
 
@@ -22,9 +23,7 @@ interface RouteParams {
   catalogId: string;
 }
 
-interface Props extends AuthProps {}
-
-const DatasetsRouter: FC<Props> = ({ authService }) => {
+const DatasetsRouter = () => {
   const { path } = useRouteMatch();
   const { catalogId } = useParams<RouteParams>();
 
@@ -34,7 +33,7 @@ const DatasetsRouter: FC<Props> = ({ authService }) => {
       (authService.hasOrganizationReadPermission(catalogId) &&
         authService.hasAcceptedLatestTermsAndConditions(catalogId)));
 
-  const signOut = () => authService.signOut();
+  const signOut = () => authService.logout();
 
   const component = () => (
     <Suspense fallback={null}>
