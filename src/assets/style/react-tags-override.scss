@@ -9,15 +9,6 @@
   /* clicking anywhere will focus the input */
   cursor: text;
   flex-grow: 1 !important;
-
-  &:after {
-    content: '\F002';
-    color: $color-neutral-dark;
-    font-family: FontAwesome;
-    right: 1em;
-    top: 15px;
-    position: absolute;
-  }
 }
 
 .react-tags.is-focused {
