@@ -27,7 +27,7 @@
     "sass-loader": "^13.0.2"
   },
   "devDependencies": {
-    "@babel/core": "^7.18.13",
+    "@babel/core": "^7.19.0",
     "@pmmmwh/react-refresh-webpack-plugin": "^0.5.7",
     "@types/styled-components": "^5.1.26",
     "babel-loader": "^8.2.5",
