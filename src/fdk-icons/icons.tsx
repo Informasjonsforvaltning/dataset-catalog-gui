@@ -38,7 +38,7 @@ const ChevronUpIcon = () => (
   </SC.IconWrapper>
 );
 
-const ChevronUpLightLineIcon = () => (
+const ChevronUpLightInlineIcon = () => (
   <SC.LightInlineIconWrapper>
     <SvgIcon name='chevronUpStroke' />
   </SC.LightInlineIconWrapper>
@@ -99,7 +99,7 @@ export {
   ChevronDownIcon,
   ChevronDownLightInlineIcon,
   ChevronUpIcon,
-  ChevronUpLightLineIcon,
+  ChevronUpLightInlineIcon,
   CircleMinusIcon,
   CircleMinusInlineIcon,
   CirclePlusInlineIcon,

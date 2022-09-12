@@ -11,7 +11,7 @@ exports[`should render SortButtons correctly 1`] = `
     title="Stigende"
     type="button"
   >
-    <ChevronUpLightLineIcon />
+    <ChevronUpLightInlineIcon />
   </button>
   <button
     className="d-flex sortButton transparentButton "

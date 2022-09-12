@@ -2,7 +2,7 @@ import React, { memo, FC } from 'react';
 import { compose } from 'redux';
 import {
   ChevronDownLightInlineIcon,
-  ChevronUpLightLineIcon
+  ChevronUpLightInlineIcon
 } from '../../fdk-icons/icons';
 
 interface ExternalProps {
@@ -30,7 +30,7 @@ const SortButtons: FC<Props> = ({
       onClick={() => onSortField(`${field}`, 'asc')}
       title='Stigende'
     >
-      <ChevronUpLightLineIcon />
+      <ChevronUpLightInlineIcon />
     </button>
     <button
       type='button'
