@@ -11,9 +11,7 @@ exports[`should render SortButtons correctly 1`] = `
     title="Stigende"
     type="button"
   >
-    <i
-      className="fa fa-sort-up fdk-color-white"
-    />
+    <ChevronUpLightLineIcon />
   </button>
   <button
     className="d-flex sortButton transparentButton "
@@ -22,9 +20,7 @@ exports[`should render SortButtons correctly 1`] = `
     title="Synkende"
     type="button"
   >
-    <i
-      className="fa fa-sort-down fdk-color-white"
-    />
+    <CaretDownLightInlineIcon />
   </button>
 </div>
 `;

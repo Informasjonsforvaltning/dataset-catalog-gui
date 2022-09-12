@@ -13,6 +13,7 @@ import Translation from '../translation';
 import Helptext from '../helptext/helptext.component';
 import InputTitleField from '../fields/field-input-title/field-input-title.component';
 import TextAreaField from '../fields/field-textarea/field-textarea.component';
+import { PencilInlineIcon } from '../../fdk-icons/icons';
 
 interface ExternalProps {
   initialValues?: any;
@@ -87,7 +88,7 @@ const FormCatalog: FC<Props> = ({
                 toggleDescription();
               }}
             >
-              <i className='fa fa-pencil mr-2' />
+              <PencilInlineIcon />
               <Translation id='schema.catalog.editDescriptionLabel' />
             </button>
           )}

@@ -1,5 +1,9 @@
 import React, { memo, FC } from 'react';
 import { compose } from 'redux';
+import {
+  CaretDownLightInlineIcon,
+  ChevronUpLightLineIcon
+} from '../../fdk-icons/icons';
 
 interface ExternalProps {
   field: string;
@@ -26,7 +30,7 @@ const SortButtons: FC<Props> = ({
       onClick={() => onSortField(`${field}`, 'asc')}
       title='Stigende'
     >
-      <i className='fa fa-sort-up fdk-color-white' />
+      <ChevronUpLightLineIcon />
     </button>
     <button
       type='button'
@@ -39,7 +43,7 @@ const SortButtons: FC<Props> = ({
       onClick={() => onSortField(`${field}`, 'desc')}
       title='Synkende'
     >
-      <i className='fa fa-sort-down fdk-color-white' />
+      <CaretDownLightInlineIcon />
     </button>
   </div>
 );

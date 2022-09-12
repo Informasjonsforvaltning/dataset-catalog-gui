@@ -1,6 +1,7 @@
 import React, { memo, FC } from 'react';
 import { compose } from 'redux';
 import type { WrappedFieldProps } from 'redux-form';
+import { PencilInlineIcon } from '../../../fdk-icons/icons';
 
 import Translation from '../../translation';
 
@@ -51,7 +52,7 @@ const InputTitleField: FC<Props> = ({
             onToggleTitle();
           }}
         >
-          <i className='fa fa-pencil mr-2' />
+          <PencilInlineIcon />
           <Translation id='app.editTitle' />
         </button>
       )}

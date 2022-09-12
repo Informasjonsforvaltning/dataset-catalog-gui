@@ -10,9 +10,7 @@ exports[`should render InputTitleField correctly 1`] = `
       onClick={[Function]}
       type="button"
     >
-      <i
-        className="fa fa-pencil mr-2"
-      />
+      <PencilInlineIcon />
       <Memo()
         id="app.editTitle"
       />
