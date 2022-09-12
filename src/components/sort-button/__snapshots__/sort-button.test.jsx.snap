@@ -20,7 +20,7 @@ exports[`should render SortButtons correctly 1`] = `
     title="Synkende"
     type="button"
   >
-    <CaretDownLightInlineIcon />
+    <ChevronDownLightInlineIcon />
   </button>
 </div>
 `;

@@ -2,12 +2,6 @@ import SvgIcon from '@fellesdatakatalog/icons';
 import React from 'react';
 import SC from './iconWrapper';
 
-const CaretDownLightInlineIcon = () => (
-  <SC.LightInlineIconWrapper>
-    <SvgIcon name='caretDownStroke' />
-  </SC.LightInlineIconWrapper>
-);
-
 const CheckSquareLightInlineIcon = () => (
   <SC.LightInlineIconWrapper>
     <SvgIcon name='checkStroke' />
@@ -30,6 +24,12 @@ const ChevronDownIcon = () => (
   <SC.IconWrapper>
     <SvgIcon name='chevronDownStroke' />
   </SC.IconWrapper>
+);
+
+const ChevronDownLightInlineIcon = () => (
+  <SC.LightInlineIconWrapper>
+    <SvgIcon name='chevronDownStroke' />
+  </SC.LightInlineIconWrapper>
 );
 
 const ChevronUpIcon = () => (
@@ -93,11 +93,11 @@ const TriangleExclamationIcon = () => (
 );
 
 export {
-  CaretDownLightInlineIcon,
   CheckSquareLightInlineIcon,
   ChevronDoubleDownInlineIcon,
   ChevronDoubleUpInlineIcon,
   ChevronDownIcon,
+  ChevronDownLightInlineIcon,
   ChevronUpIcon,
   ChevronUpLightLineIcon,
   CircleMinusIcon,

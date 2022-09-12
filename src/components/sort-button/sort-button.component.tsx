@@ -1,7 +1,7 @@
 import React, { memo, FC } from 'react';
 import { compose } from 'redux';
 import {
-  CaretDownLightInlineIcon,
+  ChevronDownLightInlineIcon,
   ChevronUpLightLineIcon
 } from '../../fdk-icons/icons';
 
@@ -43,7 +43,7 @@ const SortButtons: FC<Props> = ({
       onClick={() => onSortField(`${field}`, 'desc')}
       title='Synkende'
     >
-      <CaretDownLightInlineIcon />
+      <ChevronDownLightInlineIcon />
     </button>
   </div>
 );
