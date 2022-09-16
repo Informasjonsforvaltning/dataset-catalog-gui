@@ -57,17 +57,12 @@
   },
   "scripts": {
     "preinstall": "npx force-resolutions",
-    "start": "npm run start:dev",
-    "start:dev": "cross-env TS_NODE_PROJECT=tsconfig.webpack.json webpack serve --open-target /dataset-catalogs --config webpack/dev.config.ts",
-    "start:webpack": "cross-env TS_NODE_PROJECT=tsconfig.webpack.json webpack serve --config webpack/dev.config.ts",
-    "build": "npm run build:prod",
-    "build:dev": "npm run build:webpack:dev",
-    "build:prod": "npm run build:webpack:prod",
-    "type:check": "tsc",
-    "build:webpack:dev": "cross-env TS_NODE_PROJECT=tsconfig.webpack.json webpack --config webpack/dev.config.ts",
-    "build:webpack:prod": "cross-env TS_NODE_PROJECT=tsconfig.webpack.json webpack --config webpack/prod.config.ts",
-    "build:webpack:stats": "cross-env TS_NODE_PROJECT=tsconfig.webpack.json webpack --config webpack/stats.config.ts",
-    "bundle:analyse": "npm run build:webpack:stats"
+    "start": "cross-env TS_NODE_PROJECT=tsconfig.webpack.json webpack serve --open-target /dataset-catalogs --config webpack/dev.config.ts",
+    "build": "cross-env TS_NODE_PROJECT=tsconfig.webpack.json webpack --config webpack/dev.config.ts",
+    "build:prod": "cross-env TS_NODE_PROJECT=tsconfig.webpack.json webpack --config webpack/prod.config.ts",
+    "build:stats": "cross-env TS_NODE_PROJECT=tsconfig.webpack.json webpack --config webpack/stats.config.ts",
+    "bundle:analyse": "npm run build:webpack:stats",
+    "type:check": "tsc"
   },
   "resolutions": {
     "nth-check": "^2.0.1",
