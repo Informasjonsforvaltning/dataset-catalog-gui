@@ -1,12 +1,11 @@
 import React, { FC } from 'react';
 import { Container, Unstable_Grid2 as Grid, Card } from '@mui/material';
 
-import Footer from '../../footer';
 import { Switch } from '@mui/material';
 import { useAppContext, useAppContextUpdate } from '../../../context/main-context';
-import Header from '../../header';
+import { Outlet } from 'react-router-dom';
 
-const Main: FC = () => {
+const MainPage: FC = () => {
   const theme = useAppContext();
   const toggleTheme = useAppContextUpdate();
 
@@ -31,11 +30,10 @@ const Main: FC = () => {
 
   return (
     <>
-      <Header />
       {justKidding}
-      <Footer />
+      <Outlet />
     </>
   );
 };
 
-export default Main;
+export default MainPage;

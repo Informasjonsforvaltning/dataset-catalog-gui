@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { theme } from '@fellesdatakatalog/theme';
 
-const Root = styled.main`
+const Main = styled.main`
   display: flex;
   flex-direction: column;
   flex: 1 0 auto;
@@ -12,4 +12,4 @@ const Root = styled.main`
   overflow-wrap: break-word;
 `;
 
-export default { Root };
+export default { Main };

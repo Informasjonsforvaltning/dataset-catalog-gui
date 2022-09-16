@@ -1,12 +1,19 @@
-import React, { memo, FC, PropsWithChildren } from 'react';
-import { compose } from 'redux';
-
+import React, { FC } from 'react';
+import { Outlet } from 'react-router-dom';
+import Footer from '../footer';
+import Header from '../header';
 import SC from './styled';
 
-interface Props {}
+const Main: FC = () => {
+  return (
+    <>
+      <Header />
+      <SC.Main>
+        <Outlet />
+      </SC.Main>
+      <Footer />
+    </>
+  );
+};
 
-const Root: FC<PropsWithChildren<Props>> = ({ children }) => (
-  <SC.Root>{children}</SC.Root>
-);
-
-export default compose<FC>(memo)(Root);
+export default Main;
