@@ -9,7 +9,7 @@ import env from '../../../utils/constants/env';
 import { withAuth } from '../../../utils/authentication/auth-provider';
 import SC from './styled';
 import { localization } from '../../../utils/language/localization';
-// import { routes } from '../../../router/routes';
+import { routes } from '../../../router/routes';
 
 const DatasetsPage: FC = () => {
   const { FDK_REGISTRATION_BASE_URI } = env;
@@ -23,7 +23,7 @@ const DatasetsPage: FC = () => {
           <a href={FDK_REGISTRATION_BASE_URI}>{localization.allCatalogs}</a>
         </Breadcrumb>
         <Breadcrumb active>
-          <Link to={`/dataset-catalogs/${catalogId}`}>{localization.catalogType}</Link>
+          <Link to={`/${routes.home}/${catalogId}`}>{localization.catalogType}</Link>
         </Breadcrumb>
       </Breadcrumbs>
       <SC.Page>
