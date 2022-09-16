@@ -1,9 +1,9 @@
 FROM node:16.17.0 as build
 WORKDIR /app
-COPY package.json package-lock.json ./
+COPY package.json package-lock.json .npmrc ./
 RUN npm set progress=false && \
   npm config set depth 0 && \
-  npm ci --legacy-peer-deps
+  npm ci
 
 COPY tsconfig.json tsconfig.webpack.json babel.config.js ./
 COPY webpack ./webpack
