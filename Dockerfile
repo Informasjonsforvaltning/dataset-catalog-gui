@@ -7,7 +7,6 @@ RUN npm set progress=false && \
 
 COPY tsconfig.json tsconfig.webpack.json babel.config.js ./
 COPY webpack ./webpack
-COPY public ./public
 COPY src ./src
 RUN npm run build:prod
 

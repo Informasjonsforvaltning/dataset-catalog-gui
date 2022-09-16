@@ -1,5 +1,5 @@
 import { ThemeProfile } from '@fellesdatakatalog/theme';
-import { authService } from '../../authentication/auth-service';
+import { authService } from '../authentication/auth-service';
 import env from '../../utils/constants/env';
 const { SKE_THEME_PROFILE } = env;
 

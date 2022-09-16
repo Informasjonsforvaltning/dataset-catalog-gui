@@ -9,8 +9,8 @@ import React, { FC, PropsWithChildren } from 'react';
 import AuthProvider from './auth-provider';
 import { CookiesProvider } from 'react-cookie';
 
-import env from '../utils/constants/env';
-import { Namespace } from '../utils/constants/enums';
+import env from '../constants/env';
+import { Namespace } from '../constants/enums';
 
 const { NAMESPACE } = env;
 

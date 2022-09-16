@@ -4,8 +4,8 @@ import HeaderBase from '@fellesdatakatalog/internal-header';
 import Link from '@fellesdatakatalog/link';
 
 import env from '../../utils/constants/env';
-import { authService } from '../../authentication/auth-service';
-import { withAuth } from '../../authentication/auth-provider';
+import { authService } from '../../utils/authentication/auth-service';
+import { withAuth } from '../../utils/authentication/auth-provider';
 import { getThemeProfile } from '../../utils/helpers/theme-checker';
 
 const { FDK_BASE_URI, ADMIN_GUI_BASE_URI, FDK_COMMUNITY_BASE_URI } = env;

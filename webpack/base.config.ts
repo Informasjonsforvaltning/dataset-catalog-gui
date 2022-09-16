@@ -88,16 +88,14 @@ const configuration: Configuration = {
   plugins: [
     new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
-      template: './public/index.html',
+      template: './src/app/index.html',
       filename: 'index.html',
-      favicon: './public/favicon.ico',
+      favicon: './src/utils/assets/favicon.ico',
       base: '/dataset-catalogs/',
       chunks: ['main'],
     }),
     new CopyWebpackPlugin({
-      patterns: [
-        { from: './src/authentication/silent-check-sso.html', to: './' }
-      ]
+      patterns: [{ from: './src/utils/authentication/silent-check-sso.html', to: './' }],
     }),
     new MiniCssExtractPlugin({
       filename: '[name].styles.css',

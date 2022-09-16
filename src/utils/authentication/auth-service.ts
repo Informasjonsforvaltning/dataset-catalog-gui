@@ -1,5 +1,5 @@
 import { Auth } from '.';
-import env from '../utils/constants/env';
+import env from '../../utils/constants/env';
 
 const { SSO_HOST } = env;
 const OIDC_CLIENT_ID = 'fdk-registration-public';

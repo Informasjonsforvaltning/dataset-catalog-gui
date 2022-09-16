@@ -3,7 +3,7 @@ import ThemeProvider from '@fellesdatakatalog/theme';
 
 import AppContext from '../context/main-context';
 import Router from '../router';
-import AuthWrapper from '../authentication/auth-wrapper';
+import AuthWrapper from '../utils/authentication/auth-wrapper';
 
 const App: FC = () => {
   return (

@@ -42,6 +42,7 @@ export class Auth {
     const keycloakInitOptions: KeycloakInitOptions = {
       onLoad: 'check-sso',
       silentCheckSsoRedirectUri: this.conf.silentCheckSsoRedirectUri,
+      checkLoginIframe: false,
     };
     await this.kc.init(keycloakInitOptions).catch(e => console.error('Authentication initialization failed: ', e));
     if (loginRequired && !this.isAuthenticated()) {
