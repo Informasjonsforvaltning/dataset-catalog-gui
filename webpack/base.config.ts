@@ -2,6 +2,8 @@ import { Configuration, ProvidePlugin } from 'webpack';
 import { resolve } from 'path';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
+import { CleanWebpackPlugin } from 'clean-webpack-plugin';
+import CopyWebpackPlugin from 'copy-webpack-plugin';
 
 const configuration: Configuration = {
   entry: {
@@ -84,6 +86,7 @@ const configuration: Configuration = {
     ],
   },
   plugins: [
+    new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
       template: './public/index.html',
       filename: 'index.html',
@@ -91,12 +94,10 @@ const configuration: Configuration = {
       base: '/dataset-catalogs/',
       chunks: ['main'],
     }),
-    new HtmlWebpackPlugin({
-      template: './src/authentication/silent-check-sso.html',
-      filename: 'auth.html',
-      favicon: './public/favicon.ico',
-      base: '/dataset-catalogs/',
-      chunks: ['auth'],
+    new CopyWebpackPlugin({
+      patterns: [
+        { from: './src/authentication/silent-check-sso.html', to: './' }
+      ]
     }),
     new MiniCssExtractPlugin({
       filename: '[name].styles.css',

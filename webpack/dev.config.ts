@@ -27,7 +27,7 @@ const configuration: Configuration = mergeWithCustomize<Configuration>({
       devServer.app?.get('/dataset-catalogs/config.js', (_, res) => res.status(204).send()),
     historyApiFallback: {
       rewrites: [
-        { from: /^\/auth/, to: '/dataset-catalogs/auth.html' },
+        { from: /^\/silent-check-sso/, to: '/dataset-catalogs/silent-check-sso.html' },
         { from: /./, to: '/dataset-catalogs/index.html' },
       ],
     },
