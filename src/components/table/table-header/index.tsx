@@ -11,7 +11,7 @@ const TableHeader: FC<Props<CellProps>> = ({ cols }) => {
   const headRow = (
     <SC.TableHeadRow>
       {cols.map(col => (
-        <HeaderCell title={col.title} icon={col.icon} />
+        <HeaderCell title={col.title} icon={col.icon} width={col.width} />
       ))}
     </SC.TableHeadRow>
   );

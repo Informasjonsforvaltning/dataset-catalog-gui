@@ -4,10 +4,11 @@ import SC from './styled';
 interface Props {
   title: string;
   icon?: ReactElement;
+  width: string;
 }
 
-const HeaderCell: FC<Props> = ({ title, icon }) => (
-  <SC.Cell>
+const HeaderCell: FC<Props> = ({ title, icon, width }) => (
+  <SC.Cell style={{ width: width }}>
     <SC.Title>{title}</SC.Title>
     <SC.Icon>{icon ?? undefined}</SC.Icon>
   </SC.Cell>

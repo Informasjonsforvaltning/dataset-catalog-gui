@@ -1,15 +1,12 @@
 import styled from 'styled-components';
 
-const TableHead = styled.thead`
-  display: flex;
-  width: 100%;
-`;
+const TableHead = styled.thead``;
 
 const TableHeadRow = styled.tr`
   display: flex;
   flex-direction: row;
   height: 45px;
-  width: 100%;
+  padding: 0 10px;
 `;
 
 export default { TableHead, TableHeadRow };

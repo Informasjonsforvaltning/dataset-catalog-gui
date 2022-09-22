@@ -5,7 +5,7 @@ const Cell = styled.th`
     display: flex;
     flex-direction: row;
     align-items: center;
-    width: 100%;
+    padding-left: 5px;
   }
 `;
 

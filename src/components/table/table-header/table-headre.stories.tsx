@@ -5,7 +5,7 @@ import AcUnitIcon from '@mui/icons-material/AcUnit';
 import { Props as CellProps } from './header-cell';
 
 export default {
-  title: 'TableHeader',
+  title: 'Table/TableHeader',
   component: TableHeader,
 } as ComponentMeta<typeof TableHeader>;
 
@@ -14,9 +14,10 @@ const Template: ComponentStory<typeof TableHeader> = (args: HeaderProps<CellProp
 export const Header = Template.bind({});
 Header.args = {
   cols: [
-    { title: 'Anbefalt term', icon: React.createElement(AcUnitIcon) },
-    { title: 'Sist endret av', icon: React.createElement(AcUnitIcon) },
-    { title: 'Versjon', icon: React.createElement(AcUnitIcon) },
-    { title: 'Status', icon: React.createElement(AcUnitIcon) },
+    { title: 'Tittel', icon: React.createElement(AcUnitIcon), width: '30%' },
+    { title: 'Sist endret av', icon: React.createElement(AcUnitIcon), width: '22%' },
+    { title: 'Sist endret', icon: React.createElement(AcUnitIcon), width: '22%' },
+    { title: 'Versjon', icon: React.createElement(AcUnitIcon), width: '10%' },
+    { title: 'Status', icon: React.createElement(AcUnitIcon), width: '16%' },
   ],
 };
