@@ -34,14 +34,13 @@
     ],
     "typeRoots": [
       "node_modules/@types",
-      "src/types/*"
+      "src/utils/types/*"
     ]
   },
   "include": [
     "src/**/*"
 , "auth"  ],
   "exclude": [
-    "node_modules",
-    "src/**/__tests__/**/*"
+    "node_modules"
   ]
 }
