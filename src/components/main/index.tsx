@@ -9,8 +9,9 @@ const Main: FC = () => {
   return (
     <>
       <Header />
+      <Breadcrumbs />
+      <SC.Divider />
       <SC.Main>
-        <Breadcrumbs />
         <Outlet />
       </SC.Main>
       <Footer />

@@ -12,4 +12,10 @@ const Main = styled.main`
   overflow-wrap: break-word;
 `;
 
-export default { Main };
+const Divider = styled.hr`
+  margin-top: 15px;
+  border: #d5e1f2 1px solid;
+  width: 100%;
+`;
+
+export default { Divider, Main };
