@@ -4,13 +4,13 @@ import SC from './styled';
 type Props = {
   icon: ReactElement;
   text: string;
-  bgColor: string;
+  className?: string;
 };
 
-const Tag: FC<Props> = ({ icon, text, bgColor = '#335380' }) => {
+const Tag: FC<Props> = ({ icon, text, className }) => {
   return (
-    <SC.Tag style={{ backgroundColor: bgColor }}>
-      <SC.TagIcon>{icon}</SC.TagIcon>
+    <SC.Tag className={className}>
+      {icon}
       <SC.TagText>{text}</SC.TagText>
     </SC.Tag>
   );
