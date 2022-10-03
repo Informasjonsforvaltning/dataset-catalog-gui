@@ -4,17 +4,18 @@ import SC from './styled';
 
 interface Props {
   label: string;
-  style?: {};
   startIcon?: ReactElement;
   endIcon?: ReactElement;
-  variant?: 'text' | 'contained' | 'outlined' | undefined;
+  className?: string;
 }
 
-const Button: FC<Props> = ({ label, startIcon, endIcon, style, variant = 'contained' }) => {
+const Button: FC<Props> = ({ label, startIcon, endIcon, className }) => {
   return (
-    <SC.Button startIcon={startIcon} endIcon={endIcon} variant={variant} sx={style}>
-      {label}
-    </SC.Button>
+    <SC.ButtonContainer className={className}>
+      {startIcon ? <SC.StartIcon>{startIcon}</SC.StartIcon> : <></>}
+      <SC.Button>{label}</SC.Button>
+      {endIcon ? <SC.EndIcon>{endIcon}</SC.EndIcon> : <></>}
+    </SC.ButtonContainer>
   );
 };
 

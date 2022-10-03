@@ -1,9 +1,7 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import React from 'react';
 import Button, { Props as ButtonProps } from '.';
-import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
-import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
-import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
+import Icon from '../icon';
 
 export default {
   title: 'Button',
@@ -14,28 +12,24 @@ const Template: ComponentStory<typeof Button> = (args: ButtonProps) => <Button {
 
 export const AddDataset = Template.bind({});
 AddDataset.args = {
-  style: { backgroundColor: '#335380' },
   label: 'Legg til ny datasettbeskrivelse',
-  startIcon: React.createElement(AddCircleOutlineIcon),
+  startIcon: <Icon name='circlePlusStroke' />,
 };
 
 export const HostSpecification = Template.bind({});
 HostSpecification.args = {
-  style: { backgroundColor: '#D5E1F2', color: '#335380' },
   label: 'Høst spesifikasjon fra katalog',
-  startIcon: React.createElement(ArrowDownwardIcon),
+  startIcon: <Icon name='circlePlusStroke' />,
 };
 
 export const FilterOnPerson = Template.bind({});
 FilterOnPerson.args = {
-  style: { backgroundColor: '#D5E1F2', color: '#335380' },
   label: 'Filtrer på person',
-  endIcon: React.createElement(KeyboardArrowDownIcon),
+  endIcon: <Icon name='chevronDownStroke' />,
 };
 
 export const FilterOnStatus = Template.bind({});
 FilterOnStatus.args = {
-  style: { backgroundColor: '#D5E1F2', color: '#335380' },
   label: 'Filtrer på status',
-  endIcon: React.createElement(KeyboardArrowDownIcon),
+  endIcon: <Icon name='chevronDownStroke' />,
 };
