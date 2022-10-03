@@ -19,14 +19,14 @@ const Breadcrumbs: FC = () => {
       <span>
         <SC.Link to={FDK_REGISTRATION_BASE_URI}>{localization.allCatalogs}</SC.Link>
         <span>
-          {' > '}
+          <SC.CrumbDivider>{'>'}</SC.CrumbDivider>
           <SC.Link to={`/${routes.home}`} style={datasetId ? undefined : activeStyle} onClick={() => setDatasetId('')}>
             {localization.catalogType}
           </SC.Link>
         </span>
         {datasetId ? (
           <span>
-            {' > '}
+            <SC.CrumbDivider>{'>'}</SC.CrumbDivider>
             <SC.Link to={`/${routes.home}/${params.datasetId}`} style={datasetId ? activeStyle : undefined}>
               {datasetId}
             </SC.Link>
