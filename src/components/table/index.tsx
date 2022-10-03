@@ -6,7 +6,7 @@ import { Props as HeadCellProps } from './table-header/header-cell';
 import TableRow, { Props as RowProps } from './table-row';
 import { Props as RowCellProps } from './table-row/row-cell';
 
-interface Props extends HeaderProps<HeadCellProps>, RowProps<RowCellProps> {
+interface Props extends HeaderProps<HeadCellProps> {
   rows: RowProps<RowCellProps>[];
 }
 

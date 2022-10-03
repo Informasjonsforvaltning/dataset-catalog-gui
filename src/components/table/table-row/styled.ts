@@ -7,7 +7,7 @@ const TableRow = styled.tr`
     border-radius: 4px;
     margin-top: 5px;
     align-items: center;
-    padding: 0 10px;
+    padding: 12px 10px;
 
     :hover {
       background-color: #000;
@@ -15,13 +15,16 @@ const TableRow = styled.tr`
         color: #fff;
       }
 
-      svg,
       label {
         color: #000;
       }
 
       span {
         background-color: #fff !important;
+      }
+
+      & * {
+        stroke: #000;
       }
     }
   }
