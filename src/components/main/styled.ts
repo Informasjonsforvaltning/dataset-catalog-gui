@@ -1,10 +1,9 @@
 import styled from 'styled-components';
 import { theme } from '@fellesdatakatalog/theme';
 
-const Main = styled.main`
+const OutletWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  flex: 1 0 auto;
   width: 100%;
   max-width: 1140px;
   margin: 0 auto;
@@ -18,4 +17,8 @@ const Divider = styled.hr`
   width: 100%;
 `;
 
-export default { Divider, Main };
+const Main = styled.main`
+  flex: 1 0 auto;
+`;
+
+export default { Divider, Main, OutletWrapper };
