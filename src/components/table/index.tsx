@@ -1,9 +1,10 @@
 import React, { FC } from 'react';
 
 import SC from './styled';
+import TableBody from './table-body';
 import TableHeader, { Props as HeaderProps } from './table-header';
 import { Props as HeadCellProps } from './table-header/header-cell';
-import TableRow, { Props as RowProps } from './table-row';
+import { Props as RowProps } from './table-row';
 import { Props as RowCellProps } from './table-row/row-cell';
 
 interface Props extends HeaderProps<HeadCellProps> {
@@ -14,13 +15,7 @@ const Table: FC<Props> = ({ cols, rows }) => {
   return (
     <SC.Table>
       <TableHeader cols={cols ?? []} />
-      <SC.TableBody>
-        <>
-          {rows.map(row => (
-            <TableRow {...row} />
-          ))}
-        </>
-      </SC.TableBody>
+      <TableBody rows={rows} />
     </SC.Table>
   );
 };

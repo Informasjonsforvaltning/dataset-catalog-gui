@@ -7,11 +7,10 @@ interface Props<T> {
 }
 
 const TableHeader: FC<Props<CellProps>> = ({ cols }) => {
-  console.log(cols);
   const headRow = (
     <SC.TableHeadRow>
-      {cols.map(col => (
-        <HeaderCell title={col.title} icon={col.icon} width={col.width} />
+      {cols.map((col, i) => (
+        <HeaderCell key={i} title={col.title} icon={col.icon} width={col.width} />
       ))}
     </SC.TableHeadRow>
   );
