@@ -1,8 +1,4 @@
-import type {
-  RegistrationStatus,
-  AdministrativeUnitType,
-  ReferenceDataCode
-} from './enums';
+import type { RegistrationStatus, AdministrativeUnitType, ReferenceDataCode } from './enums';
 
 export interface MediaType {
   name: string;
@@ -40,7 +36,7 @@ export interface Catalog {
 export interface Dataset {
   id: string;
   catalogId: string;
-  lastModified: Date;
+  _lastModified: Date;
   registrationStatus: RegistrationStatus;
   concepts: Concept[];
   subjects: Subject[];

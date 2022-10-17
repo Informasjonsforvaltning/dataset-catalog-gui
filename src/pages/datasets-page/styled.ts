@@ -1,7 +1,10 @@
 import styled from 'styled-components';
-import Button from '../../button';
+import Button from '../../components/button';
 
-const Page = styled.section``;
+const Page = styled.section`
+  display: flex;
+  flex-direction: column;
+`;
 
 const Title = styled.h1`
   width: 1110px;
@@ -44,8 +47,10 @@ const HostButton = styled(Button)`
     color: #335380;
   }
 
-  & * {
-    stroke: #000;
+  & svg {
+    & * {
+      stroke: #335380;
+    }
   }
 `;
 
