@@ -1,5 +1,6 @@
 import React, { FC, useState } from 'react';
 import { useParams } from 'react-router-dom';
+
 import { routes } from '../../router/routes';
 import env from '../../utils/constants/env';
 import { localization } from '../../utils/language/localization';
@@ -20,7 +21,11 @@ const Breadcrumbs: FC = () => {
         <SC.Link to={FDK_REGISTRATION_BASE_URI}>{localization.allCatalogs}</SC.Link>
         <span>
           <SC.CrumbDivider>{'>'}</SC.CrumbDivider>
-          <SC.Link to={`/${routes.home}`} style={datasetId ? undefined : activeStyle} onClick={() => setDatasetId('')}>
+          <SC.Link
+            to={`/${routes.home.replace(':catalogId', params.catalogId?.toString() ?? '')}`}
+            style={datasetId ? undefined : activeStyle}
+            onClick={() => setDatasetId('')}
+          >
             {localization.catalogType}
           </SC.Link>
         </span>

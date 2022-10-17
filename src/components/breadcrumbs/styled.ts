@@ -5,7 +5,6 @@ const BreadcrumbsNav = styled.nav`
   color: #335380;
   display: flex;
   flex-direction: column;
-  flex: 1 0 auto;
   width: 100%;
   max-width: 1140px;
   margin: 0 auto;
