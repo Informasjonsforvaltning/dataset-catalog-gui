@@ -51,19 +51,9 @@ const configuration: Configuration = {
         ],
       },
       {
-        test: /\.svg$/,
-        use: [
-          {
-            loader: 'babel-loader',
-          },
-          {
-            loader: 'react-svg-loader',
-            options: {
-              jsx: true,
-            },
-          },
-        ],
-        include: [resolve(__dirname, '..', 'src', 'images')],
+        test: /\.svg$/i,
+        issuer: /\.[jt]sx?$/,
+        use: [{ loader: '@svgr/webpack', options: { icon: true } }],
       },
       {
         test: /\.(png|jpg|gif)$/,
@@ -81,7 +71,7 @@ const configuration: Configuration = {
       {
         test: /\.(woff|woff2|ttf|eot|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
         loader: 'file-loader',
-        exclude: [resolve(__dirname, '..', 'src', 'images')],
+        exclude: [resolve(__dirname, '..', 'src', 'utils', 'assets')],
       },
     ],
   },
@@ -95,7 +85,10 @@ const configuration: Configuration = {
       chunks: ['main'],
     }),
     new CopyWebpackPlugin({
-      patterns: [{ from: './src/utils/authentication/silent-check-sso.html', to: './' }],
+      patterns: [
+        { from: './src/utils/authentication/silent-check-sso.html', to: './' },
+        { from: './src/utils/assets/*', to: './img' },
+      ],
     }),
     new MiniCssExtractPlugin({
       filename: '[name].styles.css',
