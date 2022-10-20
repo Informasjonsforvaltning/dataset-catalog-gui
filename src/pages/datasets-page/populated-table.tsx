@@ -15,28 +15,22 @@ const PopulatedTable = () => {
   const handleRowClick = (id: string) => navigate(`${location.pathname}/${id}`);
 
   const colWidths = {
-    col_1: '30%',
-    col_2: '22%',
-    col_3: '22%',
-    col_4: '10%',
-    col_5: '16%',
+    col_1: '70%',
+    col_2: '200px',
+    col_3: '100px',
   };
 
   const cols = [
     { title: 'Tittel', icon: <Icon name='listUnsortedStroke' />, width: colWidths.col_1 },
-    { title: 'Sist endret av', icon: <Icon name='listUnsortedStroke' />, width: colWidths.col_2 },
-    { title: 'Sist endret', icon: <Icon name='listUnsortedStroke' />, width: colWidths.col_3 },
-    { title: 'Versjon', icon: <Icon name='listUnsortedStroke' />, width: colWidths.col_4 },
-    { title: 'Status', icon: <Icon name='listUnsortedStroke' />, width: colWidths.col_5 },
+    { title: 'Sist endret', icon: <Icon name='listUnsortedStroke' />, width: colWidths.col_2 },
+    { title: 'Status', icon: <Icon name='listUnsortedStroke' />, width: colWidths.col_3 },
   ];
 
   const rows: any[] = datasetsState.datasets.map(dataset => ({
     row: [
       { text: dataset.title?.nb, width: colWidths.col_1 },
-      { text: 'Pippi Langstrømpe', width: colWidths.col_2 },
-      { text: getDate(dataset._lastModified), width: colWidths.col_3 },
-      { text: '1.0', width: colWidths.col_4 },
-      { tag: getTag(dataset.registrationStatus), width: colWidths.col_5 },
+      { text: getDate(dataset._lastModified), width: colWidths.col_2 },
+      { tag: getTag(dataset.registrationStatus), width: colWidths.col_3 },
     ],
     onRowClick: () => handleRowClick(dataset.id),
   }));
