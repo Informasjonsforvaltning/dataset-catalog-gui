@@ -1,9 +1,37 @@
 import styled from 'styled-components';
 import Button from '../../components/button';
+import Breakpoint from '../../utils/styles/break-point';
 
 const Page = styled.section`
   display: flex;
   flex-direction: column;
+
+  tr:first-child {
+    width: auto !important;
+  }
+
+  ${Breakpoint.SMALL} {
+    tbody > tr {
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+
+      td {
+        width: 100%;
+        margin-bottom: 4px;
+      }
+    }
+    thead {
+      tr {
+        flex-direction: column;
+        margin-bottom: 30px;
+        th {
+          width: 100% !important;
+          margin-bottom: 4px;
+        }
+      }
+    }
+  }
 `;
 
 const Title = styled.h1`
@@ -35,6 +63,14 @@ const AddDiv = styled.div`
   span:first-child {
     margin-right: 10px;
   }
+
+  ${Breakpoint.MEDIUM} {
+    flex-direction: column;
+    span {
+      width: 100%;
+      margin: 0 0 10px 0;
+    }
+  }
 `;
 
 const HostButton = styled(Button)`
@@ -51,6 +87,10 @@ const HostButton = styled(Button)`
     & * {
       stroke: #335380;
     }
+  }
+
+  ${Breakpoint.SMALL} {
+    margin-left: 0px;
   }
 `;
 

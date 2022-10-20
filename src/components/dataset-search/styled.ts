@@ -1,4 +1,6 @@
 import styled from 'styled-components';
+import Breakpoint from '../../utils/styles/break-point';
+
 import Button from '../button';
 import InputBox from '../input-box';
 
@@ -9,6 +11,13 @@ const Search = styled.span`
 
   span:nth-child(2) {
     margin-right: 10px;
+  }
+
+  ${Breakpoint.MEDIUM} {
+    flex-direction: column;
+    span:nth-child(2) {
+      margin-right: 0;
+    }
   }
 `;
 
@@ -23,16 +32,24 @@ const SearchButton = styled(Button)`
   }
 
   & * {
-    stroke: #000;
+    stroke: #335380;
+  }
+
+  ${Breakpoint.MEDIUM} {
+    margin: 10px 0 0 0;
+    width: 100%;
   }
 `;
 
 const StyledInputBox = styled(InputBox)`
-  min-width: 400px;
   width: 100%;
   margin-right: 10px;
   border-radius: 4px;
   border: 1px solid #2d3741;
+
+  ${Breakpoint.MEDIUM} {
+    margin: 0;
+  }
 `;
 
 export default { Search, SearchButton, StyledInputBox };
