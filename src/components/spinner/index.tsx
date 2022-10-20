@@ -7,7 +7,7 @@ import SC from './styled';
 const Spinner: React.FC = () => (
   <SC.SpinnerContainer>
     <SC.Spinner>
-      <Icon name='circleExclamationPointStroke' />
+      <Icon name='fdkSpinner' />
     </SC.Spinner>
   </SC.SpinnerContainer>
 );
