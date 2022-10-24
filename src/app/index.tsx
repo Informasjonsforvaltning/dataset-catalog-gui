@@ -2,11 +2,11 @@ import React, { FC, StrictMode } from 'react';
 import ThemeProvider from '@fellesdatakatalog/theme';
 import { CookiesProvider } from 'react-cookie';
 
-import AppContext from '../context/main-context';
 import Router from '../router';
 import SC from './styled';
 import AuthProvider from '../utils/authentication/auth-provider';
 import DatasetsContext from '../context/datasets-context';
+import GlobalStyle from '../utils/styles/global-style';
 
 const App: FC = () => {
   return (
@@ -14,12 +14,11 @@ const App: FC = () => {
       <CookiesProvider>
         <AuthProvider>
           <ThemeProvider>
+            <GlobalStyle />
             <SC.App>
-              <AppContext>
-                <DatasetsContext>
-                  <Router />
-                </DatasetsContext>
-              </AppContext>
+              <DatasetsContext>
+                <Router />
+              </DatasetsContext>
             </SC.App>
           </ThemeProvider>
         </AuthProvider>
