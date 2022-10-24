@@ -1,12 +1,14 @@
 import styled from 'styled-components';
+import { Colour, theme } from '@fellesdatakatalog/theme';
+
 import Tag from '..';
 
 const ApprovedTag = styled(Tag)`
-  color: #335380;
-  background-color: #d5e1f2;
+  color: ${theme.colour(Colour.BLUE, 'B60')};
+  background-color: ${theme.colour(Colour.BLUE, 'B30')};
 
   & * {
-    stroke: #335380;
+    stroke: ${theme.colour(Colour.BLUE, 'B60')};
   }
 `;
 

@@ -1,4 +1,5 @@
 import styled, { keyframes } from 'styled-components';
+import { Colour, theme } from '@fellesdatakatalog/theme';
 
 const spinnerKeyframes = keyframes`
     0% {
@@ -19,7 +20,7 @@ const Spinner = styled.svg`
   transform: rotate(0deg);
   animation: ${spinnerKeyframes} 4000ms linear infinite normal forwards;
   & > svg > * {
-    stroke: #335380;
+    stroke: ${theme.colour(Colour.BLUE, 'B60')};
   }
 `;
 

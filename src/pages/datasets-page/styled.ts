@@ -1,4 +1,6 @@
+import { Colour, theme } from '@fellesdatakatalog/theme';
 import styled from 'styled-components';
+
 import Button from '../../components/button';
 import Breakpoint from '../../utils/styles/break-point';
 
@@ -18,16 +20,16 @@ const Page = styled.section`
 
       td {
         width: 100%;
-        margin-bottom: 4px;
+        margin-bottom: ${theme.spacing('S4')};
       }
     }
     thead {
       tr {
         flex-direction: column;
-        margin-bottom: 30px;
+        margin-bottom: ${theme.spacing('S32')};
         th {
           width: 100% !important;
-          margin-bottom: 4px;
+          margin-bottom: ${theme.spacing('S4')};
         }
       }
     }
@@ -36,61 +38,60 @@ const Page = styled.section`
 
 const Title = styled.h1`
   width: 1110px;
-  height: 58px;
-  font-family: 'Heebo', sans-serif;
+  height: ${theme.spacing('S56')};
+
   font-style: normal;
-  font-weight: 700;
-  font-size: 47px;
-  line-height: 58px;
-  color: #2d3741;
+  font-weight: ${theme.fontWeight('FW700')};
+  font-size: ${theme.fontSize('FS48')};
+  line-height: ${theme.spacing('S56')};
+  color: ${theme.colour(Colour.NEUTRAL, 'N60')};
 `;
 
 const SubTitle = styled.h2`
   width: 1110px;
-  height: 30px;
-  font-family: 'Heebo';
+  height: ${theme.spacing('S32')};
   font-style: normal;
-  font-weight: 400;
-  font-size: 19px;
-  line-height: 30px;
-  color: #2d3741;
+  font-weight: ${theme.fontWeight('FW400')};
+  font-size: ${theme.fontSize('FS20')};
+  line-height: ${theme.spacing('S32')};
+  color: ${theme.colour(Colour.NEUTRAL, 'N60')};
 `;
 
 const AddDiv = styled.div`
   display: flex;
-  margin: 30px 0 20px 0;
+  margin: ${theme.spacing('S32')} 0 ${theme.spacing('S24')} 0;
 
   span:first-child {
-    margin-right: 10px;
+    margin-right: ${theme.spacing('S10')};
   }
 
   ${Breakpoint.MEDIUM} {
     flex-direction: column;
     span {
       width: 100%;
-      margin: 0 0 10px 0;
+      margin: 0 0 ${theme.spacing('S10')} 0;
     }
   }
 `;
 
 const HostButton = styled(Button)`
-  background-color: #d5e1f2;
-  color: #335380;
+  background-color: ${theme.colour(Colour.BLUE, 'B30')};
+  color: ${theme.colour(Colour.BLUE, 'B60')};
   min-width: 220px;
-  margin-left: 10px;
+  margin-left: ${theme.spacing('S10')};
 
   & button {
-    color: #335380;
+    color: ${theme.colour(Colour.BLUE, 'B60')};
   }
 
   & svg {
     & * {
-      stroke: #335380;
+      stroke: ${theme.colour(Colour.BLUE, 'B60')};
     }
   }
 
   ${Breakpoint.SMALL} {
-    margin-left: 0px;
+    margin-left: 0;
   }
 `;
 

@@ -1,28 +1,24 @@
 import styled from 'styled-components';
+import { Colour, theme } from '@fellesdatakatalog/theme';
 
 const Cell = styled.th`
-  && {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    padding-left: 5px;
-  }
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding-left: ${theme.spacing('S4')};
 `;
 
 const Title = styled.p`
-  && {
-    font-family: 'Heebo', sans-serif;
-    font-weight: 700;
-    font-size: 16px;
-    line-height: 20px;
-    color: #2d3741;
-  }
+  font-weight: ${theme.fontWeight('FW700')};
+  font-size: ${theme.fontSize('FS16')};
+  line-height: ${theme.spacing('S24')};
+  color: ${theme.colour(Colour.NEUTRAL, 'N60')};
 `;
 
 const Icon = styled.svg`
-  width: 20px;
-  height: 20px;
-  padding-left: 5px;
+  width: ${theme.spacing('S24')};
+  height: ${theme.spacing('S24')};
+  padding-left: ${theme.spacing('S4')};
 `;
 
 export default { Cell, Title, Icon };

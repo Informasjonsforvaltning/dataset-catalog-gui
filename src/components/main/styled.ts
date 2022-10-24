@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { theme } from '@fellesdatakatalog/theme';
+import { Colour, theme } from '@fellesdatakatalog/theme';
 
 const OutletWrapper = styled.div`
   display: flex;
@@ -12,8 +12,8 @@ const OutletWrapper = styled.div`
 `;
 
 const Divider = styled.hr`
-  margin-top: 15px;
-  border: #d5e1f2 1px solid;
+  margin-top: ${theme.spacing('S16')};
+  border: ${theme.colour(Colour.BLUE, 'B30')} 1px solid;
   width: 100%;
 `;
 

@@ -1,25 +1,25 @@
 import { Link as RRDLink } from 'react-router-dom';
 import styled from 'styled-components';
+import { Colour, theme } from '@fellesdatakatalog/theme';
 
 const BreadcrumbsNav = styled.nav`
-  color: #335380;
+  color: ${theme.colour(Colour.BLUE, 'B60')};
   display: flex;
   flex-direction: column;
   width: 100%;
   max-width: 1140px;
   margin: 0 auto;
-  padding: 16px 16px 0 16px;
+  padding: ${theme.spacing('S16')} ${theme.spacing('S16')} 0 ${theme.spacing('S16')};
   overflow-wrap: break-word;
 `;
 
 const Link = styled(RRDLink)`
   text-decoration: underline;
-  font-family: 'Heebo', sans-serif;
   font-style: normal;
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 24px;
-  color: #335380;
+  font-weight: ${theme.fontWeight('FW400')};
+  font-size: ${theme.fontSize('FS16')};
+  line-height: ${theme.spacing('S24')};
+  color: ${theme.colour(Colour.BLUE, 'B60')};
 
   :hover {
     text-decoration: none;
@@ -27,10 +27,9 @@ const Link = styled(RRDLink)`
 `;
 
 const CrumbDivider = styled.span`
-  height: 9px;
-  width: 5px;
-  margin: 0 10px 0 10px;
-  font-family: 'Heebo', sans-serif;
+  height: ${theme.spacing('S8')};
+  width: ${theme.spacing('S4')};
+  margin: 0 ${theme.spacing('S10')} 0 ${theme.spacing('S10')};
 `;
 
 export default { BreadcrumbsNav, Link, CrumbDivider };

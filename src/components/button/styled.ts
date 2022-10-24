@@ -1,47 +1,48 @@
+import { Colour, theme } from '@fellesdatakatalog/theme';
 import styled from 'styled-components';
 
 const Button = styled.button`
   height: 100%;
-  font-family: 'Heebo', sans-serif;
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 16px;
+
+  font-weight: ${theme.fontWeight('FW400')};
+  font-size: ${theme.fontSize('FS16')};
+  line-height: ${theme.spacing('S16')};
   background: none;
   border: none;
-  color: white;
+  color: ${theme.colour(Colour.NEUTRAL, 'N0')};
 `;
 
 const StartIcon = styled.div`
   display: flex;
   justify-content: center;
-  margin-right: 8px;
+  margin-right: ${theme.spacing('S8')};
 `;
 
 const EndIcon = styled.div`
   display: flex;
   justify-content: center;
-  margin-left: 8px;
+  margin-left: ${theme.spacing('S8')};
 `;
 
 const ButtonContainer = styled.span`
-  height: 52px;
-  border-radius: 4px;
-  padding: 14px 20px;
+  height: ${theme.spacing('S56')};
+  border-radius: ${theme.spacing('S4')};
+  padding: ${theme.spacing('S16')} ${theme.spacing('S24')};
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  background-color: #335380;
+  background-color: ${theme.colour(Colour.BLUE, 'B60')};
 
   :hover {
-    color: white;
-    background-color: black;
+    color: ${theme.colour(Colour.NEUTRAL, 'N0')};
+    background-color: ${theme.colour(Colour.NEUTRAL, 'N70')};
     > button {
-      color: white;
-      background-color: black;
+      color: ${theme.colour(Colour.NEUTRAL, 'N0')};
+      background-color: ${theme.colour(Colour.NEUTRAL, 'N70')};
     }
     & * {
-      stroke: #fff;
+      stroke: ${theme.colour(Colour.NEUTRAL, 'N0')};
     }
   }
 `;

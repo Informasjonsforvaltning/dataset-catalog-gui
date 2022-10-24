@@ -1,32 +1,32 @@
+import { Colour, theme } from '@fellesdatakatalog/theme';
 import styled from 'styled-components';
 
 const TextField = styled.div`
-  height: 54px;
-  background-color: #ffffff;
+  height: ${theme.spacing('S56')};
+  background-color: ${theme.colour(Colour.NEUTRAL, 'N0')};
   display: flex;
   align-items: center;
   box-sizing: border-box;
 `;
 
 const InputPlaceHolder = styled.p`
-  margin-left: 15px;
-  font-weight: 400;
-  font-size: 20px;
-  line-height: 26px;
-  font-family: 'Heebo', sans-serif;
-  background-color: #ffffff;
-  padding-right: 5px;
-  line-height: 26px;
-  border-radius: 50px;
-  color: #6c737a;
+  margin-left: ${theme.spacing('S16')};
+  font-weight: ${theme.fontWeight('FW400')};
+  font-size: ${theme.fontSize('FS20')};
+
+  background-color: ${theme.colour(Colour.NEUTRAL, 'N0')};
+  padding-right: ${theme.spacing('S4')};
+  line-height: ${theme.spacing('S24')};
+  border-radius: ${theme.spacing('S48')};
+  color: ${theme.colour(Colour.NEUTRAL, 'N50')};
 `;
 
 const Input = styled.input`
   position: absolute;
-  margin: 0 15px 0 15px;
+  margin: 0 ${theme.spacing('S16')} 0 ${theme.spacing('S16')};
   width: 684px;
-  font-size: 20px;
-  font-family: 'Heebo', sans-serif;
+  font-size: ${theme.fontSize('FS20')};
+
   background: none;
   border: 0;
   :focus {

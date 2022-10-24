@@ -1,12 +1,13 @@
 import styled from 'styled-components';
 import SvgIcon from '@fellesdatakatalog/icons';
+import { Colour, theme } from '@fellesdatakatalog/theme';
 
 const Icon = styled(SvgIcon)`
-  width: 22px;
-  height: 22px;
+  width: ${theme.spacing('S24')};
+  height: ${theme.spacing('S24')};
 
   & * {
-    stroke: #fff;
+    stroke: ${theme.colour(Colour.NEUTRAL, 'N0')};
   }
 `;
 

@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import Breakpoint from '../../utils/styles/break-point';
+import { Colour, theme } from '@fellesdatakatalog/theme';
 
 import Button from '../button';
 import InputBox from '../input-box';
@@ -10,7 +11,7 @@ const Search = styled.span`
   align-items: center;
 
   span:nth-child(2) {
-    margin-right: 10px;
+    margin-right: ${theme.spacing('S10')};
   }
 
   ${Breakpoint.MEDIUM} {
@@ -22,30 +23,30 @@ const Search = styled.span`
 `;
 
 const SearchButton = styled(Button)`
-  background-color: #d5e1f2;
-  color: #335380;
+  background-color: ${theme.colour(Colour.BLUE, 'B30')};
+  color: ${theme.colour(Colour.BLUE, 'B60')};
   min-width: 220px;
-  margin-left: 10px;
+  margin-left: ${theme.spacing('S10')};
 
   & button {
-    color: #335380;
+    color: ${theme.colour(Colour.BLUE, 'B60')};
   }
 
   & * {
-    stroke: #335380;
+    stroke: ${theme.colour(Colour.NEUTRAL, 'N70')};
   }
 
   ${Breakpoint.MEDIUM} {
-    margin: 10px 0 0 0;
+    margin: ${theme.spacing('S10')} 0 0 0;
     width: 100%;
   }
 `;
 
 const StyledInputBox = styled(InputBox)`
   width: 100%;
-  margin-right: 10px;
-  border-radius: 4px;
-  border: 1px solid #2d3741;
+  margin-right: ${theme.spacing('S10')};
+  border-radius: ${theme.spacing('S4')};
+  border: 1px solid ${theme.colour(Colour.NEUTRAL, 'N60')};
 
   ${Breakpoint.MEDIUM} {
     margin: 0;

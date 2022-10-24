@@ -1,27 +1,27 @@
+import { theme } from '@fellesdatakatalog/theme';
 import styled from 'styled-components';
 
 const Tag = styled.span`
-  height: 26px;
-  padding: 3px 8px;
-  border-radius: 50px;
+  height: ${theme.spacing('S24')};
+  padding: ${theme.spacing('S8')};
+  border-radius: ${theme.spacing('S48')};
   display: flex;
   align-items: center;
   width: fit-content;
 
   svg {
-    width: 13px;
-    height: 13px;
+    width: ${theme.spacing('S12')};
+    height: ${theme.spacing('S12')};
   }
 `;
 
 const TagText = styled.label`
-  height: 16px;
-  font-family: 'Heebo', sans-serif;
+  height: ${theme.spacing('S16')};
   font-style: normal;
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 16px;
-  margin-left: 4px;
+  font-weight: ${theme.fontWeight('FW400')};
+  font-size: ${theme.fontSize('FS16')};
+  line-height: ${theme.spacing('S16')};
+  margin-left: ${theme.spacing('S4')};
 `;
 
 export default { Tag, TagText };
