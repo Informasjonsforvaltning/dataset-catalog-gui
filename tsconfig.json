@@ -39,7 +39,7 @@
   },
   "include": [
     "src/**/*"
-, "auth"  ],
+  ],
   "exclude": [
     "node_modules"
   ]

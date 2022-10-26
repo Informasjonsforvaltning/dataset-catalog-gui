@@ -1,5 +1,4 @@
-import React, { memo, FC } from 'react';
-import { compose } from 'redux';
+import React, { FC, memo } from 'react';
 import HeaderBase from '@fellesdatakatalog/internal-header';
 import Link from '@fellesdatakatalog/link';
 
@@ -39,6 +38,4 @@ const Header: FC = () => {
   );
 };
 
-const enhanced = withAuth === null ? compose<FC>(memo, withAuth)(Header) : memo(Header);
-
-export default enhanced;
+export default memo(withAuth(Header));
