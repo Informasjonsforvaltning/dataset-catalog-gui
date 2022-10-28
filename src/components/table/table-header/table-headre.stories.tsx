@@ -1,23 +1,36 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import TableHeader, { Props as HeaderProps } from '.';
-import { Props as CellProps } from './header-cell';
 import Icon from '../../icon';
+import Button from '../../inputs/button';
 
 export default {
   title: 'Table/TableHeader',
   component: TableHeader,
 } as ComponentMeta<typeof TableHeader>;
 
-const Template: ComponentStory<typeof TableHeader> = (args: HeaderProps<CellProps>) => <TableHeader {...args} />;
+const Template: ComponentStory<typeof TableHeader> = (args: HeaderProps) => <TableHeader {...args} />;
 
 export const Header = Template.bind({});
 Header.args = {
   cols: [
-    { title: 'Tittel', icon: <Icon name='listUnsortedStroke' />, width: '30%' },
-    { title: 'Sist endret av', icon: <Icon name='listUnsortedStroke' />, width: '22%' },
-    { title: 'Sist endret', icon: <Icon name='listUnsortedStroke' />, width: '22%' },
-    { title: 'Versjon', icon: <Icon name='listUnsortedStroke' />, width: '10%' },
-    { title: 'Status', icon: <Icon name='listUnsortedStroke' />, width: '16%' },
+    {
+      sortButton: (
+        <Button name='Title' type='transparent' iconPos='right' endIcon={<Icon name='listUnsortedStroke' />} />
+      ),
+      width: '70%',
+    },
+    {
+      sortButton: (
+        <Button name='Sist endret' type='transparent' iconPos='right' endIcon={<Icon name='listUnsortedStroke' />} />
+      ),
+      width: '16%',
+    },
+    {
+      sortButton: (
+        <Button name='Status' type='transparent' iconPos='right' endIcon={<Icon name='listUnsortedStroke' />} />
+      ),
+      width: '14%',
+    },
   ],
 };
