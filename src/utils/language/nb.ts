@@ -1,13 +1,16 @@
 export const nb = {
   allCatalogs: 'Alle kataloger',
 
-  btnAddNewDataset: 'Legg til ny datasettbeskrivelse',
-  btnFilterOnPerson: 'Filtrer på person',
-  btnFilterOnStatus: 'Filtrer på status',
-  btnHostSpecification: 'Høst spesifikasjon fra katalog',
+  button: {
+    addDataset: 'Legg til ny datasettbeskrivelse',
+    delete: 'Slett',
+    expandAll: 'Vis alle felter',
+    lastModifiedSearch: 'Sist endret av',
+    statusSearch: 'Status',
+    hostDataset: 'Høst spesifikasjon fra katalog',
+  },
 
   catalogType: 'Datasettkatalog',
-
   searchForDataset: 'Søk etter datasettbeskrivelse',
 
   tagApproved: 'Godkjent',

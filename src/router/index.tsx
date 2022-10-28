@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import Main from '../components/main';
+import Main from '../components/page-main';
 import DatasetsPage from '../pages/datasets-page';
 import { routes } from './routes';
 import EditDatasetPage from '../pages/edit-dataset-page';

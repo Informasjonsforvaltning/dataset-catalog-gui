@@ -10,7 +10,7 @@ const InputBox: FC<Props> = ({ className, label = ' ' }) => {
   return (
     <SC.TextField className={className}>
       <SC.InputPlaceHolder>{label}</SC.InputPlaceHolder>
-      <SC.Input />
+      <SC.Input aria-label='search for dataset description' />
     </SC.TextField>
   );
 };

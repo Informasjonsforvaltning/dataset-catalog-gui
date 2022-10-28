@@ -22,6 +22,7 @@ const TagText = styled.label`
   font-size: ${theme.fontSize('FS16')};
   line-height: ${theme.spacing('S16')};
   margin-left: ${theme.spacing('S4')};
+  white-space: nowrap;
 `;
 
 export default { Tag, TagText };
