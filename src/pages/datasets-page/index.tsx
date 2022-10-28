@@ -1,14 +1,15 @@
-import React, { FC, lazy, Suspense } from 'react';
+import React, { FC, lazy, memo, Suspense } from 'react';
 import { Outlet, useParams } from 'react-router-dom';
 
 import SC from './styled';
 import { localization } from '../../utils/language/localization';
-import Button from '../../components/button';
+import Button from '../../components/inputs/button';
 import Search from '../../components/dataset-search';
-import Icon from '../../components/icon';
 import { useDatasetsContext, useDatasetsDispatch } from '../../context/datasets-context';
 import Spinner from '../../components/spinner';
 import { ACTION_TYPE } from '../../context/actions';
+import Icon from '../../components/icon';
+import { Colour, theme } from '@fellesdatakatalog/theme';
 
 const Table = lazy(() => delayForDemo(import('./populated-table')));
 
@@ -28,8 +29,20 @@ const DatasetsPage: FC = () => {
         <SC.Title>{localization.catalogType}</SC.Title>
         <SC.SubTitle>{pageSubtitle}</SC.SubTitle>
         <SC.AddDiv>
-          <Button label={localization.btnAddNewDataset} startIcon={<Icon name='circlePlusStroke' />} />
-          <SC.HostButton label={localization.btnHostSpecification} startIcon={<Icon name='arrowDownStroke' />} />
+          <Button
+            type='filled'
+            bg={theme.colour(Colour.BLUE, 'B30')}
+            color={theme.colour(Colour.NEUTRAL, 'N0')}
+            name={localization.button.addDataset}
+            startIcon={<Icon name='circlePlusStroke' />}
+          />
+          <SC.HostButton
+            type='filled'
+            color={theme.colour(Colour.BLUE, 'B30')}
+            bg={theme.colour(Colour.BLUE, 'B30')}
+            name={localization.button.hostDataset}
+            startIcon={<Icon name='arrowDownStroke' />}
+          />
         </SC.AddDiv>
         <Search />
         <Suspense fallback={<Spinner />}>
@@ -41,7 +54,7 @@ const DatasetsPage: FC = () => {
   );
 };
 
-export default DatasetsPage;
+export default memo(DatasetsPage);
 
 // fake delay
 const delayForDemo = async (promise: Promise<typeof import('./populated-table')>) => {

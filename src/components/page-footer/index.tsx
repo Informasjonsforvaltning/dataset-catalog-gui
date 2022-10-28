@@ -6,7 +6,6 @@ import { getThemeProfile } from '../../utils/helpers/theme-checker';
 
 const Footer = () => {
   const themeProfile = getThemeProfile();
-
   return <FooterBase themeProfile={themeProfile} />;
 };
 

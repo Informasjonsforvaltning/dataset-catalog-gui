@@ -1,7 +1,7 @@
 import { Colour, theme } from '@fellesdatakatalog/theme';
 import styled from 'styled-components';
 
-import Button from '../../components/button';
+import Button from '../../components/inputs/button';
 import Breakpoint from '../../utils/styles/break-point';
 
 const Page = styled.section`
@@ -61,13 +61,13 @@ const AddDiv = styled.div`
   display: flex;
   margin: ${theme.spacing('S32')} 0 ${theme.spacing('S24')} 0;
 
-  span:first-child {
+  button:first-child {
     margin-right: ${theme.spacing('S10')};
   }
 
   ${Breakpoint.MEDIUM} {
     flex-direction: column;
-    span {
+    button {
       width: 100%;
       margin: 0 0 ${theme.spacing('S10')} 0;
     }
@@ -75,21 +75,6 @@ const AddDiv = styled.div`
 `;
 
 const HostButton = styled(Button)`
-  background-color: ${theme.colour(Colour.BLUE, 'B30')};
-  color: ${theme.colour(Colour.BLUE, 'B60')};
-  min-width: 220px;
-  margin-left: ${theme.spacing('S10')};
-
-  & button {
-    color: ${theme.colour(Colour.BLUE, 'B60')};
-  }
-
-  & svg {
-    & * {
-      stroke: ${theme.colour(Colour.BLUE, 'B60')};
-    }
-  }
-
   ${Breakpoint.SMALL} {
     margin-left: 0;
   }

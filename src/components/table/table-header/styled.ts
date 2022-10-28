@@ -1,7 +1,18 @@
 import { theme } from '@fellesdatakatalog/theme';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
+import { CellType } from '.';
 
-const TableHead = styled.thead``;
+const Cell = styled.th<CellType>`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding-left: ${theme.spacing('S4')};
+  ${({ width }) =>
+    width &&
+    css`
+      width: ${width};
+    `}
+`;
 
 const TableHeadRow = styled.tr`
   display: flex;
@@ -10,4 +21,4 @@ const TableHeadRow = styled.tr`
   padding: 0 ${theme.spacing('S10')};
 `;
 
-export default { TableHead, TableHeadRow };
+export default { TableHeadRow, Cell };

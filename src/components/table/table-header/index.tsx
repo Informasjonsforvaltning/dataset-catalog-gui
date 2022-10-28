@@ -1,22 +1,28 @@
 import React, { FC } from 'react';
 import SC from './styled';
-import HeaderCell, { Props as CellProps } from './header-cell';
 
-interface Props<T> {
-  cols: T[];
+type CellType = {
+  sortButton?: JSX.Element;
+  width?: string;
+};
+
+interface Props {
+  cols: CellType[];
 }
 
-const TableHeader: FC<Props<CellProps>> = ({ cols }) => {
+const TableHeader: FC<Props> = ({ cols }) => {
   const headRow = (
     <SC.TableHeadRow>
       {cols.map((col, i) => (
-        <HeaderCell key={i} title={col.title} icon={col.icon} width={col.width} />
+        <SC.Cell key={i} width={col.width}>
+          {col.sortButton}
+        </SC.Cell>
       ))}
     </SC.TableHeadRow>
   );
 
-  return <SC.TableHead>{headRow}</SC.TableHead>;
+  return <thead>{headRow}</thead>;
 };
 
-export { Props };
+export { Props, CellType };
 export default TableHeader;

@@ -1,5 +1,5 @@
-import React, { FC, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import React, { FC, useEffect, useState } from 'react';
+import { useParams, useLocation } from 'react-router-dom';
 
 import { routes } from '../../router/routes';
 import env from '../../utils/constants/env';
@@ -15,10 +15,15 @@ const Breadcrumbs: FC = () => {
   if (params.datasetId && params.datasetId !== datasetId) setDatasetId(params.datasetId);
   const activeStyle = { textDecoration: 'none' };
 
+  let location = useLocation();
+  useEffect(() => {
+    setDatasetId('');
+  }, [location]);
+
   return (
     <SC.BreadcrumbsNav>
       <span>
-        <SC.Link to={FDK_REGISTRATION_BASE_URI}>{localization.allCatalogs}</SC.Link>
+        <SC.ExternalLink href={FDK_REGISTRATION_BASE_URI}>{localization.allCatalogs}</SC.ExternalLink>
         <span>
           <SC.CrumbDivider>{'>'}</SC.CrumbDivider>
           <SC.Link
@@ -29,14 +34,14 @@ const Breadcrumbs: FC = () => {
             {localization.catalogType}
           </SC.Link>
         </span>
-        {datasetId ? (
+        {datasetId && (
           <span>
             <SC.CrumbDivider>{'>'}</SC.CrumbDivider>
             <SC.Link to={`/${routes.home}/${params.datasetId}`} style={datasetId ? activeStyle : undefined}>
               {datasetId}
             </SC.Link>
           </span>
-        ) : undefined}
+        )}
       </span>
     </SC.BreadcrumbsNav>
   );

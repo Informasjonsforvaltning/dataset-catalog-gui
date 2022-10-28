@@ -2,6 +2,7 @@ import React from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 
 import Icon from '../../components/icon';
+import Button from '../../components/inputs/button';
 import Table from '../../components/table';
 import { useDatasetsContext } from '../../context/datasets-context';
 import getDate from '../../utils/helpers/date-and-time-formatter';
@@ -16,14 +17,29 @@ const PopulatedTable = () => {
 
   const colWidths = {
     col_1: '70%',
-    col_2: '200px',
-    col_3: '100px',
+    col_2: '16%',
+    col_3: '14%',
   };
 
   const cols = [
-    { title: 'Tittel', icon: <Icon name='listUnsortedStroke' />, width: colWidths.col_1 },
-    { title: 'Sist endret', icon: <Icon name='listUnsortedStroke' />, width: colWidths.col_2 },
-    { title: 'Status', icon: <Icon name='listUnsortedStroke' />, width: colWidths.col_3 },
+    {
+      sortButton: (
+        <Button name='Title' type='transparent' iconPos='right' endIcon={<Icon name='listUnsortedStroke' />} />
+      ),
+      width: colWidths.col_1,
+    },
+    {
+      sortButton: (
+        <Button name='Sist endret' type='transparent' iconPos='right' endIcon={<Icon name='listUnsortedStroke' />} />
+      ),
+      width: colWidths.col_2,
+    },
+    {
+      sortButton: (
+        <Button name='Status' type='transparent' iconPos='right' endIcon={<Icon name='listUnsortedStroke' />} />
+      ),
+      width: colWidths.col_3,
+    },
   ];
 
   const rows: any[] = datasetsState.datasets.map(dataset => ({

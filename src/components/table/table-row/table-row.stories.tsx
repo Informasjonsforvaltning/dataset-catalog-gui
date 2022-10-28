@@ -16,63 +16,58 @@ export default {
 
 const Template: ComponentStory<typeof TableRow> = args => <TableRow {...args} />;
 
+const colWidths = {
+  col_1: '70%',
+  col_2: '16%',
+  col_3: '14%',
+};
+
 export const DatasetsTableRow1 = Template.bind({});
 DatasetsTableRow1.args = {
   row: [
-    { text: 'Enhetsregistret', width: '30%' },
-    { text: 'Pippi Langstrømpe', width: '22%' },
-    { text: 'For 2 timer siden', width: '22%' },
-    { text: '1.0', width: '10%' },
-    { tag: React.createElement(DraftTag), width: '16%' },
+    { text: 'Enhetsregistret', width: colWidths.col_1 },
+    { text: 'For 2 timer siden', width: colWidths.col_2 },
+    { tag: React.createElement(DraftTag), width: colWidths.col_3 },
   ],
 };
 export const DatasetsTableRow2 = Template.bind({});
 DatasetsTableRow2.args = {
   row: [
-    { text: 'Foretaksregistret', width: '30%' },
-    { text: 'Pippi Langstrømpe', width: '22%' },
-    { text: 'I går kl 08:29', width: '22%' },
-    { text: '1.1', width: '10%' },
-    { tag: React.createElement(PublishedTag), width: '16%' },
+    { text: 'Foretaksregistret', width: colWidths.col_1 },
+
+    { text: 'I går kl 08:29', width: colWidths.col_2 },
+    { tag: React.createElement(PublishedTag), width: colWidths.col_3 },
   ],
 };
 export const DatasetsTableRow3 = Template.bind({});
 DatasetsTableRow3.args = {
   row: [
-    { text: 'Kommunalt rapporteringsregister', width: '30%' },
-    { text: 'Pippi Langstrømpe', width: '22%' },
-    { text: 'For 1 time siden', width: '22%' },
-    { text: '1.3', width: '10%' },
-    { tag: React.createElement(ExPublishedTag), width: '16%' },
+    { text: 'Kommunalt rapporteringsregister', width: colWidths.col_1 },
+    { text: 'For 1 time siden', width: colWidths.col_2 },
+    { tag: React.createElement(ExPublishedTag), width: colWidths.col_3 },
   ],
 };
 export const DatasetsTableRow4 = Template.bind({});
 DatasetsTableRow4.args = {
   row: [
-    { text: 'Kompensasjonsordningen for innreisekarantene', width: '30%' },
-    { text: 'Pippi Langstrømpe', width: '22%' },
-    { text: '23.05.2021 kl 11.08', width: '22%' },
-    { text: '1.0', width: '10%' },
-    { tag: React.createElement(ApprovedTag), width: '16%' },
+    { text: 'Kompensasjonsordningen for innreisekarantene', width: colWidths.col_1 },
+    { text: '23.05.2021 kl 11.08', width: colWidths.col_2 },
+    { tag: React.createElement(ApprovedTag), width: colWidths.col_3 },
   ],
 };
 export const DatasetsTableRow5 = Template.bind({});
 DatasetsTableRow5.args = {
   row: [
-    { text: 'Kompensasjonsordning for næringslivet - etter august 2020', width: '30%' },
-    { text: 'Pippi Langstrømpe', width: '22%' },
-    { text: '23.01.2022 kl 13.10', width: '22%' },
-    { text: '1.0', width: '10%' },
-    { tag: React.createElement(NonEditableTag), width: '16%' },
+    { text: 'Kompensasjonsordning for næringslivet - etter august 2020', width: colWidths.col_1 },
+    { text: '23.01.2022 kl 13.10', width: colWidths.col_2 },
+    { tag: React.createElement(NonEditableTag), width: colWidths.col_3 },
   ],
 };
 export const DatasetsTableRow6 = Template.bind({});
 DatasetsTableRow6.args = {
   row: [
-    { text: 'Regnskapsregistret', width: '30%' },
-    { text: 'Pippi Langstrømpe', width: '22%' },
-    { text: 'I går kl 13:29', width: '22%' },
-    { text: '1.2', width: '10%' },
-    { tag: React.createElement(UnderReviewTag), width: '16%' },
+    { text: 'Regnskapsregistret', width: colWidths.col_1 },
+    { text: 'I går kl 13:29', width: colWidths.col_2 },
+    { tag: React.createElement(UnderReviewTag), width: colWidths.col_3 },
   ],
 };

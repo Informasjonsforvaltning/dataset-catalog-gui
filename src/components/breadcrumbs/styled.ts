@@ -1,5 +1,5 @@
 import { Link as RRDLink } from 'react-router-dom';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { Colour, theme } from '@fellesdatakatalog/theme';
 
 const BreadcrumbsNav = styled.nav`
@@ -13,7 +13,7 @@ const BreadcrumbsNav = styled.nav`
   overflow-wrap: break-word;
 `;
 
-const Link = styled(RRDLink)`
+const linkStyle = css`
   text-decoration: underline;
   font-style: normal;
   font-weight: ${theme.fontWeight('FW400')};
@@ -26,10 +26,18 @@ const Link = styled(RRDLink)`
   }
 `;
 
+const Link = styled(RRDLink)`
+  ${linkStyle}
+`;
+
+const ExternalLink = styled.a`
+  ${linkStyle}
+`;
+
 const CrumbDivider = styled.span`
   height: ${theme.spacing('S8')};
   width: ${theme.spacing('S4')};
   margin: 0 ${theme.spacing('S10')} 0 ${theme.spacing('S10')};
 `;
 
-export default { BreadcrumbsNav, Link, CrumbDivider };
+export default { BreadcrumbsNav, Link, ExternalLink, CrumbDivider };
