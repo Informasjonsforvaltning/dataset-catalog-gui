@@ -39,7 +39,7 @@
     "@storybook/manager-webpack5": "^6.5.12",
     "@storybook/react": "^6.5.12",
     "@storybook/testing-library": "^0.0.13",
-    "@svgr/webpack": "^6.4.0",
+    "@svgr/webpack": "^6.5.1",
     "@types/lodash": "^4.14.185",
     "@types/styled-components": "^5.1.26",
     "babel-loader": "^8.2.5",
