@@ -42,7 +42,7 @@
     "@svgr/webpack": "^6.4.0",
     "@types/lodash": "^4.14.185",
     "@types/styled-components": "^5.1.26",
-    "babel-loader": "^8.2.5",
+    "babel-loader": "^9.1.0",
     "clean-webpack-plugin": "^4.0.0",
     "copy-webpack-plugin": "^11.0.0",
     "cross-env": "^7.0.3",
