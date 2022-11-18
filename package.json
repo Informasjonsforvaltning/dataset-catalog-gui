@@ -4,7 +4,7 @@
   "private": true,
   "homepage": "/dataset-catalogs",
   "engines": {
-    "node": ">= 16.17.0"
+    "node": ">= 18.12.1"
   },
   "dependencies": {
     "@fellesdatakatalog/breadcrumbs": "^0.2.4",

@@ -1,4 +1,4 @@
-FROM node:16.17.0 as build
+FROM node:18.12.1 as build
 WORKDIR /app
 COPY package.json package-lock.json .npmrc ./
 RUN npm set progress=false && \
