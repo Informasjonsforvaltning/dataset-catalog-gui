@@ -4,13 +4,27 @@
 
 import { SvgIconTypes } from '@fellesdatakatalog/icons';
 import React, { FC } from 'react';
-import SC from './styled';
+import { Icon as StyledIcon, Text } from './styled';
 
-interface Props {
-  name: SvgIconTypes;
+type IconType = 'icon' | 'textIcon';
+
+interface IconProps {
+  name?: SvgIconTypes;
+  type?: IconType;
+  text?: string;
   className?: string;
 }
 
-const Icon: FC<Props> = ({ name, className }) => <SC.Icon className={className} name={name as SvgIconTypes} />;
+const Icon: FC<IconProps> = ({ className, name, type = 'icon', text = 'nb' }) => {
+  return type === 'textIcon' ? (
+    <StyledIcon className={className} name={name as SvgIconTypes}>
+      <Text x='10%' y='50%'>
+        {text}
+      </Text>
+    </StyledIcon>
+  ) : (
+    <StyledIcon className={className} name={name as SvgIconTypes} />
+  );
+};
 
 export default Icon;

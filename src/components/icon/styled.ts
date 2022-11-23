@@ -7,4 +7,9 @@ const Icon = styled(SvgIcon)`
   height: ${theme.spacing('S24')};
 `;
 
-export default { Icon };
+const Text = styled.text`
+  stroke: black;
+  dominant-baseline: middle;
+`;
+
+export { Icon, Text };
