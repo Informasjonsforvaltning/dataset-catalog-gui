@@ -76,15 +76,15 @@ const Text = styled.p`
 `;
 
 const Filled = styled.button<ButtonProps>`
-  color: ${({ color }) => color};
+  color: ${({ btnColor }) => btnColor};
   background-color: ${({ bg }) => bg};
   ${filledStyle};
 
-  ${({ color }) =>
-    color &&
+  ${({ btnColor }) =>
+    btnColor &&
     css`
       & * {
-        stroke: ${color};
+        stroke: ${btnColor};
       }
     `}
 
@@ -104,14 +104,14 @@ const Filled = styled.button<ButtonProps>`
 `;
 
 const Link = styled.button<ButtonProps>`
-  color: ${({ color }) => color};
-  border-color: ${({ color }) => color};
+  color: ${({ btnColor }) => btnColor};
+  border-color: ${({ btnColor }) => btnColor};
 
-  ${({ color }) =>
-    color &&
+  ${({ btnColor }) =>
+    btnColor &&
     css`
       & * {
-        stroke: ${color};
+        stroke: ${btnColor};
       }
     `}
 

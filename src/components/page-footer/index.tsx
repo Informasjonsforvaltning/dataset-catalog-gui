@@ -1,12 +1,12 @@
-import React, { memo, FC } from 'react';
-import { compose } from 'redux';
+import React from 'react';
 import FooterBase from '@fellesdatakatalog/internal-footer';
 
-import { getThemeProfile } from '../../utils/helpers/theme-checker';
+import { useGlobalContext } from '../../context/global-context';
 
 const Footer = () => {
-  const themeProfile = getThemeProfile();
+  const globalContext = useGlobalContext();
+  const themeProfile = globalContext.theme;
   return <FooterBase themeProfile={themeProfile} />;
 };
 
-export default compose<FC>(memo)(Footer);
+export default Footer;

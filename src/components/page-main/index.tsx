@@ -6,20 +6,18 @@ import Footer from '../page-footer';
 import Header from '../page-header';
 import SC from './styled';
 
-const Main: FC = () => {
-  return (
-    <>
-      <Header />
-      <SC.Main>
-        <Breadcrumbs />
-        <SC.Divider />
-        <SC.OutletWrapper>
-          <Outlet />
-        </SC.OutletWrapper>
-      </SC.Main>
-      <Footer />
-    </>
-  );
-};
+const Main: FC = () => (
+  <>
+    <Header />
+    <SC.Main>
+      <Breadcrumbs />
+      <SC.Divider />
+      <SC.OutletWrapper>
+        <Outlet />
+      </SC.OutletWrapper>
+    </SC.Main>
+    <Footer />
+  </>
+);
 
 export default Main;

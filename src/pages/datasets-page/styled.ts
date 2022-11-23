@@ -37,7 +37,7 @@ const Page = styled.section`
 `;
 
 const Title = styled.h1`
-  width: 1110px;
+  width: 100%;
   height: ${theme.spacing('S56')};
 
   font-style: normal;
@@ -48,7 +48,7 @@ const Title = styled.h1`
 `;
 
 const SubTitle = styled.h2`
-  width: 1110px;
+  width: 100%;
   height: ${theme.spacing('S32')};
   font-style: normal;
   font-weight: ${theme.fontWeight('FW400')};

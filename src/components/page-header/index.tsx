@@ -1,16 +1,17 @@
-import React, { memo } from 'react';
+import React from 'react';
 import HeaderBase from '@fellesdatakatalog/internal-header';
 import Link from '@fellesdatakatalog/link';
 
 import env from '../../utils/constants/env';
 import { authService } from '../../utils/authentication/auth-service';
 import { withAuth } from '../../utils/authentication/auth-provider';
-import { getThemeProfile } from '../../utils/helpers/theme-checker';
+import { useGlobalContext } from '../../context/global-context';
 
 const { FDK_BASE_URI, ADMIN_GUI_BASE_URI, FDK_COMMUNITY_BASE_URI } = env;
 
 const Header = () => {
-  const themeProfile = getThemeProfile();
+  const globalContext = useGlobalContext();
+  const themeProfile = globalContext.theme;
 
   return (
     <HeaderBase
@@ -32,4 +33,4 @@ const Header = () => {
   );
 };
 
-export default memo(withAuth(Header));
+export default withAuth(Header);

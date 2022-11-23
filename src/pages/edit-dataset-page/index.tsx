@@ -1,6 +1,5 @@
-import React, { memo, FC } from 'react';
+import React, { FC } from 'react';
 import { Outlet, useParams } from 'react-router-dom';
-import { compose } from 'redux';
 
 import { withAuth } from '../../utils/authentication/auth-provider';
 import SC from './styled';
@@ -19,4 +18,4 @@ const EditDatasetPage: FC = () => {
   );
 };
 
-export default compose<FC>(memo, withAuth)(EditDatasetPage);
+export default withAuth(EditDatasetPage);

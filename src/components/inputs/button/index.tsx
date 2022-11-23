@@ -1,35 +1,42 @@
 import { Colour, theme } from '@fellesdatakatalog/theme';
-import React, { FC } from 'react';
+import React, { ButtonHTMLAttributes, FC } from 'react';
 
 import { getStyledComponent, Text } from './styled';
 
 type ButtonType = 'default' | 'filled' | 'link' | 'transparent';
 type IconPoseType = 'left' | 'right' | undefined;
 
-interface ButtonProps {
-  type?: ButtonType;
+interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+  btnType?: ButtonType;
   name?: string;
   iconPos?: IconPoseType;
   startIcon?: JSX.Element;
   endIcon?: JSX.Element;
-  color?: (prop: any) => string;
+  btnColor?: (prop: any) => string;
   bg?: (prop: any) => string;
+  onClick?: () => void;
 }
 
 const Button: FC<ButtonProps> = ({
   startIcon,
   endIcon,
-  type = 'default',
+  btnType = 'default',
   name = 'Button',
-  color = type === 'link' || type === 'transparent'
+  btnColor = btnType === 'link' || btnType === 'transparent'
     ? theme.colour(Colour.BLUE, 'B60')
     : theme.colour(Colour.NEUTRAL, 'N0'),
   bg = theme.colour(Colour.BLUE, 'B60'),
+  onClick,
 }) => {
-  const Component = getStyledComponent(type!);
+  const Component = getStyledComponent(btnType!);
 
   return (
-    <Component color={color} bg={bg} iconPos={startIcon ? 'left' : endIcon ? 'right' : undefined}>
+    <Component
+      btnColor={btnColor}
+      bg={bg}
+      iconPos={startIcon ? 'left' : endIcon ? 'right' : undefined}
+      onClick={onClick}
+    >
       {startIcon}
       <Text>{name}</Text>
       {endIcon}

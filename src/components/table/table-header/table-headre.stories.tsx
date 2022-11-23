@@ -16,19 +16,19 @@ Header.args = {
   cols: [
     {
       sortButton: (
-        <Button name='Title' type='transparent' iconPos='right' endIcon={<Icon name='listUnsortedStroke' />} />
+        <Button name='Title' btnType='transparent' iconPos='right' endIcon={<Icon name='listUnsortedStroke' />} />
       ),
       width: '70%',
     },
     {
       sortButton: (
-        <Button name='Sist endret' type='transparent' iconPos='right' endIcon={<Icon name='listUnsortedStroke' />} />
+        <Button name='Sist endret' btnType='transparent' iconPos='right' endIcon={<Icon name='listUnsortedStroke' />} />
       ),
       width: '16%',
     },
     {
       sortButton: (
-        <Button name='Status' type='transparent' iconPos='right' endIcon={<Icon name='listUnsortedStroke' />} />
+        <Button name='Status' btnType='transparent' iconPos='right' endIcon={<Icon name='listUnsortedStroke' />} />
       ),
       width: '14%',
     },

@@ -6,7 +6,8 @@ import Router from '../router';
 import SC from './styled';
 import AuthProvider from '../utils/authentication/auth-provider';
 import DatasetsContext from '../context/datasets-context';
-import GlobalStyle from '../utils/styles/global-style';
+import TableContext from '../context/table-context';
+import GlobalContext from '../context/global-context';
 
 const App: FC = () => {
   return (
@@ -14,12 +15,15 @@ const App: FC = () => {
       <CookiesProvider>
         <AuthProvider>
           <ThemeProvider>
-            <GlobalStyle />
-            <SC.App>
-              <DatasetsContext>
-                <Router />
-              </DatasetsContext>
-            </SC.App>
+            <GlobalContext>
+              <SC.App>
+                <DatasetsContext>
+                  <TableContext>
+                    <Router />
+                  </TableContext>
+                </DatasetsContext>
+              </SC.App>
+            </GlobalContext>
           </ThemeProvider>
         </AuthProvider>
       </CookiesProvider>
