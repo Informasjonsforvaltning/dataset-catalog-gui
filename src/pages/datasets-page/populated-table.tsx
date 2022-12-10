@@ -27,11 +27,11 @@ const PopulatedTable = () => {
     }),
     tableDispatch({
       type: ACTION_TYPE.ADD_TABLE_ROWS,
-      payload: { rows: getRows(tableContext.datasets, location.pathname, navigate) ?? [] },
+      payload: { rows: getRows(tableContext.tableDatasets, location.pathname, navigate) ?? [] },
     })
   );
 
-  useEffect(tableUpdate, [tableContext.sort, tableContext.filter]);
+  useEffect(tableUpdate, [tableContext.sort, tableContext.filter, tableContext.tableDatasets]);
 
   return <Table rows={tableContext.rows} cols={tableContext.headerColumns} />;
 };
