@@ -1,4 +1,4 @@
-import React, { FC, ChangeEvent, FormEvent, KeyboardEvent, useState } from 'react';
+import React, { FC, ChangeEvent, useState } from 'react';
 import { Input, InputField as StyledInputField } from './styled';
 
 type InputType = 'text' | 'tel' | 'url' | 'number' | 'file' | 'email' | 'date' | 'search';
@@ -14,6 +14,7 @@ interface InputFieldProps {
   startIcon?: JSX.Element;
   endIcon?: JSX.Element;
   iconPos?: IconPoseType;
+  onInputSubmit?: (inputValue: string) => void | any;
 }
 
 const InputField: FC<InputFieldProps> = ({
@@ -23,18 +24,22 @@ const InputField: FC<InputFieldProps> = ({
   type = 'text',
   placeholder = 'Input placeholder ...',
   error = false,
-  /* nrOfLines = 1, */
+  onInputSubmit,
+
+  /* nrOfLines = 1, for text-area */
 }) => {
   const [inputValue, setInputValue] = useState('');
   const conditionalPlaceholder = error ? 'Invalid input' : placeholder;
 
-  const onChange = (changeEvent: ChangeEvent<HTMLInputElement>) => setInputValue(changeEvent.target.value);
-  const onKeyDown = (keyboardEvent: KeyboardEvent<HTMLInputElement>) => {
-    if (keyboardEvent.code === 'Enter') console.log('FIRE ACTION');
+  const onChange = (changeEvent: ChangeEvent<HTMLInputElement>) => {
+    setInputValue(changeEvent.target.value);
+    onInputSubmit && onInputSubmit(changeEvent.target.value);
   };
-  const onSubmit = (formEvent: FormEvent<HTMLInputElement>) => {
-    console.log(formEvent);
-  };
+
+  // This part can be uncommented later to inlude more input cases which submit the input by pressing the Enter key
+  // const onKeyDown = (keyboardEvent: KeyboardEvent<HTMLInputElement>) => {
+  //   if (keyboardEvent.code === 'Enter') console.log('FIRE ACTION');
+  // };
 
   return (
     <StyledInputField ariaLabel='' error={error} iconPos={startIcon ? 'left' : endIcon ? 'right' : undefined}>
@@ -45,8 +50,8 @@ const InputField: FC<InputFieldProps> = ({
         type={type}
         value={inputValue}
         onChange={onChange}
-        onKeyDown={onKeyDown}
-        onSubmit={onSubmit}
+        // onKeyDown={onChange}
+        onSubmit={onChange}
       />
       {endIcon}
     </StyledInputField>

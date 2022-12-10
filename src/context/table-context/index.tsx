@@ -6,6 +6,7 @@ import { useDatasetsContext } from '../datasets-context';
 
 const initialState: STATE = {
   datasets: [],
+  tableDatasets: [],
   rows: [],
   headerColumns: [],
   sort: { sortBy: 'title', sortOrder: 'ascending' },
@@ -25,7 +26,8 @@ const useTableDispatch = () => useContext(ContextDispatch);
 
 const TableContext: FC<PropsWithChildren> = ({ children }) => {
   const datasetsContext = useDatasetsContext();
-  initialState.datasets = [...datasetsContext.datasets];
+  initialState.datasets = datasetsContext.datasets;
+  initialState.tableDatasets = [...datasetsContext.datasets];
   const [state, dispatch] = useReducer(reducer, initialState);
 
   return (
