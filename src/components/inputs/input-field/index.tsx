@@ -25,8 +25,6 @@ const InputField: FC<InputFieldProps> = ({
   placeholder = 'Input placeholder ...',
   error = false,
   onInputSubmit,
-
-  /* nrOfLines = 1, for text-area */
 }) => {
   const [inputValue, setInputValue] = useState('');
   const conditionalPlaceholder = error ? 'Invalid input' : placeholder;
@@ -35,11 +33,6 @@ const InputField: FC<InputFieldProps> = ({
     setInputValue(changeEvent.target.value);
     onInputSubmit && onInputSubmit(changeEvent.target.value);
   };
-
-  // This part can be uncommented later to inlude more input cases which submit the input by pressing the Enter key
-  // const onKeyDown = (keyboardEvent: KeyboardEvent<HTMLInputElement>) => {
-  //   if (keyboardEvent.code === 'Enter') console.log('FIRE ACTION');
-  // };
 
   return (
     <StyledInputField ariaLabel='' error={error} iconPos={startIcon ? 'left' : endIcon ? 'right' : undefined}>
@@ -50,7 +43,6 @@ const InputField: FC<InputFieldProps> = ({
         type={type}
         value={inputValue}
         onChange={onChange}
-        // onKeyDown={onChange}
         onSubmit={onChange}
       />
       {endIcon}

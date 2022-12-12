@@ -15,9 +15,11 @@ const Search = styled.span`
 
   ${Breakpoint.MEDIUM} {
     flex-direction: column;
-    button {
+    select {
       margin-top: ${theme.spacing('S10')};
       width: 100%;
+      text-align: center;
+      background-position-x: 60%;
     }
     div:first-child {
       width: 100%;
