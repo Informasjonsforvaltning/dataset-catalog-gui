@@ -39,7 +39,6 @@ const Page = styled.section`
 const Title = styled.h1`
   width: 100%;
   height: ${theme.spacing('S56')};
-
   font-style: normal;
   font-weight: ${theme.fontWeight('FW700')};
   font-size: ${theme.fontSize('FS48')};

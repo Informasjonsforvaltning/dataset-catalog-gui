@@ -9,7 +9,7 @@ import { CellType } from '../../components/table/table-header';
 import { RegistrationStatus } from '../../utils/types/enums';
 
 type SORT_ORDER = 'ascending' | 'descending' | 'unsorted';
-type FILTER_TYPE = { type: 'search' | 'last-modified' | 'status'; value: Date | RegistrationStatus | string };
+type FILTER_TYPE = { type: 'status'; value: RegistrationStatus } | { type: 'search' | 'status'; value: string };
 type SORT_BY_TYPE = 'title' | 'last-modified' | 'status';
 type SORT_TYPE = { sortBy: SORT_BY_TYPE; sortOrder?: SORT_ORDER };
 
@@ -34,18 +34,8 @@ const reducer = produce((state: STATE, action: ACTION) => {
       state.rows = action.payload.rows;
       return state;
     case ACTION_TYPE.FILTER_DATASETS:
-      // if ((state?.filter?.value.toString().length ?? '') > action.payload.value.toString().length) {
-      //   state.tableDatasets = [...state.datasets];
-      // }
-      // alert(`state: ${state?.filter?.value.toString().length}`);
-      // console.log(`state: ${state.filter?.value.toString()}`);
-      // console.log(`action: ${action.payload.value.toString()}`);
       state.filter = action.payload;
-      // state.tableDatasets = [...state.datasets];
-      // alert(action.payload.value);
-
       state.tableDatasets = getFilteredDatasets(state);
-      // if (state.sort) state.datasets = sortDatasetsView(state);
       return state;
     case ACTION_TYPE.SORT_DATASETS:
       if (action.payload.sortBy !== state.sort.sortBy) {
@@ -60,26 +50,18 @@ const reducer = produce((state: STATE, action: ACTION) => {
 });
 
 const getFilteredDatasets = (state: STATE): Dataset[] => {
-  // if (!state.filter) return state.tableDatasets;
-
   switch (state.filter?.type) {
     case 'search':
       return state.datasets.filter(dataset =>
         dataset.title?.nb?.toLowerCase().includes(state.filter?.value.toString().toLocaleLowerCase() ?? '')
       );
+    case 'status':
+      return state.datasets.filter(dataset => {
+        return dataset.registrationStatus.toLowerCase() === state.filter?.value.toString().toLowerCase();
+      });
     default:
       return state.tableDatasets;
   }
-
-  // if (!state.filter.t) {
-  //   if (state.filter?.status)
-  //     return state.datasets.filter(dataset => dataset.registrationStatus === state.filter?.status);
-  //   return state.datasets.filter(dataset => dataset._lastModified.getTime() === state.filter?.lastModified.getTime());
-  // } else
-  //   return state.datasets.filter(
-  //     dataset =>
-  //       dataset.title?.nb === state.filter?.searchTerm || dataset.title?.nn.startsWith(state.filter?.searchTerm ?? '')
-  //   );
 };
 
 const sortDatasetsView = (state: STATE) => {
@@ -100,8 +82,8 @@ const sortDatasetsView = (state: STATE) => {
     default:
       state.tableDatasets.sort((datasetA, datasetB) => {
         if (state.sort.sortOrder === 'ascending')
-          return ascendSort(datasetA.title?.nb ?? 'Empty', datasetB.title?.nb ?? 'Empty');
-        return descendSort(datasetA.title?.nb ?? 'Empty', datasetB.title?.nb ?? 'Empty');
+          return ascendSort(datasetA.title?.nb ?? 'Uten navn', datasetB.title?.nb ?? 'Uten navn');
+        return descendSort(datasetA.title?.nb ?? 'Uten navn', datasetB.title?.nb ?? 'Uten navn');
       });
   }
   return state.tableDatasets;

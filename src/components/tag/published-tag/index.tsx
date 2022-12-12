@@ -5,7 +5,7 @@ import Icon from '../../icon';
 import SC from './styled';
 
 const PublishedTag: FC = () => (
-  <SC.PublishedTag text={localization.tagPublished} icon={<Icon name='globeGridStroke' />} />
+  <SC.PublishedTag text={localization.tag.publish} icon={<Icon name='globeGridStroke' />} />
 );
 
 export default PublishedTag;

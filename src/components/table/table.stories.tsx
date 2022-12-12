@@ -19,9 +19,6 @@ DatasetsTable.args = {
   rows: [
     TableRowStory.DatasetsTableRow1.args as RowProps<RowCellProps>,
     TableRowStory.DatasetsTableRow2.args as RowProps<RowCellProps>,
-    TableRowStory.DatasetsTableRow3.args as RowProps<RowCellProps>,
     TableRowStory.DatasetsTableRow4.args as RowProps<RowCellProps>,
-    TableRowStory.DatasetsTableRow5.args as RowProps<RowCellProps>,
-    TableRowStory.DatasetsTableRow6.args as RowProps<RowCellProps>,
   ],
 };

@@ -91,7 +91,7 @@ const getHeaderColumns = (sort: SORT_TYPE, tableDispatcher: React.Dispatch<ACTIO
 const getRows = (datasets: Dataset[], location: string, navigate?: NavigateFunction): RowProps<ColumnProps>[] =>
   datasets.map(dataset => ({
     row: [
-      { text: dataset.title?.nb ?? 'Empty', width: colWidths.col_1 },
+      { text: dataset.title?.nb ?? 'Uten navn', width: colWidths.col_1 },
       { text: getDate(dataset?._lastModified), width: colWidths.col_2 },
       { tag: getTag(dataset?.registrationStatus), width: colWidths.col_3 },
     ],
