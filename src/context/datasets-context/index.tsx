@@ -29,9 +29,9 @@ const DatasetsContext: FC<PropsWithChildren> = ({ children }) => {
         .then(datasets => {
           dispatch({ type: ACTION_TYPE.FINISHED, payload: datasets });
         })
-        .catch(err => {
+        .catch(error => {
           dispatch({ type: ACTION_TYPE.ERROR });
-          console.error('DatasetsContext failed on getDatasets()!', err);
+          console.error('DatasetsContext failed on getDatasets()!', error);
         });
     }
   };
