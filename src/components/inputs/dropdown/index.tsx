@@ -1,15 +1,21 @@
 import { Colour, theme } from '@fellesdatakatalog/theme';
 import React, { ChangeEvent, FC, useState } from 'react';
+import svgIconAsSourceUrl from '../../../utils/helpers/svg-icon';
 
 import { DropDown as StyledDropDown } from './styled';
 
 type DropDownType = 'default' | 'filled' | 'link' | 'transparent' | 'dropdown';
 
+interface DropDownOption {
+  name: string;
+  value: string;
+}
+
 interface DropDownProps {
   name?: string;
   dropdownColor?: (prop: any) => string;
   bg?: (prop: any) => string;
-  options?: (string | undefined)[];
+  options?: DropDownOption[];
   onDropdownSelect?: (inputValue: string) => void | any;
 }
 
@@ -24,8 +30,8 @@ const DropDown: FC<DropDownProps> = ({
 
   const opsToJsx = () => {
     let undefCounter = 0;
-    return options.map(name => (
-      <option key={name ?? (undefCounter++).toString()} value={name?.toLocaleLowerCase()}>
+    return options.map(({name, value}) => (
+      <option key={value ?? (undefCounter++).toString()} value={value}>
         {name}
       </option>
     ));
@@ -35,9 +41,15 @@ const DropDown: FC<DropDownProps> = ({
     setSelectValue(changeEvent.target.value);
     onDropdownSelect && onDropdownSelect(changeEvent.target.value);
   };
-
+  
   return (
-    <StyledDropDown dropdownColor={dropdownColor} bg={bg} value={selectValue} onChange={onSelect}>
+    <StyledDropDown 
+      $dropdownColor={dropdownColor} 
+      $bg={bg} 
+      $icon={svgIconAsSourceUrl('chevronDownStroke')}
+      $hoverIcon={svgIconAsSourceUrl('chevronDownStroke', 'white')}
+      value={selectValue} 
+      onChange={onSelect}>
       <option value='' hidden>
         {name}
       </option>
@@ -47,4 +59,4 @@ const DropDown: FC<DropDownProps> = ({
 };
 
 export default DropDown;
-export { DropDownType, DropDownProps };
+export { DropDownType, DropDownOption , DropDownProps };

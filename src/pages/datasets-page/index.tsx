@@ -37,7 +37,7 @@ const DatasetsPage: FC = () => {
     datasetsContext.newlyCreatedDatasetPromise
       .then(dataset => {
         datasetsDispatch({ type: ACTION_TYPE.ADD_DATASET, payload: { dataset } });
-        window.location.href = `${FDK_REGISTRATION_BASE_URI}/catalogs/${catalogId}/datasets/${dataset.id}`;
+        window.location.href = `${FDK_REGISTRATION_BASE_URI}/dataset-catalogs/${catalogId}/datasets/${dataset.id}`;
       })
       .catch(error => console.error('ADD_DATASET failed!', error));
   }

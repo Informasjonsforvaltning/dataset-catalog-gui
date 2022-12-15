@@ -14,6 +14,7 @@ export const nb = {
     statusSearch: 'Status',
   },
   tag: {
+    all: 'Alle',
     approve: 'Godkjent',
     draft: 'Utkast',
     publish: 'Publisert',

@@ -1,4 +1,4 @@
 export const routes = {
-  home: 'dataset-catalogs/:catalogId/datasets',
+  home: 'catalogs/:catalogId/datasets',
   dataset: ':datasetId',
 };

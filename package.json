@@ -2,7 +2,7 @@
   "name": "dataset-catalog-gui",
   "version": "0.1.0",
   "private": true,
-  "homepage": "/dataset-catalogs",
+  "homepage": "/catalogs",
   "engines": {
     "node": ">= 18.12.1"
   },
@@ -65,7 +65,7 @@
   },
   "scripts": {
     "preinstall": "npx force-resolutions",
-    "start": "cross-env TS_NODE_PROJECT=tsconfig.webpack.json webpack serve --open-target /dataset-catalogs/910244132/datasets --config webpack/dev.config.ts",
+    "start": "cross-env TS_NODE_PROJECT=tsconfig.webpack.json webpack serve --open-target /catalogs/910244132/datasets --config webpack/dev.config.ts",
     "build": "cross-env TS_NODE_PROJECT=tsconfig.webpack.json webpack --config webpack/dev.config.ts",
     "build:prod": "cross-env TS_NODE_PROJECT=tsconfig.webpack.json webpack --config webpack/prod.config.ts",
     "build:stats": "cross-env TS_NODE_PROJECT=tsconfig.webpack.json webpack --config webpack/stats.config.ts",

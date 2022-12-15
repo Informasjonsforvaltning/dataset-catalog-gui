@@ -98,7 +98,7 @@ const getRows = (datasets: Dataset[], catalogId: string): RowProps<ColumnProps>[
       { tag: getTag(dataset?.registrationStatus), width: colWidths.col_3 },
     ],
     onRowClick: () =>
-      (window.location.href = `${FDK_REGISTRATION_BASE_URI}/catalogs/${catalogId}/datasets/${dataset.id}`),
+      (window.location.href = `${FDK_REGISTRATION_BASE_URI}/dataset-catalogs/${catalogId}/datasets/${dataset.id}`),
   }));
 
 export default PopulatedTable;

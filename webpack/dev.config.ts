@@ -24,11 +24,11 @@ const configuration: Configuration = mergeWithCustomize<Configuration>({
     port: 4301,
     hot: true,
     onBeforeSetupMiddleware: devServer =>
-      devServer.app?.get('/dataset-catalogs/config.js', (_, res) => res.status(204).send()),
+      devServer.app?.get('/catalogs/config.js', (_, res) => res.status(204).send()),
     historyApiFallback: {
       rewrites: [
-        { from: /^\/silent-check-sso/, to: '/dataset-catalogs/silent-check-sso.html' },
-        { from: /./, to: '/dataset-catalogs/index.html' },
+        { from: /^\/silent-check-sso/, to: '/catalogs/silent-check-sso.html' },
+        { from: /./, to: '/catalogs/index.html' },
       ],
     },
   },

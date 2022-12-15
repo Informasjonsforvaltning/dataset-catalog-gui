@@ -1,7 +1,12 @@
 import { Colour, theme } from '@fellesdatakatalog/theme';
 import styled, { css } from 'styled-components';
-import { DropDownProps } from '.';
-import ChevronDownStroke from '../../../utils/assets/chevron-down-stroke.svg';
+
+interface Props {
+  $dropdownColor?: (prop: any) => string;
+  $bg?: (prop: any) => string;
+  $icon?: string;
+  $hoverIcon?: string;
+}
 
 const container = css`
   display: flex;
@@ -19,27 +24,27 @@ const textStyle = css`
   white-space: nowrap;
 `;
 
-const iconStyle = css`
+const DropDown = styled.select<Props>`
+  ${container};
+  ${textStyle};
+  
   // remove default select styles
   -moz-appearance: none; /* Firefox */
   -webkit-appearance: none; /* Safari and Chrome */
   appearance: none;
 
   // styling chevron-down-stroke
-  background-image: url(${ChevronDownStroke});
+  ${({ $icon }) => css`
+    background-image: url(${$icon});
+  `}
+  
   background-repeat: no-repeat;
   background-position-x: 80%;
   background-position-y: 50%;
   background-size: ${theme.fontSize('FS16')};
-`;
 
-const DropDown = styled.select<DropDownProps>`
-  ${container};
-  ${textStyle};
-  ${iconStyle};
-
-  color: ${({ dropdownColor }) => dropdownColor};
-  background-color: ${({ bg }) => bg};
+  color: ${({ $dropdownColor }) => $dropdownColor};
+  background-color: ${({ $bg }) => $bg};
   min-width: 14rem;
   height: ${theme.spacing('S56')};
   border-radius: ${theme.spacing('S4')};
@@ -48,6 +53,9 @@ const DropDown = styled.select<DropDownProps>`
   :hover {
     color: ${theme.colour(Colour.NEUTRAL, 'N0')};
     background-color: ${theme.colour(Colour.NEUTRAL, 'N70')};
+    ${({ $hoverIcon }) => css`
+      background-image: url(${$hoverIcon});
+    `}
   }
 `;
 
