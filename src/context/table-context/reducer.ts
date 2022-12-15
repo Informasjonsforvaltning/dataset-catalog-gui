@@ -52,13 +52,13 @@ const reducer = produce((state: STATE, action: ACTION) => {
 const getFilteredDatasets = (state: STATE): Dataset[] => {
   switch (state.filter?.type) {
     case 'search':
-      return state.datasets.filter(dataset =>
-        dataset.title?.nb?.toLowerCase().includes(state.filter?.value.toString().toLocaleLowerCase() ?? '')
+      return state.datasets.filter(dataset => !state.filter?.value ||
+        dataset.title?.nb?.toLowerCase().includes(state.filter?.value.toString().toLocaleLowerCase())
       );
     case 'status':
-      return state.datasets.filter(dataset => {
-        return dataset.registrationStatus.toLowerCase() === state.filter?.value.toString().toLowerCase();
-      });
+      return state.datasets.filter(dataset => !state.filter?.value ||
+        dataset.registrationStatus.toLowerCase() === state.filter?.value.toString().toLowerCase()
+      );
     default:
       return state.tableDatasets;
   }

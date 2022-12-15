@@ -11,7 +11,7 @@ const configuration: Configuration = {
   },
   output: {
     path: resolve(__dirname, '..', 'dist'),
-    publicPath: '/dataset-catalogs/',
+    publicPath: '/catalogs/',
     clean: true,
   },
   resolve: {
@@ -81,7 +81,7 @@ const configuration: Configuration = {
       template: './src/app/index.html',
       filename: 'index.html',
       favicon: './src/utils/assets/favicon.ico',
-      base: '/dataset-catalogs/',
+      base: '/catalogs/',
       chunks: ['main'],
     }),
     new CopyWebpackPlugin({
