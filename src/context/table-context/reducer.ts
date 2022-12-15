@@ -82,8 +82,8 @@ const sortDatasetsView = (state: STATE) => {
     default:
       state.tableDatasets.sort((datasetA, datasetB) => {
         if (state.sort.sortOrder === 'ascending')
-          return ascendSort(datasetA.title?.nb ?? 'Uten navn', datasetB.title?.nb ?? 'Uten navn');
-        return descendSort(datasetA.title?.nb ?? 'Uten navn', datasetB.title?.nb ?? 'Uten navn');
+          return ascendSort(datasetA.title?.nb ?? 'Mangler tittel', datasetB.title?.nb ?? 'Mangler tittel');
+        return descendSort(datasetA.title?.nb ?? 'Mangler tittel', datasetB.title?.nb ?? 'Mangler tittel');
       });
   }
   return state.tableDatasets;

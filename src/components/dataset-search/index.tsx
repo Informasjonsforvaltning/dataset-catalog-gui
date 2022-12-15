@@ -38,7 +38,11 @@ const Search: FC = () => {
 
   return (
     <SC.Search>
-      <InputField ariaLabel={localization.searchForDataset} onInputSubmit={onInputSubmit} />
+      <InputField
+        ariaLabel={localization.searchForDataset}
+        onInputSubmit={onInputSubmit}
+        placeholder={localization.searchForDataset}
+      />
       <DropDown
         name={localization.dropdown.statusSearch}
         bg={theme.colour(Colour.BLUE, 'B30')}

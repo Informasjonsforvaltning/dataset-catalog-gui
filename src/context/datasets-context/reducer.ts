@@ -3,7 +3,7 @@ import { ACTION, ACTION_TYPE, STATUS } from '../actions';
 import { produce } from 'immer';
 import { createDataset } from './api-front-back';
 
-type STATE = { status: STATUS; catalogId: string; datasets: Dataset[]; newlyCreatedDatasetPromise: Promise<Dataset> };
+type STATE = { status: STATUS; catalogId: string; datasets: Dataset[]; newlyCreatedDatasetPromise?: Promise<Dataset> };
 
 const reducer = produce((state: STATE, action: ACTION) => {
   switch (action.type) {
@@ -22,20 +22,18 @@ const reducer = produce((state: STATE, action: ACTION) => {
     case ACTION_TYPE.ADD_CATALOG_ID:
       state.catalogId = action.payload;
       return state;
+    case ACTION_TYPE.ADD_DATASET:
+      state.datasets.push(action.payload.dataset);
+      state.newlyCreatedDatasetPromise = undefined;
+      return state;
     case ACTION_TYPE.CREATE_DATASET:
       state.newlyCreatedDatasetPromise = createDataset(state.catalogId)
         .then(response => response)
-        .catch(error => console.error(error))
+        .catch(error => console.error(error));
       return state;
     default:
       return state;
   }
 });
-
-const getCreatedDataset = async (state: STATE) => {
-  let data: any = {};
-  await 
-  return data;
-};
 
 export { STATE, reducer };

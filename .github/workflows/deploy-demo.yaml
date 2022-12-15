@@ -1,4 +1,4 @@
-name: Deploy to demo
+name: Deploy to staging
 
 on:
   pull_request:
@@ -7,7 +7,7 @@ on:
       - main
 
 jobs:
-  build-and-deploy-demo:
+  build-and-deploy-staging:
     name: Call reusable workflow when pull request is created
     if: github.event.pull_request.draft == false
     uses: Informasjonsforvaltning/workflows/.github/workflows/build-deploy.yaml@main
@@ -16,7 +16,7 @@ jobs:
       caller_sha: ${{ github.sha }}
       repo: ${{ github.repository }}
       actor: ${{ github.actor }}
-      environment: demo
+      environment: staging
       cluster: digdir-fdk-dev
     secrets:
       GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}

@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react';
-import { NavigateFunction, useLocation, useNavigate } from 'react-router-dom';
 
 import Icon from '../../components/icon';
 import Button from '../../components/inputs/button';
@@ -13,12 +12,15 @@ import { Dataset } from '../../utils/types';
 import { Props as ColumnProps } from '../../components/table/table-row/row-cell';
 import { Props as RowProps } from '../../components/table/table-row';
 import { SORT_BY_TYPE, SORT_TYPE } from '../../context/table-context/reducer';
+import env from '../../utils/constants/env';
+import { useDatasetsContext } from '../../context/datasets-context';
+
+const { FDK_REGISTRATION_BASE_URI } = env;
 
 const PopulatedTable = () => {
+  const datasetContext = useDatasetsContext();
   const tableContext = useTableContext();
   const tableDispatch = useTableDispatch();
-  const location = useLocation();
-  const navigate = useNavigate();
 
   const tableUpdate = () => (
     tableDispatch({
@@ -27,7 +29,7 @@ const PopulatedTable = () => {
     }),
     tableDispatch({
       type: ACTION_TYPE.ADD_TABLE_ROWS,
-      payload: { rows: getRows(tableContext.tableDatasets, location.pathname, navigate) ?? [] },
+      payload: { rows: getRows(tableContext.tableDatasets, datasetContext.catalogId) ?? [] },
     })
   );
 
@@ -88,14 +90,15 @@ const getHeaderColumns = (sort: SORT_TYPE, tableDispatcher: React.Dispatch<ACTIO
   ];
 };
 
-const getRows = (datasets: Dataset[], location: string, navigate?: NavigateFunction): RowProps<ColumnProps>[] =>
+const getRows = (datasets: Dataset[], catalogId: string): RowProps<ColumnProps>[] =>
   datasets.map(dataset => ({
     row: [
-      { text: dataset.title?.nb ?? 'Uten navn', width: colWidths.col_1 },
+      { text: dataset.title?.nb ?? 'Mangler tittel', width: colWidths.col_1 },
       { text: getDate(dataset?._lastModified), width: colWidths.col_2 },
       { tag: getTag(dataset?.registrationStatus), width: colWidths.col_3 },
     ],
-    onRowClick: navigate ? () => navigate(`${location}/${dataset.id}`) : () => {},
+    onRowClick: () =>
+      (window.location.href = `${FDK_REGISTRATION_BASE_URI}/catalogs/${catalogId}/datasets/${dataset.id}`),
   }));
 
 export default PopulatedTable;
