@@ -24,6 +24,8 @@ WORKDIR /app
 COPY --chown=app:app nginx/nginx.conf /etc/nginx/nginx.conf
 COPY --chown=app:app nginx/app.conf /etc/nginx/conf.d/default.conf
 COPY --chown=app:app --from=build /app/dist ./
+COPY --chown=app:app entrypoint.sh config.template.js ./
+RUN dos2unix entrypoint.sh && chmod +x entrypoint.sh
 
+ENTRYPOINT [ "./entrypoint.sh" ]
 EXPOSE 8080
-CMD ["nginx", "-g", "daemon off;"]
