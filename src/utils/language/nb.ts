@@ -11,7 +11,7 @@ export const nb = {
   },
   dropdown: {
     lastModified: 'Sist endret',
-    statusSearch: 'Status',
+    statusSearch: 'Filtrer på status',
   },
   tag: {
     all: 'Alle',

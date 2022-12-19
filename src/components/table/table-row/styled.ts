@@ -15,11 +15,11 @@ const TableRow = styled.tr`
       color: ${theme.colour(Colour.NEUTRAL, 'N0')};
     }
 
-    label {
+    span {
       color: ${theme.colour(Colour.NEUTRAL, 'N70')};
     }
 
-    span {
+    div {
       background-color: ${theme.colour(Colour.NEUTRAL, 'N0')} !important;
     }
 
