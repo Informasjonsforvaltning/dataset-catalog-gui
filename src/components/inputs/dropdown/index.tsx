@@ -13,6 +13,7 @@ interface DropDownOption {
 
 interface DropDownProps {
   name?: string;
+  label?: string;
   dropdownColor?: (prop: any) => string;
   bg?: (prop: any) => string;
   options?: DropDownOption[];
@@ -42,19 +43,22 @@ const DropDown: FC<DropDownProps> = ({
     onDropdownSelect && onDropdownSelect(changeEvent.target.value);
   };
   
+  
   return (
-    <StyledDropDown 
-      $dropdownColor={dropdownColor} 
-      $bg={bg} 
-      $icon={svgIconAsSourceUrl('chevronDownStroke')}
-      $hoverIcon={svgIconAsSourceUrl('chevronDownStroke', 'white')}
-      value={selectValue} 
-      onChange={onSelect}>
-      <option value='' hidden>
-        {name}
-      </option>
-      {opsToJsx()}
-    </StyledDropDown>
+    <label>
+      <StyledDropDown 
+        $dropdownColor={dropdownColor} 
+        $bg={bg} 
+        $icon={svgIconAsSourceUrl('chevronDownStroke', '#335380')}
+        $hoverIcon={svgIconAsSourceUrl('chevronDownStroke', 'white')}
+        value={selectValue} 
+        onChange={onSelect}>
+        <option value='' hidden>
+          {name}
+        </option>
+        {opsToJsx()}
+      </StyledDropDown>    
+    </label>
   );
 };
 

@@ -39,13 +39,13 @@ const DropDown = styled.select<Props>`
   `}
   
   background-repeat: no-repeat;
-  background-position-x: 80%;
+  background-position-x: 85%;
   background-position-y: 50%;
   background-size: ${theme.fontSize('FS16')};
 
   color: ${({ $dropdownColor }) => $dropdownColor};
   background-color: ${({ $bg }) => $bg};
-  min-width: 14rem;
+  min-width: 18rem;
   height: ${theme.spacing('S56')};
   border-radius: ${theme.spacing('S4')};
   padding: ${theme.spacing('S16')} ${theme.spacing('S24')};

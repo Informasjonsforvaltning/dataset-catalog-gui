@@ -13,7 +13,14 @@ import { ACTION_TYPE } from '../../context/actions';
 import env from '../../utils/constants/env';
 
 const { FDK_REGISTRATION_BASE_URI } = env;
-const Table = lazy(() => delayForDemo(import('./populated-table')));
+const Table = lazy(() => delayTableLoad(import('./populated-table')));
+
+const delayTableLoad = async (promise: Promise<typeof import('./populated-table')>) => {
+  await new Promise(resolve => {
+    setTimeout(resolve, 500);
+  });
+  return promise;
+};
 
 const DatasetsPage: FC = () => {
   let pageSubtitle = 'Mangler tittel';
@@ -79,11 +86,3 @@ const DatasetsPage: FC = () => {
 };
 
 export default DatasetsPage;
-
-// fake delay
-const delayForDemo = async (promise: Promise<typeof import('./populated-table')>) => {
-  await new Promise(resolve => {
-    setTimeout(resolve, 500);
-  });
-  return promise;
-};

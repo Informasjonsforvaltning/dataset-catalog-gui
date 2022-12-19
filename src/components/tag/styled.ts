@@ -1,7 +1,7 @@
 import { theme } from '@fellesdatakatalog/theme';
 import styled from 'styled-components';
 
-const Tag = styled.span`
+const Tag = styled.div`
   height: ${theme.spacing('S24')};
   padding: ${theme.spacing('S8')};
   border-radius: ${theme.spacing('S48')};
@@ -15,7 +15,7 @@ const Tag = styled.span`
   }
 `;
 
-const TagText = styled.label`
+const TagText = styled.span`
   height: ${theme.spacing('S16')};
   font-style: normal;
   font-weight: ${theme.fontWeight('FW400')};
