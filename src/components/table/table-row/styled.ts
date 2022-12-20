@@ -11,6 +11,8 @@ const TableRow = styled.tr`
 
   :hover {
     background-color: ${theme.colour(Colour.NEUTRAL, 'N70')};
+    cursor: pointer;
+    
     p {
       color: ${theme.colour(Colour.NEUTRAL, 'N0')};
     }
