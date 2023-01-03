@@ -79,6 +79,7 @@
     "moment": "^2.29.4",
     "glob-parent": "^5.1.2",
     "trim": "^0.0.3",
-    "trim-newlines": "^3.0.1"
+    "trim-newlines": "^3.0.1",
+    "json5":  "^2.2.2"
   }
 }
