@@ -6,7 +6,7 @@ export const nb = {
   allCatalogs: 'Alle kataloger',
   catalogType: 'Datasettkatalog',
   dataVillage: ['Datalandsbyen', 'Lenke til Datalandsbyen'],
-  hostData: ['Høste data', 'Lenke til å høste data'],
+  harvestData: ['Høste data', 'Lenke til å høste data'],
   registerData: ['Registrere data', 'Lenke til å registrere data'],
   searchForDataset: 'Søk etter datasettbeskrivelse',
   searchInCatalogs: ['Søk i Felles datakatalog', 'Lenke til søk i felles datakatalog'],
@@ -17,7 +17,7 @@ export const nb = {
     addDataset: 'Legg til ny datasettbeskrivelse',
     delete: 'Slett',
     expandAll: 'Vis alle felter',
-    hostDataset: 'Høst spesifikasjon fra katalog',
+    harvestDataset: 'Høst spesifikasjon fra katalog',
   },
 
   dropdown: {

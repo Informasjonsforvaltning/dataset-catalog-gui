@@ -73,7 +73,7 @@ const AddDiv = styled.div`
   }
 `;
 
-const HostButton = styled(Button)`
+const HarvestButton = styled(Button)`
   ${Breakpoint.SMALL} {
     margin-left: 0;
   }
@@ -84,5 +84,5 @@ export default {
   Title,
   SubTitle,
   Page,
-  HostButton,
+  HarvestButton,
 };

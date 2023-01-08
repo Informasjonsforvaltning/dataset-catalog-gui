@@ -25,8 +25,8 @@ const Header = () => {
       <Link aria-label={localization.registerData[1]} href={`${FDK_BASE_URI}/guidance`}>
         {localization.registerData[0]}
       </Link>
-      <Link aria-label={localization.hostData[1]} href={ADMIN_GUI_BASE_URI}>
-        {localization.hostData[0]}
+      <Link aria-label={localization.harvestData[1]} href={ADMIN_GUI_BASE_URI}>
+        {localization.harvestData[0]}
       </Link>
       <Link aria-label={localization.dataVillage[1]} href={FDK_COMMUNITY_BASE_URI} external>
         {localization.dataVillage[0]}

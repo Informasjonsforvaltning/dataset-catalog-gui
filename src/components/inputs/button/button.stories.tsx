@@ -23,8 +23,8 @@ AddDataset.args = {
   startIcon: <Icon name='circlePlusStroke' />,
 };
 
-export const HostButton = Template.bind({});
-HostButton.args = {
+export const HarvestButton = Template.bind({});
+HarvestButton.args = {
   btnType: 'filled',
   name: 'Høst spesifikasjon fra katalog',
   bg: theme.colour(Colour.BLUE, 'B30'),
