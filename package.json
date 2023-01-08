@@ -13,7 +13,7 @@
     "@fellesdatakatalog/internal-header": "^0.5.5",
     "@fellesdatakatalog/link": "^0.2.10",
     "@fellesdatakatalog/theme": "^0.5.2",
-    "@types/node": "^18.11.9",
+    "@types/node": "^18.11.18",
     "@types/react": "^18.0.25",
     "@types/react-dom": "^18.0.9",
     "axios": "^1.1.2",
