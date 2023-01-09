@@ -5,6 +5,7 @@ import Link from '@fellesdatakatalog/link';
 import env from '../../utils/constants/env';
 import { authService } from '../../utils/authentication/auth-service';
 import { withAuth } from '../../utils/authentication/auth-provider';
+import { localization } from '../../utils/language/localization';
 import { useGlobalContext } from '../../context/global-context';
 
 const { FDK_BASE_URI, ADMIN_GUI_BASE_URI, FDK_COMMUNITY_BASE_URI } = env;
@@ -21,13 +22,17 @@ const Header = () => {
       useDemoLogo={env.USE_DEMO_LOGO}
       skeHomeText={themeProfile === 'ske' ? 'Datakataloger' : ''}
     >
-      <Link href={`${FDK_BASE_URI}/guidance`}>Registrere data</Link>
-      <Link href={ADMIN_GUI_BASE_URI}>Høste data</Link>
-      <Link href={FDK_COMMUNITY_BASE_URI} external>
-        Datalandsbyen
+      <Link aria-label={localization.registerData[1]} href={`${FDK_BASE_URI}/guidance`}>
+        {localization.registerData[0]}
       </Link>
-      <Link href={FDK_BASE_URI} external>
-        Søk i Felles datakatalog
+      <Link aria-label={localization.hostData[1]} href={ADMIN_GUI_BASE_URI}>
+        {localization.hostData[0]}
+      </Link>
+      <Link aria-label={localization.dataVillage[1]} href={FDK_COMMUNITY_BASE_URI} external>
+        {localization.dataVillage[0]}
+      </Link>
+      <Link aria-label={localization.searchInCatalogs[1]} href={FDK_BASE_URI} external>
+        {localization.searchInCatalogs[0]}
       </Link>
     </HeaderBase>
   );

@@ -31,16 +31,18 @@ const Button: FC<ButtonProps> = ({
   const Component = getStyledComponent(btnType!);
 
   return (
-    <Component
-      btnColor={btnColor}
-      bg={bg}
-      iconPos={startIcon ? 'left' : endIcon ? 'right' : undefined}
-      onClick={onClick}
-    >
-      {startIcon}
-      <Text>{name}</Text>
-      {endIcon}
-    </Component>
+    <label>
+      <Component
+        btnColor={btnColor}
+        bg={bg}
+        iconPos={startIcon ? 'left' : endIcon ? 'right' : undefined}
+        onClick={onClick}
+      >
+        {startIcon}
+        <Text>{name}</Text>
+        {endIcon}
+      </Component>
+    </label>
   );
 };
 
