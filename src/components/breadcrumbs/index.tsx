@@ -20,14 +20,20 @@ const Breadcrumbs: FC = () => {
     setDatasetId('');
   }, [location]);
 
+  const linkToDataset = datasetId ? `/${routes.home}/${params.datasetId}` : '';
+  const linkToDatasets = `/${routes.home.replace(':catalogId', params.catalogId?.toString() ?? '')}`;
+
   return (
     <SC.BreadcrumbsNav>
       <span>
-        <SC.ExternalLink href={FDK_REGISTRATION_BASE_URI}>{localization.allCatalogs}</SC.ExternalLink>
+        <SC.ExternalLink aria-label={localization.allCatalogs} href={FDK_REGISTRATION_BASE_URI}>
+          {localization.allCatalogs}
+        </SC.ExternalLink>
         <span>
           <SC.CrumbDivider>{'>'}</SC.CrumbDivider>
           <SC.Link
-            to={`/${routes.home.replace(':catalogId', params.catalogId?.toString() ?? '')}`}
+            aria-label={localization.linkToDatasets}
+            to={linkToDatasets}
             style={datasetId ? undefined : activeStyle}
             onClick={() => setDatasetId('')}
           >
@@ -37,7 +43,11 @@ const Breadcrumbs: FC = () => {
         {datasetId && (
           <span>
             <SC.CrumbDivider>{'>'}</SC.CrumbDivider>
-            <SC.Link to={`/${routes.home}/${params.datasetId}`} style={datasetId ? activeStyle : undefined}>
+            <SC.Link
+              aria-label={localization.linkToDataset}
+              to={linkToDataset}
+              style={datasetId ? activeStyle : undefined}
+            >
               {datasetId}
             </SC.Link>
           </span>

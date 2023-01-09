@@ -1,7 +1,17 @@
+/**
+ * The array/tuple notation is used to specify a second value which is the aria-label for form control elements.
+ */
+
 export const nb = {
   allCatalogs: 'Alle kataloger',
   catalogType: 'Datasettkatalog',
+  dataVillage: ['Datalandsbyen', 'Lenke til Datalandsbyen'],
+  hostData: ['Høste data', 'Lenke til å høste data'],
+  registerData: ['Registrere data', 'Lenke til å registrere data'],
   searchForDataset: 'Søk etter datasettbeskrivelse',
+  searchInCatalogs: ['Søk i Felles datakatalog', 'Lenke til søk i felles datakatalog'],
+  linkToDataset: 'Lenke til dataset',
+  linkToDatasets: 'Lenke til datasets',
 
   button: {
     addDataset: 'Legg til ny datasettbeskrivelse',
@@ -9,10 +19,12 @@ export const nb = {
     expandAll: 'Vis alle felter',
     hostDataset: 'Høst spesifikasjon fra katalog',
   },
+
   dropdown: {
     lastModified: 'Sist endret',
     statusSearch: 'Filtrer på status',
   },
+
   tag: {
     all: 'Alle',
     approve: 'Godkjent',
