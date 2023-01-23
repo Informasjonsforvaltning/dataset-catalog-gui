@@ -1,8 +1,8 @@
-import React, { FC, PropsWithChildren, useContext, useReducer } from 'react';
+import React, { FC, PropsWithChildren, useContext, useEffect, useReducer } from 'react';
 import { ThemeProfile } from '@fellesdatakatalog/theme';
 
 import { reducer, STATE } from './reducer';
-import { ACTION } from '../actions';
+import { ACTION, ACTION_TYPE } from '../actions';
 import { authService } from '../../utils/authentication/auth-service';
 import env from '../../utils/constants/env';
 
@@ -28,8 +28,12 @@ Context.displayName = 'GlobalContextDispatch';
 const useGlobalContext = () => useContext(Context);
 const useGlobalDispatch = () => useContext(ContextDispatch);
 
-const DatasetsContext: FC<PropsWithChildren> = ({ children }) => {
+const GlobalContext: FC<PropsWithChildren> = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, initialState);
+
+  useEffect(() => {
+    dispatch({ type: ACTION_TYPE.CHANGE_THEME, payload: { theme: getThemeProfile() }});
+  }, [authService.isInitialized()])
 
   return (
     <Context.Provider value={state}>
@@ -38,5 +42,5 @@ const DatasetsContext: FC<PropsWithChildren> = ({ children }) => {
   );
 };
 
-export default DatasetsContext;
+export default GlobalContext;
 export { useGlobalContext, useGlobalDispatch };

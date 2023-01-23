@@ -29,6 +29,7 @@ export interface User {
 
 export class Auth {
   private readonly kc: Keycloak;
+  private initialized: boolean;
 
   constructor(private readonly conf: AuthConfiguration) {
     const [url, realm] = conf.oidcIssuer.split('/realms/');
@@ -44,7 +45,9 @@ export class Auth {
       silentCheckSsoRedirectUri: this.conf.silentCheckSsoRedirectUri,
       checkLoginIframe: false,
     };
-    await this.kc.init(keycloakInitOptions).catch(e => console.error('Authentication initialization failed: ', e));
+    await this.kc.init(keycloakInitOptions)
+      .then(() => this.initialized = true)
+      .catch(e => console.error('Authentication initialization failed: ', e));
     if (loginRequired && !this.isAuthenticated()) {
       await this.login();
     }
@@ -107,6 +110,8 @@ export class Auth {
       resourceId: 'root',
       role: 'admin',
     });
+
+  isInitialized = () => this.initialized;
 
   isReadOnlyUser = (orgNr: string): boolean =>
     this.hasOrganizationReadPermission(orgNr) &&
