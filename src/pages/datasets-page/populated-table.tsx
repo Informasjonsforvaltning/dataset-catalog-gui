@@ -94,7 +94,7 @@ const getRows = (datasets: Dataset[], catalogId: string): RowProps<ColumnProps>[
   datasets.map(dataset => ({
     row: [
       { text: dataset.title?.nb ?? 'Mangler tittel', width: colWidths.col_1 },
-      { text: getDate(dataset?._lastModified), width: colWidths.col_2 },
+      { text: dataset?._lastModified && getDate(dataset?._lastModified), width: colWidths.col_2 },
       { tag: getTag(dataset?.registrationStatus), width: colWidths.col_3 },
     ],
     onRowClick: () =>
