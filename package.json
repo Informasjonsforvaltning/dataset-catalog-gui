@@ -7,12 +7,12 @@
     "node": ">= 18.12.1"
   },
   "dependencies": {
-    "@fellesdatakatalog/breadcrumbs": "^0.2.4",
-    "@fellesdatakatalog/icons": "^0.6.0",
-    "@fellesdatakatalog/internal-footer": "^0.3.12",
-    "@fellesdatakatalog/internal-header": "^0.5.5",
-    "@fellesdatakatalog/link": "^0.2.10",
-    "@fellesdatakatalog/theme": "^0.5.2",
+    "@fellesdatakatalog/breadcrumbs": "^0.2.7",
+    "@fellesdatakatalog/icons": "^0.8.2",
+    "@fellesdatakatalog/internal-footer": "^0.3.18",
+    "@fellesdatakatalog/internal-header": "^0.5.11",
+    "@fellesdatakatalog/link": "^0.2.15",
+    "@fellesdatakatalog/theme": "^0.5.4",
     "@types/node": "^18.11.18",
     "@types/react": "^18.0.25",
     "@types/react-dom": "^18.0.10",
@@ -64,7 +64,6 @@
     "webpack-merge": "^5.8.0"
   },
   "scripts": {
-    "preinstall": "npx force-resolutions",
     "start": "cross-env TS_NODE_PROJECT=tsconfig.webpack.json webpack serve --open-target /catalogs/910244132/datasets --config webpack/dev.config.ts",
     "build": "cross-env TS_NODE_PROJECT=tsconfig.webpack.json webpack --config webpack/dev.config.ts",
     "build:prod": "cross-env TS_NODE_PROJECT=tsconfig.webpack.json webpack --config webpack/prod.config.ts",
@@ -74,12 +73,5 @@
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook"
   },
-  "resolutions": {
-    "nth-check": "^2.0.1",
-    "moment": "^2.29.4",
-    "glob-parent": "^5.1.2",
-    "trim": "^0.0.3",
-    "trim-newlines": "^3.0.1",
-    "json5":  "^2.2.2"
-  }
+  "overrides": {}
 }
