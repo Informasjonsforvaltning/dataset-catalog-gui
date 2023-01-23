@@ -8,7 +8,7 @@ import { withAuth } from '../../utils/authentication/auth-provider';
 import { localization } from '../../utils/language/localization';
 import { useGlobalContext } from '../../context/global-context';
 
-const { FDK_BASE_URI, ADMIN_GUI_BASE_URI, FDK_COMMUNITY_BASE_URI } = env;
+const { FDK_BASE_URI, ADMIN_GUI_BASE_URI, FDK_COMMUNITY_BASE_URI, FDK_REGISTRATION_BASE_URI } = env;
 
 const Header = () => {
   const globalContext = useGlobalContext();
@@ -20,7 +20,8 @@ const Header = () => {
       username={authService && authService.getUser().name}
       onLogout={() => authService.logout()}
       useDemoLogo={env.USE_DEMO_LOGO}
-      skeHomeText={themeProfile === 'ske' ? 'Datakataloger' : ''}
+      homeUrl={FDK_REGISTRATION_BASE_URI}
+      skeHomeText='Datakataloger'
     >
       <Link aria-label={localization.registerData[1]} href={`${FDK_BASE_URI}/guidance`}>
         {localization.registerData[0]}
