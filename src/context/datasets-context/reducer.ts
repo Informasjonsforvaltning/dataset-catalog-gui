@@ -13,7 +13,6 @@ const reducer = produce((state: STATE, action: ACTION) => {
     case ACTION_TYPE.FINISHED:
       state.status = STATUS.FINISHED;
       state.datasets = action.payload;
-      state.datasets[0].id;
       state.status = STATUS.IDLE;
       return state;
     case ACTION_TYPE.ERROR:

@@ -27,7 +27,7 @@ const DatasetsContext: FC<PropsWithChildren> = ({ children }) => {
       dispatch({ type: ACTION_TYPE.LOADING });
       getDatasets(state.catalogId)
         .then(datasets => {
-          dispatch({ type: ACTION_TYPE.FINISHED, payload: datasets });
+          dispatch({ type: ACTION_TYPE.FINISHED, payload: datasets ?? [] });
         })
         .catch(error => {
           dispatch({ type: ACTION_TYPE.ERROR });

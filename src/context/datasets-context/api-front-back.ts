@@ -11,7 +11,6 @@ const getDatasets = async (catalogId: string) => {
 
     return await axios
       .get(`${FDK_REGISTRATION_BASE_URI}/catalogs/${catalogId}/datasets`, {
-        // params: { size },
         headers: {
           authorization,
           accept: 'application/json',
@@ -33,7 +32,6 @@ const createDataset = async (catalogId: string) => {
         `${FDK_REGISTRATION_BASE_URI}/catalogs/${catalogId}/datasets`,
         {},
         {
-          // params: { size },
           headers: {
             authorization,
             accept: 'application/json',
