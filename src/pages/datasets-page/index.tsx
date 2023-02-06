@@ -3,6 +3,7 @@ import { Outlet, useParams } from 'react-router-dom';
 
 import SC from './styled';
 import Button from '../../components/inputs/button';
+import DropDown from '../../components/inputs/dropdown';
 import Search from '../../components/dataset-search';
 import Spinner from '../../components/spinner';
 import Icon from '../../components/icon';
@@ -49,12 +50,25 @@ const DatasetsPage: FC = () => {
       .catch(error => console.error('ADD_DATASET failed!', error));
   }
 
+  const options = [
+    { name: localization.dropdown.descriptionDataset, value: '1' },
+    { name: localization.dropdown.descriptionDatasetSerie, value: '2' },
+  ];
+
+  const handleSelect = (chosenValue: any) => {
+    chosenValue === '1'
+      ? datasetsDispatch({ type: ACTION_TYPE.CREATE_DATASET, payload: { catalogId: catalogId ?? '' } })
+      : console.log(chosenValue);
+  };
+
   return (
     <>
       <SC.Page>
         <SC.Title>{localization.catalogType}</SC.Title>
         <SC.SubTitle>{pageSubtitle}</SC.SubTitle>
         <SC.AddDiv>
+          {/* Denne knappen skal bli utvidet til nedtrekksliste */}
+
           <Button
             btnType='filled'
             bg={theme.colour(Colour.BLUE, 'B60')}
@@ -62,6 +76,14 @@ const DatasetsPage: FC = () => {
             name={localization.button.addDataset}
             startIcon={<Icon name='circlePlusStroke' />}
             onClick={onCreateDatasetClick}
+          />
+
+          <DropDown
+            name={localization.dropdown.addNew}
+            bg={theme.colour(Colour.BLUE, 'B60')}
+            dropdownColor={theme.colour(Colour.NEUTRAL, 'N0')}
+            options={options}
+            onDropdownSelect={chosenValue => handleSelect(chosenValue)}
           />
 
           {/* Funksjonalitet, navn, og design av denne knappen skal diskuteres videre. kommenteres ut inntil videre. */}

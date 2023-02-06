@@ -5,10 +5,11 @@ interface Props {
   text?: string;
   tag?: ReactElement;
   width: string;
+  icon?: ReactElement;
 }
 
-const RowCell: FC<Props> = ({ text, tag, width }) => {
-  return <SC.RowCell width={width}>{text ? <SC.CellText>{text}</SC.CellText> : tag ? tag : <></>}</SC.RowCell>;
+const RowCell: FC<Props> = ({ icon, text, tag, width }) => {
+  return <SC.RowCell width={width}>{text ? <SC.CellText>{text}</SC.CellText> : tag ? tag : icon ? icon : <></>}</SC.RowCell>;
 };
 
 export { Props };

@@ -31,7 +31,7 @@ const DropDown: FC<DropDownProps> = ({
 
   const opsToJsx = () => {
     let undefCounter = 0;
-    return options.map(({name, value}) => (
+    return options.map(({ name, value }) => (
       <option key={value ?? (undefCounter++).toString()} value={value}>
         {name}
       </option>
@@ -42,25 +42,26 @@ const DropDown: FC<DropDownProps> = ({
     setSelectValue(changeEvent.target.value);
     onDropdownSelect && onDropdownSelect(changeEvent.target.value);
   };
-  
-  
+
   return (
     <label>
-      <StyledDropDown 
-        $dropdownColor={dropdownColor} 
-        $bg={bg} 
+      <StyledDropDown
+        $dropdownColor={dropdownColor}
+        $bg={bg}
+        //Endre farge på ikon her
         $icon={svgIconAsSourceUrl('chevronDownStroke', '#335380')}
         $hoverIcon={svgIconAsSourceUrl('chevronDownStroke', 'white')}
-        value={selectValue} 
-        onChange={onSelect}>
+        value={selectValue}
+        onChange={onSelect}
+      >
         <option value='' hidden>
           {name}
         </option>
         {opsToJsx()}
-      </StyledDropDown>    
+      </StyledDropDown>
     </label>
   );
 };
 
 export default DropDown;
-export { DropDownType, DropDownOption , DropDownProps };
+export { DropDownType, DropDownOption, DropDownProps };
