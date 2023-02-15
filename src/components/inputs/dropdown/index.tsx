@@ -4,7 +4,7 @@ import svgIconAsSourceUrl from '../../../utils/helpers/svg-icon';
 
 import { DropDown as StyledDropDown } from './styled';
 
-type DropDownType = 'default' | 'filled' | 'link' | 'transparent' | 'dropdown';
+type DropDownType = 'add' ;
 
 interface DropDownOption {
   name: string;
@@ -18,6 +18,7 @@ interface DropDownProps {
   bg?: (prop: any) => string;
   options?: DropDownOption[];
   onDropdownSelect?: (inputValue: string) => void | any;
+  dropDownType?: DropDownType;
 }
 
 const DropDown: FC<DropDownProps> = ({
@@ -25,6 +26,7 @@ const DropDown: FC<DropDownProps> = ({
   dropdownColor = theme.colour(Colour.NEUTRAL, 'N0'),
   bg = theme.colour(Colour.BLUE, 'B60'),
   onDropdownSelect,
+  dropDownType = '',
   options = [],
 }) => {
   const [selectValue, setSelectValue] = useState('');
@@ -48,8 +50,7 @@ const DropDown: FC<DropDownProps> = ({
       <StyledDropDown
         $dropdownColor={dropdownColor}
         $bg={bg}
-        //Endre farge på ikon her
-        $icon={svgIconAsSourceUrl('chevronDownStroke', '#335380')}
+        $icon={svgIconAsSourceUrl('chevronDownStroke', dropDownType === 'add' ? 'white' : '#335380')}
         $hoverIcon={svgIconAsSourceUrl('chevronDownStroke', 'white')}
         value={selectValue}
         onChange={onSelect}

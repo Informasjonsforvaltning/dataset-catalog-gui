@@ -22,6 +22,7 @@ enum ACTION_TYPE {
   GET_DATASET,
   GET_DATASETS,
   CREATE_DATASET,
+  CREATE_DATASET_SERIES,
   CHANGE_THEME,
   SORT_DATASETS,
   INIT_TABLE,
@@ -43,6 +44,7 @@ type ACTION =
   | { type: ACTION_TYPE.SORT_DATASETS; payload: SORT_TYPE }
   | { type: ACTION_TYPE.FILTER_DATASETS; payload: FILTER_TYPE }
   | { type: ACTION_TYPE.CREATE_DATASET; payload: { catalogId: string } }
+  | { type: ACTION_TYPE.CREATE_DATASET_SERIES; payload: { catalogId: string } }
   | { type: ACTION_TYPE.ADD_DATASET; payload: { dataset: Dataset } }
   | { type: ACTION_TYPE.GET_DATASET; payload: { datasetId: string } }
   | { type: ACTION_TYPE.CHANGE_THEME; payload: { theme: ThemeProfile } }

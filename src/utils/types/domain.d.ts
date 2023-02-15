@@ -82,6 +82,7 @@ export interface Dataset {
   type: string;
   catalog: Catalog;
   internal: boolean; // Only used in frontend
+  specializedType: string;
 }
 
 export interface Concept {

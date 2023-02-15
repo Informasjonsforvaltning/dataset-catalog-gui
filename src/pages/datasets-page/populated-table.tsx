@@ -92,13 +92,13 @@ const getHeaderColumns = (sort: SORT_TYPE, tableDispatcher: React.Dispatch<ACTIO
   ];
 };
 
-const test = true;
-
 const getRows = (datasets: Dataset[], catalogId: string): RowProps<ColumnProps>[] =>
   datasets.map(dataset => ({
     row: [
-      // TODO: Sjekk hvilken type det er
-      { icon: <Icon name={test ? 'squareTextStroke' : 'squareThreeStroke'} />, width: colWidths.col_4 },
+      {
+        icon: <Icon name={dataset.specializedType === 'SERIES' ? 'squareThreeStroke' : 'squareTextStroke'} />,
+        width: colWidths.col_4,
+      },
       { text: dataset.title?.nb ?? 'Mangler tittel', width: colWidths.col_1 },
       { text: dataset?._lastModified && getDate(dataset?._lastModified), width: colWidths.col_2 },
       { tag: getTag(dataset?.registrationStatus), width: colWidths.col_3 },
