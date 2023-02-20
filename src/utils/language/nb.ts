@@ -23,6 +23,9 @@ export const nb = {
   dropdown: {
     lastModified: 'Sist endret',
     statusSearch: 'Filtrer på status',
+    addNew: 'Legg til ny',
+    descriptionDataset: 'Beskrivelse av datasett',
+    descriptionDatasetSerie: 'Beskrivelse av datasettserie',
   },
 
   tag: {

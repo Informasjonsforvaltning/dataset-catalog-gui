@@ -39,9 +39,11 @@ const PopulatedTable = () => {
 };
 
 const colWidths = {
-  col_1: '70%',
+  col_1: '66.7%',
   col_2: '16%',
   col_3: '14%',
+  col_4: '3.3%',
+  col_5: '70%',
 };
 
 const getCorrectIcon = (sort: SORT_TYPE, columnName: SORT_BY_TYPE): JSX.Element => {
@@ -61,7 +63,7 @@ const getHeaderColumns = (sort: SORT_TYPE, tableDispatcher: React.Dispatch<ACTIO
           onClick={() => tableDispatcher({ type: ACTION_TYPE.SORT_DATASETS, payload: { sortBy: 'title' } })}
         />
       ),
-      width: colWidths.col_1,
+      width: colWidths.col_5,
     },
     {
       sortButton: (
@@ -93,6 +95,10 @@ const getHeaderColumns = (sort: SORT_TYPE, tableDispatcher: React.Dispatch<ACTIO
 const getRows = (datasets: Dataset[], catalogId: string): RowProps<ColumnProps>[] =>
   datasets.map(dataset => ({
     row: [
+      {
+        icon: <Icon name={dataset.specializedType === 'SERIES' ? 'squareThreeStroke' : 'squareTextStroke'} />,
+        width: colWidths.col_4,
+      },
       { text: dataset.title?.nb ?? 'Mangler tittel', width: colWidths.col_1 },
       { text: dataset?._lastModified && getDate(dataset?._lastModified), width: colWidths.col_2 },
       { tag: getTag(dataset?.registrationStatus), width: colWidths.col_3 },

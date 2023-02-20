@@ -1,7 +1,7 @@
 import { Dataset } from '../../utils/types';
 import { ACTION, ACTION_TYPE, STATUS } from '../actions';
 import { produce } from 'immer';
-import { createDataset } from './api-front-back';
+import { createDataset, createDatasetSeries } from './api-front-back';
 
 type STATE = { status: STATUS; catalogId: string; datasets: Dataset[]; newlyCreatedDatasetPromise?: Promise<Dataset> };
 
@@ -27,6 +27,11 @@ const reducer = produce((state: STATE, action: ACTION) => {
       return state;
     case ACTION_TYPE.CREATE_DATASET:
       state.newlyCreatedDatasetPromise = createDataset(state.catalogId)
+        .then(response => response)
+        .catch(error => console.error(error));
+      return state;
+    case ACTION_TYPE.CREATE_DATASET_SERIES:
+      state.newlyCreatedDatasetPromise = createDatasetSeries(state.catalogId)
         .then(response => response)
         .catch(error => console.error(error));
       return state;
