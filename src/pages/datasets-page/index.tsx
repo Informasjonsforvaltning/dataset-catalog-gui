@@ -10,6 +10,7 @@ import { useDatasetsContext, useDatasetsDispatch } from '../../context/datasets-
 import { Colour, theme } from '@fellesdatakatalog/theme';
 import { ACTION_TYPE } from '../../context/actions';
 import env from '../../utils/constants/env';
+import authService from '../../utils/authentication/auth-service';
 
 const { FDK_REGISTRATION_BASE_URI } = env;
 const Table = lazy(() => delayTableLoad(import('./populated-table')));
@@ -67,25 +68,16 @@ const DatasetsPage: FC = () => {
         <SC.Title>{localization.catalogType}</SC.Title>
         <SC.SubTitle>{pageSubtitle}</SC.SubTitle>
         <SC.AddDiv>
-          <DropDown
-            name={localization.dropdown.addNew}
-            dropDownType='add'
-            bg={theme.colour(Colour.BLUE, 'B60')}
-            dropdownColor={theme.colour(Colour.NEUTRAL, 'N0')}
-            options={options}
-            onDropdownSelect={chosenValue => handleSelect(chosenValue)}
-          />
-
-          {/* Funksjonalitet, navn, og design av denne knappen skal diskuteres videre. kommenteres ut inntil videre. */}
-
-          {/* <SC.HostButton
-            disabled={true}
-            btnType='filled'
-            btnColor={theme.colour(Colour.BLUE, 'B60')}
-            bg={theme.colour(Colour.BLUE, 'B30')}
-            name={localization.button.hostDataset}
-            startIcon={<Icon name='arrowDownStroke' />}
-          /> */}
+          {authService.hasWritePermission(catalogId) && (
+            <DropDown
+              name={localization.dropdown.addNew}
+              dropDownType='add'
+              bg={theme.colour(Colour.BLUE, 'B60')}
+              dropdownColor={theme.colour(Colour.NEUTRAL, 'N0')}
+              options={options}
+              onDropdownSelect={chosenValue => handleSelect(chosenValue)}
+            />
+          )}
         </SC.AddDiv>
         <Search />
         <Suspense fallback={<Spinner />}>
