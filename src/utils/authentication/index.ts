@@ -45,8 +45,9 @@ export class Auth {
       silentCheckSsoRedirectUri: this.conf.silentCheckSsoRedirectUri,
       checkLoginIframe: false,
     };
-    await this.kc.init(keycloakInitOptions)
-      .then(() => this.initialized = true)
+    await this.kc
+      .init(keycloakInitOptions)
+      .then(() => (this.initialized = true))
       .catch(e => console.error('Authentication initialization failed: ', e));
     if (loginRequired && !this.isAuthenticated()) {
       await this.login();
@@ -113,13 +114,17 @@ export class Auth {
 
   isInitialized = () => this.initialized;
 
-  isReadOnlyUser = (orgNr: string): boolean =>
-    this.hasOrganizationReadPermission(orgNr) &&
-    !(
-      this.hasOrganizationWritePermission(orgNr) ||
-      this.hasOrganizationAdminPermission(orgNr) ||
-      this.hasSystemAdminPermission()
-    );
+  hasWritePermission = (orgNr: string | undefined): boolean => {
+    if (!orgNr) {
+      return false;
+    } else {
+      return (
+        this.hasSystemAdminPermission() ||
+        this.hasOrganizationAdminPermission(orgNr) ||
+        this.hasOrganizationWritePermission(orgNr)
+      );
+    }
+  };
 
   hasAcceptedLatestTermsAndConditions = (organizationNumber: string): boolean => {
     const { fdkTerms: latestVersion, orgTerms = [] } = this.getUser();

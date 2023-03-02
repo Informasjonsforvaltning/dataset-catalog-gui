@@ -13,7 +13,6 @@
     "@fellesdatakatalog/internal-header": "^0.5.11",
     "@fellesdatakatalog/link": "^0.2.15",
     "@fellesdatakatalog/theme": "^0.5.4",
-    
     "file-loader": "^6.2.0",
     "immer": "^9.0.19",
     "keycloak-js": "^20.0.3",
@@ -41,7 +40,7 @@
     "@types/node": "^18.11.18",
     "@types/react": "^18.0.27",
     "@types/react-dom": "^18.0.10",
-    "@types/styled-components": "^5.1.26",   
+    "@types/styled-components": "^5.1.26",
     "axios": "^1.3.1",
     "babel-loader": "^9.1.2",
     "clean-webpack-plugin": "^4.0.0",
@@ -80,6 +79,6 @@
     "glob-parent": "^5.1.2",
     "trim": "^0.0.3",
     "trim-newlines": "^3.0.1",
-    "json5":  "^2.2.2"
+    "json5": "^2.2.2"
   }
 }
