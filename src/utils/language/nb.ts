@@ -10,8 +10,8 @@ export const nb = {
   registerData: ['Registrere data', 'Lenke til å registrere data'],
   searchForDataset: 'Søk etter datasettbeskrivelse',
   searchInCatalogs: ['Søk i Felles datakatalog', 'Lenke til søk i felles datakatalog'],
-  linkToDataset: 'Lenke til dataset',
-  linkToDatasets: 'Lenke til datasets',
+  linkToDataset: 'Lenke til datasett',
+  linkToDatasets: 'Lenke til datasett',
 
   button: {
     addDataset: 'Legg til ny datasettbeskrivelse',
