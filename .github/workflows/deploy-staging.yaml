@@ -9,13 +9,10 @@ on:
 jobs:
   build-and-deploy-staging:
     name: Call reusable workflow when pull request is created
-    if: github.event.pull_request.draft == false
+    if: ${{ github.actor != 'dependabot[bot]' && github.event.pull_request.draft == false }}
     uses: Informasjonsforvaltning/workflows/.github/workflows/build-deploy.yaml@main
     with:
       app_name: new-dataset-catalog-gui
-      caller_sha: ${{ github.sha }}
-      repo: ${{ github.repository }}
-      actor: ${{ github.actor }}
       environment: staging
       cluster: digdir-fdk-dev
     secrets:
@@ -24,14 +21,18 @@ jobs:
       DIGDIR_FDK_AUTODEPLOY: ${{ secrets.DIGDIR_FDK_DEV_AUTODEPLOY }}
       SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
 
-  build-dev-image:
-    name: Build and test dev image on PR from dependabot
-    if: ${{ github.actor == 'dependabot[bot]' && github.event_name == 'pull_request' }}
+  dependabot-build:
+    name: Build image on PR from dependabot
+    if: ${{ github.actor == 'dependabot[bot]' }}
+    uses: Informasjonsforvaltning/workflows/.github/workflows/build.yaml@main
+    secrets:
+      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  dependabot-build-dev-image:
+    name: Build dev image on PR from dependabot
+    if: ${{ github.actor == 'dependabot[bot]' }}
     uses: Informasjonsforvaltning/workflows/.github/workflows/build.yaml@main
     with:
-      caller_sha: ${{ github.sha }}
-      repo: ${{ github.repository }}
-      actor: ${{ github.actor }}
       dockerfile: dev.Dockerfile
     secrets:
       GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
