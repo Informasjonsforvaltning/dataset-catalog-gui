@@ -101,7 +101,7 @@ export class Auth {
   hasOrganizationReadPermission: (orgNr: string) => boolean = (orgNr: string) =>
     !!this.getResourceRoles().find(({ resource, resourceId }) => resource === 'organization' && resourceId === orgNr);
 
-  hasOrganizationWritePermission = (orgNr: string) => this.hasOrganizationRole({ orgNr, role: 'admin' });
+  hasOrganizationWritePermission = (orgNr: string) => this.hasOrganizationRole({ orgNr, role: 'write' });
 
   hasOrganizationAdminPermission = (orgNr: string) => this.hasOrganizationRole({ orgNr, role: 'admin' });
 
