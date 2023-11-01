@@ -15,5 +15,6 @@ export interface EnvironmentVariables {
   RECORDS_OF_PROCESSING_ACTIVITIES_BASE_URI: string;
   FDK_COMMUNITY_BASE_URI: string;
   FDK_CMS_BASE_URI: string;
+  CATALOG_ADMIN_BASE_URI: string;
   USE_DEMO_LOGO: boolean;
 }

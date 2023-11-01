@@ -10,7 +10,7 @@
     "@fellesdatakatalog/breadcrumbs": "^0.2.7",
     "@fellesdatakatalog/icons": "^0.8.3",
     "@fellesdatakatalog/internal-footer": "^0.4.0",
-    "@fellesdatakatalog/internal-header": "^0.5.11",
+    "@fellesdatakatalog/internal-header": "^0.8.0",
     "@fellesdatakatalog/link": "^0.2.15",
     "@fellesdatakatalog/theme": "^0.5.4",
     "file-loader": "^6.2.0",
