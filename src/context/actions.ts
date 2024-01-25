@@ -32,6 +32,7 @@ enum ACTION_TYPE {
   ADD_TABLE_HEADER,
   SEARCH_IN_DATASETS,
   UPDATE_TABLE,
+  SET_ORGANIZATION_NAME
 }
 
 type ACTION =
@@ -52,6 +53,7 @@ type ACTION =
   | { type: ACTION_TYPE.INIT_TABLE; payload: { datasets: Dataset[] } }
   | { type: ACTION_TYPE.UPDATE_TABLE; payload: { datasets: Dataset[] } }
   | { type: ACTION_TYPE.ADD_TABLE_HEADER; payload: { headerColumns: CellType[] } }
-  | { type: ACTION_TYPE.ADD_TABLE_ROWS; payload: { rows: RowProps<ColumnProps>[] } };
+  | { type: ACTION_TYPE.ADD_TABLE_ROWS; payload: { rows: RowProps<ColumnProps>[] } }
+  | { type: ACTION_TYPE.SET_ORGANIZATION_NAME; payload: string };
 
 export { ACTION, ACTION_TYPE, STATUS };

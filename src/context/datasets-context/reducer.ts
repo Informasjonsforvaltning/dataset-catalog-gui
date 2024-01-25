@@ -3,7 +3,7 @@ import { ACTION, ACTION_TYPE, STATUS } from '../actions';
 import { produce } from 'immer';
 import { createDataset, createDatasetSeries } from './api-front-back';
 
-type STATE = { status: STATUS; catalogId: string; datasets: Dataset[]; newlyCreatedDatasetPromise?: Promise<Dataset> };
+type STATE = { status: STATUS; catalogId: string; organizationName: string; datasets: Dataset[]; newlyCreatedDatasetPromise?: Promise<Dataset> };
 
 const reducer = produce((state: STATE, action: ACTION) => {
   switch (action.type) {
@@ -20,6 +20,9 @@ const reducer = produce((state: STATE, action: ACTION) => {
       return state;
     case ACTION_TYPE.ADD_CATALOG_ID:
       state.catalogId = action.payload;
+      return state;
+    case ACTION_TYPE.SET_ORGANIZATION_NAME:
+      state.organizationName = action.payload;
       return state;
     case ACTION_TYPE.ADD_DATASET:
       state.datasets.push(action.payload.dataset);
