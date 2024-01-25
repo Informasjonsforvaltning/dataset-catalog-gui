@@ -1,10 +1,10 @@
 import React, { FC, PropsWithChildren, useContext, useEffect, useReducer } from 'react';
 
-import { getDatasets } from './api-front-back';
+import { getDatasets, getOrganizationName } from './api-front-back';
 import { reducer, STATE } from './reducer';
 import { ACTION, ACTION_TYPE, STATUS } from '../actions';
 
-const initialState: STATE = { status: STATUS.IDLE, catalogId: '', datasets: [] };
+const initialState: STATE = { status: STATUS.IDLE, catalogId: '', organizationName: '', datasets: [] };
 
 // Context
 const Context = React.createContext(initialState);
@@ -32,6 +32,14 @@ const DatasetsContext: FC<PropsWithChildren> = ({ children }) => {
         .catch(error => {
           dispatch({ type: ACTION_TYPE.ERROR });
           console.error('DatasetsContext failed on getDatasets()!', error);
+        });
+        getOrganizationName(state.catalogId)
+          .then(organizationName => {
+            dispatch({ type: ACTION_TYPE.SET_ORGANIZATION_NAME, payload: organizationName ?? '' });
+          })
+          .catch(error => {
+            dispatch({ type: ACTION_TYPE.ERROR });
+            console.error('DatasetsContext failed on getOrganizationName()!', error);
         });
     }
   };

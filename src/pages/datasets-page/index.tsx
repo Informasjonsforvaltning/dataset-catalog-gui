@@ -23,13 +23,9 @@ const delayTableLoad = async (promise: Promise<typeof import('./populated-table'
 };
 
 const DatasetsPage: FC = () => {
-  let pageSubtitle = 'Mangler tittel';
-  const datasetsContext = useDatasetsContext();
-
-  if (datasetsContext.datasets?.length && datasetsContext.datasets?.length > 0)
-    pageSubtitle = datasetsContext.datasets[0]?.publisher.name;
-
   const { catalogId } = useParams();
+  const datasetsContext = useDatasetsContext();
+  const pageSubtitle = datasetsContext.organizationName ?? localization.missingName;
   const datasetsDispatch = useDatasetsDispatch();
 
   useEffect(() => {

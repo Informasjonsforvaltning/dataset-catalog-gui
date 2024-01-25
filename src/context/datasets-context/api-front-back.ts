@@ -3,7 +3,7 @@ import axios from 'axios';
 import env from '../../utils/constants/env';
 import AuthService from '../../utils/authentication/auth-service';
 
-const { FDK_REGISTRATION_BASE_URI } = env;
+const { FDK_REGISTRATION_BASE_URI, ORGANIZATION_API_HOST } = env;
 
 const getDatasets = async (catalogId: string) => {
   try {
@@ -69,4 +69,14 @@ const createDatasetSeries = async (catalogId: string) => {
   }
 };
 
-export { createDataset, getDatasets, createDatasetSeries };
+const getOrganizationName = async (catalogId: string) => {
+  try {
+    return await axios
+      .get(`${ORGANIZATION_API_HOST}/organizations/${catalogId}`)
+      .then(response => response?.data?.name);
+  } catch (error) {
+    console.error('getOrganizationName() failed!', error);
+  }
+};
+
+export { createDataset, getDatasets, createDatasetSeries, getOrganizationName };

@@ -27,21 +27,21 @@
   "devDependencies": {
     "@babel/core": "^7.20.12",
     "@pmmmwh/react-refresh-webpack-plugin": "^0.5.10",
-    "@storybook/addon-actions": "^6.5.16",
-    "@storybook/addon-essentials": "^6.5.16",
-    "@storybook/addon-interactions": "^6.5.16",
-    "@storybook/addon-links": "^6.5.16",
-    "@storybook/builder-webpack5": "^6.5.16",
+    "@storybook/addon-actions": "^7.6.10",
+    "@storybook/addon-essentials": "^7.6.10",
+    "@storybook/addon-interactions": "^7.6.10",
+    "@storybook/addon-links": "^7.6.10",
+    "@storybook/builder-webpack5": "^7.6.10",
     "@storybook/manager-webpack5": "^6.5.16",
-    "@storybook/react": "^6.5.16",
-    "@storybook/testing-library": "^0.0.13",
+    "@storybook/react": "^7.6.10",
+    "@storybook/testing-library": "^0.2.2",
     "@svgr/webpack": "^6.5.1",
     "@types/lodash": "^4.14.185",
     "@types/node": "^18.11.18",
     "@types/react": "^18.0.28",
     "@types/react-dom": "^18.0.11",
     "@types/styled-components": "^5.1.26",
-    "axios": "^1.3.1",
+    "axios": "^1.6.5",
     "babel-loader": "^9.1.2",
     "clean-webpack-plugin": "^4.0.0",
     "copy-webpack-plugin": "^11.0.0",
@@ -79,6 +79,7 @@
     "glob-parent": "^5.1.2",
     "trim": "^0.0.3",
     "trim-newlines": "^3.0.1",
-    "json5": "^2.2.2"
+    "json5": "^2.2.2",
+    "axios": "^1.6.5"
   }
 }

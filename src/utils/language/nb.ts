@@ -7,6 +7,7 @@ export const nb = {
   catalogType: 'Datasettkatalog',
   dataVillage: ['Datalandsbyen', 'Lenke til Datalandsbyen'],
   harvestData: ['Høste data', 'Lenke til å høste data'],
+  missingName: 'Mangler navn',
   registerData: ['Registrere data', 'Lenke til å registrere data'],
   searchForDataset: 'Søk etter datasettbeskrivelse',
   searchInCatalogs: ['Søk i Felles datakatalog', 'Lenke til søk i felles datakatalog'],
