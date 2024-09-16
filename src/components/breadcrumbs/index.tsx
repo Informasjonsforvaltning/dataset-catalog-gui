@@ -6,7 +6,7 @@ import env from '../../utils/constants/env';
 import { localization } from '../../utils/language/localization';
 import SC from './styled';
 
-const { FDK_REGISTRATION_BASE_URI } = env;
+const { CATALOG_PORTAL_BASE_URI } = env;
 
 const Breadcrumbs: FC = () => {
   const [datasetId, setDatasetId] = useState('');
@@ -26,7 +26,7 @@ const Breadcrumbs: FC = () => {
   return (
     <SC.BreadcrumbsNav>
       <span>
-        <SC.ExternalLink aria-label={localization.allCatalogs} href={FDK_REGISTRATION_BASE_URI}>
+        <SC.ExternalLink aria-label={localization.allCatalogs} href={CATALOG_PORTAL_BASE_URI}>
           {localization.allCatalogs}
         </SC.ExternalLink>
         <span>

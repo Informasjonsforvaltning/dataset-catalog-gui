@@ -1,0 +1,31 @@
+{
+  "decisions": {
+    "1098681|@storybook/core-common>webpack>micromatch": {
+      "decision": "ignore",
+      "madeAt": 1726489784937,
+      "expiresAt": 1729081752971
+    },
+    "1098681|@storybook/manager-webpack5>@storybook/core-common>webpack>micromatch": {
+      "decision": "ignore",
+      "madeAt": 1726489784937,
+      "expiresAt": 1729081752971
+    },
+    "1098094|@storybook/core-common>webpack>micromatch>braces": {
+      "decision": "ignore",
+      "madeAt": 1726489790213,
+      "expiresAt": 1729081752971
+    },
+    "1098094|@storybook/manager-webpack5>@storybook/core-common>webpack>micromatch>braces": {
+      "decision": "ignore",
+      "madeAt": 1726489790213,
+      "expiresAt": 1729081752971
+    },
+    "1096729|@storybook/manager-webpack5>@storybook/core-common>webpack>micromatch>braces>watchpack>watchpack-chokidar2>chokidar>anymatch>readdirp>webpack-dev-middleware": {
+      "decision": "ignore",
+      "madeAt": 1726489794801,
+      "expiresAt": 1729081752971
+    }
+  },
+  "rules": {},
+  "version": 1
+}
