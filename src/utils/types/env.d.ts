@@ -17,4 +17,5 @@ export interface EnvironmentVariables {
   FDK_CMS_BASE_URI: string;
   CATALOG_ADMIN_BASE_URI: string;
   USE_DEMO_LOGO: boolean;
+  CATALOG_PORTAL_BASE_URI: string;
 }
