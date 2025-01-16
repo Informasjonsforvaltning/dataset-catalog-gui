@@ -7,6 +7,7 @@ import { Props as RowProps } from '../../components/table/table-row';
 import { CellType } from '../../components/table/table-header';
 
 import { RegistrationStatus } from '../../utils/types/enums';
+import { getTranslateText } from '../../utils/language/translateText';
 
 type SORT_ORDER = 'ascending' | 'descending' | 'unsorted';
 type FILTER_TYPE = { type: 'status'; value: RegistrationStatus } | { type: 'search' | 'status'; value: string };
@@ -53,7 +54,7 @@ const getFilteredDatasets = (state: STATE): Dataset[] => {
   switch (state.filter?.type) {
     case 'search':
       return state.datasets.filter(dataset => !state.filter?.value ||
-        dataset.title?.nb?.toLowerCase().includes(state.filter?.value.toString().toLocaleLowerCase())
+        getTranslateText(dataset?.title).toLowerCase().includes(state.filter?.value.toString().toLocaleLowerCase())
       );
     case 'status':
       return state.datasets.filter(dataset => !state.filter?.value ||
