@@ -13,7 +13,6 @@ export default validateEnv(
     ORGANIZATION_API_HOST: 'https://organization-catalog.staging.fellesdatakatalog.digdir.no',
     SEARCH_FULLTEXT_HOST: 'https://search.staging.fellesdatakatalog.digdir.no',
     DATASERVICE_CATALOG_BASE_URI: 'https://dataservice-catalog.staging.fellesdatakatalog.digdir.no',
-    CONCEPT_REGISTRATION_HOST: 'https://registrering-begrep.staging.fellesdatakatalog.digdir.no',
     CONCEPT_REGISTRATION_API_HOST: 'https://concept-catalog.staging.fellesdatakatalog.digdir.no',
     RECORDS_OF_PROCESSING_ACTIVITIES_BASE_URI: 'https://registrering-protokoll.staging.fellesdatakatalog.digdir.no',
     FDK_COMMUNITY_BASE_URI: 'https://community.staging.fellesdatakatalog.digdir.no/',
