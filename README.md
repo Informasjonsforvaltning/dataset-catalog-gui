@@ -1,73 +1,55 @@
 # Dataset Catalog GUI
 
-## Description
+> ⚠️ **This repository is in maintenance mode.**
+> This codebase is still in use in production but is no longer receiving new features. All development efforts are
+> being migrated to [catalog-frontend](https://github.com/Informasjonsforvaltning/catalog-frontend). Critical bug fixes will
+> still be applied until migration is complete.
 
-An application for managing datasets.
+Web frontend for dataset catalog. Only the dataset form page is used. This application is part of the
+[registration solutions](https://catalog-portal.fellesdatakatalog.digdir.no/).
 
-## Installation and Usage
+For a broader understanding of the system’s context, refer to the [architecture documentation](https://github.com/Informasjonsforvaltning/architecture-documentation) wiki. For more specific
+context on this application, see the [Registration](https://github.com/Informasjonsforvaltning/architecture-documentation/wiki/Architecture-documentation#registration) subsystem section.
 
-- Required tools to run this project:
-  - Node.js and npm to run locally on a host machine
-  - Docker and Docker Compose to run locally in a container
+## Getting started
 
-#### Running application locally on a host machine
+### Prerequisites
+- [Node.js](https://nodejs.org/en/download/) >=18.16
+- [npm](https://www.npmjs.com/get-npm) >=10.2.3
+- [Docker](https://www.docker.com/get-started)
+- [docker-compose](https://docs.docker.com/compose/install/)
 
-- Install dependencies by running `npm install`
-- Run `npm start` to start local development server
+### Running locally (development)
 
-#### Running application in a Docker container
+Clone the repository:
 
-- Build a Docker container using the following command:
-  - `docker build -t dataset-catalog-gui .`
-- Run the container using the following comand:
-  - `docker run -d -p 4301:8080 -e NAMESPACE -e FDK_BASE_URI -e SSO_HOST -e SKE_THEME_PROFILE -e FDK_REGISTRATION_BASE_URI -e ADMIN_GUI_BASE_URI -e ORGANIZATION_API_HOST -e SEARCH_FULLTEXT_HOST -e DATASERVICE_CATALOG_BASE_URI -e CONCEPT_REGISTRATION_HOST -e CONCEPT_REGISTRATION_API_HOST -e RECORDS_OF_PROCESSING_ACTIVITIES_BASE_URI dataset-catalog-gui`
+```bash
+git clone https://github.com/Informasjonsforvaltning/dataset-catalog-gui.git
+cd dataset-catalog-gui
+```
 
-#### Running application using Docker Compose
+Install dependencies:
 
-- Run the application using the following command:
-  - `docker-compose up -d`
+```bash
+npm install
+```
 
-## Environment Variables
+Start the development server:
 
-- `NAMESPACE` - Environment namespace
-  - `development`
-  - `staging`
-  - `demo`
-  - `prod`
-- `FDK_BASE_URI` - FDK base URI
-- `SSO_HOST` - SSO hostname
-- `SKE_THEME_PROFILE` - comma-separated list of organization numbers
-- `FDK_REGISTRATION_BASE_URI` - FDK registration GUI base URI
-- `ADMIN_GUI_BASE_URI` - FDK admin GUI base URI
-- `ORGANIZATION_API_HOST` - FDK organization catalog API hostname
-- `SEARCH_FULLTEXT_HOST` - FDK full-text search API hostname
-- `DATASERVICE_CATALOG_BASE_URI` - FDK data service catalog GUI base URI
-- `CONCEPT_REGISTRATION_HOST` - FDK concept registration GUI hostname
-- `CONCEPT_REGISTRATION_API_HOST` - FDK concept registration API hostname
-- `RECORDS_OF_PROCESSING_ACTIVITIES_BASE_URI` - FDK records of processing activities base URI
-- `FDK_COMMUNITY_BASE_URI` - FDK Data community uri
-- `FDK_CMS_BASE_URI` - fdk-cms hostname
+```bash
+npm run start
+```
 
-## Contributing
+Go to http://localhost:8080
 
-#### Branching Strategy
+### Run locally using docker compose
+```bash
+docker compose up -d --build
+```
 
-Whenever a new change is to be implemented, follow these steps:
+Go to http://localhost:4301
 
-- Create a new branch from the master branch
-- Implement and commit changes
-- Create a pull request for code review
-
-#### Commits
-
-This repository uses conventional commmit format. In order to commit, follow these steps:
-
-- Stage files to be committed
-- Run `npm run commit` script
-
-Do not use `--no-verify` flag when making commits.
-
-## Running the storybook
+### Running the storybook
 To get an overview of the react components used in this app, run:
 ```shell
 npm run storybook
