@@ -5,7 +5,7 @@
 > being migrated to [catalog-frontend](https://github.com/Informasjonsforvaltning/catalog-frontend). Critical bug fixes will
 > still be applied until migration is complete.
 
-Web frontend for dataset catalog. Only the dataset form page is used. This application is part of the
+Web frontend for dataset catalog. Only the dataset overview page is used. This application is part of the
 [registration solutions](https://catalog-portal.fellesdatakatalog.digdir.no/).
 
 For a broader understanding of the system’s context, refer to the [architecture documentation](https://github.com/Informasjonsforvaltning/architecture-documentation) wiki. For more specific
