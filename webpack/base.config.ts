@@ -86,7 +86,6 @@ const configuration: Configuration = {
     }),
     new CopyWebpackPlugin({
       patterns: [
-        { from: './src/utils/authentication/silent-check-sso.html', to: './' },
         { from: './src/utils/assets/*', to: './img' },
       ],
     }),

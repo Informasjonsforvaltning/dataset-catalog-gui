@@ -17,7 +17,6 @@ export interface AuthConfiguration {
   clientId: string;
   redirectUri: string;
   logoutRedirectUri: string;
-  silentCheckSsoRedirectUri?: string;
 }
 
 export interface User {
@@ -42,7 +41,6 @@ export class Auth {
   init: ({ loginRequired }: { loginRequired: boolean }) => Promise<boolean> = async ({ loginRequired }) => {
     const keycloakInitOptions: KeycloakInitOptions = {
       onLoad: 'check-sso',
-      silentCheckSsoRedirectUri: this.conf.silentCheckSsoRedirectUri,
       checkLoginIframe: false,
     };
     await this.kc
