@@ -27,7 +27,6 @@ const configuration: Configuration = mergeWithCustomize<Configuration>({
       devServer.app?.get('/catalogs/config.js', (_, res) => res.status(204).send()),
     historyApiFallback: {
       rewrites: [
-        { from: /^\/silent-check-sso/, to: '/catalogs/silent-check-sso.html' },
         { from: /./, to: '/catalogs/index.html' },
       ],
     },
